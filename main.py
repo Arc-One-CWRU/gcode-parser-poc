@@ -25,10 +25,12 @@ if __name__ == "__main__":
     if not os.path.isdir(args.input_dir):
         logging.error(
             "specified input dir '%s' is not a directory", args.input_dir)
+        sys.exit()
 
     if not os.path.isdir(args.output_dir):
         logging.error(
             "specified ouput dir '%s' is not a directory", args.output_dir)
+        sys.exit()
 
     input_dir = os.path.abspath(args.input_dir)
     output_dir = os.path.abspath(args.output_dir)
