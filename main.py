@@ -8,9 +8,23 @@ import io
 import re
 
 END_OF_GCODE = ";End of Gcode"
+END_OF_TOP_METADATA = ";Generated with"
 
 
-def to_new_gcode(file_buffer: io.TextIOWrapper):
+def read_top_metadata(file_buffer: io.TextIOWrapper) -> str:
+    """Reads the top metadata comments.
+    """
+    is_metadata = True
+    top_metadata = ""
+    while is_metadata:
+        curr_line = file_buffer.readline()
+        top_metadata += curr_line
+        if curr_line.startswith(END_OF_TOP_METADATA):
+            is_metadata = False
+    return top_metadata
+
+
+def to_new_gcode(file_buffer: io.TextIOWrapper) -> str:
     """Reads GCode files line by line and parses them into the Arc-One printer
     format.
 
@@ -18,13 +32,19 @@ def to_new_gcode(file_buffer: io.TextIOWrapper):
     * The input gcodes use G28 for homing.
     * The input gcodes turn off the extruder gun at some point.
     """
+    has_reached_end = False
     new_file = ""
+    top_metadata = read_top_metadata(file_buffer=file_buffer)
+
+    new_file += top_metadata + "\n"
+
     # 1. Read until G28 is reached.
     # If there is no G28, throw an error.
     starts_with_g28 = False
     while (not starts_with_g28):
         curr_line = file_buffer.readline()
-        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+        has_reached_end = curr_line.startswith(END_OF_GCODE)
+        if curr_line == "" or has_reached_end:
             raise Exception("G28 must be specified in the gcode.")
 
         if curr_line.startswith("G28"):
@@ -52,7 +72,8 @@ M42 P1 S1; Turn on the welder
     starts_with_g1 = False
     while (not starts_with_g1):
         curr_line = file_buffer.readline()
-        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+        has_reached_end = curr_line.startswith(END_OF_GCODE)
+        if curr_line == "" or has_reached_end:
             raise Exception("no movement commands found in gcode")
 
         if curr_line.startswith("G1"):
@@ -70,7 +91,8 @@ M42 P1 S1; Turn on the welder
     turn_off = False
     while (not turn_off):
         curr_line = file_buffer.readline()
-        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+        has_reached_end = curr_line.startswith(END_OF_GCODE)
+        if curr_line == "" or has_reached_end:
             # Must turn off the extruder even if it's not specified.
             new_file += "M42 P1 S0"
             logging.warning(
@@ -87,6 +109,18 @@ M42 P1 S1; Turn on the welder
 
     raise_tip_instruction = "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)"
     new_file += raise_tip_instruction
+
+    # Ignore everything after turning off
+    # Just read until the end of the gcode if applicable
+    if not has_reached_end:
+        while (not has_reached_end):
+            curr_line = file_buffer.readline()
+            has_reached_end = curr_line.startswith(END_OF_GCODE)
+
+    # Append the rest of the GCode
+    new_file += "\n\n" + END_OF_GCODE + "\n"
+    new_file += "".join(file_buffer.readlines())
+
     return new_file
 
 
