@@ -1,10 +1,102 @@
-# Parses GCode files based on the instructions in ./examples/README.md
+"""
+Arc One GCode Parser Proof Of Concept
+
+Parses GCode files based on the instructions in ./examples/README.md so that
+our printer can print the GCode.
+"""
+import io
+import re
+
+END_OF_GCODE = ";End of Gcode"
+
+
+def to_new_gcode(file_buffer: io.TextIOWrapper):
+    """Reads GCode files line by line and parses them into the Arc-One printer
+    format.
+
+    Assumptions:
+    * The input gcodes use G28 for homing.
+    * The input gcodes turn off the extruder gun at some point.
+    """
+    new_file = ""
+    # 1. Read until G28 is reached.
+    # If there is no G28, throw an error.
+    starts_with_g28 = False
+    while (not starts_with_g28):
+        curr_line = file_buffer.readline()
+        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+            raise Exception("G28 must be specified in the gcode.")
+
+        if curr_line.startswith("G28"):
+            starts_with_g28 = True
+            new_file += curr_line
+
+    # 2. Raise the welding tip `G1 Z60 F6000` right after homing, move to the
+    # starting point and lower the tip.
+    # 3. Turn on the welder.
+    setup_instructions = """G1 Z60 F6000; Raise the welding tip
+G0 F600 X342.474 Y120; Move to the starting spot
+G0 F6000 Z0.3; Lower the tip
+M42 P1 S1; Turn on the welder
+"""
+    new_file += setup_instructions
+
+    # 3. Copy over any non-blacklisted instructions until a G1 movement command
+    blacklisted_commands = [
+        "M107",  # Turns fan off (not needed right now)
+        "G92",  # Sets current extruder position to 0
+        "G0"
+    ]
+
+    extruder_g1_matcher = re.compile("([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
+    starts_with_g1 = False
+    while (not starts_with_g1):
+        curr_line = file_buffer.readline()
+        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+            raise Exception("no movement commands found in gcode")
+
+        if curr_line.startswith("G1"):
+            logging.debug("converting G1 instruction: %s", curr_line)
+            # Remove all extruder instructions in G1 commands
+            new_g1 = extruder_g1_matcher.sub("", curr_line)
+            new_file += new_g1
+            starts_with_g1 = True
+        elif curr_line.startswith(";"):
+            continue
+        elif curr_line.split(" ")[0].strip() not in blacklisted_commands:
+            new_file += curr_line
+
+    # Move gun until there is an instruction to turn off the welder.
+    turn_off = False
+    while (not turn_off):
+        curr_line = file_buffer.readline()
+        if curr_line == "" or curr_line.startswith(END_OF_GCODE):
+            # Must turn off the extruder even if it's not specified.
+            new_file += "M42 P1 S0"
+            logging.warning(
+                "automatically adding the turn off extruder command to the output \
+                 gcode even though not in input gcode")
+        elif curr_line.startswith("G1"):
+            logging.debug("converting G1 instruction: %s", curr_line)
+            # Remove all extruder instructions in G1 commands
+            new_g1 = extruder_g1_matcher.sub("", curr_line)
+            new_file += new_g1
+        elif curr_line.startswith("M42 P1 S0"):
+            turn_off = True
+            new_file += curr_line
+
+    raise_tip_instruction = "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)"
+    new_file += raise_tip_instruction
+    return new_file
+
+
 if __name__ == "__main__":
     import argparse
     import logging
     import os
     import sys
     from glob import glob
+    from pathlib import Path
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input_dir", help="Input directory of GCodes to transform.",
@@ -35,18 +127,20 @@ if __name__ == "__main__":
     input_dir = os.path.abspath(args.input_dir)
     output_dir = os.path.abspath(args.output_dir)
 
-    gcodeFiles = glob(os.path.join(input_dir, "*.gcode"))
-    if len(gcodeFiles) == 0:
+    gcode_files = glob(os.path.join(input_dir, "*.gcode"))
+    if len(gcode_files) == 0:
         logging.error(
             "Found 0 GCode files in the specified input directory %s.\nPlease double check that it's specified correctly with -v", input_dir)
         sys.exit()
 
     logging.info("Found %d gcode files in input directory %s.\nConverting to WAAM version...", len(
-        gcodeFiles), input_dir)
+        gcode_files), input_dir)
 
-    for fname in gcodeFiles:
+    for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            logging.debug(lines)
+            new_gcode = to_new_gcode(f)
+            base_fname = f"edited_{Path(fname).name}"
+            with open(os.path.join(output_dir, base_fname), "w", encoding="utf-8") as f:
+                f.write(new_gcode)
 
     logging.info("Done! All created files are in %s", output_dir)
