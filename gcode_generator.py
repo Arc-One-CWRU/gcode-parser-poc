@@ -123,7 +123,7 @@ class GCODEGenerator:
         # Move into starting position
         self.add_linear_move(file, 100, z=self.args.weld_gap)
 
-        # x_gap_between_lines: float = (self.args.weld_layer_width - 
+        # x_gap_between_lines: float = (self.args.weld_layer_width -
 
         x_line_count: int = ceil(self.args.y_size / self.args.weld_layer_overlap)
         z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
