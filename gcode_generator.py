@@ -4,6 +4,7 @@ from datetime import datetime
 from io import TextIOWrapper
 from typing import Optional
 from math import ceil
+from duetwebapi import DuetWebAPI
 
 MOVE = "G0"
 LINEAR_MOVE = "G1"
@@ -68,10 +69,10 @@ class GCODEGenerator:
 
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
-                raise ValueError(f"{kwarg[0]} is None".__str__())
+                raise ValueError(f"{kwarg[0]} is None")
 
-        filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
-        with open(os.path.join(DIR, filename), "x") as f:
+        self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
+        with open(os.path.join(DIR, self.filename), "x") as f:
             self.run(f)
 
     def safety_checks(self):
@@ -223,3 +224,8 @@ class GCODEGenerator:
 
 if __name__ == "__main__":
     gen = GCODEGenerator()
+    duet = DuetWebAPI("http://169.254.1.1")
+    duet.connect()
+    with open(os.path.join(DIR, gen.filename), "r") as f:
+        duet.upload_file(f, gen.filename)
+    duet.disconnect()
