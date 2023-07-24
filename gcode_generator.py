@@ -150,7 +150,7 @@ class GCODEGenerator:
                 # Move up at end
                 self.add_linear_move(file, self.args.travel_speed, z=(z_pos + self.args.z_clearance))
 
-                x_pos += x_gap_between_lines
+                x_pos += self.args.weld_layer_overlap
 
                 # Move above new start
                 self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos)
@@ -158,6 +158,7 @@ class GCODEGenerator:
                 # Move down to start position
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
 
+            x_pos = self.args.x_corner
             z_pos += self.args.weld_layer_height
             # Move up to start position
             # TODO could optimize this small movement out
