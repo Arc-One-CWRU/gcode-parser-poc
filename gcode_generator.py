@@ -123,8 +123,6 @@ class GCODEGenerator:
         # Move into starting position
         self.add_linear_move(file, 100, z=self.args.weld_gap)
 
-        # x_gap_between_lines: float = (self.args.weld_layer_width -
-
         x_line_count: int = ceil(self.args.y_size / self.args.weld_layer_overlap)
         z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
 
@@ -158,7 +156,6 @@ class GCODEGenerator:
                 # Move down to start position
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
 
-            # Reset to a
             x_pos = self.args.x_corner
             z_pos += self.args.weld_layer_height
             # Move up to start position
