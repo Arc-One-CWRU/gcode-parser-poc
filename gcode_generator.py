@@ -158,11 +158,12 @@ class GCODEGenerator:
                 # Move down to start position
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
 
+            # Reset to a
             x_pos = self.args.x_corner
             z_pos += self.args.weld_layer_height
             # Move up to start position
             # TODO could optimize this small movement out
-            self.add_linear_move(file, self.args.travel_speed, z=z_pos)
+            self.add_rapid_move(file, self.args.travel_speed, x=x_pos, z=z_pos)
 
         # Disable welder Just in case
         self.control_welder(file, 0)
