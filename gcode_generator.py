@@ -68,7 +68,7 @@ class GCODEGenerator:
 
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
-                raise ValueError(f"{kwarg[0]} is None")
+                raise ValueError(f"{kwarg[0]} is None".__str__())
 
         filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
         with open(os.path.join(DIR, filename), "x") as f:
