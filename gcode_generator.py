@@ -129,15 +129,15 @@ class GCODEGenerator:
         # Move into starting position
         self.add_linear_move(file, 100, z=self.args.weld_gap)
 
-        z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
-        y_line_count: int = ceil((self.args.y_size - self.args.weld_layer_width) / self.args.weld_layer_overlap) + 1
+        self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
+        self.y_line_count: int = ceil((self.args.y_size - self.args.weld_layer_width) / self.args.weld_layer_overlap) + 1
 
         x_pos = self.args.x_corner
         y_pos = self.args.y_corner
         z_pos = self.args.weld_gap
 
-        for i in range(z_line_count):
-            for j in range(y_line_count):
+        for i in range(self.z_line_count):
+            for j in range(self.y_line_count):
 
                 # Settle in
                 self.add_sleep(file, seconds=1)
@@ -157,7 +157,7 @@ class GCODEGenerator:
                 # Wait for cool
                 self.add_sleep(file, seconds=10)
 
-                if j != (y_line_count - 1):
+                if j != (self.y_line_count - 1):
                     y_pos += self.args.weld_layer_overlap
 
                     # Move above new start
@@ -172,7 +172,7 @@ class GCODEGenerator:
                     # Wait for cool
                     self.add_sleep(file, seconds=20)
 
-            if i != (z_line_count - 1):
+            if i != (self.z_line_count - 1):
                 # Move above to start position
                 self.add_rapid_move(file, self.args.travel_speed, y=y_pos, z=(z_pos + self.args.z_clearance))
 
@@ -199,8 +199,10 @@ class GCODEGenerator:
             file.write(f";MAXX:{self.args.x_corner + self.args.x_size}\n")
             file.write(f";MAXY:{self.args.y_corner + self.args.y_size}\n")
             file.write(f";MAXZ:{self.args.z_clearance + self.args.z_size}\n")
-            file.write(";Generated with Micer 0.0.5")
-
+            file.write(";Generated with Micer 0.0.5\n")
+            # Custom Config
+            file.write(f";Z Layers ={self.z_line_count}, Y Layers ={self.y_line_count}\n")
+            print(f"Z Layers ={self.z_line_count}, Y Layers ={self.y_line_count}")
             file.write("\n\n")
             file.write(content)
 
