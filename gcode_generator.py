@@ -3,8 +3,10 @@ from argparse import ArgumentParser
 from datetime import datetime
 from io import TextIOWrapper
 from typing import Optional
-from math import ceil
+from math import ceil, sqrt
 from duetwebapi import DuetWebAPI
+from requests.exceptions import ConnectionError
+
 
 MOVE = "G0"
 LINEAR_MOVE = "G1"
@@ -14,34 +16,37 @@ SLEEP_START = "G4"
 
 WELDER_CONTROL = "M42 P1"
 
-
 DIR = "generated"
+URL = "http://169.254.1.1"
 
 
 class GCODEGenerator:
 
     def __init__(self) -> None:
+        self.sleep_time: float = 0
+        self.move_time: float = 0
+
         parser = ArgumentParser()
         parser.add_argument("-w", "--weld_gap", help="Weld gap distance (mm).",
                             type=float, default=8)
         parser.add_argument("-wh", "--weld_layer_height", help="Weld height distance (mm).",
-                            type=float, default=2.3)
+                            type=float, default=2.15)
         parser.add_argument("-ww", "--weld_layer_width", help="Weld width distance (mm).",
                             type=float, default=8.5)
 
         parser.add_argument("-wlo", "--weld_layer_overlap", help="Overlap between weld lines (mm).",
-                            type=float)
+                            type=float, default=6.1)
 
         parser.add_argument("-ts", "--travel_speed", help="Set transport speed (mm/min).",
-                            type=float)
+                            type=float, default=1500)
         parser.add_argument("-ps", "--print_speed", help="Set print speed (mm/min).",
                             type=float, default=381)
 
         # Overall Dimensions of bed
         parser.add_argument("-xbs", "--x_bed_size", help="Set x bed size (mm).",
-                            type=float, default=580)
-        parser.add_argument("-ybs", "--y_bed_size", help="Set y bed size (mm).",
                             type=float, default=240)
+        parser.add_argument("-ybs", "--y_bed_size", help="Set y bed size (mm).",
+                            type=float, default=580)
         parser.add_argument("-zbs", "--z_bed_size", help="Set z bed size (mm).",
                             type=float, default=180)
 
@@ -89,7 +94,8 @@ class GCODEGenerator:
         self.safety_checks()
         self.write_info(file)
         self.write_volume(file)
-        self.write_config(file)
+        file.close()
+        self.write_config()
 
     def write_info(self, file: TextIOWrapper):
         file.write(";Print Information\n")
@@ -97,8 +103,8 @@ class GCODEGenerator:
         file.write(f";Weld Height = {self.args.weld_layer_height} mm\n")
         file.write(f";Weld Width = {self.args.weld_layer_width} mm\n")
         file.write(f";Weld Layer Overlap = {self.args.weld_layer_overlap} mm\n")
-        file.write(f";Transport Speed = {self.args.travel_speed} mm\n")
-        file.write(f";Print Speed = {self.args.print_speed} mm\n")
+        file.write(f";Transport Speed = {self.args.travel_speed} mm/min\n")
+        file.write(f";Print Speed = {self.args.print_speed} mm/min\n")
         file.write(f";X Bed Size = {self.args.x_bed_size} mm\n")
         file.write(f";Y Bed Size = {self.args.y_bed_size} mm\n")
         file.write(f";Z Bed Size = {self.args.z_bed_size} mm\n")
@@ -124,13 +130,13 @@ class GCODEGenerator:
         self.add_linear_move(file, 100, z=self.args.weld_gap)
 
         x_line_count: int = ceil(self.args.y_size / self.args.weld_layer_overlap)
-        z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
+        self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
 
         x_pos = self.args.x_corner
         y_pos = self.args.y_corner
         z_pos = self.args.weld_gap
 
-        for _ in range(z_line_count):
+        for _ in range(self.z_line_count):
             for _ in range(x_line_count):
 
                 # Settle in
@@ -159,15 +165,29 @@ class GCODEGenerator:
             x_pos = self.args.x_corner
             z_pos += self.args.weld_layer_height
             # Move up to start position
-            # TODO could optimize this small movement out
             self.add_rapid_move(file, self.args.travel_speed, x=x_pos, z=z_pos)
 
         # Disable welder Just in case
         self.control_welder(file, 0)
 
-    # TODO add time estimate and min/max vals
-    def write_config(self, file: TextIOWrapper):
-        pass
+    def write_config(self):
+        with open(os.path.join(DIR, self.filename), "r+") as file:
+            content = file.read()
+
+            file.seek(0, 0)
+            file.write(";FLAVOR:RepRap\n")
+            file.write(f";TIME:{self.sleep_time + self.move_time}\n")
+            file.write(f";Filament used: {(self.move_time/2) * 105.833}mm\n")
+            file.write(f";Layer height: {self.z_line_count}\n")
+            file.write(f";MINX:{self.args.x_corner}\n")
+            file.write(f";MINY:{self.args.y_corner}\n")
+            file.write(";MINZ:0\n")
+            file.write(f";MAXX:{self.args.x_corner + self.args.x_size}\n")
+            file.write(f";MAXY:{self.args.y_corner + self.args.y_size}\n")
+            file.write(f";MAXZ:{self.args.z_clearance + self.args.z_size}\n")
+
+            file.write("\n\n")
+            file.write(content)
 
     def control_welder(self, file: TextIOWrapper, status: int):
         if status != 1 and status != 0:
@@ -178,15 +198,19 @@ class GCODEGenerator:
                         y: Optional[float] = None, z: Optional[float] = None):
         if x is not None:
             file.write(f"{LINEAR_MOVE} X{x} F{speed}\n")
+            self.move_time += x/speed
         elif y is not None:
             file.write(f"{LINEAR_MOVE} Y{y} F{speed}\n")
+            self.move_time += y/speed
         elif z is not None:
             file.write(f"{LINEAR_MOVE} Z{z} F{speed}\n")
+            self.move_time += z/speed
         else:
             raise ValueError("No Distance given.")
 
     def add_rapid_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
                        y: Optional[float] = None, z: Optional[float] = None):
+        distance = 0
 
         cmd = MOVE
         if x is None and y is None and z is None:
@@ -194,14 +218,19 @@ class GCODEGenerator:
 
         if x is not None:
             cmd += f" X{x}"
+            distance += x**2
 
         if y is not None:
             cmd += f" Y{y}"
+            distance += y**2
 
         if z is not None:
             cmd += f" Z{z}"
+            distance += z**2
 
         cmd += f" F{speed}\n"
+
+        self.move_time += sqrt(distance)/speed
 
         file.write(cmd)
 
@@ -213,9 +242,11 @@ class GCODEGenerator:
 
         if milliseconds is not None:
             cmd += f" P{milliseconds}"
+            self.sleep_time += milliseconds/1000
 
         if seconds is not None:
             cmd += f" S{seconds}"
+            self.sleep_time += seconds
 
         cmd += "\n"
         file.write(cmd)
@@ -223,8 +254,17 @@ class GCODEGenerator:
 
 if __name__ == "__main__":
     gen = GCODEGenerator()
-    duet = DuetWebAPI("http://169.254.1.1")
+    duet = DuetWebAPI(URL)
     duet.connect()
-    with open(os.path.join(DIR, gen.filename), "r") as f:
-        duet.upload_file(f, gen.filename)
+    count = 0
+    stuff = None
+    while stuff is None:
+        try:
+            with open(os.path.join(DIR, gen.filename), "r") as f:
+                file_str = f.read()
+                stuff = duet.upload_file(file_str.encode(), gen.filename)
+        except ConnectionError as e:
+            print(e)
+
+    print("Finished upload")
     duet.disconnect()
