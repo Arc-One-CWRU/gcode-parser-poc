@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 from datetime import datetime
 from io import TextIOWrapper
 from typing import Optional
-from math import ceil, sqrt
+from math import ceil, dist
 from duetwebapi import DuetWebAPI
 from requests.exceptions import ConnectionError
 
@@ -27,6 +27,9 @@ class GCODEGenerator:
         self.sleep_time: float = 0
         # In Minutes
         self.move_time: float = 0
+        self.curr_x = 0
+        self.curr_y = 0
+        self.curr_z = 0
 
         parser = ArgumentParser()
         parser.add_argument("-w", "--weld_gap", help="Weld gap distance (mm).",
@@ -177,7 +180,7 @@ class GCODEGenerator:
                 self.add_sleep(file, seconds=15)
 
                 # Move above to start position
-                self.add_rapid_move(file, self.args.travel_speed, y=y_pos, z=(z_pos + self.args.z_clearance))
+                self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos, (z_pos + self.args.z_clearance))
 
                 # Move Down to new corner
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
@@ -218,19 +221,21 @@ class GCODEGenerator:
                         y: Optional[float] = None, z: Optional[float] = None):
         if x is not None:
             file.write(f"{LINEAR_MOVE} X{x} F{speed}\n")
-            self.move_time += x/speed
+            self.move_time += abs(x-self.curr_x)/speed
+            self.curr_x = x
         elif y is not None:
             file.write(f"{LINEAR_MOVE} Y{y} F{speed}\n")
-            self.move_time += y/speed
+            self.move_time += abs(y-self.curr_y)/speed
+            self.curr_y = y
         elif z is not None:
             file.write(f"{LINEAR_MOVE} Z{z} F{speed}\n")
-            self.move_time += z/speed
+            self.move_time += abs(z-self.curr_z)/speed
+            self.curr_z = z
         else:
             raise ValueError("No Distance given.")
 
     def add_rapid_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
                        y: Optional[float] = None, z: Optional[float] = None):
-        distance = 0
 
         cmd = MOVE
         if x is None and y is None and z is None:
@@ -238,19 +243,22 @@ class GCODEGenerator:
 
         if x is not None:
             cmd += f" X{x}"
-            distance += x**2
+        else:
+            x = self.curr_x
 
         if y is not None:
             cmd += f" Y{y}"
-            distance += y**2
+        else:
+            y = self.curr_y
 
         if z is not None:
             cmd += f" Z{z}"
-            distance += z**2
+        else:
+            z = self.curr_z
 
         cmd += f" F{speed}\n"
 
-        self.move_time += sqrt(distance)/speed
+        self.move_time += dist((x, y, z), (self.curr_x, self.curr_y, self.curr_z))/speed
 
         file.write(cmd)
 
