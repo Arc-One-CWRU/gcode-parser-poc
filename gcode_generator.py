@@ -27,9 +27,11 @@ class GCODEGenerator:
         self.sleep_time: float = 0
         # In Minutes
         self.move_time: float = 0
+        self.welding_time: float = 0
         self.curr_x = 0
         self.curr_y = 0
         self.curr_z = 0
+        self.welding = False
 
         parser = ArgumentParser()
         parser.add_argument("-w", "--weld_gap", help="Weld gap distance (mm).",
@@ -194,10 +196,9 @@ class GCODEGenerator:
 
             file.seek(0, 0)
             file.write(";FLAVOR:RepRap\n")
-            file.write(f";TIME:{self.sleep_time + self.move_time*60}\n")
-            # TODO add welding flag for more accurate filament used
+            file.write(f";TIME:{self.sleep_time + (self.move_time + self.welding_time)*60}\n")
             # Magic numbers is inches/min to mm/sec
-            file.write(f";Filament used: {(self.move_time/2) * 105.833}mm\n")
+            file.write(f";Filament used: {(self.welding_time*60) * 105.833}mm\n")
             file.write(f";Layer height: {self.args.weld_layer_height}\n")
             file.write(f";MINX:{self.args.x_corner}\n")
             file.write(f";MINY:{self.args.y_corner}\n")
@@ -215,24 +216,33 @@ class GCODEGenerator:
     def control_welder(self, file: TextIOWrapper, status: int):
         if status != 1 and status != 0:
             raise ValueError(f"Unknown value set for welder value was {status}")
+
+        self.welding = True if status == 1 else False
         file.write(f"{WELDER_CONTROL} S{status}\n")
 
     def add_linear_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
                         y: Optional[float] = None, z: Optional[float] = None):
+        time = None
+
         if x is not None:
             file.write(f"{LINEAR_MOVE} X{x} F{speed}\n")
-            self.move_time += abs(x-self.curr_x)/speed
+            time = abs(x-self.curr_x)/speed
             self.curr_x = x
         elif y is not None:
             file.write(f"{LINEAR_MOVE} Y{y} F{speed}\n")
-            self.move_time += abs(y-self.curr_y)/speed
+            time = abs(y-self.curr_y)/speed
             self.curr_y = y
         elif z is not None:
             file.write(f"{LINEAR_MOVE} Z{z} F{speed}\n")
-            self.move_time += abs(z-self.curr_z)/speed
+            time = abs(z-self.curr_z)/speed
             self.curr_z = z
         else:
             raise ValueError("No Distance given.")
+
+        if self.welding:
+            self.welding_time += time
+        else:
+            self.move_time += time
 
     def add_rapid_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
                        y: Optional[float] = None, z: Optional[float] = None):
@@ -258,7 +268,11 @@ class GCODEGenerator:
 
         cmd += f" F{speed}\n"
 
-        self.move_time += dist((x, y, z), (self.curr_x, self.curr_y, self.curr_z))/speed
+        time = dist((x, y, z), (self.curr_x, self.curr_y, self.curr_z))/speed
+        if self.welding:
+            self.welding_time += time
+        else:
+            self.move_time += time
 
         file.write(cmd)
 
