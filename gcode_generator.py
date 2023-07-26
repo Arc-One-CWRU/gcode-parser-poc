@@ -30,7 +30,7 @@ class GCODEGenerator:
         parser.add_argument("-w", "--weld_gap", help="Weld gap distance (mm).",
                             type=float, default=8)
         parser.add_argument("-wh", "--weld_layer_height", help="Weld height distance (mm).",
-                            type=float, default=2.15)
+                            type=float, default=1.6)
         parser.add_argument("-ww", "--weld_layer_width", help="Weld width distance (mm).",
                             type=float, default=8.5)
 
@@ -129,15 +129,15 @@ class GCODEGenerator:
         # Move into starting position
         self.add_linear_move(file, 100, z=self.args.weld_gap)
 
-        x_line_count: int = ceil(self.args.y_size / self.args.weld_layer_overlap)
-        self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
+        z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
+        y_line_count: int = ceil((self.args.y_size - self.args.weld_layer_width) / self.args.weld_layer_overlap) + 1
 
         x_pos = self.args.x_corner
         y_pos = self.args.y_corner
         z_pos = self.args.weld_gap
 
-        for _ in range(self.z_line_count):
-            for _ in range(x_line_count):
+        for i in range(z_line_count):
+            for j in range(y_line_count):
 
                 # Settle in
                 self.add_sleep(file, seconds=1)
@@ -146,7 +146,7 @@ class GCODEGenerator:
                 self.control_welder(file, 1)
 
                 # Moves a long line
-                self.add_linear_move(file, self.args.print_speed, y=(y_pos + self.args.y_size))
+                self.add_linear_move(file, self.args.print_speed, x=(x_pos + self.args.x_size))
 
                 # Disable welder
                 self.control_welder(file, 0)
@@ -154,18 +154,30 @@ class GCODEGenerator:
                 # Move up at end
                 self.add_linear_move(file, self.args.travel_speed, z=(z_pos + self.args.z_clearance))
 
-                x_pos += self.args.weld_layer_overlap
+                # Wait for cool
+                self.add_sleep(file, seconds=10)
 
-                # Move above new start
-                self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos)
+                if j != (y_line_count - 1):
+                    y_pos += self.args.weld_layer_overlap
 
-                # Move down to start position
+                    # Move above new start
+                    self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos)
+
+                    # Move down to start position
+                    self.add_linear_move(file, self.args.travel_speed, z=z_pos)
+                else:
+                    # Reset Y corner and raise height
+                    y_pos = self.args.y_corner
+                    z_pos += self.args.weld_layer_height
+                    # Wait for cool
+                    self.add_sleep(file, seconds=20)
+
+            if i != (z_line_count - 1):
+                # Move above to start position
+                self.add_rapid_move(file, self.args.travel_speed, y=y_pos, z=(z_pos + self.args.z_clearance))
+
+                # Move Down to new corner
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
-
-            x_pos = self.args.x_corner
-            z_pos += self.args.weld_layer_height
-            # Move up to start position
-            self.add_rapid_move(file, self.args.travel_speed, x=x_pos, z=z_pos)
 
         # Disable welder Just in case
         self.control_welder(file, 0)
@@ -177,14 +189,17 @@ class GCODEGenerator:
             file.seek(0, 0)
             file.write(";FLAVOR:RepRap\n")
             file.write(f";TIME:{self.sleep_time + self.move_time}\n")
+            # TODO add welding flag for more accurate filament used
+            # Magic numbers is inches/min to mm/sec
             file.write(f";Filament used: {(self.move_time/2) * 105.833}mm\n")
-            file.write(f";Layer height: {self.z_line_count}\n")
+            file.write(f";Layer height: {self.args.weld_layer_height}\n")
             file.write(f";MINX:{self.args.x_corner}\n")
             file.write(f";MINY:{self.args.y_corner}\n")
             file.write(";MINZ:0\n")
             file.write(f";MAXX:{self.args.x_corner + self.args.x_size}\n")
             file.write(f";MAXY:{self.args.y_corner + self.args.y_size}\n")
             file.write(f";MAXZ:{self.args.z_clearance + self.args.z_size}\n")
+            file.write(";Generated with Micer 0.0.5")
 
             file.write("\n\n")
             file.write(content)
@@ -253,9 +268,12 @@ class GCODEGenerator:
 
 
 if __name__ == "__main__":
+    print("Started Generating Gcode File")
     gen = GCODEGenerator()
+    print("Finished Generating Gcode File.")
     duet = DuetWebAPI(URL)
     duet.connect()
+    print("Connected to Duet")
     count = 0
     stuff = None
     while stuff is None:
