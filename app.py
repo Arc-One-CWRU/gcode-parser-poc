@@ -5,7 +5,6 @@ import sys
 from PyQt6.QtWidgets import QWidget, QHBoxLayout, QApplication, QPushButton
 from PyQt6.QtGui import QVector3D
 import pyqtgraph.opengl as gl
-import numpy as np
 
 from gcode_generator import GCODEGenerator
 
@@ -30,37 +29,26 @@ class MicerView(gl.GLViewWidget):
 
         self.units: float = 0.01
 
-        self.bed_x: float = gen.args.x_bed_size*self.units
-        self.bed_y: float = gen.args.y_bed_size*self.units
-        self.bed_z: float = gen.args.z_bed_size*self.units
+        self.bed_x: float = gen.args.x_bed_size
+        self.bed_y: float = gen.args.y_bed_size
+        self.bed_z: float = gen.args.z_bed_size
 
-        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)
+        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*self.units
 
         grid = gl.GLGridItem(bed_vector)
-        self.addItem(grid)
         grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
 
-        self.addItem(gl.GLAxisItem(bed_vector))
+        self.addItem(grid)
+        axis = gl.GLAxisItem(bed_vector)
+        self.addItem(axis)
+        self.addItem(self.create_vol(50, 30, 20, 25, 76))
 
     def create_vol(self, x: float, y: float, z: float,
-                   x_corner: float, y_corner: float):
+                   x_corner: float, y_corner: float) -> gl.GLBoxItem:
 
-        vertexes = np.array([[0, 0, 0],
-                             [x, 0, 0],
-                             [0, y, 0],
-                             [0, 0, z],
-                             [x, y, 0],
-                             [x, y, z],
-                             [0, y, z],
-                             [x, 0, z]])
-
-        faces = np.array([[1, 0, 7], [1, 3, 7],
-                            [1,2,4], [1,0,4],
-                            [1,2,6], [1,3,6],
-                            [0,4,5], [0,7,5],
-                            [2,4,5], [2,6,5],
-                            [3,6,5], [3,7,5]])
-        self.addItem(gl.GLAxisItem(QtGui.QVector3D(x, y, z)))
+        print = gl.GLBoxItem(QVector3D(x, y, z)*self.units, glOptions='opaque')
+        print.translate(x_corner*self.units, y_corner*self.units, 0)
+        return print
 
 
 if __name__ == '__main__':

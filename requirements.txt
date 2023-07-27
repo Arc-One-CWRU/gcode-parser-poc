@@ -2,4 +2,3 @@ duetwebapi
 PyQt6
 pyqtgraph
 PyOpenGL
-numpy
