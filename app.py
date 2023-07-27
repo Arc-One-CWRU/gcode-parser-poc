@@ -6,7 +6,7 @@ import pyqtgraph.opengl as gl
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
-                             QWidget, )
+                             QWidget)
 
 
 from typing import Callable
