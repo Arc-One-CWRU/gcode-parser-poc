@@ -2,8 +2,9 @@
 import signal
 import sys
 
-from PyQt6.QtWidgets import QWidget, QHBoxLayout, QApplication, QPushButton
-from PyQt6.QtGui import QVector3D
+from PyQt6.QtWidgets import (QWidget, QHBoxLayout, QApplication, QLabel,
+                             QVBoxLayout, QLineEdit, QLayout, QPushButton)
+from PyQt6.QtGui import QVector3D, QDoubleValidator
 import pyqtgraph.opengl as gl
 
 from gcode_generator import GCODEGenerator
@@ -12,20 +13,48 @@ from gcode_generator import GCODEGenerator
 class Micer(QWidget):
     def __init__(self, parent=None):
         super(QWidget, self).__init__(parent)
+
+        gen = GCODEGenerator()
+
         self.setWindowTitle('Micer')
 
         layout = QHBoxLayout()
+
+        layout.addWidget(MicerView(gen))
+        layout.addWidget(ButtonsWidget(gen))
         self.setLayout(layout)
 
-        layout.addWidget(MicerView())
-        layout.addWidget(QPushButton())
+
+class ButtonsWidget(QWidget):
+    def __init__(self, gen: GCODEGenerator):
+        super(QWidget, self).__init__()
+
+        button_layout = QVBoxLayout()
+        button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
+        BUTTON_SIZE = 150
+
+        names = ["X Volume", "Y Volume", "Z Volume", "X Corner", "Y Corner"]
+
+        for name in names:
+            label = QLabel(name)
+            label.setMaximumWidth(BUTTON_SIZE)
+            button_layout.addWidget(label)
+
+            line_edit = QLineEdit()
+            line_edit.setMaximumWidth(BUTTON_SIZE)
+            line_edit.setValidator(QDoubleValidator())
+            button_layout.addWidget(line_edit)
+
+        button = QPushButton()
+        button.setText("Create and Upload to Duet")
+        button_layout.addWidget(button)
+
+        self.setLayout(button_layout)
 
 
 class MicerView(gl.GLViewWidget):
-    def __init__(self):
+    def __init__(self, gen: GCODEGenerator):
         super(MicerView, self).__init__()
-
-        gen = GCODEGenerator()
 
         self.units: float = 0.01
 
