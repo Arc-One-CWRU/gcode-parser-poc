@@ -79,15 +79,13 @@ class GCODEGenerator:
                             type=bool, default=False)
         self.args = parser.parse_args()
 
+        self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
+
+    def safety_checks(self):
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
                 raise ValueError(f"{kwarg[0]} is None")
 
-        self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
-        with open(os.path.join(DIR, self.filename), "x") as f:
-            self.run(f)
-
-    def safety_checks(self):
         if self.args.x_size > self.args.x_bed_size or self.args.x_corner > self.args.x_bed_size:
             raise ValueError("X dimension does not fit in bed")
 
@@ -97,12 +95,15 @@ class GCODEGenerator:
         if self.args.z_size + self.args.z_clearance > self.args.z_bed_size:
             raise ValueError("Z dimension does not fit in bed")
 
-    def run(self, file: TextIOWrapper):
-        self.safety_checks()
-        self.write_info(file)
-        self.write_volume(file)
-        file.close()
+    def run(self):
+        print("Started Generating Gcode File")
+        with open(os.path.join(DIR, self.filename), "x") as f:
+            self.safety_checks()
+            self.write_info(f)
+            self.write_volume(f)
+
         self.write_config()
+        print("Finished Generating Gcode File.")
 
     def write_info(self, file: TextIOWrapper):
         file.write(";Print Information\n")
@@ -293,23 +294,24 @@ class GCODEGenerator:
         cmd += "\n"
         file.write(cmd)
 
+    def upload(self):
+        duet = DuetWebAPI(URL)
+        duet.connect()
+        print("Connected to Duet")
+        stuff = None
+        while stuff is None:
+            try:
+                with open(os.path.join(DIR, gen.filename), "r") as f:
+                    file_str = f.read()
+                    stuff = duet.upload_file(file_str.encode(), gen.filename)
+            except ConnectionError as e:
+                print(e)
+
+        print("Finished upload")
+        duet.disconnect()
+
 
 if __name__ == "__main__":
-    print("Started Generating Gcode File")
     gen = GCODEGenerator()
-    print("Finished Generating Gcode File.")
-    duet = DuetWebAPI(URL)
-    duet.connect()
-    print("Connected to Duet")
-    count = 0
-    stuff = None
-    while stuff is None:
-        try:
-            with open(os.path.join(DIR, gen.filename), "r") as f:
-                file_str = f.read()
-                stuff = duet.upload_file(file_str.encode(), gen.filename)
-        except ConnectionError as e:
-            print(e)
-
-    print("Finished upload")
-    duet.disconnect()
+    gen.run()
+    gen.upload()
