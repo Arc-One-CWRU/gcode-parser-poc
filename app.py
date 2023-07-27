@@ -38,8 +38,14 @@ class ButtonsWidget(QWidget):
             self.m_view = m_view
 
         def update_value(self):
-            self.func(float(self.text()))
-            self.m_view.update_vol()
+            if self.text() == '':
+                self.func(0)
+            elif self.text() == '-':
+                self.func(0)
+            else:
+                self.m_view.reset_box()
+                self.func(float(self.text()))
+                self.m_view.update_vol()
 
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
         super(QWidget, self).__init__()
@@ -93,13 +99,13 @@ class MicerView(gl.GLViewWidget):
 
         self.gen = gen
 
-        self.units: float = 0.01
+        self.scale: float = 0.01
 
         self.bed_x: float = gen.args.x_bed_size
         self.bed_y: float = gen.args.y_bed_size
         self.bed_z: float = gen.args.z_bed_size
 
-        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*self.units
+        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*self.scale
 
         grid = gl.GLGridItem(bed_vector)
         grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
@@ -108,11 +114,23 @@ class MicerView(gl.GLViewWidget):
         axis = gl.GLAxisItem(bed_vector)
         self.addItem(axis)
         self.box = gl.GLBoxItem(QVector3D(0, 0, 0), glOptions='opaque')
-        # box.setSize
         self.addItem(self.box)
+
+    def reset_box(self):
+        x_corner = y_corner = 0
+        if self.gen.args.x_corner is not None:
+            x_corner = self.gen.args.x_corner
+
+        if self.gen.args.y_corner is not None:
+            y_corner = self.gen.args.y_corner
+
+        self.box.translate(-x_corner*self.scale,
+                           -y_corner*self.scale, 0)
+        self.box.update()
 
     def update_vol(self):
         x = y = z = x_corner = y_corner = 0
+
         if self.gen.args.x_size is not None:
             x = self.gen.args.x_size
 
@@ -128,9 +146,9 @@ class MicerView(gl.GLViewWidget):
         if self.gen.args.y_corner is not None:
             y_corner = self.gen.args.y_corner
 
-        self.box.setSize(x*self.units, y*self.units, z*self.units)
-        self.box.translate(x_corner*self.units,
-                           y_corner*self.units, 0)
+        self.box.setSize(x*self.scale, y*self.scale, z*self.scale)
+        self.box.translate(x_corner*self.scale,
+                           y_corner*self.scale, 0)
         self.box.update()
 
 
