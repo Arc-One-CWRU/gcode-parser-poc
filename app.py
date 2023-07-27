@@ -3,7 +3,7 @@ import signal
 import sys
 
 import pyqtgraph.opengl as gl
-# from PyQt6.QtCore import QPoint
+from PyQt6.QtCore import QPoint, QSize
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
@@ -64,9 +64,9 @@ class ButtonsWidget(QWidget):
         except ValueError as e:
             msg = QMessageBox(self)
             msg.setIcon(QMessageBox.Icon.Critical)
-            msg.setWindowTitle("Error Unset Parameters")
+            msg.setWindowTitle("Unset Values")
             msg.setText(e.__str__())
-            # msg.
+            msg.layout().setColumnMinimumWidth(1, 50)
             msg.exec()
 
 
