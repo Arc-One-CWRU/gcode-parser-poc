@@ -73,13 +73,28 @@ class GCODEGenerator:
 
         # Z Clearance
         parser.add_argument("-zc", "--z_clearance", help="Set z clearance for raising overstuff (mm).",
-                            type=float)
+                            type=float, default=90)
 
         parser.add_argument("-v", "--verbose", help="Debug logging.",
                             type=bool, default=False)
         self.args = parser.parse_args()
 
         self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
+
+    def set_x(self, x: float):
+        self.args.x_size = x
+
+    def set_y(self, y: float):
+        self.args.y_size = y
+
+    def set_z(self, z: float):
+        self.args.z_size = z
+
+    def set_x_corner(self, x_corner: float):
+        self.args.x_corner = x_corner
+
+    def set_y_corner(self, y_corner: float):
+        self.args.y_corner = y_corner
 
     def safety_checks(self):
         for kwarg in self.args._get_kwargs():

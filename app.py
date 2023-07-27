@@ -3,13 +3,13 @@ import signal
 import sys
 
 import pyqtgraph.opengl as gl
-from PyQt6.QtCore import QPoint, QSize
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
-                             QWidget, QSpacerItem)
+                             QWidget, )
 
 
+from typing import Callable
 from gcode_generator import GCODEGenerator
 
 
@@ -23,31 +23,48 @@ class Micer(QWidget):
 
         layout = QHBoxLayout()
 
-        layout.addWidget(MicerView(gen))
-        layout.addWidget(ButtonsWidget(gen, self))
+        m_view = MicerView(gen)
+
+        layout.addWidget(m_view)
+        layout.addWidget(ButtonsWidget(gen, m_view))
         self.setLayout(layout)
 
 
 class ButtonsWidget(QWidget):
-    def __init__(self, gen: GCODEGenerator, parent: Micer):
-        super(QWidget, self).__init__(parent)
+    class QLineEditNum(QLineEdit):
+        def __init__(self, func: Callable[[float], None], m_view: 'MicerView'):
+            super(QWidget, self).__init__()
+            self.func = func
+            self.m_view = m_view
+
+        def update_value(self):
+            self.func(float(self.text()))
+            self.m_view.update_vol()
+
+    def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
+        super(QWidget, self).__init__()
 
         self.gen = gen
-
         button_layout = QVBoxLayout()
         button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
         BUTTON_SIZE = 150
 
         names = ["X Volume", "Y Volume", "Z Volume", "X Corner", "Y Corner"]
+        funcs: list[Callable[[float], None]] = [gen.set_x,
+                                                gen.set_y,
+                                                gen.set_z,
+                                                gen.set_x_corner,
+                                                gen.set_y_corner]
 
-        for name in names:
-            label = QLabel(name)
+        for i in range(len(names)):
+            label = QLabel(names[i])
             label.setMaximumWidth(BUTTON_SIZE)
             button_layout.addWidget(label)
 
-            line_edit = QLineEdit()
+            line_edit = self.QLineEditNum(funcs[i], m_view)
             line_edit.setMaximumWidth(BUTTON_SIZE)
             line_edit.setValidator(QDoubleValidator())
+            line_edit.textChanged.connect(line_edit.update_value)
             button_layout.addWidget(line_edit)
 
         button = QPushButton()
@@ -74,6 +91,8 @@ class MicerView(gl.GLViewWidget):
     def __init__(self, gen: GCODEGenerator):
         super(MicerView, self).__init__()
 
+        self.gen = gen
+
         self.units: float = 0.01
 
         self.bed_x: float = gen.args.x_bed_size
@@ -88,14 +107,31 @@ class MicerView(gl.GLViewWidget):
         self.addItem(grid)
         axis = gl.GLAxisItem(bed_vector)
         self.addItem(axis)
-        self.addItem(self.create_vol(50, 30, 20, 25, 76))
+        self.box = gl.GLBoxItem(QVector3D(0, 0, 0), glOptions='opaque')
+        # box.setSize
+        self.addItem(self.box)
 
-    def create_vol(self, x: float, y: float, z: float,
-                   x_corner: float, y_corner: float) -> gl.GLBoxItem:
+    def update_vol(self):
+        x = y = z = x_corner = y_corner = 0
+        if self.gen.args.x_size is not None:
+            x = self.gen.args.x_size
 
-        print = gl.GLBoxItem(QVector3D(x, y, z)*self.units, glOptions='opaque')
-        print.translate(x_corner*self.units, y_corner*self.units, 0)
-        return print
+        if self.gen.args.y_size is not None:
+            y = self.gen.args.y_size
+
+        if self.gen.args.z_size is not None:
+            z = self.gen.args.z_size
+
+        if self.gen.args.x_corner is not None:
+            x_corner = self.gen.args.x_corner
+
+        if self.gen.args.y_corner is not None:
+            y_corner = self.gen.args.y_corner
+
+        self.box.setSize(x*self.units, y*self.units, z*self.units)
+        self.box.translate(x_corner*self.units,
+                           y_corner*self.units, 0)
+        self.box.update()
 
 
 if __name__ == '__main__':
