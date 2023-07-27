@@ -96,9 +96,9 @@ class GCODEGenerator:
             raise ValueError("Z dimension does not fit in bed")
 
     def run(self):
-        print("Started Generating Gcode File")
+        self.safety_checks()
         with open(os.path.join(DIR, self.filename), "x") as f:
-            self.safety_checks()
+            print("Started Generating Gcode File")
             self.write_info(f)
             self.write_volume(f)
 

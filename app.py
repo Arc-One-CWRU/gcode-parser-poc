@@ -2,10 +2,13 @@
 import signal
 import sys
 
-from PyQt6.QtWidgets import (QWidget, QHBoxLayout, QApplication, QLabel,
-                             QVBoxLayout, QLineEdit, QLayout, QPushButton)
-from PyQt6.QtGui import QVector3D, QDoubleValidator
 import pyqtgraph.opengl as gl
+# from PyQt6.QtCore import QPoint
+from PyQt6.QtGui import QDoubleValidator, QVector3D
+from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
+                             QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
+                             QWidget, QSpacerItem)
+
 
 from gcode_generator import GCODEGenerator
 
@@ -21,13 +24,15 @@ class Micer(QWidget):
         layout = QHBoxLayout()
 
         layout.addWidget(MicerView(gen))
-        layout.addWidget(ButtonsWidget(gen))
+        layout.addWidget(ButtonsWidget(gen, self))
         self.setLayout(layout)
 
 
 class ButtonsWidget(QWidget):
-    def __init__(self, gen: GCODEGenerator):
-        super(QWidget, self).__init__()
+    def __init__(self, gen: GCODEGenerator, parent: Micer):
+        super(QWidget, self).__init__(parent)
+
+        self.gen = gen
 
         button_layout = QVBoxLayout()
         button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
@@ -47,9 +52,22 @@ class ButtonsWidget(QWidget):
 
         button = QPushButton()
         button.setText("Create and Upload to Duet")
+        button.clicked.connect(self.create_and_upload)
         button_layout.addWidget(button)
 
         self.setLayout(button_layout)
+
+    def create_and_upload(self):
+        try:
+            self.gen.run()
+            self.gen.upload()
+        except ValueError as e:
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Critical)
+            msg.setWindowTitle("Error Unset Parameters")
+            msg.setText(e.__str__())
+            # msg.
+            msg.exec()
 
 
 class MicerView(gl.GLViewWidget):
