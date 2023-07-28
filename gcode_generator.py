@@ -6,7 +6,7 @@ from typing import Optional
 from math import ceil, dist
 from duetwebapi import DuetWebAPI
 from requests.exceptions import ConnectionError
-
+from enum import IntEnum
 
 MOVE = "G0"
 LINEAR_MOVE = "G1"
@@ -18,6 +18,12 @@ WELDER_CONTROL = "M42 P1"
 
 DIR = "generated"
 URL = "http://169.254.1.1"
+
+
+class InfillType(IntEnum):
+    STRAIGHT_LINES = 0
+    SQUARES = 1
+    SERPENTINE = 2
 
 
 class GCODEGenerator:
@@ -75,10 +81,14 @@ class GCODEGenerator:
         parser.add_argument("-zc", "--z_clearance", help="Set z clearance for raising overstuff (mm).",
                             type=float, default=90)
 
+        # Print Type
+        parser.add_argument("-i", "--infill_type", help="Specify infill type. 1 is for straight lines, 2 is for concentric squares and 3 is for lines snaking back and forth",
+                            type=int, default=0)
+
         parser.add_argument("-v", "--verbose", help="Debug logging.",
                             type=bool, default=False)
-        self.args = parser.parse_args()
 
+        self.args = parser.parse_args()
         self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
 
     def set_x(self, x: float):
@@ -95,6 +105,9 @@ class GCODEGenerator:
 
     def set_y_corner(self, y_corner: float):
         self.args.y_corner = y_corner
+
+    def set_infill_type(self, infill_type: InfillType):
+        self.args.infill_type = infill_type.value
 
     def safety_checks(self):
         for kwarg in self.args._get_kwargs():
@@ -139,19 +152,13 @@ class GCODEGenerator:
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
 
-    def write_volume(self, file: TextIOWrapper):
-        # Move home
-        file.write(HOME)
+    def write_serpentine(self, file: TextIOWrapper):
+        raise NotImplementedError
 
-        # Raise to avoid junk on table
-        self.add_linear_move(file, self.args.travel_speed, z=self.args.z_clearance)
+    def write_squares(self, file: TextIOWrapper):
+        raise NotImplementedError
 
-        # Move above starting position
-        self.add_rapid_move(file, self.args.travel_speed, self.args.x_corner, self.args.y_corner)
-
-        # Move into starting position
-        self.add_linear_move(file, self.args.travel_speed, z=self.args.weld_gap)
-
+    def write_straight_lines(self, file: TextIOWrapper):
         self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
         self.y_line_count: int = ceil((self.args.y_size - self.args.weld_layer_width) / self.args.weld_layer_overlap) + 1
 
@@ -202,6 +209,27 @@ class GCODEGenerator:
 
                 # Move Down to new corner
                 self.add_linear_move(file, self.args.travel_speed, z=z_pos)
+
+    def write_volume(self, file: TextIOWrapper):
+        # Move home
+        file.write(HOME)
+
+        # Raise to avoid junk on table
+        self.add_linear_move(file, self.args.travel_speed, z=self.args.z_clearance)
+
+        # Move above starting position
+        self.add_rapid_move(file, self.args.travel_speed, self.args.x_corner, self.args.y_corner)
+
+        # Move into starting position
+        self.add_linear_move(file, self.args.travel_speed, z=self.args.weld_gap)
+
+        match self.args.infill_type:
+            case InfillType.STRAIGHT_LINES:
+                self.write_straight_lines(file)
+            case InfillType.SQUARES:
+                self.write_squares(file)
+            case InfillType.SERPENTINE:
+                self.write_serpentine(file)
 
         # Disable welder Just in case
         self.control_welder(file, 0)

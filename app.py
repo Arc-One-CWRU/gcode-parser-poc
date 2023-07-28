@@ -6,11 +6,11 @@ import pyqtgraph.opengl as gl
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
-                             QWidget)
+                             QWidget, QComboBox)
 
 
 from typing import Callable
-from gcode_generator import GCODEGenerator
+from gcode_generator import GCODEGenerator, InfillType
 
 
 class Micer(QWidget):
@@ -73,12 +73,21 @@ class ButtonsWidget(QWidget):
             line_edit.textChanged.connect(line_edit.update_value)
             button_layout.addWidget(line_edit)
 
+        self.infill_list = QComboBox()
+        for infill in InfillType:
+            self.infill_list.addItem(infill.name)
+        self.infill_list.currentIndexChanged.connect(self.update_infill_type)
+        button_layout.addWidget(self.infill_list)
+
         button = QPushButton()
         button.setText("Create and Upload to Duet")
         button.clicked.connect(self.create_and_upload)
         button_layout.addWidget(button)
 
         self.setLayout(button_layout)
+
+    def update_infill_type(self):
+        self.gen.set_infill_type(InfillType(self.infill_list.currentIndex()))
 
     def create_and_upload(self):
         try:
