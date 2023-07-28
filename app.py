@@ -92,6 +92,7 @@ class ButtonsWidget(QWidget):
     def create_and_upload(self):
         try:
             self.gen.run()
+            # TODO add some feedback about it working
             self.gen.upload()
         except ValueError as e:
             msg = QMessageBox(self)

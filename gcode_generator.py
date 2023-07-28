@@ -152,8 +152,45 @@ class GCODEGenerator:
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
 
+    def write_rect(self, file: TextIOWrapper, x1: float, y1: float, x2: float, y2: float, z: float):
+        self.control_welder(file, 1)
+        self.add_linear_move(file, self.args.weld_speed, x2)
+        self.add_linear_move(file, self.args.weld_speed, y2)
+        self.add_linear_move(file, self.args.weld_speed, x1)
+        self.add_linear_move(file, self.args.weld_speed, y1)
+        self.control_welder(file, 0)
+
     def write_serpentine(self, file: TextIOWrapper):
-        raise NotImplementedError
+        self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
+
+        x_pos = self.args.x_corner
+        y_pos = self.args.y_corner
+        z_pos = self.args.weld_gap
+
+        for i in range(self.z_line_count):
+            self.write_rect(file, self.args.x_corner, self.args.y_corner,
+                            self.args.x_corner + self.args.x_size,
+                            self.args.x_corner + self.args.x_size,
+                            z_pos)
+
+
+
+
+
+
+
+            z_pos += self.args.weld_layer_height
+
+            if i != (self.z_line_count - 1):
+                # Wait for cool
+                self.add_sleep(file, seconds=15)
+
+                # Move above to start position
+                self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos,
+                                    (z_pos + self.args.z_clearance))
+
+                # Move Down to new corner
+                self.add_linear_move(file, self.args.travel_speed, z=z_pos)
 
     def write_squares(self, file: TextIOWrapper):
         raise NotImplementedError
