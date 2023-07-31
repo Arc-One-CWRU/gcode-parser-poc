@@ -135,7 +135,10 @@ class CuraGCodePipeline(object):
         # 3. G-Code Movements
         # TODO: Read layer by layer
         gcode_file += ";gcode movements start\n"
-        gcode_file += self.read_gcode_movements(file_buffer=file_buffer)
+        gcode_movements = self.read_gcode_movements(file_buffer=file_buffer)
+        for processor in self.gcode_movements_processors:
+            gcode_movements = processor.process(gcode_movements)
+        gcode_file += gcode_movements
         gcode_file += ";gcode movements end\n\n"
 
         # 4. End Script: Apply all end script processors.

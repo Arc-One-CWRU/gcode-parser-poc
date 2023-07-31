@@ -1,5 +1,4 @@
 from abc import ABCMeta, abstractmethod
-import io
 from .sections import GCodeSection
 
 

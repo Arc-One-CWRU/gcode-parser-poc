@@ -16,7 +16,7 @@ if __name__ == "__main__":
     from glob import glob
     from pathlib import Path
     from framework.pipeline import CuraGCodePipeline
-    from framework.processsor import G1ExtruderRemover, ArcOneStartup, ArcOneEndScript
+    from framework.processsor import G1ExtruderRemover, ArcOneStartup, ArcOneEndScript, ExcludeMeshLayer
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input", help="Input directory of GCodes or G-Code file to transform.",
@@ -61,7 +61,8 @@ if __name__ == "__main__":
         gcode_files))
 
     gcode_pipeline = CuraGCodePipeline(
-        section_processors=[ArcOneStartup(), ArcOneEndScript()],
+        section_processors=[ArcOneStartup(), ArcOneEndScript(),
+                            ExcludeMeshLayer()],
         command_processor=[G1ExtruderRemover()])
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
