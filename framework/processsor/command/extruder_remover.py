@@ -1,5 +1,5 @@
 import re
-from ..base import CommandProcessorInterface
+from ..base.base import CommandProcessorInterface
 
 
 class G1ExtruderRemover(CommandProcessorInterface):
