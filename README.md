@@ -18,3 +18,10 @@ An example command is:
 # This will generate the parsed files in the current directory and print debug logging
 python3 main.py -i "./examples" -o "./" -v
 ```
+
+To use the updated framework CLI:
+
+```bash
+# This will generate the parsed files in the current directory and print debug logging
+python3 framework_cli.py -i "./examples/line_welding_test.gcode" -o "./examples/generated" -v
+```
