@@ -61,7 +61,7 @@ class GCODEGenerator:
         parser.add_argument("-ybs", "--y_bed_size", help="Set y bed size (mm).",
                             type=float, default=580)
         parser.add_argument("-zbs", "--z_bed_size", help="Set z bed size (mm).",
-                            type=float, default=180)
+                            type=float, default=110)
 
         # Overall Dimensions of print
         parser.add_argument("-x", "--x_size", help="Set x size (mm).",
