@@ -10,7 +10,7 @@ from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QWidget, QComboBox)
 
 
-from typing import Callable
+from typing import Callable, Any
 from gcode_generator import GCODEGenerator, InfillType
 
 
@@ -30,7 +30,8 @@ class Micer(QWidget):
         layout.addWidget(ButtonsWidget(gen, m_view))
         self.setLayout(layout)
 
-def read_settings_from_yaml() -> dict:
+
+def read_settings_from_yaml() -> dict[str, Any]:
     """Reads the settings the yaml config at app.yaml.
     """
     # Read YAML to initialize settings
@@ -41,9 +42,10 @@ def read_settings_from_yaml() -> dict:
             return settings
         except yaml.YAMLError as exc:
             logging.error(exc)
+            return {}
 
 
-def write_settings_to_yaml(key: str, value):
+def write_settings_to_yaml(key: str, value: Any):
     """Write the settings to the yaml config at app.yaml
     """
     # Doing this through a single pass with "r+" permission does not work...
@@ -58,8 +60,10 @@ def write_settings_to_yaml(key: str, value):
         except yaml.YAMLError as exc:
             logging.error(exc)
 
+
 def label_to_yaml_property(name: str) -> str:
     return "_".join(name.lower().split(" "))
+
 
 class ButtonsWidget(QWidget):
     class QLineEditNum(QLineEdit):
@@ -100,7 +104,7 @@ class ButtonsWidget(QWidget):
         settings = read_settings_from_yaml()
         if settings is None:
             raise ValueError("Settings should not be None")
-        
+
         for i in range(len(names)):
             label = QLabel(names[i])
             label.setMaximumWidth(BUTTON_SIZE)
@@ -111,7 +115,7 @@ class ButtonsWidget(QWidget):
             line_edit.setValidator(QDoubleValidator())
             line_edit.textChanged.connect(line_edit.update_value)
             button_layout.addWidget(line_edit)
-            
+
             # Load settings from yaml settings
             converted_yaml_property = label_to_yaml_property(names[i])
             settings_val = settings[converted_yaml_property]
