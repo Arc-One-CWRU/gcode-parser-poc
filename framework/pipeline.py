@@ -138,9 +138,12 @@ class CuraGCodePipeline(object):
         gcode_file += self.read_gcode_movements(file_buffer=file_buffer)
         gcode_file += ";gcode movements end\n\n"
 
-        # 4. End Script
+        # 4. End Script: Apply all end script processors.
         gcode_file += ";end script start\n"
-        gcode_file += self.read_end_script(file_buffer=file_buffer)
+        end_script = self.read_end_script(file_buffer=file_buffer)
+        for processor in self.end_script_processors:
+            end_script = processor.process(end_script)
+        gcode_file += end_script
         gcode_file += ";end script end\n\n"
 
         # 5. Bottom Comment
