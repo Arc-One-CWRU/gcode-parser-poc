@@ -30,13 +30,44 @@ class Micer(QWidget):
         layout.addWidget(ButtonsWidget(gen, m_view))
         self.setLayout(layout)
 
+def read_settings_from_yaml() -> dict:
+    """Reads the settings the yaml config at app.yaml.
+    """
+    # Read YAML to initialize settings
+    with open("app.yaml", "r", encoding="utf-8") as stream:
+        try:
+            settings = yaml.safe_load(stream)
+            logging.info("loaded settings: %s", settings)
+            return settings
+        except yaml.YAMLError as exc:
+            logging.error(exc)
+
+
+def write_settings_to_yaml(key: str, value):
+    """Write the settings to the yaml config at app.yaml
+    """
+    # Doing this through a single pass with "r+" permission does not work...
+    # It'll end up appending the updated contents to the yaml instead of
+    # overwriting.
+    settings = read_settings_from_yaml()
+    settings[key] = value
+    with open("app.yaml", "w", encoding="utf-8") as stream:
+        try:
+            logging.info("wrote settings: %s", settings)
+            yaml.safe_dump(settings, stream, sort_keys=False)
+        except yaml.YAMLError as exc:
+            logging.error(exc)
+
+def label_to_yaml_property(name: str) -> str:
+    return "_".join(name.lower().split(" "))
 
 class ButtonsWidget(QWidget):
     class QLineEditNum(QLineEdit):
-        def __init__(self, func: Callable[[float], None], m_view: 'MicerView'):
+        def __init__(self, name: str, func: Callable[[float], None], m_view: 'MicerView'):
             super(QWidget, self).__init__()
             self.func = func
             self.m_view = m_view
+            self.name = name
 
         def update_value(self):
             if self.text() == '':
@@ -45,7 +76,9 @@ class ButtonsWidget(QWidget):
                 self.func(0)
             else:
                 self.m_view.reset_box()
+                print(self.name, self.text())
                 self.func(float(self.text()))
+                write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
                 self.m_view.update_vol()
 
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
@@ -64,23 +97,25 @@ class ButtonsWidget(QWidget):
                                                 gen.set_z,
                                                 gen.set_x_corner,
                                                 gen.set_y_corner]
-        settings = self.read_settings_from_yaml()
+        settings = read_settings_from_yaml()
+        if settings is None:
+            raise ValueError("Settings should not be None")
+        
         for i in range(len(names)):
             label = QLabel(names[i])
             label.setMaximumWidth(BUTTON_SIZE)
             button_layout.addWidget(label)
 
-            line_edit = self.QLineEditNum(funcs[i], m_view)
+            line_edit = self.QLineEditNum(names[i], funcs[i], m_view)
             line_edit.setMaximumWidth(BUTTON_SIZE)
             line_edit.setValidator(QDoubleValidator())
             line_edit.textChanged.connect(line_edit.update_value)
             button_layout.addWidget(line_edit)
             
             # Load settings from yaml settings
-            converted_yaml_property = "_".join(names[i].lower().split(" "))
+            converted_yaml_property = label_to_yaml_property(names[i])
             settings_val = settings[converted_yaml_property]
             logging.info("name: %s, yaml property: %s, value: %f", names[i], converted_yaml_property, settings_val)
-
             line_edit.setText(str(settings_val))
 
         self.infill_list = QComboBox()
@@ -98,16 +133,6 @@ class ButtonsWidget(QWidget):
 
     def update_infill_type(self):
         self.gen.set_infill_type(InfillType(self.infill_list.currentIndex()))
-
-    def read_settings_from_yaml(self) -> dict:
-        # Read YAML to initialize settings
-        with open("app.yaml", "r", encoding="utf-8") as stream:
-            try:
-                settings = yaml.safe_load(stream)
-                logging.info("loaded settings: %s", settings)
-                return settings
-            except yaml.YAMLError as exc:
-                logging.error(exc)
 
     def create_and_upload(self):
         try:
