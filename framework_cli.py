@@ -19,7 +19,7 @@ if __name__ == "__main__":
     from framework.processsor import G1ExtruderRemover
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input_dir", help="Input directory of GCodes to transform.",
+    parser.add_argument("-i", "--input", help="Input directory of GCodes or G-Code file to transform.",
                         type=str)
     parser.add_argument("-o", "--output_dir", help="Output directory where the parsed GCodes will go.",
                         type=str)
@@ -34,9 +34,9 @@ if __name__ == "__main__":
 
     logging.debug("args: %s", args)
 
-    if not os.path.isdir(args.input_dir):
+    if not os.path.isdir(args.input) and not os.path.isfile(args.input):
         logging.error(
-            "specified input dir '%s' is not a directory", args.input_dir)
+            "specified input dir '%s' is not a directory or file", args.input)
         sys.exit()
 
     if not os.path.isdir(args.output_dir):
@@ -44,17 +44,21 @@ if __name__ == "__main__":
             "specified ouput dir '%s' is not a directory", args.output_dir)
         sys.exit()
 
-    input_dir = os.path.abspath(args.input_dir)
-    output_dir = os.path.abspath(args.output_dir)
+    if os.path.isfile(args.input):
+        gcode_files = [args.input]
+    else:
+        input_dir = os.path.abspath(args.input)
+        gcode_files = glob(os.path.join(input_dir, "*.gcode"))
 
-    gcode_files = glob(os.path.join(input_dir, "*.gcode"))
     if len(gcode_files) == 0:
         logging.error(
             "Found 0 GCode files in the specified input directory %s.\nPlease double check that it's specified correctly with -v", input_dir)
         sys.exit()
 
-    logging.info("Found %d gcode files in input directory %s.\nConverting to WAAM version...", len(
-        gcode_files), input_dir)
+    output_dir = os.path.abspath(args.output_dir)
+
+    logging.info("Found %d gcode files.\nConverting to WAAM version...", len(
+        gcode_files))
 
     gcode_pipeline = GCodePipeline(
         section_processors=[], command_processor=[G1ExtruderRemover()])
