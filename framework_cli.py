@@ -15,7 +15,7 @@ if __name__ == "__main__":
     import sys
     from glob import glob
     from pathlib import Path
-    from framework.pipeline import GCodePipeline
+    from framework.pipeline import CuraGCodePipeline
     from framework.processsor import G1ExtruderRemover
 
     parser = argparse.ArgumentParser()
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     logging.info("Found %d gcode files.\nConverting to WAAM version...", len(
         gcode_files))
 
-    gcode_pipeline = GCodePipeline(
+    gcode_pipeline = CuraGCodePipeline(
         section_processors=[], command_processor=[G1ExtruderRemover()])
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
