@@ -1,6 +1,6 @@
 import io
 from typing import List
-from .processsor import CommandProcessorInterface, SectionProcessorInterface
+from .processsor import CommandProcessorInterface, SectionProcessorInterface, GCodeSection
 
 # Cura specific constants.
 END_OF_TOP_METADATA = ";Generated with"
@@ -16,8 +16,30 @@ class CuraGCodePipeline(object):
 
     def __init__(self, section_processors: List[SectionProcessorInterface],
                  command_processor: List[CommandProcessorInterface]) -> None:
-        self.section_processor = section_processors
-        self.command_processor = command_processor
+        self.section_processors = section_processors
+        self.command_processors = command_processor
+
+        # Divide section processors into the respective buckets
+        self.top_metadata_processors: List[SectionProcessorInterface] = []
+        self.startup_script_processors: List[SectionProcessorInterface] = []
+        self.gcode_movements_processors: List[SectionProcessorInterface] = []
+        self.end_script_processors: List[SectionProcessorInterface] = []
+        self.bottom_comment_processors: List[SectionProcessorInterface] = []
+
+        for processor in self.section_processors:
+            if processor.section_type() is GCodeSection.TOP_COMMENT_SECTION:
+                self.top_metadata_processors.append(processor)
+            elif processor.section_type() is GCodeSection.STARTUP_SCRIPT_SECTION:
+                self.startup_script_processors.append(processor)
+            elif processor.section_type() is GCodeSection.GCODE_MOVEMENTS_SECTION:
+                self.gcode_movements_processors.append(processor)
+            elif processor.section_type() is GCodeSection.END_SCRIPT_SECTION:
+                self.end_script_processors.append(processor)
+            elif processor.section_type() is GCodeSection.BOTTOM_COMMENT:
+                self.bottom_comment_processors.append(processor)
+            else:
+                raise ValueError(
+                    f"processor section_type {processor.section_type()} is invalid")
 
     def process_commands(self, section_processed_file: str) -> str:
         """Ingests the section processed file and applies all of the command
@@ -27,7 +49,7 @@ class CuraGCodePipeline(object):
         new_gcode = ""
         for gcode_line in all_gcode_lines:
             processed_line = gcode_line
-            for cmd_processor in self.command_processor:
+            for cmd_processor in self.command_processors:
                 processed_line = cmd_processor.process(processed_line)
             new_gcode += processed_line + "\n"
         return new_gcode
@@ -102,9 +124,12 @@ class CuraGCodePipeline(object):
         top_metadata = self.read_top_metadata(file_buffer=file_buffer)
         gcode_file += top_metadata + "\n"
 
-        # 2. Startup Script
+        # 2. Startup Script: Apply all start up script processors
         gcode_file += ";startup script start\n"
-        gcode_file += self.read_startup_script(file_buffer=file_buffer)
+        startup_script = self.read_startup_script(file_buffer=file_buffer)
+        for processor in self.startup_script_processors:
+            startup_script = processor.process(startup_script)
+        gcode_file += startup_script
         gcode_file += ";startup script end\n\n"
 
         # 3. G-Code Movements
