@@ -1,7 +1,8 @@
 
 import signal
 import sys
-
+import yaml
+import logging
 import pyqtgraph.opengl as gl
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
@@ -50,6 +51,8 @@ class ButtonsWidget(QWidget):
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
         super(QWidget, self).__init__()
 
+        logging.getLogger().setLevel(level=logging.INFO)
+
         self.gen = gen
         button_layout = QVBoxLayout()
         button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
@@ -61,7 +64,7 @@ class ButtonsWidget(QWidget):
                                                 gen.set_z,
                                                 gen.set_x_corner,
                                                 gen.set_y_corner]
-
+        settings = self.read_settings_from_yaml()
         for i in range(len(names)):
             label = QLabel(names[i])
             label.setMaximumWidth(BUTTON_SIZE)
@@ -72,6 +75,13 @@ class ButtonsWidget(QWidget):
             line_edit.setValidator(QDoubleValidator())
             line_edit.textChanged.connect(line_edit.update_value)
             button_layout.addWidget(line_edit)
+            
+            # Load settings from yaml settings
+            converted_yaml_property = "_".join(names[i].lower().split(" "))
+            settings_val = settings[converted_yaml_property]
+            logging.info("name: %s, yaml property: %s, value: %f", names[i], converted_yaml_property, settings_val)
+
+            line_edit.setText(str(settings_val))
 
         self.infill_list = QComboBox()
         for infill in InfillType:
@@ -88,6 +98,16 @@ class ButtonsWidget(QWidget):
 
     def update_infill_type(self):
         self.gen.set_infill_type(InfillType(self.infill_list.currentIndex()))
+
+    def read_settings_from_yaml(self) -> dict:
+        # Read YAML to initialize settings
+        with open("app.yaml", "r", encoding="utf-8") as stream:
+            try:
+                settings = yaml.safe_load(stream)
+                logging.info("loaded settings: %s", settings)
+                return settings
+            except yaml.YAMLError as exc:
+                logging.error(exc)
 
     def create_and_upload(self):
         try:
