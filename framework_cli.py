@@ -40,10 +40,11 @@ if __name__ == "__main__":
             "specified input dir '%s' is not a directory or file", args.input)
         sys.exit()
 
+    # Allows you to specify a non-existing output directory if necessary
     if not os.path.isdir(args.output_dir):
-        logging.error(
-            "specified ouput dir '%s' is not a directory", args.output_dir)
-        sys.exit()
+        output_dir_path = os.path.abspath(args.output_dir)
+        logging.info("Creating output directory %s...", output_dir_path)
+        os.makedirs(args.output_dir)
 
     if os.path.isfile(args.input):
         gcode_files = [args.input]
