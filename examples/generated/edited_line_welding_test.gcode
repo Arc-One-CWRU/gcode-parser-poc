@@ -132,6 +132,7 @@ M42 P1 S0; Turn off the welder
 G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)
 ;end script end
 
+;End of Gcode
 ;bottom comment start
 ;SETTING_3 {"global_quality": "[general]\\nversion = 4\\nname = Arc One #2\\ndef
 ;SETTING_3 inition = custom\\n\\n[metadata]\\ntype = quality_changes\\nquality_t

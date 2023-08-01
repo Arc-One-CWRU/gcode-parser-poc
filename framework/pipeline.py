@@ -106,6 +106,7 @@ class CuraGCodePipeline(object):
             end_script += curr_line
             if curr_line.startswith(END_OF_GCODE):
                 is_end_script = False
+
         return end_script
 
     def read_bottom_comment(self, file_buffer: io.TextIOWrapper) -> str:
@@ -148,6 +149,7 @@ class CuraGCodePipeline(object):
             end_script = processor.process(end_script)
         gcode_file += end_script
         gcode_file += ";end script end\n\n"
+        gcode_file += END_OF_GCODE + "\n"
 
         # 5. Bottom Comment
         gcode_file += ";bottom comment start\n"
