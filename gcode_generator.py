@@ -89,7 +89,6 @@ class GCODEGenerator:
                             type=bool, default=False)
 
         self.args = parser.parse_args()
-        self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
 
     def set_x(self, x: float):
         self.args.x_size = x
@@ -124,6 +123,7 @@ class GCODEGenerator:
             raise ValueError("Z dimension does not fit in bed")
 
     def run(self):
+        self.filename = f"{str(datetime.now())[:-7]}.gcode".replace(" ", " Time=").replace(":", " ")
         self.safety_checks()
         with open(os.path.join(DIR, self.filename), "x") as f:
             print("Started Generating Gcode File")
@@ -381,9 +381,9 @@ class GCODEGenerator:
         stuff = None
         while stuff is None:
             try:
-                with open(os.path.join(DIR, gen.filename), "r") as f:
+                with open(os.path.join(DIR, self.filename), "r") as f:
                     file_str = f.read()
-                    stuff = duet.upload_file(file_str.encode(), gen.filename)
+                    stuff = duet.upload_file(file_str.encode(), self.filename)
             except ConnectionError as e:
                 print(e)
 
