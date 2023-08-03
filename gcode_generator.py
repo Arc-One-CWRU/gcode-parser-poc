@@ -152,7 +152,9 @@ class GCODEGenerator:
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
 
-    def write_rect(self, file: TextIOWrapper, x1: float, y1: float, x2: float, y2: float, z: float):
+    # TODO add different directions around the rect
+    # TODO add the ability to start in the middle of an edge of the rectangle
+    def write_rect(self, file: TextIOWrapper, x1: float, y1: float, x2: float, y2: float):
         self.control_welder(file, 1)
         self.add_linear_move(file, self.args.weld_speed, x2)
         self.add_linear_move(file, self.args.weld_speed, y2)
@@ -161,6 +163,9 @@ class GCODEGenerator:
         self.control_welder(file, 0)
 
     def write_serpentine(self, file: TextIOWrapper):
+        pass
+
+    def write_serpentine_with_box(self, file: TextIOWrapper):
         self.z_line_count: int = ceil(self.args.z_size / self.args.weld_layer_height)
 
         x_pos = self.args.x_corner
@@ -168,10 +173,9 @@ class GCODEGenerator:
         z_pos = self.args.weld_gap
 
         for i in range(self.z_line_count):
-            self.write_rect(file, self.args.x_corner, self.args.y_corner,
-                            self.args.x_corner + self.args.x_size,
-                            self.args.x_corner + self.args.x_size,
-                            z_pos)
+            self.write_rect(file, x_pos, y_pos,
+                            x_pos + self.args.x_size,
+                            y_pos + self.args.x_size)
 
 
 
@@ -266,7 +270,7 @@ class GCODEGenerator:
             case InfillType.SQUARES:
                 self.write_squares(file)
             case InfillType.SERPENTINE:
-                self.write_serpentine(file)
+                self.write_serpentine_with_box(file)
 
         # Disable welder Just in case
         self.control_welder(file, 0)

@@ -90,7 +90,7 @@ class ButtonsWidget(QWidget):
 
         logging.getLogger().setLevel(level=logging.INFO)
 
-        self.gen = gen
+        self.gen: GCODEGenerator = gen
         button_layout = QVBoxLayout()
         button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
         BUTTON_SIZE = 150
