@@ -12,6 +12,7 @@ from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
 
 from typing import Callable, Any
 from gcode_generator import GCODEGenerator, InfillType
+from math import pi
 
 
 class Micer(QWidget):
@@ -152,7 +153,11 @@ class ButtonsWidget(QWidget):
             msg.exec()
 
 
+# ANGLE = 
+
+
 class MicerView(gl.GLViewWidget):
+
     def __init__(self, gen: GCODEGenerator):
         super(MicerView, self).__init__()
 
@@ -167,12 +172,16 @@ class MicerView(gl.GLViewWidget):
         bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*self.scale
 
         grid = gl.GLGridItem(bed_vector)
-        grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
-
+        grid.translate((-bed_vector.x()/2), (bed_vector.y()/2), 0)
+        grid.scale(-1, 1, 1)
         self.addItem(grid)
+
         axis = gl.GLAxisItem(bed_vector)
+        axis.scale(-1, 1, 1)
         self.addItem(axis)
+
         self.box = gl.GLBoxItem(QVector3D(0, 0, 0), glOptions='opaque')
+        self.box.rotate(90, 0, 0, 1)
         self.addItem(self.box)
 
     def reset_box(self):
@@ -183,7 +192,7 @@ class MicerView(gl.GLViewWidget):
         if self.gen.args.y_corner is not None:
             y_corner = self.gen.args.y_corner
 
-        self.box.translate(-x_corner*self.scale,
+        self.box.translate(x_corner*self.scale,
                            -y_corner*self.scale, 0)
         self.box.update()
 
@@ -206,7 +215,7 @@ class MicerView(gl.GLViewWidget):
             y_corner = self.gen.args.y_corner
 
         self.box.setSize(x*self.scale, y*self.scale, z*self.scale)
-        self.box.translate(x_corner*self.scale,
+        self.box.translate(-x_corner*self.scale,
                            y_corner*self.scale, 0)
         self.box.update()
 

@@ -1,5 +1,5 @@
-x_volume: 10.0
-y_volume: 5.0
-z_volume: 1.0
-x_corner: 100.0
-y_corner: 100.0
+x_volume: 30.0
+y_volume: 30.0
+z_volume: 30.0
+x_corner: 1.0
+y_corner: 3.0
