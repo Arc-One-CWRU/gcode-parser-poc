@@ -11,25 +11,26 @@ from framework.ui.yaml import (read_settings_from_yaml, label_to_yaml_property,
                    write_settings_to_yaml)
 from framework.ui.micer_view import MicerView
 
-class ButtonsWidget(QWidget):
-    class QLineEditNum(QLineEdit):
-        def __init__(self, name: str, func: Callable[[float], None], m_view: 'MicerView'):
-            super(QWidget, self).__init__()
-            self.func = func
-            self.m_view = m_view
-            self.name = name
+class QLineEditNum(QLineEdit):
+    def __init__(self, name: str, func: Callable[[float], None], m_view: 'MicerView'):
+        super(QWidget, self).__init__()
+        self.func = func
+        self.m_view = m_view
+        self.name = name
 
-        def update_value(self):
-            if self.text() == '':
-                self.func(0)
-            elif self.text() == '-':
-                self.func(0)
-            else:
-                self.m_view.reset_box()
-                print(self.name, self.text())
-                self.func(float(self.text()))
-                write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
-                self.m_view.update_vol()
+    def update_value(self):
+        if self.text() == '':
+            self.func(0)
+        elif self.text() == '-':
+            self.func(0)
+        else:
+            self.m_view.reset_box()
+            print(self.name, self.text())
+            self.func(float(self.text()))
+            write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
+            self.m_view.update_vol()
+
+class ButtonsWidget(QWidget):
 
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
         super(QWidget, self).__init__()
@@ -57,7 +58,7 @@ class ButtonsWidget(QWidget):
             label.setMaximumWidth(BUTTON_SIZE)
             button_layout.addWidget(label)
 
-            line_edit = self.QLineEditNum(names[i], funcs[i], m_view)
+            line_edit = QLineEditNum(names[i], funcs[i], m_view)
             line_edit.setMaximumWidth(BUTTON_SIZE)
             line_edit.setValidator(QDoubleValidator())
             line_edit.textChanged.connect(line_edit.update_value)
@@ -98,6 +99,53 @@ class ButtonsWidget(QWidget):
             msg.layout().setColumnMinimumWidth(1, 50)
             msg.exec()
 
+class AdditionalSettingsWidget(QWidget):
+
+    def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
+        super(QWidget, self).__init__()
+
+        logging.getLogger().setLevel(level=logging.INFO)
+
+        self.gen: GCODEGenerator = gen
+        button_layout = QVBoxLayout()
+        button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
+        button_layout.setContentsMargins(15, 0, 0, 30)
+        BUTTON_SIZE = 150
+
+        fn_mappings = {
+            "Weld Gap": gen.set_weld_gap,
+            "Weld Layer Height": gen.set_weld_layer_height,
+            "Weld Layer Width": gen.set_weld_layer_width,
+            "Weld Layer Overlap": gen.set_weld_layer_overlap,
+            "Travel Speed": gen.set_travel_speed,
+            "Print Speed": gen.set_print_speed,
+            "X Bed Size": gen.set_x_bed_size,
+            "Y Bed Size": gen.set_y_bed_size,
+            "Z Clearance": gen.set_z_clearance
+        }
+    
+        settings = read_settings_from_yaml()
+        if settings is None:
+            raise ValueError("Settings should not be None")
+
+        for name, fn in fn_mappings.items():
+            label = QLabel(name)
+            label.setMaximumWidth(BUTTON_SIZE)
+            button_layout.addWidget(label)
+
+            line_edit = QLineEditNum(name, fn, m_view)
+            line_edit.setMaximumWidth(BUTTON_SIZE)
+            line_edit.setValidator(QDoubleValidator())
+            line_edit.textChanged.connect(line_edit.update_value)
+            button_layout.addWidget(line_edit)
+
+            # Load settings from yaml settings
+            converted_yaml_property = label_to_yaml_property(name)
+            settings_val = settings[converted_yaml_property]
+            logging.info("name: %s, yaml property: %s, value: %f", name, converted_yaml_property, settings_val)
+            line_edit.setText(str(settings_val))
+        self.setLayout(button_layout)
+
 class SettingsWidget(QWidget):
     """Encapsulates the core settings and additional settings widgets.
 
@@ -124,7 +172,7 @@ class SettingsWidget(QWidget):
         settings_layout = QVBoxLayout()
         settings_tabs = QTabWidget()
         core_settings = ButtonsWidget(gen=gen, m_view=m_view)
-        additional_settings = QLabel("Widget in Additional Settings.")
+        additional_settings = AdditionalSettingsWidget(gen=gen, m_view=m_view)
 
         settings_tabs.addTab(core_settings, "Core Settings")
         settings_tabs.addTab(additional_settings, "Additional Settings")
