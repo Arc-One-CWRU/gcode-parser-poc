@@ -99,6 +99,26 @@ class ButtonsWidget(QWidget):
             msg.exec()
 
 class SettingsWidget(QWidget):
+    """Encapsulates the core settings and additional settings widgets.
+
+    Core Settings:
+    - X Volume
+    - Y Volume
+    - Z Volume
+    - X Corner
+    - Y Corner
+    - Infill Type
+
+    Additional Settings
+    - Weld Gap
+    - Weld Layer Height
+    - Weld Layer Width
+    - Weld Layer Overlap
+    - Travel Speed
+    - Print Speed
+    - X, Y, Z Bed Size
+    - Z Clearance
+    """
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView', parent = None):
         super(SettingsWidget, self).__init__(parent)
         settings_layout = QVBoxLayout()
