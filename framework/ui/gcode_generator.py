@@ -108,6 +108,33 @@ class GCODEGenerator:
     def set_infill_type(self, infill_type: InfillType):
         self.args.infill_type = infill_type.value
 
+    def set_weld_gap(self, value: float):
+        self.args.weld_gap = value
+
+    def set_weld_layer_height(self, value: float):
+        self.args.weld_layer_height = value
+
+    def set_weld_layer_width(self, value: float):
+        self.args.weld_layer_width = value
+    
+    def set_weld_layer_overlap(self, value: float):
+        self.args.weld_layer_overlap = value
+    
+    def set_travel_speed(self, value: float):
+        self.args.travel_speed = value
+
+    def set_print_speed(self, value: float):
+        self.args.print_speed = value
+
+    def set_x_bed_size(self, value: float):
+        self.args.x_bed_size = value
+    
+    def set_y_bed_size(self, value: float):
+        self.args.y_bed_size = value
+    
+    def set_z_clearance(self, value: float):
+        self.args.z_clearance = value
+    
     def safety_checks(self):
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
