@@ -4,10 +4,11 @@ import sys
 import yaml
 import logging
 import pyqtgraph.opengl as gl
+from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QDoubleValidator, QVector3D
 from PyQt6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
-                             QWidget, QComboBox)
+                             QWidget, QComboBox, QTabWidget)
 
 
 from typing import Callable, Any
@@ -24,11 +25,10 @@ class Micer(QWidget):
         self.setWindowTitle('Micer')
 
         layout = QHBoxLayout()
-
         m_view = MicerView(gen)
 
-        layout.addWidget(m_view)
-        layout.addWidget(ButtonsWidget(gen, m_view))
+        layout.addWidget(m_view, 5)
+        layout.addWidget(SettingsWidget(gen, m_view), 1)
         self.setLayout(layout)
 
 
@@ -94,6 +94,7 @@ class ButtonsWidget(QWidget):
         self.gen: GCODEGenerator = gen
         button_layout = QVBoxLayout()
         button_layout.setSizeConstraint(QLayout.SizeConstraint.SetMaximumSize)
+        button_layout.setContentsMargins(15, 0, 0, 30)
         BUTTON_SIZE = 150
 
         names = ["X Volume", "Y Volume", "Z Volume", "X Corner", "Y Corner"]
@@ -152,8 +153,19 @@ class ButtonsWidget(QWidget):
             msg.layout().setColumnMinimumWidth(1, 50)
             msg.exec()
 
+class SettingsWidget(QWidget):
+    def __init__(self, gen: GCODEGenerator, m_view: 'MicerView', parent = None):
+        super(SettingsWidget, self).__init__(parent)
+        settings_layout = QVBoxLayout()
+        settings_tabs = QTabWidget()
+        core_settings = ButtonsWidget(gen=gen, m_view=m_view)
+        additional_settings = QLabel("Widget in Additional Settings.")
 
-# ANGLE = 
+        settings_tabs.addTab(core_settings, "Core Settings")
+        settings_tabs.addTab(additional_settings, "Additional Settings")
+        settings_tabs.setMinimumWidth(400)
+        settings_layout.addWidget(settings_tabs, 1, alignment=Qt.AlignmentFlag.AlignRight)
+        self.setLayout(settings_layout)
 
 
 class MicerView(gl.GLViewWidget):
