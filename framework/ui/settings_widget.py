@@ -8,8 +8,9 @@ from PyQt6.QtWidgets import (QLabel, QLayout,
                              QWidget, QComboBox, QTabWidget)
 from framework.ui.gcode_generator import GCODEGenerator, InfillType
 from framework.ui.yaml import (read_settings_from_yaml, label_to_yaml_property,
-                   write_settings_to_yaml)
+                               write_settings_to_yaml)
 from framework.ui.micer_view import MicerView
+
 
 class QLineEditNum(QLineEdit):
     def __init__(self, name: str, func: Callable[[float], None], m_view: 'MicerView'):
@@ -29,6 +30,7 @@ class QLineEditNum(QLineEdit):
             self.func(float(self.text()))
             write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
             self.m_view.update_vol()
+
 
 class ButtonsWidget(QWidget):
 
@@ -99,6 +101,7 @@ class ButtonsWidget(QWidget):
             msg.layout().setColumnMinimumWidth(1, 50)
             msg.exec()
 
+
 class AdditionalSettingsWidget(QWidget):
 
     def __init__(self, gen: GCODEGenerator, m_view: 'MicerView'):
@@ -123,7 +126,7 @@ class AdditionalSettingsWidget(QWidget):
             "Y Bed Size": gen.set_y_bed_size,
             "Z Clearance": gen.set_z_clearance
         }
-    
+
         settings = read_settings_from_yaml()
         if settings is None:
             raise ValueError("Settings should not be None")
@@ -145,6 +148,7 @@ class AdditionalSettingsWidget(QWidget):
             logging.info("name: %s, yaml property: %s, value: %f", name, converted_yaml_property, settings_val)
             line_edit.setText(str(settings_val))
         self.setLayout(button_layout)
+
 
 class SettingsWidget(QWidget):
     """Encapsulates the core settings and additional settings widgets.

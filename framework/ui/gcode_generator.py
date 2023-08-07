@@ -116,10 +116,10 @@ class GCODEGenerator:
 
     def set_weld_layer_width(self, value: float):
         self.args.weld_layer_width = value
-    
+
     def set_weld_layer_overlap(self, value: float):
         self.args.weld_layer_overlap = value
-    
+
     def set_travel_speed(self, value: float):
         self.args.travel_speed = value
 
@@ -128,13 +128,13 @@ class GCODEGenerator:
 
     def set_x_bed_size(self, value: float):
         self.args.x_bed_size = value
-    
+
     def set_y_bed_size(self, value: float):
         self.args.y_bed_size = value
-    
+
     def set_z_clearance(self, value: float):
         self.args.z_clearance = value
-    
+
     def safety_checks(self):
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
@@ -298,6 +298,8 @@ class GCODEGenerator:
                 self.write_squares(file)
             case InfillType.SERPENTINE:
                 self.write_serpentine_with_box(file)
+            case _:
+                raise ValueError("Uknown Infill Type.")
 
         # Disable welder Just in case
         self.control_welder(file, 0)

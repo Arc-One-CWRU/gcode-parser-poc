@@ -3,6 +3,7 @@ from PyQt6.QtGui import QVector3D
 
 from framework.ui.gcode_generator import GCODEGenerator
 
+
 class MicerView(gl.GLViewWidget):
 
     def __init__(self, gen: GCODEGenerator):

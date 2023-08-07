@@ -39,4 +39,3 @@ def write_settings_to_yaml(key: str, value: Any):
 
 def label_to_yaml_property(name: str) -> str:
     return "_".join(name.lower().split(" "))
-
