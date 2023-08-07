@@ -3,3 +3,12 @@ y_volume: 30.0
 z_volume: 30.0
 x_corner: 1.0
 y_corner: 3.0
+weld_gap: 10.0
+weld_layer_height: 10.0
+weld_layer_width: 10.0
+weld_layer_overlap: 10.0
+travel_speed: 10.0
+print_speed: 10.0
+x_bed_size: 10.0
+y_bed_size: 10.0
+z_clearance: 10.0
