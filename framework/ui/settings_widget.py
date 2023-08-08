@@ -95,7 +95,7 @@ class ButtonsWidget(QWidget):
         button_layout.addWidget(pause_button)
 
         resume_button = QPushButton()
-        resume_button.setText("Pause Current Print")
+        resume_button.setText("Resume Current Print")
         resume_button.clicked.connect(self.gen.resume_print)
         button_layout.addWidget(resume_button)
 
