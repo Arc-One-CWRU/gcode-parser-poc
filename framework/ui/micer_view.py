@@ -18,7 +18,7 @@ class MicerView(gl.GLViewWidget):
         bed_z: float = gen.args.z_bed_size
 
         bed_vector: QVector3D = QVector3D(bed_y, bed_x, bed_z)*self.scale
-        print("bed vector: ", bed_vector)
+
         self.grid = gl.GLGridItem(bed_vector)
         self.grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
         self.addItem(self.grid)
