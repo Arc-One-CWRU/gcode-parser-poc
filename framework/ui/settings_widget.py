@@ -29,6 +29,7 @@ class QLineEditNum(QLineEdit):
             print(self.name, self.text())
             self.func(float(self.text()))
             write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
+            # self.m_view.update_bed()
             self.m_view.update_vol()
 
 
