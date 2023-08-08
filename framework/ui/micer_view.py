@@ -18,7 +18,7 @@ class MicerView(gl.GLViewWidget):
         bed_z: float = gen.args.z_bed_size
 
         bed_vector: QVector3D = QVector3D(bed_y, bed_x, bed_z)*self.scale
-
+        print("bed vector: ", bed_vector)
         self.grid = gl.GLGridItem(bed_vector)
         self.grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
         self.addItem(self.grid)
@@ -31,7 +31,22 @@ class MicerView(gl.GLViewWidget):
 
     # TODO currently grid and axis don't update when bed volume changes they should
     def update_bed(self):
-        raise NotImplementedError("TODO")
+        self.bed_x: float = self.gen.args.x_bed_size
+        self.bed_y: float = self.gen.args.y_bed_size
+        self.bed_z: float = self.gen.args.z_bed_size
+        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*\
+            self.scale
+
+        # You MUST reset the grid transform or else the grid translation
+        # will shoot it into outerspace. 
+        self.grid.resetTransform()
+        self.grid.setSize(size=bed_vector)
+        # This is necessary for keeping the grid anchored to the axis origin
+        self.grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
+        self.axis.setSize(size=bed_vector)
+
+        self.axis.update()
+        self.grid.update()
 
     def reset_box(self):
         x_corner = y_corner = 0
