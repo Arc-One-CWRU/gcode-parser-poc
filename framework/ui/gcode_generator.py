@@ -12,7 +12,7 @@ from enum import IntEnum
 
 MOVE = "G0"
 LINEAR_MOVE = "G1"
-HOME = "G28\n"
+HOME = "G28 ;Homes\n"
 
 SLEEP_START = "G4"
 
@@ -191,7 +191,7 @@ class GCODEGenerator:
         file.write(f";Y Corner = {self.args.y_corner} mm\n")
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
-        file.write(f";Alternate Layer direction? = {self.args.alternate_layers} \n")
+        file.write(f";Alternate Layer direction? = {self.args.alternate_layers}\n")
         file.write(f";Infill Type = {InfillType(self.args.infill_type).name}\n")
 
     # TODO add different directions around the rect
@@ -276,11 +276,6 @@ class GCODEGenerator:
                     self.add_sleep(file, seconds=15)
                     y_pos += self.args.weld_layer_overlap
 
-                    # Used for alternating welding lines
-                    x_pos = x_pos + self.args.x_size if counter % 2 == 1 and self.args.alternate_layers else self.args.x_corner
-                    counter += 1
-                    flip *= -1
-
                     # Move above new start
                     self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos)
 
@@ -290,6 +285,11 @@ class GCODEGenerator:
                     # Reset Y corner and raise height
                     y_pos = self.args.y_corner
                     z_pos += self.args.weld_layer_height
+
+                    # Used for alternating welding lines
+                    x_pos = x_pos + self.args.x_size if counter % 2 == 0 and self.args.alternate_layers else self.args.x_corner
+                    counter += 1
+                    flip *= -1
 
             if i != (self.z_line_count - 1):
                 # Wait for cool
@@ -357,8 +357,10 @@ class GCODEGenerator:
         self.welding = True if status == 1 else False
         file.write(f"{WELDER_CONTROL} S{status}\n")
 
-    def add_linear_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
-                        y: Optional[float] = None, z: Optional[float] = None):
+    def add_linear_move(self, file: TextIOWrapper, speed: float,
+                        x: Optional[float] = None,
+                        y: Optional[float] = None,
+                        z: Optional[float] = None):
         time = None
 
         if x is not None:
@@ -381,8 +383,10 @@ class GCODEGenerator:
         else:
             self.move_time += time
 
-    def add_rapid_move(self, file: TextIOWrapper, speed: float, x: Optional[float] = None,
-                       y: Optional[float] = None, z: Optional[float] = None):
+    def add_rapid_move(self, file: TextIOWrapper, speed: float,
+                       x: Optional[float] = None,
+                       y: Optional[float] = None,
+                       z: Optional[float] = None):
 
         cmd = MOVE
         if x is None and y is None and z is None:
