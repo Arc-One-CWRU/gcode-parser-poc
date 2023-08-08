@@ -276,6 +276,11 @@ class GCODEGenerator:
                     self.add_sleep(file, seconds=15)
                     y_pos += self.args.weld_layer_overlap
 
+                    # Used for alternating welding lines
+                    x_pos = x_pos + self.args.x_size if counter % 2 == 1 and self.args.alternate_layers else self.args.x_corner
+                    counter += 1
+                    flip *= -1
+
                     # Move above new start
                     self.add_rapid_move(file, self.args.travel_speed, x_pos, y_pos)
 
@@ -285,11 +290,6 @@ class GCODEGenerator:
                     # Reset Y corner and raise height
                     y_pos = self.args.y_corner
                     z_pos += self.args.weld_layer_height
-
-                    # Used for alternating welding lines
-                    x_pos = x_pos + self.args.x_size if counter % 2 == 1 and self.args.alternate_layers else self.args.x_corner
-                    counter += 1
-                    flip *= -1
 
             if i != (self.z_line_count - 1):
                 # Wait for cool
