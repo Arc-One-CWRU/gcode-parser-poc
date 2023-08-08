@@ -13,23 +13,23 @@ class MicerView(gl.GLViewWidget):
 
         self.scale: float = 0.01
 
-        self.bed_x: float = gen.args.x_bed_size
-        self.bed_y: float = gen.args.y_bed_size
-        self.bed_z: float = gen.args.z_bed_size
+        bed_x: float = gen.args.x_bed_size
+        bed_y: float = gen.args.y_bed_size
+        bed_z: float = gen.args.z_bed_size
 
-        bed_vector: QVector3D = QVector3D(self.bed_x, self.bed_y, self.bed_z)*self.scale
+        bed_vector: QVector3D = QVector3D(bed_y, bed_x, bed_z)*self.scale
 
         grid = gl.GLGridItem(bed_vector)
-        grid.translate((-bed_vector.x()/2), (bed_vector.y()/2), 0)
-        grid.scale(-1, 1, 1)
+        grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
+        # grid.scale(-1, 1, 1)
         self.addItem(grid)
 
         axis = gl.GLAxisItem(bed_vector)
-        axis.scale(-1, 1, 1)
+        # axis.scale(-1, 1, 1)
         self.addItem(axis)
 
         self.box = gl.GLBoxItem(QVector3D(0, 0, 0), glOptions='opaque')
-        self.box.rotate(90, 0, 0, 1)
+        # self.box.rotate(90, 0, 0, 1)
         self.addItem(self.box)
 
     def reset_box(self):
@@ -40,8 +40,8 @@ class MicerView(gl.GLViewWidget):
         if self.gen.args.y_corner is not None:
             y_corner = self.gen.args.y_corner
 
-        self.box.translate(x_corner*self.scale,
-                           -y_corner*self.scale, 0)
+        self.box.translate(-y_corner*self.scale,
+                           -x_corner*self.scale, 0)
         self.box.update()
 
     def update_vol(self):
@@ -62,7 +62,7 @@ class MicerView(gl.GLViewWidget):
         if self.gen.args.y_corner is not None:
             y_corner = self.gen.args.y_corner
 
-        self.box.setSize(x*self.scale, y*self.scale, z*self.scale)
-        self.box.translate(-x_corner*self.scale,
-                           y_corner*self.scale, 0)
+        self.box.setSize(y*self.scale, x*self.scale, z*self.scale)
+        self.box.translate(y_corner*self.scale,
+                           x_corner*self.scale, 0)
         self.box.update()

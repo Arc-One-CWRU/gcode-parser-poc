@@ -1,8 +1,8 @@
-x_volume: 50.0
-y_volume: 50.0
-z_volume: 20.0
-x_corner: 25.0
-y_corner: 25.0
+x_volume: 100.0
+y_volume: 200.0
+z_volume: 55.0
+x_corner: 45.0
+y_corner: 60.0
 weld_gap: 8.0
 weld_layer_height: 1.6
 weld_layer_width: 8.5

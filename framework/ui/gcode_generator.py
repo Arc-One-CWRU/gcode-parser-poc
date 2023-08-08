@@ -191,7 +191,7 @@ class GCODEGenerator:
         file.write(f";Y Corner = {self.args.y_corner} mm\n")
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
-        file.write(f"; Alternate Layer direction? = {self.args.alternate_layers} \n")
+        file.write(f";Alternate Layer direction? = {self.args.alternate_layers} \n")
         file.write(f";Infill Type = {InfillType(self.args.infill_type).name}\n")
 
     # TODO add different directions around the rect
