@@ -21,15 +21,12 @@ class MicerView(gl.GLViewWidget):
 
         grid = gl.GLGridItem(bed_vector)
         grid.translate((bed_vector.x()/2), (bed_vector.y()/2), 0)
-        # grid.scale(-1, 1, 1)
         self.addItem(grid)
 
         axis = gl.GLAxisItem(bed_vector)
-        # axis.scale(-1, 1, 1)
         self.addItem(axis)
 
         self.box = gl.GLBoxItem(QVector3D(0, 0, 0), glOptions='opaque')
-        # self.box.rotate(90, 0, 0, 1)
         self.addItem(self.box)
 
     def reset_box(self):
