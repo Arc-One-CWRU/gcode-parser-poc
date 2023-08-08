@@ -59,7 +59,7 @@ class GCODEGenerator:
 
         # Overall Dimensions of bed
         parser.add_argument("-xbs", "--x_bed_size", help="Set x bed size (mm).",
-                            type=float, default=240)
+                            type=float, default=310)
         parser.add_argument("-ybs", "--y_bed_size", help="Set y bed size (mm).",
                             type=float, default=580)
         parser.add_argument("-zbs", "--z_bed_size", help="Set z bed size (mm).",
@@ -96,6 +96,7 @@ class GCODEGenerator:
         self.args = parser.parse_args()
 
     # TODO this hurts me
+    # Might need to drop support for cli to remove this idk
     def set_x(self, x: float):
         self.args.x_size = x
 
@@ -434,6 +435,8 @@ class GCODEGenerator:
         cmd += "\n"
         file.write(cmd)
 
+    # Could refactor duet specific stuff elsewhere perhaps
+    # Might want to share duet connection rather than starting and stopping?
     def upload(self):
         duet = DuetWebAPI(URL)
         duet.connect()
@@ -448,6 +451,62 @@ class GCODEGenerator:
                 print(e)
 
         print("Finished upload")
+        duet.disconnect()
+
+    def e_stop(self):
+        duet = DuetWebAPI(URL)
+        duet.connect()
+        print("Connected to Duet")
+        stuff = None
+        while stuff is None:
+            try:
+                duet.emergency_stop()
+            except ConnectionError as e:
+                print(e)
+
+        print("E Stopped")
+        duet.disconnect()
+
+    def start_last_print(self):
+        duet = DuetWebAPI(URL)
+        duet.connect()
+        print("Connected to Duet")
+        stuff = None
+        while stuff is None:
+            try:
+                duet.start_print(self.filename)
+            except ConnectionError as e:
+                print(e)
+
+        print("Started Last Print")
+        duet.disconnect()
+
+    def pause_print(self):
+        duet = DuetWebAPI(URL)
+        duet.connect()
+        print("Connected to Duet")
+        stuff = None
+        while stuff is None:
+            try:
+                duet.pause_print()
+            except ConnectionError as e:
+                print(e)
+
+        print("Paused Print")
+        duet.disconnect()
+
+    def resume_print(self):
+        duet = DuetWebAPI(URL)
+        duet.connect()
+        print("Connected to Duet")
+        stuff = None
+        while stuff is None:
+            try:
+                duet.send_code("M24")
+            except ConnectionError as e:
+                print(e)
+
+        print("Resumed Print")
         duet.disconnect()
 
 

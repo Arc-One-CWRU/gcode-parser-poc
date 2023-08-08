@@ -79,10 +79,30 @@ class ButtonsWidget(QWidget):
         self.infill_list.currentIndexChanged.connect(self.update_infill_type)
         button_layout.addWidget(self.infill_list)
 
-        button = QPushButton()
-        button.setText("Create and Upload to Duet")
-        button.clicked.connect(self.create_and_upload)
-        button_layout.addWidget(button)
+        upload_button = QPushButton()
+        upload_button.setText("Create and Upload to Duet")
+        upload_button.clicked.connect(self.create_and_upload)
+        button_layout.addWidget(upload_button)
+
+        play_button = QPushButton()
+        play_button.setText("Run Last Created Print")
+        play_button.clicked.connect(self.gen.start_last_print)
+        button_layout.addWidget(play_button)
+
+        pause_button = QPushButton()
+        pause_button.setText("Pause Current Print")
+        pause_button.clicked.connect(self.gen.pause_print)
+        button_layout.addWidget(pause_button)
+
+        resume_button = QPushButton()
+        resume_button.setText("Pause Current Print")
+        resume_button.clicked.connect(self.gen.resume_print)
+        button_layout.addWidget(resume_button)
+
+        estop_button = QPushButton()
+        estop_button.setText("ESTOP!!!")
+        estop_button.clicked.connect(self.gen.e_stop)
+        button_layout.addWidget(estop_button)
 
         self.setLayout(button_layout)
 
