@@ -13,7 +13,8 @@ from framework.ui.micer_view import MicerView
 
 
 class QLineEditNum(QLineEdit):
-    def __init__(self, name: str, func: Callable[[float], None], m_view: 'MicerView'):
+    def __init__(self, name: str, func: Callable[[float], None],
+                 m_view: 'MicerView'):
         super(QWidget, self).__init__()
         self.func = func
         self.m_view = m_view
@@ -25,10 +26,9 @@ class QLineEditNum(QLineEdit):
         elif self.text() == '-':
             self.func(0)
         else:
-            self.m_view.reset_box()
-            print(self.name, self.text())
             self.func(float(self.text()))
-            write_settings_to_yaml(key=label_to_yaml_property(self.name), value=float(self.text()))
+            write_settings_to_yaml(key=label_to_yaml_property(self.name),
+                                   value=float(self.text()))
             self.m_view.update_bed()
             self.m_view.update_vol()
 
