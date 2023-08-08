@@ -124,6 +124,7 @@ class AdditionalSettingsWidget(QWidget):
             "Print Speed": gen.set_print_speed,
             "X Bed Size": gen.set_x_bed_size,
             "Y Bed Size": gen.set_y_bed_size,
+            "Z Bed Size": gen.set_z_bed_size,
             "Z Clearance": gen.set_z_clearance
         }
 

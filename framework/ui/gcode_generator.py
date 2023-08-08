@@ -1,3 +1,5 @@
+# TODO move out of ui?
+
 import os
 from argparse import ArgumentParser
 from datetime import datetime
@@ -82,14 +84,18 @@ class GCODEGenerator:
                             type=float, default=90)
 
         # Print Type
-        parser.add_argument("-i", "--infill_type", help="Specify infill type. 1 is for straight lines, 2 is for concentric squares and 3 is for lines snaking back and forth",
+        parser.add_argument("-i", "--infill_type", help="Specify infill type. 0 is for straight lines, 1 is for concentric squares and 2 is for lines snaking back and forth",
                             type=int, default=0)
+
+        parser.add_argument("-al", "--alternate_layers", help="Want to alternate layers to avoid drooping?",
+                            type=bool, default=True)
 
         parser.add_argument("-v", "--verbose", help="Debug logging.",
                             type=bool, default=False)
 
         self.args = parser.parse_args()
 
+    # TODO this hurts me
     def set_x(self, x: float):
         self.args.x_size = x
 
@@ -132,10 +138,17 @@ class GCODEGenerator:
     def set_y_bed_size(self, value: float):
         self.args.y_bed_size = value
 
+    def set_z_bed_size(self, value: float):
+        self.args.z_bed_size = value
+
     def set_z_clearance(self, value: float):
         self.args.z_clearance = value
 
+    def set_alternate_layers(self, value: bool):
+        self.args.alternate_layers = value
+
     def safety_checks(self):
+        # Parameter not set
         for kwarg in self.args._get_kwargs():
             if kwarg[1] is None:
                 raise ValueError(f"{kwarg[0]} is None")
@@ -178,6 +191,8 @@ class GCODEGenerator:
         file.write(f";Y Corner = {self.args.y_corner} mm\n")
         file.write(f";Z Clearance = {self.args.z_clearance} mm\n")
         file.write(f";Logging enabled? = {self.args.verbose}\n")
+        file.write(f"; Alternate Layer direction? = {self.args.alternate_layers} \n")
+        file.write(f";Infill Type = {InfillType(self.args.infill_type).name}\n")
 
     # TODO add different directions around the rect
     # TODO add the ability to start in the middle of an edge of the rectangle
@@ -234,6 +249,9 @@ class GCODEGenerator:
         y_pos = self.args.y_corner
         z_pos = self.args.weld_gap
 
+        counter = 0
+        flip = 1
+
         for i in range(self.z_line_count):
             for j in range(self.y_line_count):
 
@@ -244,7 +262,7 @@ class GCODEGenerator:
                 self.control_welder(file, 1)
 
                 # Moves a long line
-                self.add_linear_move(file, self.args.print_speed, x=(x_pos + self.args.x_size))
+                self.add_linear_move(file, self.args.print_speed, x=(x_pos + self.args.x_size * flip))
 
                 # Disable welder
                 self.control_welder(file, 0)
@@ -267,6 +285,11 @@ class GCODEGenerator:
                     # Reset Y corner and raise height
                     y_pos = self.args.y_corner
                     z_pos += self.args.weld_layer_height
+
+                    # Used for alternating welding lines
+                    x_pos = x_pos + self.args.x_size if counter % 2 == 1 and self.args.alternate_layers else self.args.x_corner
+                    counter += 1
+                    flip *= -1
 
             if i != (self.z_line_count - 1):
                 # Wait for cool
