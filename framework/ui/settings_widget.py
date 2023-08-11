@@ -117,7 +117,8 @@ class ButtonsWidget(QWidget):
             msg = QMessageBox(self)
             msg.setIcon(QMessageBox.Icon.Information)
             msg.setWindowTitle("Uploaded")
-            msg.setText("")
+            msg.setText("File has been uploaded.")
+            msg.layout().setColumnMinimumWidth(1, 50)
 
             timer = QTimer()
             timer.setInterval(5000)

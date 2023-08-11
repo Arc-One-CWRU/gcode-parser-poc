@@ -224,9 +224,9 @@ class GCODEGenerator:
 
             # TODO RAISE then lwoer
 
-            while y_pos < 
+            # while y_pos < 
 
-                self.add_linear_move(file, self.args.print_speed, )
+            #     self.add_linear_move(file, self.args.print_speed, )
 
 
 
