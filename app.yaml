@@ -1,10 +1,10 @@
 x_volume: 228.6
-y_volume: 70.0
-z_volume: 101.1
+y_volume: 4.0
+z_volume: 101.6
 x_corner: 25.4
-y_corner: 570.0
-weld_gap: 8.0
-weld_layer_height: 1.6
+y_corner: 490.0
+weld_gap: 6.0
+weld_layer_height: 1.55
 weld_layer_width: 8.5
 weld_layer_overlap: 6.1
 travel_speed: 1500.0
