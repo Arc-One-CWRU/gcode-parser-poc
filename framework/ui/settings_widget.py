@@ -1,7 +1,7 @@
 from typing import Callable
 import logging
 
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QDoubleValidator
 from PyQt6.QtWidgets import (QLabel, QLayout,
                              QLineEdit, QMessageBox, QPushButton, QVBoxLayout,
@@ -112,8 +112,19 @@ class ButtonsWidget(QWidget):
     def create_and_upload(self):
         try:
             self.gen.run()
-            # TODO add some feedback about it working
             self.gen.upload()
+
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Information)
+            msg.setWindowTitle("Uploaded")
+            msg.setText("")
+
+            timer = QTimer()
+            timer.setInterval(5000)
+            timer.timeout.connect(msg.close)
+            timer.start()
+
+            msg.exec()
         except ValueError as e:
             msg = QMessageBox(self)
             msg.setIcon(QMessageBox.Icon.Critical)
@@ -167,7 +178,7 @@ class AdditionalSettingsWidget(QWidget):
             # Load settings from yaml settings
             converted_yaml_property = label_to_yaml_property(name)
             settings_val = settings[converted_yaml_property]
-            logging.info("name: %s, yaml property: %s, value: %f", name, converted_yaml_property, settings_val)
+            logging.info(f"name: {name}, yaml property: {converted_yaml_property}, value: {settings_val}")
             line_edit.setText(str(settings_val))
         self.setLayout(button_layout)
 
@@ -193,7 +204,7 @@ class SettingsWidget(QWidget):
     - X, Y, Z Bed Size
     - Z Clearance
     """
-    def __init__(self, gen: GCODEGenerator, m_view: 'MicerView', parent = None):
+    def __init__(self, gen: GCODEGenerator, m_view: 'MicerView', parent=None):
         super(SettingsWidget, self).__init__(parent)
         settings_layout = QVBoxLayout()
         settings_tabs = QTabWidget()

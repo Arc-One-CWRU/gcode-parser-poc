@@ -220,12 +220,19 @@ class GCODEGenerator:
                             x_pos + self.args.x_size,
                             y_pos + self.args.x_size)
 
+            y_pos += self.args.weld_layer_overlap
+
+            # TODO RAISE then lwoer
+
+            while y_pos < 
+
+                self.add_linear_move(file, self.args.print_speed, )
 
 
 
 
-
-
+            x_pos = self.args.x_corner
+            y_pos = self.args.y_corner
             z_pos += self.args.weld_layer_height
 
             if i != (self.z_line_count - 1):
@@ -323,7 +330,7 @@ class GCODEGenerator:
             case InfillType.SERPENTINE:
                 self.write_serpentine_with_box(file)
             case _:
-                raise ValueError("Uknown Infill Type.")
+                raise ValueError("Unknown Infill Type.")
 
         # Disable welder Just in case
         self.control_welder(file, 0)
@@ -362,7 +369,7 @@ class GCODEGenerator:
                         x: Optional[float] = None,
                         y: Optional[float] = None,
                         z: Optional[float] = None):
-        time = None
+        time = 0
 
         if x is not None:
             file.write(f"{LINEAR_MOVE} X{x} F{speed}\n")
