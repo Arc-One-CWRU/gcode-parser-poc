@@ -1,8 +1,8 @@
-x_volume: 228.6
-y_volume: 5.0
-z_volume: 76.2
+x_volume: 100.0
+y_volume: 4.0
+z_volume: 16.0
 x_corner: 25.4
-y_corner: 25.4
+y_corner: 570.0
 weld_gap: 8.0
 weld_layer_height: 1.6
 weld_layer_width: 8.5
@@ -11,5 +11,5 @@ travel_speed: 1500.0
 print_speed: 381.0
 x_bed_size: 310.0
 y_bed_size: 580.0
-z_bed_size: 110.0
-z_clearance: 30.0
+z_bed_size: 220.0
+z_clearance: 60.0
