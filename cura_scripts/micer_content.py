@@ -18,6 +18,8 @@ class GCodes(Enum):
 
 class Micer(Script):
 
+    weld_gap = 8.0
+
     def getSettingDataString(self) -> str:
         return """{
         "name": "Micer",
@@ -88,6 +90,22 @@ class Micer(Script):
 
         return data2
 
+    def move_up_z(self, data: list[str]) -> list[str]:
+        data2: list[str] = []
+        for line in data:
+            if " Z" in line:
+                z_index = line.index("Z") + 1
+
+                z_front: str = line[0:z_index]
+                z_num = float(line[z_index:len(line)].replace(" ", "").replace("\n", ""))
+                z_num += self.weld_gap
+
+                data2.append(z_front + str(z_num) + "\n")
+            else:
+                data2.append(line)
+
+        return data2
+
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
             data[0] is the information about the print
@@ -96,6 +114,10 @@ class Micer(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-
-        no_extruder = self.remove_extruder(data)
-        return self.all_welder_control(no_extruder)
+        try:
+            no_extruder = self.remove_extruder(data)
+            welder = self.all_welder_control(no_extruder)
+            up_z = self.move_up_z(welder)
+            return up_z
+        except Exception as e:
+            return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]
