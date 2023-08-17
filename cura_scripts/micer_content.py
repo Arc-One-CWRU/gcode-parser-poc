@@ -23,9 +23,9 @@ class GCodes(Enum):
 
 
 class Micer(Script):
-
     sum_sleep_time = 0.0
     end_time = -1
+    keywords = ["weldgap", "sleeptime"]
 
     def getSettingDataString(self) -> str:
         # TODO make this JSON be compliant with linter
@@ -184,6 +184,22 @@ class Micer(Script):
 
         return lines3
 
+    def add_micer_settings(self, lines: list[str]) -> list[str]:
+        lines2: list[str] = []
+        for line in lines:
+            if line.startswith(";Generated with Cura_SteamEngine 5.4.0"):
+                lines2.append(";Generated with Cura_SteamEngine 5.4.0 + Micer\n")
+            elif line.startswith(";MAXZ:"):
+                lines2.append(line)
+                lines2.append("\n;Micer Settings\n")
+                for keyword in self.keywords:
+                    value = self.getSettingValueByKey(keyword)
+                    lines2.append(f';{keyword} = {value}\n')
+
+            else:
+                lines2.append(line)
+        return lines2
+
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
             data[0] is the information about the print
@@ -193,8 +209,8 @@ class Micer(Script):
             data[n-1] End Commands
         """
         # TODO should log these settings into the GCode file
-        self.weld_gap = float(self.getSettingValueByKey("weldgap"))
-        self.sleep_time = float(self.getSettingValueByKey("sleeptime"))
+        self.weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
+        self.sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
 
         try:
             lines = self.splitter(data)
@@ -202,7 +218,8 @@ class Micer(Script):
             no_extruder = self.remove_extruder(sleep)
             welder = self.all_welder_control(no_extruder)
             up_z = self.move_up_z(welder)
-            return up_z
+            settings = self.add_micer_settings(up_z)
+            return settings
         except Exception as e:
             Logger.log("e", str(e))
             return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]
