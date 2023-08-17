@@ -110,8 +110,18 @@ class Micer(Script):
         return data2
 
     def move_up_z(self, lines: list[str]) -> list[str]:
-        first_z = True
-        diff = None
+        min_z = float("inf")
+
+        for line in lines:
+            if " Z" in line:
+
+                z_index = line.index("Z") + 1
+                z_num = float(line[z_index:len(line)].replace(" ", "")
+                              .replace("\n", ""))
+
+                min_z = min(min_z, z_num)
+
+        diff = self.weld_gap - min_z
 
         data2: list[str] = []
         for line in lines:
@@ -123,13 +133,6 @@ class Micer(Script):
                 z_num = float(line[z_index:len(line)].replace(" ", "")
                               .replace("\n", ""))
 
-                # TODO? Does this check lots of times seems slow
-                if first_z:
-                    diff = self.weld_gap - z_num
-                    first_z = False
-                if diff is None:
-                    raise ValueError("""Difference between z_num
-                                     and weld gap is None""")
                 z_num += diff
                 data2.append(z_front + str(z_num) + "\n")
             else:
@@ -209,7 +212,6 @@ class Micer(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        # TODO should log these settings into the GCode file
         self.weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         self.sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
 
