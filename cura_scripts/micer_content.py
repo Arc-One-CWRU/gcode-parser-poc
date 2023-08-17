@@ -187,8 +187,9 @@ class Micer(Script):
     def add_micer_settings(self, lines: list[str]) -> list[str]:
         lines2: list[str] = []
         for line in lines:
-            if line.startswith(";Generated with Cura_SteamEngine 5.4.0"):
-                lines2.append(";Generated with Cura_SteamEngine 5.4.0 + Micer\n")
+            GENERATED_STRING = ";Generated with Cura_SteamEngine 5.4.0"
+            if line.startswith(GENERATED_STRING):
+                lines2.append(f"{GENERATED_STRING} + Micer\n")
             elif line.startswith(";MAXZ:"):
                 lines2.append(line)
                 lines2.append("\n;Micer Settings\n")
