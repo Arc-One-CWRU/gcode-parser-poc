@@ -1,12 +1,15 @@
 # import re
 from enum import Enum
 from ..Script import Script
+from UM.Logger import Logger
+from math import modf
 # Has to be place in
 # C:\Program Files\UltiMaker Cura 5.4.0\share\
 # cura\plugins\PostProcessingPlugin\scripts
 # I made a symlink between there and the symlink_micer.py file
 
 
+# Maybe subclass for stuff to be remove versus total
 class GCodes(Enum):
     TOOL = "T0"
     SET_EXTRUDER_TEMP = "M104"
@@ -16,12 +19,16 @@ class GCodes(Enum):
     FAN_OFF = "M107"
     WELD_OFF = "M42 P1 S0 ;Disable Welder\n"
     WELD_ON = "M42 P1 S1 ;Enable Welder\n"
+    SLEEP = "G4"
 
 
 class Micer(Script):
 
+    sum_sleep_time = 0.0
+    end_time = -1
+
     def getSettingDataString(self) -> str:
-        # TODO make this JSON be compliant
+        # TODO make this JSON be compliant with linter
         return """{
         "name": "Micer",
         "key": "Micer",
@@ -30,12 +37,19 @@ class Micer(Script):
         "settings":{
             "weldgap": {
                 "label": "Set Weld Gap",
-                "description": "Set the welding gap measured from base of gun to fixture (mm).",
+                "description": "Set the welding gap. (mm)",
                 "type": "float",
                 "default_value": 8,
                 "minimum_value": 0,
                 "maximum_value": 1000,
                 "maximum_value_warning": 100
+            },
+            "sleeptime": {
+                "label": "Set Sleep Time",
+                "description": "Set the layer sleep time. (s)",
+                "type": "float",
+                "default_value": 30,
+                "minimum_value": 0
             }
         }
         }"""
@@ -123,7 +137,7 @@ class Micer(Script):
 
         return data2
 
-    # TODO Starting stuff gets moved but only some
+    # TODO? Starting stuff gets moved but only some
     def splitter(self, data: list[str]) -> list[str]:
         """Splits the incoming data from Cura into a list
         with each element being a GCode"""
@@ -135,6 +149,41 @@ class Micer(Script):
 
         return lines2
 
+    # Work but could use some cleaner code
+    def add_sleep(self, lines: list[str]) -> list[str]:
+        (ds, s) = modf(self.sleep_time)
+        # Converts into ms
+        ms = int(ds*1000)
+
+        lines2: list[str] = []
+        skip_first = True
+        for line in lines:
+
+            if line.startswith(";LAYER:"):
+                self.sum_sleep_time += self.sleep_time
+
+                if skip_first:
+                    skip_first = False
+                    continue
+                lines2.append(f"{line}{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
+
+            elif line.startswith(";TIME_ELAPSED:"):
+                time_elapsed = float(line[14:len(line)].replace("\n", ""))
+                new_time_elapsed = time_elapsed+self.sum_sleep_time
+                self.end_time = new_time_elapsed
+                lines2.append(f";TIME_ELAPSED:{new_time_elapsed}")
+            else:
+                lines2.append(line)
+
+        lines3: list[str] = []
+        for line in lines2:
+            if line.startswith(";TIME:"):
+                lines3.append(f";TIME:{self.end_time}\n")
+            else:
+                lines3.append(line)
+
+        return lines3
+
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
             data[0] is the information about the print
@@ -143,13 +192,17 @@ class Micer(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-
+        # TODO should log these settings into the GCode file
         self.weld_gap = float(self.getSettingValueByKey("weldgap"))
+        self.sleep_time = float(self.getSettingValueByKey("sleeptime"))
+
         try:
             lines = self.splitter(data)
-            no_extruder = self.remove_extruder(lines)
+            sleep = self.add_sleep(lines)
+            no_extruder = self.remove_extruder(sleep)
             welder = self.all_welder_control(no_extruder)
             up_z = self.move_up_z(welder)
             return up_z
         except Exception as e:
+            Logger.log("e", str(e))
             return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]
