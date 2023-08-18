@@ -3,3 +3,4 @@ PyQt6
 pyqtgraph
 PyOpenGL
 pyyaml
+numpy

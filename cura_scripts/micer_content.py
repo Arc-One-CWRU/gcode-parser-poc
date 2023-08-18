@@ -3,6 +3,7 @@ from enum import Enum
 from ..Script import Script
 from UM.Logger import Logger
 from math import modf
+import numpy
 # Has to be place in
 # C:\Program Files\UltiMaker Cura 5.4.0\share\
 # cura\plugins\PostProcessingPlugin\scripts
@@ -23,9 +24,10 @@ class GCodes(Enum):
 
 
 class Micer(Script):
+    # TODO theses should live in sleep func probably
     sum_sleep_time = 0.0
     end_time = -1
-    keywords = ["weldgap", "sleeptime"]
+    keywords = ["weldgap", "sleeptime", "rotate_amount"]
 
     def getSettingDataString(self) -> str:
         # TODO make this JSON be compliant with linter
@@ -49,6 +51,13 @@ class Micer(Script):
                 "description": "Set the layer sleep time. (s)",
                 "type": "float",
                 "default_value": 30,
+                "minimum_value": 0
+            },
+            "rotate_amount": {
+                "label": "Set the Rotate Count",
+                "description": "Set the amount of times to rotate.",
+                "type": "int",
+                "default_value": 6,
                 "minimum_value": 0
             }
         }
@@ -193,6 +202,7 @@ class Micer(Script):
             GENERATED_STRING = ";Generated with Cura_SteamEngine 5.4.0"
             if line.startswith(GENERATED_STRING):
                 lines2.append(f"{GENERATED_STRING} + Micer\n")
+
             elif line.startswith(";MAXZ:"):
                 lines2.append(line)
                 lines2.append("\n;Micer Settings\n")
@@ -204,6 +214,19 @@ class Micer(Script):
                 lines2.append(line)
         return lines2
 
+    def rotate_start_layer_print(self, lines: list[str]) -> list[str]:
+        # lines2: list[str] = []
+        # layer_count = 0
+        # start_wall = False
+
+        # for line in lines:
+        #     if line.startswith(";TYPE:WALL-OUTER"):
+        #         start_wall = True
+        #     else:
+        #         lines2.append(line)
+
+        return lines
+
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
             data[0] is the information about the print
@@ -214,12 +237,14 @@ class Micer(Script):
         """
         self.weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         self.sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
+        self.rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
 
         try:
             lines = self.splitter(data)
             sleep = self.add_sleep(lines)
             no_extruder = self.remove_extruder(sleep)
-            welder = self.all_welder_control(no_extruder)
+            rotated_layers = self.rotate_start_layer_print(no_extruder)
+            welder = self.all_welder_control(rotated_layers)
             up_z = self.move_up_z(welder)
             settings = self.add_micer_settings(up_z)
             return settings
