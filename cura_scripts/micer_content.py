@@ -30,7 +30,6 @@ class Micer(Script):
     keywords = ["weldgap", "sleeptime", "rotate_amount"]
 
     def getSettingDataString(self) -> str:
-        # TODO make this JSON be compliant with linter
         return """{
         "name": "Micer",
         "key": "Micer",
