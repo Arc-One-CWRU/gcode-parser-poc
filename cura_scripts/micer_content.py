@@ -89,32 +89,38 @@ class Micer(Script):
         seen_e = False
 
         for i in range(len(lines)):
+            line = lines[i]
 
             # Edge Cases
             if i - 1 < 0:
-                data2.append(lines[i])
+                data2.append(line)
                 continue
             if i + 1 == len(lines):
-                data2.append(lines[i])
+                data2.append(line)
                 continue
 
-            # Might be better way to this? TODO regex?
-            if " E" in lines[i] and not seen_e:
+            if " E" in line and not seen_e:
                 seen_e = True
                 data2.append(GCodes.WELD_ON.value)
-                e_index = lines[i].index(" E")
-                data2.append(lines[i][0:e_index] + "\n")
+                e_index = line.find("E")
+                short_line = line[e_index:len(line)]
+                nums_in_line = re.findall(r"[-+]?(?:\d*\.*\d+)", short_line)
+                e_value = nums_in_line[0]
+                data2.append(line.replace(f"E{e_value}", ""))
 
-            elif " E" in lines[i] and seen_e:
-                e_index = lines[i].index(" E")
-                data2.append(lines[i][0:e_index] + "\n")
+            elif " E" in line and seen_e:
+                e_index = line.find("E")
+                short_line = line[e_index:len(line)]
+                nums_in_line = re.findall(r"[-+]?(?:\d*\.*\d+)", short_line)
+                e_value = nums_in_line[0]
+                data2.append(line.replace(f"E{e_value}", ""))
 
-            elif " E" not in lines[i] and seen_e:
+            elif " E" not in line and seen_e:
                 seen_e = False
                 data2.append(GCodes.WELD_OFF.value)
-                data2.append(lines[i])
-            elif " E" not in lines[i] and not seen_e:
-                data2.append(lines[i])
+                data2.append(line)
+            elif " E" not in line and not seen_e:
+                data2.append(line)
 
         return data2
 
@@ -132,7 +138,7 @@ class Micer(Script):
 
         diff = self.weld_gap - min_z
 
-        # Could store indices to skip
+        # Could store indices to skip loop through data
         data2: list[str] = []
         for line in lines:
             if " Z" in line:
@@ -249,7 +255,7 @@ class Micer(Script):
 
                 rotated_lines = numpy.roll(wall_lines, lines_moved)
                 for wall_line in rotated_lines:
-                    moved_comment = f" ;Moved {lines_moved} lines"
+                    moved_comment = f" ;Moved {lines_moved} lines\n"
                     no_new_line = str(wall_line).replace("\n", "")
 
                     if first_wall_line:
