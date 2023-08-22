@@ -298,6 +298,8 @@ class Micer(Script):
         self.rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
 
         try:
+            # TODO unit test switching these orders around
+            # They should give the same result regardless of order
             lines = self.splitter(data)
             sleep = self.add_sleep(lines)
             no_extruder = self.remove_extruder(sleep)
