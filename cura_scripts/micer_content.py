@@ -1,8 +1,8 @@
-# import re
+import re
 from enum import Enum
 from ..Script import Script
 from UM.Logger import Logger
-from math import modf
+from math import modf, ceil
 import numpy
 # Has to be place in
 # C:\Program Files\UltiMaker Cura 5.4.0\share\
@@ -24,9 +24,6 @@ class GCodes(Enum):
 
 
 class Micer(Script):
-    # TODO theses should live in sleep func probably
-    sum_sleep_time = 0.0
-    end_time = -1
     keywords = ["weldgap", "sleeptime", "rotate_amount"]
 
     def getSettingDataString(self) -> str:
@@ -62,28 +59,32 @@ class Micer(Script):
         }
         }"""
 
+    def gcode_in_line(self, line: str) -> bool:
+        for code in GCodes:
+            # Non removed subclass?
+            if code.value == GCodes.WELD_OFF.value:
+                continue
+            if line.startswith(code.value):
+                return True
+
+        return False
+
     def remove_extruder(self, lines: list[str]) -> list[str]:
         data2: list[str] = []
         for line in lines:
-            not_removed = True
-            for code in GCodes:
-                if line.startswith(code.value):
-                    not_removed = False
-                    continue
+            if self.gcode_in_line(line):
+                continue
 
             # TODO regex magic?
             if ("X" not in line and "Y" not in line and
                "Z" not in line and " E" in line):
-                not_removed = False
                 continue
 
-            if not_removed:
-                data2.append(line)
+            data2.append(line)
 
         return data2
 
     def all_welder_control(self, lines: list[str]) -> list[str]:
-
         data2: list[str] = []
         seen_e = False
 
@@ -97,7 +98,7 @@ class Micer(Script):
                 data2.append(lines[i])
                 continue
 
-            # Might be better way to this? TODO
+            # Might be better way to this? TODO regex?
             if " E" in lines[i] and not seen_e:
                 seen_e = True
                 data2.append(GCodes.WELD_ON.value)
@@ -131,6 +132,7 @@ class Micer(Script):
 
         diff = self.weld_gap - min_z
 
+        # Could store indices to skip
         data2: list[str] = []
         for line in lines:
             if " Z" in line:
@@ -162,6 +164,9 @@ class Micer(Script):
 
     # Work but could use some cleaner code
     def add_sleep(self, lines: list[str]) -> list[str]:
+        sum_sleep_time = 0.0
+        end_time = -1
+
         (ds, s) = modf(self.sleep_time)
         # Converts into ms
         ms = int(ds*1000)
@@ -170,18 +175,20 @@ class Micer(Script):
         skip_first = True
         for line in lines:
 
+            # TODO weird gap between ;LAYER and ;LAYER_COUNT
             if line.startswith(";LAYER:"):
-                self.sum_sleep_time += self.sleep_time
+                sum_sleep_time += self.sleep_time
+                lines2.append(line)
 
                 if skip_first:
                     skip_first = False
                     continue
-                lines2.append(f"{line}{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
+                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
 
             elif line.startswith(";TIME_ELAPSED:"):
                 time_elapsed = float(line[14:len(line)].replace("\n", ""))
-                new_time_elapsed = time_elapsed+self.sum_sleep_time
-                self.end_time = new_time_elapsed
+                new_time_elapsed = time_elapsed+sum_sleep_time
+                end_time = new_time_elapsed
                 lines2.append(f";TIME_ELAPSED:{new_time_elapsed}")
             else:
                 lines2.append(line)
@@ -189,7 +196,7 @@ class Micer(Script):
         lines3: list[str] = []
         for line in lines2:
             if line.startswith(";TIME:"):
-                lines3.append(f";TIME:{self.end_time}\n")
+                lines3.append(f";TIME:{end_time}")
             else:
                 lines3.append(line)
 
@@ -214,17 +221,63 @@ class Micer(Script):
         return lines2
 
     def rotate_start_layer_print(self, lines: list[str]) -> list[str]:
-        # lines2: list[str] = []
-        # layer_count = 0
-        # start_wall = False
+        lines2: list[str] = []
 
-        # for line in lines:
-        #     if line.startswith(";TYPE:WALL-OUTER"):
-        #         start_wall = True
-        #     else:
-        #         lines2.append(line)
+        wall_lines: list[str] = []
+        speed = -1
+        layer_count = -1
+        start_wall = False
+        line_count = 0
 
-        return lines
+        for line in lines:
+            if line.startswith(";LAYER:"):
+                lines2.append(line)
+                layer_count += 1
+            elif line.startswith(";TYPE:WALL-OUTER"):
+                start_wall = True
+                line_count = 0
+                wall_lines = []
+                lines2.append(line)
+            elif " E" not in line and start_wall:
+                first_wall_line = True
+                start_wall = False
+                # Splits and rotate chunks
+                top_num = layer_count % self.rotate_amount
+                percentage = top_num / self.rotate_amount
+
+                lines_moved = ceil(percentage*line_count)
+
+                rotated_lines = numpy.roll(wall_lines, lines_moved)
+                for wall_line in rotated_lines:
+                    moved_comment = f" ;Moved {lines_moved} lines"
+                    no_new_line = str(wall_line).replace("\n", "")
+
+                    if first_wall_line:
+                        first_line = no_new_line.replace(" ", f" F{speed} ", 1)
+                        first_wall_line = False
+                        lines2.append(first_line + moved_comment)
+                        continue
+
+                    lines2.append(no_new_line + moved_comment)
+
+                lines2.append(line)
+            elif start_wall:
+                line_count += 1
+
+                if line.startswith("G1 F"):
+                    # Gets Speed value out of a line
+                    speed = re.findall(r"[-+]?(?:\d*\.*\d+)", line)[1]
+                    generic_line = line.replace(f"F{speed} ", "")
+                    wall_lines.append(generic_line)
+                    continue
+
+                wall_lines.append(line)
+            else:
+                lines2.append(line)
+
+        return lines2
+
+    # TODO could use a helper to get numbers out of lines
 
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
