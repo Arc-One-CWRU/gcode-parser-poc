@@ -202,7 +202,7 @@ class Micer(Script):
         lines3: list[str] = []
         for line in lines2:
             if line.startswith(";TIME:"):
-                lines3.append(f";TIME:{end_time}")
+                lines3.append(f";TIME:{end_time}\n")
             else:
                 lines3.append(line)
 
@@ -234,6 +234,7 @@ class Micer(Script):
         layer_count = -1
         start_wall = False
         line_count = 0
+        gotten_speed = False
 
         for line in lines:
             if line.startswith(";LAYER:"):
@@ -243,6 +244,7 @@ class Micer(Script):
                 start_wall = True
                 line_count = 0
                 wall_lines = []
+                gotten_speed = False
                 lines2.append(line)
             elif " E" not in line and start_wall:
                 first_wall_line = True
@@ -270,7 +272,8 @@ class Micer(Script):
             elif start_wall:
                 line_count += 1
 
-                if line.startswith("G1 F"):
+                if line.startswith("G1 F") and not gotten_speed:
+                    gotten_speed = True
                     # Gets Speed value out of a line
                     speed = re.findall(r"[-+]?(?:\d*\.*\d+)", line)[1]
                     generic_line = line.replace(f"F{speed} ", "")
@@ -298,8 +301,7 @@ class Micer(Script):
         self.rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
 
         try:
-            # TODO unit test switching these orders around
-            # They should give the same result regardless of order
+            # TODO unit test to make sure order does not matter.
             lines = self.splitter(data)
             sleep = self.add_sleep(lines)
             no_extruder = self.remove_extruder(sleep)
