@@ -9,7 +9,7 @@ class ExcludeMeshLayer(SectionProcessorInterface):
 
     def __init__(self) -> None:
         super().__init__()
-        self.is_start_of_layer_matcher = re.compile(';[A-Z]')
+        self.is_start_of_layer_matcher = re.compile(r';[A-Z]')
 
     def process(self, gcode_section: str) -> str:
         """Reads the G-Code file buffer and does an action. It should return

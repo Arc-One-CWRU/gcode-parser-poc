@@ -9,7 +9,7 @@ class G1ExtruderRemover(CommandProcessorInterface):
     def __init__(self) -> None:
         super().__init__()
         self.extruder_g1_matcher = re.compile(
-            "([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
+            r"([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
 
     def process(self, gcode_instruction: str) -> str:
         """Matches a G-Code instruction. It should return

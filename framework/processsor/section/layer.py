@@ -10,7 +10,7 @@ class ExcludeCuraLayer(SectionProcessorInterface):
 
     def __init__(self, ignore_layer_indices: List[int]) -> None:
         super().__init__()
-        self.is_start_of_layer_matcher = re.compile(';[A-Z]')
+        self.is_start_of_layer_matcher = re.compile(r';[A-Z]')
         self.ignore_layer_indices = ignore_layer_indices
 
     def process(self, gcode_section: str) -> str:

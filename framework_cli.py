@@ -4,9 +4,6 @@ Arc One GCode Parser Proof Of Concept
 Parses GCode files based on the instructions in ./examples/README.md so that
 our printer can print the GCode.
 """
-import io
-import re
-
 
 if __name__ == "__main__":
     import argparse

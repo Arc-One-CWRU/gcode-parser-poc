@@ -68,7 +68,7 @@ M42 P1 S1; Turn on the welder
         "G0"
     ]
 
-    extruder_g1_matcher = re.compile("([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
+    extruder_g1_matcher = re.compile(r"([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
     starts_with_g1 = False
     while (not starts_with_g1):
         curr_line = file_buffer.readline()
