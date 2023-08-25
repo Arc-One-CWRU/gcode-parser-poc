@@ -298,6 +298,7 @@ class Micer(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
+        # TODO should be passed into functions
         self.weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         self.sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         self.rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
