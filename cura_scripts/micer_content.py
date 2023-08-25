@@ -1,9 +1,12 @@
 import re
 from enum import Enum
-from ..Script import Script
-from UM.Logger import Logger
-from math import modf, ceil
+from math import ceil, modf
+
 import numpy
+from UM.Logger import Logger
+
+from ..Script import Script
+
 # Has to be place in
 # C:\Program Files\UltiMaker Cura 5.4.0\share\
 # cura\plugins\PostProcessingPlugin\scripts
@@ -173,9 +176,9 @@ class Micer(Script):
         sum_sleep_time = 0.0
         end_time = -1
 
-        (ds, s) = modf(self.sleep_time)
+        (decimal_seconds, seconds) = modf(self.sleep_time)
         # Converts into ms
-        ms = int(ds*1000)
+        milliseconds = int(decimal_seconds*1000)
 
         lines2: list[str] = []
         skip_first = True
@@ -189,7 +192,7 @@ class Micer(Script):
                 if skip_first:
                     skip_first = False
                     continue
-                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
+                lines2.append(f"{GCodes.SLEEP.value} S{int(seconds)} P{milliseconds}\n")
 
             elif line.startswith(";TIME_ELAPSED:"):
                 time_elapsed = float(line[14:len(line)].replace("\n", ""))
@@ -287,7 +290,6 @@ class Micer(Script):
         return lines2
 
     # TODO could use a helper to get numbers out of lines
-
     def execute(self, data: list[str]) -> list[str]:
         """ data is 4 + layer count elements long
             data[0] is the information about the print

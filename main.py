@@ -70,7 +70,7 @@ M42 P1 S1; Turn on the welder
 
     extruder_g1_matcher = re.compile(r"([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
     starts_with_g1 = False
-    while (not starts_with_g1):
+    while not starts_with_g1:
         curr_line = file_buffer.readline()
         has_reached_end = curr_line.startswith(END_OF_GCODE)
         if curr_line == "" or has_reached_end:
@@ -89,7 +89,7 @@ M42 P1 S1; Turn on the welder
 
     # Move gun until there is an instruction to turn off the welder.
     turn_off = False
-    while (not turn_off):
+    while not turn_off:
         curr_line = file_buffer.readline()
         has_reached_end = curr_line.startswith(END_OF_GCODE)
         if curr_line == "" or has_reached_end:
@@ -113,7 +113,7 @@ M42 P1 S1; Turn on the welder
     # Ignore everything after turning off
     # Just read until the end of the gcode if applicable
     if not has_reached_end:
-        while (not has_reached_end):
+        while not has_reached_end:
             curr_line = file_buffer.readline()
             has_reached_end = curr_line.startswith(END_OF_GCODE)
 
