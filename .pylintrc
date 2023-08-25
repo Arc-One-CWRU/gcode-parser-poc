@@ -1,5 +1,3 @@
 [MAIN]
 
-ignore=cura_scripts.symlink_micer.py
-# pylint: skip-file
-
+ignore-paths=cura_scripts/symlink_micer.py
