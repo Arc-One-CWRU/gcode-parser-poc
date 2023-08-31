@@ -6,6 +6,11 @@ GCode Parser for the WAAM 3D Printer Proof of Concept
 
 Make sure that you have Python 3 installed (at least Python 3.8).
 
+```bash
+# Make sure you are in the correct virtual env (if applicable)!
+pip3 install -r requirements.txt
+```
+
 You can find a full list of options with:
 
 ```bash
