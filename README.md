@@ -37,3 +37,34 @@ To run the slicer:
 # Linux
 MESA_LOADER_DRIVER_OVERRIDE=i965 python3 app.py
 ```
+
+## Setting Up the Cura Plugin
+
+For Linux, the path to your Cura scripts directory will look like:
+
+```bash
+$HOME/.config/cura/5.3/scripts/
+
+# Don't use this path:
+# (For some reason it doesn't work)
+$HOME/.local/share/cura/5.3/plugins/PostProcessingPlugin/scripts
+```
+
+On Windows, the path will look like:
+
+```bash
+C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/scripts/Micer.py
+```
+
+## Misc Notes
+
+- Cleanup repo & update requirements.txt
+- Unit test
+  - non-destructive
+- More complex shapes
+  - If shape is too small, no go
+- make sure to always do a dry run
+- Need plugin to upload gcode
+  - need to plug in ethernet, just use the arc one computer to print stuff
+- Replace sleep with GCode command for wait to temperature
+- pylint
