@@ -1,16 +1,28 @@
 SHELL := /bin/bash
 
-CURA_CONFIG_DIR := ${HOME}/.config/cura/5.3
-CURA_SCRIPTS_DIR := ${CURA_CONFIG_DIR}/scripts
-CURA_LOG_DIR := ${HOME}/.local/share/cura/5.3/
+# Linux specific paths
+LINUX_CURA_VERSION := $(shell ls ${HOME}/.local/share/cura | head -n 1)
+LINUX_CURA_CONFIG_DIR := ${HOME}/.config/cura/${LINUX_CURA_VERSION}
+LINUX_CURA_SCRIPTS_DIR := ${LINUX_CURA_CONFIG_DIR}/scripts
+LINUX_CURA_LOG_DIR := ${HOME}/.local/share/cura/${LINUX_CURA_VERSION}/
+
+# Variables
 GCODE_REPO_DIR := ${HOME}/Coding/arc_one/gcode-parser-poc/src
+ULTIMAKER_EXE := ${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+
+NUMBER_REGEX := ^[0-9]+([.][0-9]+)?$
 
 prepare_linux:
-	sudo rm -r ${CURA_SCRIPTS_DIR} && mkdir ${CURA_SCRIPTS_DIR}
-	sudo cp -r $(shell pwd)/plugins/*.py ${CURA_SCRIPTS_DIR}/ | echo $(shell ls ${CURA_SCRIPTS_DIR})
+	echo ${LINUX_CURA_VERSION}
+	if ! [[ ${LINUX_CURA_VERSION} =~ ${NUMBER_REGEX} ]]; then \
+		echo "invalid cura version" && exit 1;\
+	fi
+
+	ls ${LINUX_CURA_SCRIPTS_DIR} && sudo rm -r ${LINUX_CURA_SCRIPTS_DIR} && mkdir ${LINUX_CURA_SCRIPTS_DIR} &&\
+	sudo cp -r $(shell pwd)/plugins/*.py ${LINUX_CURA_SCRIPTS_DIR}/ | ls ${LINUX_CURA_SCRIPTS_DIR}
 
 run_cura_linux:
-	GCODE_REPO_DIR=${GCODE_REPO_DIR} ${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+	GCODE_REPO_DIR=${GCODE_REPO_DIR} ${ULTIMAKER_EXE}
 
 debug_linux:
-	cat ${CURA_LOG_DIR}/cura.log | grep -e arcgcode_debug | tail
+	cat ${LINUX_CURA_LOG_DIR}/cura.log | grep -e arcgcode_debug | tail
