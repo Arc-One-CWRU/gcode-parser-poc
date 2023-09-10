@@ -1,0 +1,11 @@
+# Variables
+# GCODE_REPO_DIR := ${HOME}/Coding/arc_one/gcode-parser-poc/src
+# ULTIMAKER_EXE := ${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+
+WINDOWS_CURA_SCRIPTS_DIR := C:\Program Files\UltiMaker Cura 5.4.0\share\cura\plugins\PostProcessingPlugin\scripts
+
+prepare_windows:
+	sudo cp -r $(shell pwd)/plugins/*.py ${WINDOWS_CURA_SCRIPTS_DIR}/ | dir ${WINDOWS_CURA_SCRIPTS_DIR}
+
+cura_windows:
+	GCODE_REPO_DIR=${GCODE_REPO_DIR} ${ULTIMAKER_EXE}
