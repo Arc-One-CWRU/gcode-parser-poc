@@ -18,6 +18,13 @@ pip3 install -r requirements.txt
 pip install -e .
 ```
 
+To run Cura with the plugin on Linux:
+
+```bash
+# Replace the paths with your own paths
+make prepare_linux && make cura_linux GCODE_REPO_DIR=${HOME}/Coding/arc_one/gcode-parser-poc/src ULTIMAKER_EXE=${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+```
+
 ## Setting Up the Cura Plugin
 
 For Linux, the path to your Cura scripts directory will look like:
