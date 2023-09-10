@@ -6,6 +6,7 @@ GCode Parser for the Arc One WAAM 3D Printer.
 
 - [Getting Started](#getting-started)
 - [Setting Up the Cura Plugin](#setting-up-the-cura-plugin)
+  - [Command for opening cura for Henry in windows](#command-for-opening-cura-for-henry-in-windows)
 
 ## Getting Started
 
@@ -44,4 +45,9 @@ On Windows, the path will look like:
 
 ```bash
 C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/scripts/Micer.py
+```
+
+### Command for opening cura for Henry in windows
+```
+setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe" 
 ```
