@@ -23,7 +23,13 @@ To run Cura with the plugin on Linux:
 
 ```bash
 # Replace the paths with your own paths
-make prepare_linux && make cura_linux GCODE_REPO_DIR=${HOME}/Coding/arc_one/gcode-parser-poc/src ULTIMAKER_EXE=${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+make -f Makefile.unix prepare && make cura -f Makefile.unix GCODE_REPO_DIR=${HOME}/Coding/arc_one/gcode-parser-poc/src ULTIMAKER_EXE=${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+```
+
+To run Cura with the plugin on Windows:
+
+```bash
+make -f Makefile.windows prepare && make cura -f Makefile.windows GCODE_REPO_DIR="C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" ULTIMAKER_EXE="C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
 ```
 
 ## Setting Up the Cura Plugin
@@ -48,6 +54,7 @@ C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/sc
 ```
 
 ### Command for opening cura for Henry in windows
+
 ```
-setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe" 
+setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
 ```

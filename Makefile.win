@@ -4,8 +4,8 @@
 
 WINDOWS_CURA_SCRIPTS_DIR := C:\Program Files\UltiMaker Cura 5.4.0\share\cura\plugins\PostProcessingPlugin\scripts
 
-prepare_windows:
+prepare:
 	sudo cp -r $(shell pwd)/plugins/*.py ${WINDOWS_CURA_SCRIPTS_DIR}/ | dir ${WINDOWS_CURA_SCRIPTS_DIR}
 
-cura_windows:
+cura:
 	GCODE_REPO_DIR=${GCODE_REPO_DIR} ${ULTIMAKER_EXE}

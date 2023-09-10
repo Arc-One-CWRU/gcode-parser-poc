@@ -10,11 +10,9 @@ LINUX_CURA_LOG_DIR := ${HOME}/.local/share/cura/${LINUX_CURA_VERSION}/
 # GCODE_REPO_DIR := ${HOME}/Coding/arc_one/gcode-parser-poc/src
 # ULTIMAKER_EXE := ${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
 
-WINDOWS_CURA_SCRIPTS_DIR := C:\Program Files\UltiMaker Cura 5.4.0\share\cura\plugins\PostProcessingPlugin\scripts
-
 NUMBER_REGEX := ^[0-9]+([.][0-9]+)?$
 
-prepare_linux:
+prepare:
 	echo ${LINUX_CURA_VERSION}
 	if ! [[ ${LINUX_CURA_VERSION} =~ ${NUMBER_REGEX} ]]; then \
 		echo "invalid cura version" && exit 1;\
@@ -23,8 +21,8 @@ prepare_linux:
 	ls ${LINUX_CURA_SCRIPTS_DIR} && \
 	sudo cp -r $(shell pwd)/plugins/*.py ${LINUX_CURA_SCRIPTS_DIR}/ | ls ${LINUX_CURA_SCRIPTS_DIR}
 
-cura_linux:
+cura:
 	GCODE_REPO_DIR=${GCODE_REPO_DIR} ${ULTIMAKER_EXE}
 
-debug_linux:
+debug:
 	cat ${LINUX_CURA_LOG_DIR}/cura.log | grep -e arcgcode_debug | tail
