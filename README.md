@@ -14,6 +14,8 @@ Make sure that you have Python 3 installed (at least Python 3.8).
 ```bash
 # Make sure you are in the correct virtual env (if applicable)!
 pip3 install -r requirements.txt
+
+pip install -e .
 ```
 
 ## Setting Up the Cura Plugin
