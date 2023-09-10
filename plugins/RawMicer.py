@@ -9,6 +9,11 @@ import numpy
 # cura\plugins\PostProcessingPlugin\scripts
 # I made a symlink between there and the symlink_micer.py file
 
+import sys
+
+# /tmp/.mount_UltiMaHQhOyK/UltiMaker-Cura
+Logger.log("e", f"Python Executable: {sys.executable}")
+
 
 # Maybe subclass for stuff to be remove versus total
 class GCodes(Enum):
@@ -23,13 +28,13 @@ class GCodes(Enum):
     SLEEP = "G4"
 
 
-class Micer(Script):
+class RawMicer(Script):
     keywords = ["weldgap", "sleeptime", "rotate_amount"]
 
     def getSettingDataString(self) -> str:
         return """{
-        "name": "Micer",
-        "key": "Micer",
+        "name": "RawMicer",
+        "key": "RawMicer",
         "metadata":{},
         "version": 2,
         "settings":{
@@ -213,11 +218,11 @@ class Micer(Script):
         for line in lines:
             GENERATED_STRING = ";Generated with Cura_SteamEngine 5.4.0"
             if line.startswith(GENERATED_STRING):
-                lines2.append(f"{GENERATED_STRING} + Micer\n")
+                lines2.append(f"{GENERATED_STRING} + RawMicer\n")
 
             elif line.startswith(";MAXZ:"):
                 lines2.append(line)
-                lines2.append("\n;Micer Settings\n")
+                lines2.append("\n;RawMicer Settings\n")
                 for keyword in self.keywords:
                     value = self.getSettingValueByKey(keyword)
                     lines2.append(f';{keyword} = {value}\n')
