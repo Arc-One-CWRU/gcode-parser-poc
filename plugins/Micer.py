@@ -14,7 +14,7 @@ try:
     Logger.log("e", f"arcgcode_debug: env var: {repo_dir}")
     if repo_dir == None:
         raise Exception("env var GCODE_REPO_DIR should not be None")
-    sys.path.append(os.path.abspath(repo_dir))
+    sys.path.append(os.path.abspath(repo_dir).strip('"').strip())
     from arcgcode import v1
     Logger.log("e", "arcgcode_debug: imported arcgcode successfully!")
 except Exception as e:
