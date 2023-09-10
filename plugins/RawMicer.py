@@ -9,11 +9,6 @@ import numpy
 # cura\plugins\PostProcessingPlugin\scripts
 # I made a symlink between there and the symlink_micer.py file
 
-import sys
-
-# /tmp/.mount_UltiMaHQhOyK/UltiMaker-Cura
-Logger.log("e", f"Python Executable: {sys.executable}")
-
 
 # Maybe subclass for stuff to be remove versus total
 class GCodes(Enum):
@@ -316,5 +311,5 @@ class RawMicer(Script):
             settings = self.add_micer_settings(up_z)
             return settings
         except Exception as e:
-            Logger.log("e", str(e))
+            Logger.log("e", f"arcgcode_debug: {str(e)}")
             return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]

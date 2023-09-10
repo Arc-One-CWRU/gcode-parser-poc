@@ -1,7 +1,5 @@
 from ..Script import Script
 from UM.Logger import Logger
-from arcgcode import v1
-
 # Has to be place in
 # C:\Program Files\UltiMaker Cura 5.4.0\share\
 # cura\plugins\PostProcessingPlugin\scripts
@@ -9,7 +7,20 @@ from arcgcode import v1
 
 import sys
 
-print("Python Executable: ", sys.executable)
+try:
+    import os
+    Logger.log("e", f"arcgcode_debug: curr wd {os.getcwd()}")
+    repo_dir = os.getenv("GCODE_REPO_DIR")
+    Logger.log("e", f"arcgcode_debug: env var: {repo_dir}")
+    if repo_dir == None:
+        raise Exception("env var GCODE_REPO_DIR should not be None")
+    sys.path.insert(0, repo_dir)
+    from arcgcode import v1
+    Logger.log("e", "arcgcode_debug: imported arcgcode successfully!")
+except Exception as e:
+    Logger.log("e", f"arcgcode_debug: after sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"arcgcode_debug: after sys.path insert: {str(e)}")
+
 
 class Micer(Script):
     keywords = ["weldgap", "sleeptime", "rotate_amount"]
