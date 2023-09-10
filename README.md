@@ -26,6 +26,9 @@ $HOME/.config/cura/5.3/scripts/
 # Don't use the path below EVEN if it looks right:
 # (For some reason it doesn't work)
 $HOME/.local/share/cura/5.3/plugins/PostProcessingPlugin/scripts
+
+# Debugging
+cat $HOME/.local/share/cura/5.3/cura.log | grep Error
 ```
 
 On Windows, the path will look like:
