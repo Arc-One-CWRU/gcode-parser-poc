@@ -1,4 +1,4 @@
-from arcgcode.processsor.base.sections import GCodeSection
+from arcgcode.processor.base.sections import GCodeSection
 from ..base.base import SectionProcessorInterface
 
 
