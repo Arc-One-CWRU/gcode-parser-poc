@@ -39,8 +39,8 @@ class TestCuraMicer(unittest.TestCase):
     def test_splitter(self):
         settings = CuraMicerSettings(weld_gap=6, sleep_time=2, rotate_amount= 3) 
         micer = CuraMicer(settings)
-        lines = ["M107", "M42 P1 S1 ;Enable Welder\nM42 P1 S0 ;Disable Welder", "G4"]
-        lines2 = ["M107\n", "M42 P1 S1 ;Enable Welder\n", "M42 P1 S0 ;Disable Welder\n", "G4\n"]
+        lines = ["M107", "M42 P1 S1 ;Enable Welder\n", "M42 P1 S0 ;Disable Welder\n", "G4"]
+        lines2 = ["M107\n", "M42 P1 S1 ;Enable Welder\n", "\n", "M42 P1 S0 ;Disable Welder\n", "\n", "G4\n"]
         self.assertEqual(lines2, micer.splitter(lines))
     
     def test_add_sleep(self):
