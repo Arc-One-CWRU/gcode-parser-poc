@@ -1,0 +1,16 @@
+# Variables
+# GCODE_REPO_DIR := ${HOME}/Coding/arc_one/gcode-parser-poc/src
+# ULTIMAKER_EXE := ${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
+
+GCODE_REPO_DIR := C:\Users\hwodz\The Ultimate Vault\Code\gcode-parser-poc\src
+ULTIMAKER_EXE := C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe
+WINDOWS_CURA_SCRIPTS_DIR := C:\Users\hwodz\AppData\Roaming\cura\5.4\scripts
+# Copy plugins into the script directory in Cura
+prepare:
+	
+	copy /Y "$(shell cd)\plugins\*.py" "${WINDOWS_CURA_SCRIPTS_DIR}\"
+	dir ${WINDOWS_CURA_SCRIPTS_DIR}
+	
+
+cura:
+	setx GCODE_REPO_DIR "${GCODE_REPO_DIR}" && "${ULTIMAKER_EXE}"

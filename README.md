@@ -1,6 +1,12 @@
-# gcode-parser-poc
+# Arc One GCode Parser <!-- omit in toc -->
 
-GCode Parser for the WAAM 3D Printer Proof of Concept
+GCode Parser for the Arc One WAAM 3D Printer.
+
+## Table of Contents <!-- omit in toc -->
+
+- [Getting Started](#getting-started)
+- [Setting Up the Cura Plugin](#setting-up-the-cura-plugin)
+  - [Command for opening cura for Henry in windows](#command-for-opening-cura-for-henry-in-windows)
 
 ## Getting Started
 
@@ -9,33 +15,21 @@ Make sure that you have Python 3 installed (at least Python 3.8).
 ```bash
 # Make sure you are in the correct virtual env (if applicable)!
 pip3 install -r requirements.txt
+
+pip install -e .
 ```
 
-You can find a full list of options with:
+To run Cura with the plugin on Linux:
 
 ```bash
-python3 main.py --help
+# Replace the paths with your own paths
+make -f Makefile.unix prepare && make -f Makefile.unix cura GCODE_REPO_DIR=${HOME}/Coding/arc_one/gcode-parser-poc/src ULTIMAKER_EXE=${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
 ```
 
-An example command is:
+To run Cura with the plugin on Windows:
 
 ```bash
-# This will generate the parsed files in the current directory and print debug logging
-python3 main.py -i "./examples" -o "./" -v
-```
-
-To use the updated framework CLI:
-
-```bash
-# This will generate the parsed files in the current directory and print debug logging
-python3 framework_cli.py -i "./examples/line_welding_test.gcode" -o "./examples/generated" -v
-```
-
-To run the slicer:
-
-```bash
-# Linux
-MESA_LOADER_DRIVER_OVERRIDE=i965 python3 app.py
+make -f Makefile.win prepare && make -f Makefile.win cura GCODE_REPO_DIR="C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" ULTIMAKER_EXE="C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
 ```
 
 ## Setting Up the Cura Plugin
@@ -45,9 +39,12 @@ For Linux, the path to your Cura scripts directory will look like:
 ```bash
 $HOME/.config/cura/5.3/scripts/
 
-# Don't use this path:
+# Don't use the path below EVEN if it looks right:
 # (For some reason it doesn't work)
 $HOME/.local/share/cura/5.3/plugins/PostProcessingPlugin/scripts
+
+# Debugging
+cat $HOME/.local/share/cura/5.3/cura.log | grep Error
 ```
 
 On Windows, the path will look like:
@@ -56,15 +53,8 @@ On Windows, the path will look like:
 C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/scripts/Micer.py
 ```
 
-## Misc Notes
+### Command for opening cura for Henry in windows
 
-- Cleanup repo & update requirements.txt
-- Unit test
-  - non-destructive
-- More complex shapes
-  - If shape is too small, no go
-- make sure to always do a dry run
-- Need plugin to upload gcode
-  - need to plug in ethernet, just use the arc one computer to print stuff
-- Replace sleep with GCode command for wait to temperature
-- pylint
+```
+setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
+```
