@@ -1,30 +1,14 @@
 from math import modf, ceil
-from enum import Enum
 import re
+import io
 import numpy
 
-from dataclasses import dataclass, fields
-
-
-@dataclass
-class CuraMicerSettings:
-    """Cura Micer Settings"""
-    weld_gap: float
-    sleep_time: float
-    rotate_amount: float
-
-
-# Maybe subclass for stuff to be remove versus total
-class GCodes(Enum):
-    TOOL = "T0"
-    SET_EXTRUDER_TEMP = "M104"
-    SET_EXTRUDER_TEMP_AND_WAIT = "M109"
-    SET_EXTRUDER_TO_RELAITVE = "M83"
-    SET_EXTRUDER_TO_ABOSULTE = "M82"
-    FAN_OFF = "M107"
-    WELD_OFF = "M42 P1 S0 ;Disable Welder\n"
-    WELD_ON = "M42 P1 S1 ;Enable Welder\n"
-    SLEEP = "G4"
+from dataclasses import fields
+from arcgcode.cura.settings import CuraMicerSettings
+from arcgcode.cura.gcodes import GCodes
+from arcgcode.pipeline import CuraGCodePipeline
+from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
+    AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep
 
 
 class CuraMicer():
@@ -271,14 +255,16 @@ class CuraMicer():
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
+        # TODO: add sleep
+        gcode_pipeline = CuraGCodePipeline(
+            section_processors=[
+                RotateStartLayerPrint(self.settings.rotate_amount),
+                AllWelderControl(), MoveUpZ(self.settings.weld_gap),
+                AddMicerSettings(settings=self.settings),
+                AddSleep(sleep_time=self.settings.sleep_time),
+            ],
+            command_processor=[ExtruderRemover()])
+        new_gcode = gcode_pipeline.process(io.StringIO("".join(data)))
         # TODO unit test to make sure order does not matter.
-        lines = self.splitter(data)
-        sleep = self.add_sleep(lines, self.settings.sleep_time)
-        no_extruder = self.remove_extruder(sleep)
-        rotate_amount = self.settings.rotate_amount
-        rotated_layers = self.rotate_start_layer_print(no_extruder,
-                                                       rotate_amount)
-        welder = self.all_welder_control(rotated_layers)
-        up_z = self.move_up_z(welder, self.settings.weld_gap)
-        settings = self.add_micer_settings(up_z)
-        return settings
+        # sleep = self.add_sleep(lines, self.settings.sleep_time)
+        return new_gcode.splitlines(keepends=True)
