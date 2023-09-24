@@ -65,6 +65,9 @@ class Micer(Script):
         weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
+        debug_str = f"arcgcode_debug: weld_gap: {weld_gap}, " + \
+            f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}"
+        Logger.log("e", debug_str)
 
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
@@ -81,7 +84,7 @@ class Micer(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        micer = v1.CuraMicer(self.get_settings())
+        micer = v1.CuraPostProcessor(self.get_settings())
 
         try:
             settings = micer.execute(data)

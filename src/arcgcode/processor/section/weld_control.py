@@ -1,6 +1,6 @@
 import re
 from ..base import SectionProcessorInterface, GCodeSection
-from arcgcode.v1.micer import GCodes
+from arcgcode.cura.gcodes import GCodes
 
 
 class AllWelderControl(SectionProcessorInterface):

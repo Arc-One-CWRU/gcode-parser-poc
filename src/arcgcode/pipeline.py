@@ -1,6 +1,7 @@
 import io
 from typing import List
-from .processor import CommandProcessorInterface, SectionProcessorInterface, GCodeSection
+from .processor import CommandProcessorInterface, SectionProcessorInterface, \
+    GCodeSection
 
 # Cura specific constants.
 END_OF_TOP_METADATA = ";Generated with"
