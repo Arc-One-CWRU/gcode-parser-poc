@@ -1,6 +1,6 @@
 import unittest
-from arcgcode.v1.micer_old import CuraMicer
-from arcgcode.v1.micer_old import CuraMicerSettings
+from arcgcode.v1.micer import CuraMicer
+from arcgcode.v1.micer import CuraMicerSettings
 
 class TestCuraMicer(unittest.TestCase):
     def test_gcode_in_line(self):
