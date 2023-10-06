@@ -29,9 +29,10 @@ class SectionProcessorInterface:
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def process(self, gcode_section: str) -> str:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+    def process(self, gcode_section: list[str]) -> list[str]:
+        """Reads the G-Code file with each command as an element and does an
+        action. It should return the desired G-Code as a list[str] for that
+        section.
         """
         raise NotImplementedError
 

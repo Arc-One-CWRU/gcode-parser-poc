@@ -1,5 +1,4 @@
-import io
-from typing import List
+from typing import List, Tuple
 from .processor import CommandProcessorInterface, SectionProcessorInterface, \
     GCodeSection
 
@@ -28,134 +27,158 @@ class CuraGCodePipeline(object):
         self.bottom_comment_processors: List[SectionProcessorInterface] = []
 
         for processor in self.section_processors:
-            if processor.section_type() is GCodeSection.TOP_COMMENT_SECTION:
-                self.top_metadata_processors.append(processor)
-            elif processor.section_type() is GCodeSection.STARTUP_SCRIPT_SECTION:
-                self.startup_script_processors.append(processor)
-            elif processor.section_type() is GCodeSection.GCODE_MOVEMENTS_SECTION:
-                self.gcode_movements_processors.append(processor)
-            elif processor.section_type() is GCodeSection.END_SCRIPT_SECTION:
-                self.end_script_processors.append(processor)
-            elif processor.section_type() is GCodeSection.BOTTOM_COMMENT:
-                self.bottom_comment_processors.append(processor)
-            else:
-                raise ValueError(
-                    f"processor section_type {processor.section_type()} is invalid")
+            self.append_processors(processor)
 
-    def process_commands(self, section_processed_file: str) -> str:
+    def append_processors(self, processor: SectionProcessorInterface):
+        if processor.section_type() is GCodeSection.TOP_COMMENT_SECTION:
+            self.top_metadata_processors.append(processor)
+        elif processor.section_type() is GCodeSection.STARTUP_SCRIPT_SECTION:
+            self.startup_script_processors.append(processor)
+        elif processor.section_type() is GCodeSection.GCODE_MOVEMENTS_SECTION:
+            self.gcode_movements_processors.append(processor)
+        elif processor.section_type() is GCodeSection.END_SCRIPT_SECTION:
+            self.end_script_processors.append(processor)
+        elif processor.section_type() is GCodeSection.BOTTOM_COMMENT:
+            self.bottom_comment_processors.append(processor)
+        else:
+            err_msg = f"processor section_type {processor.section_type()} " + \
+                        "is invalid"
+            raise ValueError(err_msg)
+
+    def process_commands(self, section_processed_file: list[str]) -> list[str]:
         """Ingests the section processed file and applies all of the command
         transforms line-by-line.
         """
-        all_gcode_lines = section_processed_file.splitlines()
-        new_gcode = ""
-        for gcode_line in all_gcode_lines:
+        new_gcode: list[str] = []
+        for gcode_line in section_processed_file:
             processed_line = gcode_line
             for cmd_processor in self.command_processors:
                 processed_line = cmd_processor.process(processed_line)
-            new_gcode += processed_line + "\n"
+            new_gcode.append(processed_line + "\n")
         return new_gcode
+
+    def read_section(self, gcode_data: list[str],
+                     start_idx: int,
+                     end_indicator: str) -> Tuple[list[str], int]:
+        """Generic utility function for reading a section.
+
+        Args:
+            gcode_data: a list of the gcode commands. Each command should end
+            with a new line.
+            start_idx: the start of the section to process
+            end_indicator: the start of a line that indicates the end of the
+            section to process
+
+        Returns:
+            str: the section
+            int: the index of the last element of the section processed
+        """
+        is_in_section = True
+        section_contents: list[str] = []
+        iter_idx = start_idx
+        while is_in_section and iter_idx < len(gcode_data):
+            curr_line = gcode_data[iter_idx]
+            section_contents.append(curr_line)
+            if curr_line.startswith(end_indicator):
+                is_in_section = False
+            iter_idx += 1
+
+        return section_contents, iter_idx-1
 
     # Apply Section Processors
     # Could refactor this.
     # I.e. ingest section end matcher and processors related to that section
     # Can get the section through the `Type` method
 
-    def read_top_metadata(self, file_buffer: io.TextIOWrapper) -> str:
+    def read_top_metadata(self, gcode_data: list[str],
+                          start_idx: int) -> Tuple[list[str], int]:
         """Reads the top metadata comments.
-        """
-        is_metadata = True
-        top_metadata = ""
-        while is_metadata:
-            curr_line = file_buffer.readline()
-            top_metadata += curr_line
-            if curr_line.startswith(END_OF_TOP_METADATA):
-                is_metadata = False
-        return top_metadata
 
-    def read_startup_script(self, file_buffer: io.TextIOWrapper) -> str:
+        Returns the top metadata and the last index of the top metadata
+        inclusive.
+
+        So if the top metadata ends at index=2, then it will return index 2.
+        """
+        return self.read_section(gcode_data, start_idx, END_OF_TOP_METADATA)
+
+    def read_startup_script(self, gcode_data: list[str],
+                            start_idx: int) -> Tuple[list[str], int]:
         """Reads the startup script. Assumes that the top metadata has already
         been read.
-        """
-        is_startup_script = True
-        startup_script = ""
-        while is_startup_script:
-            curr_line = file_buffer.readline()
-            startup_script += curr_line
-            if curr_line.startswith(END_OF_STARTUP_SCRIPT):
-                is_startup_script = False
-        return startup_script
 
-    def read_gcode_movements(self, file_buffer: io.TextIOWrapper) -> str:
+        Returns the startup script section and the last index of the section
+        inclusive.
+        """
+        return self.read_section(gcode_data, start_idx, END_OF_STARTUP_SCRIPT)
+
+    def read_gcode_movements(self, gcode_data: list[str],
+                             start_idx: int) -> Tuple[list[str], int]:
         """Reads the actual movement G-Code instructions.
-        """
-        is_gcode_movement = True
-        gcode_movement_instructions = ""
-        while is_gcode_movement:
-            curr_line = file_buffer.readline()
-            gcode_movement_instructions += curr_line
-            if curr_line.startswith(END_OF_GCODE_MOVEMENTS):
-                is_gcode_movement = False
-        return gcode_movement_instructions
 
-    def read_end_script(self, file_buffer: io.TextIOWrapper) -> str:
+        Returns the GCode movements section and the last index of the section
+        inclusive.
+        """
+        return self.read_section(gcode_data, start_idx, END_OF_GCODE_MOVEMENTS)
+
+    def read_end_script(self, gcode_data: list[str],
+                        start_idx: int) -> Tuple[list[str], int]:
         """Reads the end script.
         """
-        is_end_script = True
-        end_script = ""
-        while is_end_script:
-            curr_line = file_buffer.readline()
-            end_script += curr_line
-            if curr_line.startswith(END_OF_GCODE):
-                is_end_script = False
+        return self.read_section(gcode_data, start_idx, END_OF_GCODE)
 
-        return end_script
-
-    def read_bottom_comment(self, file_buffer: io.TextIOWrapper) -> str:
+    def read_bottom_comment(self, gcode_data: list[str],
+                            start_idx: int) -> Tuple[list[str], int]:
         """Reads the bottom comment. Can do so by reading the rest of the
         buffer.
         """
-        return "".join(file_buffer.readlines())
+        return gcode_data[start_idx:], len(gcode_data) - 1
 
-    def process(self, file_buffer: io.TextIOWrapper) -> str:
+    def process(self, gcode_data: list[str]) -> list[str]:
         """Applies all of the transforms and returns the newly procesed WAAM
         compatible G-Code file string.
         """
-        gcode_file = ""
+        gcode_file: list[str] = []
         # Divide into sections
         # 1. Top Comment (Settings & Metadata)
-        top_metadata = self.read_top_metadata(file_buffer=file_buffer)
-        gcode_file += top_metadata + "\n"
+        top_metadata, top_meta_end_idx = self.read_top_metadata(gcode_data,
+                                                                0)
+        gcode_file.extend(top_metadata)
 
         # 2. Startup Script: Apply all start up script processors
-        gcode_file += ";startup script start\n"
-        startup_script = self.read_startup_script(file_buffer=file_buffer)
+        gcode_file.append(";startup script start\n")
+        start_idx = top_meta_end_idx+1
+        startup_script, start_end_idx = self.read_startup_script(gcode_data,
+                                                                 start_idx)
         for processor in self.startup_script_processors:
             startup_script = processor.process(startup_script)
-        gcode_file += startup_script
-        gcode_file += ";startup script end\n\n"
+        gcode_file.extend(startup_script)
+        gcode_file.append(";startup script end\n\n")
 
-        # 3. G-Code Movements
+        # # 3. G-Code Movements
         # TODO: Read layer by layer
-        gcode_file += ";gcode movements start\n"
-        gcode_movements = self.read_gcode_movements(file_buffer=file_buffer)
+        gcode_file.append(";gcode movements start\n")
+        movements, move_end_idx = self.read_gcode_movements(gcode_data,
+                                                            start_end_idx+1)
         for processor in self.gcode_movements_processors:
-            gcode_movements = processor.process(gcode_movements)
-        gcode_file += gcode_movements
-        gcode_file += ";gcode movements end\n\n"
+            movements = processor.process(movements)
+        gcode_file.extend(movements)
+        gcode_file.append(";gcode movements end\n\n")
 
         # 4. End Script: Apply all end script processors.
-        gcode_file += ";end script start\n"
-        end_script = self.read_end_script(file_buffer=file_buffer)
+        gcode_file.append(";end script start\n")
+        end_script, end_script_idx = self.read_end_script(gcode_data,
+                                                          move_end_idx+1)
         for processor in self.end_script_processors:
             end_script = processor.process(end_script)
-        gcode_file += end_script
-        gcode_file += ";end script end\n\n"
-        gcode_file += END_OF_GCODE + "\n"
+        gcode_file.extend(end_script)
+        gcode_file.append(";end script end\n\n")
 
         # 5. Bottom Comment
-        gcode_file += ";bottom comment start\n"
-        gcode_file += self.read_bottom_comment(file_buffer=file_buffer)
-        gcode_file += ";bottom comment end\n\n"
+        gcode_file.append(";bottom comment start\n")
+        bottom_comment, _ = self.read_bottom_comment(gcode_data,
+                                                     end_script_idx+1)
+        gcode_file.extend(bottom_comment)
+        gcode_file.append(";bottom comment end\n\n")
 
         new_gcode_file = self.process_commands(gcode_file)
         return new_gcode_file

@@ -13,14 +13,13 @@ class ExcludeCuraLayer(SectionProcessorInterface):
         self.is_start_of_layer_matcher = re.compile(r';[A-Z]')
         self.ignore_layer_indices = ignore_layer_indices
 
-    def process(self, gcode_section: str) -> str:
+    def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the gcode section line by line and excludes the specified
         layers.
         """
         should_exclude = False
-        new_gcode_section = ""
-        instructions = gcode_section.splitlines(True)
-        for instruction in instructions:
+        new_gcode_section: list[str] = []
+        for instruction in gcode_section:
             if instruction.startswith(CURA_LAYER):
                 # Parse layer idx so we can check if we need to exclude
                 # this layer.
@@ -41,7 +40,7 @@ class ExcludeCuraLayer(SectionProcessorInterface):
 
             # Only include correct layer instructions
             if not should_exclude:
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
         return new_gcode_section
 
     def section_type(self) -> GCodeSection:
