@@ -31,6 +31,7 @@ class CuraMicer():
         data2: list[str] = []
         for line in lines:
             if self.gcode_in_line(line):
+                data2.append(line)
                 continue
 
             # TODO regex magic?
@@ -120,7 +121,7 @@ class CuraMicer():
         with each element being a GCode"""
         lines2: list[str] = []
         for chunk in data:
-            lines = chunk.split("\n")
+            lines = chunk.strip().split("\n")
             for line in lines:
                 lines2.append(f'{line}\n')
 
@@ -147,7 +148,7 @@ class CuraMicer():
                 if skip_first:
                     skip_first = False
                     continue
-                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
+                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms} \n")
 
             elif line.startswith(";TIME_ELAPSED:"):
                 time_elapsed = float(line[14:len(line)].replace("\n", ""))
@@ -255,24 +256,24 @@ class CuraMicer():
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        gcode_pipeline = CuraGCodePipeline(
-            section_processors=[
-                AddSleep(sleep_time=self.settings.sleep_time),
-                RotateStartLayerPrint(self.settings.rotate_amount),
-                AllWelderControl(), MoveUpZ(self.settings.weld_gap),
-                AddMicerSettings(settings=self.settings),
-            ],
-            command_processor=[ExtruderRemover()])
-        new_gcode = gcode_pipeline.process(io.StringIO("".join(data)))
-        return new_gcode.splitlines(keepends=True)
-        # # TODO unit test to make sure order does not matter.
-        # lines = self.splitter(data)
-        # sleep = self.add_sleep(lines, self.settings.sleep_time)
-        # no_extruder = self.remove_extruder(sleep)
-        # rotate_amount = self.settings.rotate_amount
-        # rotated_layers = self.rotate_start_layer_print(no_extruder,
-        #                                                rotate_amount)
-        # welder = self.all_welder_control(rotated_layers)
-        # up_z = self.move_up_z(welder, self.settings.weld_gap)
-        # settings = self.add_micer_settings(up_z)
-        # return settings
+        # gcode_pipeline = CuraGCodePipeline(
+        #     section_processors=[
+        #         AddSleep(sleep_time=self.settings.sleep_time),
+        #         RotateStartLayerPrint(self.settings.rotate_amount),
+        #         AllWelderControl(), MoveUpZ(self.settings.weld_gap),
+        #         AddMicerSettings(settings=self.settings),
+        #     ],
+        #     command_processor=[ExtruderRemover()])
+        # new_gcode = gcode_pipeline.process(io.StringIO("".join(data)))
+        # return new_gcode.splitlines(keepends=True)
+        # TODO unit test to make sure order does not matter.
+        lines = self.splitter(data)
+        sleep = self.add_sleep(lines, self.settings.sleep_time)
+        no_extruder = self.remove_extruder(sleep)
+        rotate_amount = self.settings.rotate_amount
+        rotated_layers = self.rotate_start_layer_print(no_extruder,
+                                                       rotate_amount)
+        welder = self.all_welder_control(rotated_layers)
+        up_z = self.move_up_z(welder, self.settings.weld_gap)
+        settings = self.add_micer_settings(up_z)
+        return settings
