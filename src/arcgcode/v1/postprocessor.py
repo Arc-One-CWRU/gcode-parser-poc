@@ -1,4 +1,3 @@
-import io
 from arcgcode.cura.settings import CuraMicerSettings
 from arcgcode.pipeline import CuraGCodePipeline
 from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
@@ -28,4 +27,4 @@ class CuraPostProcessor():
             ],
             command_processor=[ExtruderRemover()])
         new_gcode = gcode_pipeline.process(data)
-        return new_gcode.splitlines(keepends=True)
+        return new_gcode

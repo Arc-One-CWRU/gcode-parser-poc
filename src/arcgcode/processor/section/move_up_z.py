@@ -21,12 +21,11 @@ class MoveUpZ(SectionProcessorInterface):
         z_num = float(raw_z_num.replace(" ", "").replace("\n", ""))
         return z_num
 
-    def get_min_z(self, gcode_section: str) -> float:
+    def get_min_z(self, gcode_section: list[str]) -> float:
         """
         """
         min_z = float("inf")
-        instructions = gcode_section.splitlines(True)
-        for instruction in instructions:
+        for instruction in gcode_section:
             if self.should_skip(instruction):
                 continue
 
@@ -35,24 +34,23 @@ class MoveUpZ(SectionProcessorInterface):
 
         return min_z
 
-    def process(self, gcode_section: str) -> str:
+    def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return
         the desired G-Code string for that section.
         """
         min_z = self.get_min_z(gcode_section)
         diff = self.weld_gap - min_z
-        new_gcode_section = ""
-        instructions = gcode_section.splitlines(True)
-        for instruction in instructions:
+        new_gcode_section: list[str] = []
+        for instruction in gcode_section:
             if self.should_skip(instruction):
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
                 continue
 
             z_index = instruction.index("Z") + 1
             z_num = diff + self.get_z_num_from_instruction(instruction)
             z_front: str = instruction[0:z_index]
             new_z_instruction = z_front + str(z_num) + "\n"
-            new_gcode_section += new_z_instruction
+            new_gcode_section.append(new_z_instruction)
 
         return new_gcode_section
 

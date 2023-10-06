@@ -12,7 +12,7 @@ class RotateStartLayerPrint(SectionProcessorInterface):
         super().__init__()
         self.rotate_amount = rotate_amount
 
-    def process(self, gcode_section: str) -> str:
+    def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return
         the desired G-Code string for that section.
         """
@@ -21,19 +21,18 @@ class RotateStartLayerPrint(SectionProcessorInterface):
         start_wall = False
         line_count = 0
         gotten_speed = False
-        new_gcode_section = ""
+        new_gcode_section: list[str] = []
         wall_lines: list[str] = []
-        instructions = gcode_section.splitlines(True)
-        for instruction in instructions:
+        for instruction in gcode_section:
             if instruction.startswith(";LAYER:"):
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
                 layer_count += 1
             elif instruction.startswith(";TYPE:WALL-OUTER"):
                 start_wall = True
                 line_count = 0
                 wall_lines = []
                 gotten_speed = False
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
             elif " E" not in instruction and start_wall:
                 first_wall_line = True
                 start_wall = False
@@ -51,12 +50,12 @@ class RotateStartLayerPrint(SectionProcessorInterface):
                     if first_wall_line:
                         first_line = no_new_line.replace(" ", f" F{speed} ", 1)
                         first_wall_line = False
-                        new_gcode_section += first_line + moved_comment
+                        new_gcode_section.append(first_line + moved_comment)
                         continue
 
-                    new_gcode_section += no_new_line + moved_comment
+                    new_gcode_section.append(no_new_line + moved_comment)
 
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
             elif start_wall:
                 line_count += 1
 
@@ -70,7 +69,7 @@ class RotateStartLayerPrint(SectionProcessorInterface):
 
                 wall_lines.append(instruction)
             else:
-                new_gcode_section += instruction
+                new_gcode_section.append(instruction)
 
         return new_gcode_section
 
