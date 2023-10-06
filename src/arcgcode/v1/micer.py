@@ -31,6 +31,7 @@ class CuraMicer():
         data2: list[str] = []
         for line in lines:
             if self.gcode_in_line(line):
+                data2.append(line)
                 continue
 
             # TODO regex magic?
@@ -120,7 +121,7 @@ class CuraMicer():
         with each element being a GCode"""
         lines2: list[str] = []
         for chunk in data:
-            lines = chunk.split("\n")
+            lines = chunk.strip().split("\n")
             for line in lines:
                 lines2.append(f'{line}\n')
 
@@ -147,7 +148,7 @@ class CuraMicer():
                 if skip_first:
                     skip_first = False
                     continue
-                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n")
+                lines2.append(f"{GCodes.SLEEP.value} S{int(s)} P{ms} \n")
 
             elif line.startswith(";TIME_ELAPSED:"):
                 time_elapsed = float(line[14:len(line)].replace("\n", ""))
@@ -275,4 +276,4 @@ class CuraMicer():
         welder = self.all_welder_control(rotated_layers)
         up_z = self.move_up_z(welder, self.settings.weld_gap)
         settings = self.add_micer_settings(up_z)
-        return settings
+        return no_extruder
