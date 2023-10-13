@@ -1,0 +1,8 @@
+{
+  "name": "Arc Plugin",
+  "author": "Arc Research",
+  "version": "2.3.2",
+  "api": 5,
+  "description": "The official Arc Research plugin for WAAM Cura integration.",
+  "supported_sdk_versions": ["5.0.0", "6.0.0", "7.0.0", "8.0.0"]
+}
