@@ -57,7 +57,22 @@ This is a problem that I'm experimenting with trying to fix.
 
 I removed all of the outdated files and ported over the existing `Micer` to the new pipeline.
 
-Henry unit-tested all of the components and integrated realistic GCodes for the old `Micer`. I unit-tested the new components (the `CuraPostProcessor`) with realistic GCodes. Right now, the only relatively
+Henry unit-tested all of the components and integrated realistic GCodes for the old `Micer`. I unit-tested the new components (the `CuraPostProcessor`) with realistic GCodes. The new converted components are:
+
+1. `ExtruderRemover`: replaces `remove_extruder` in the old processor
+2. `AddSleep`: replaces `add_sleep` in the old processor
+3. `AddMicerSettings`: replaces `add_micer_settings` in the old processor
+4. `RotateStartLayerPrint`: replaces `rotate_start_layer_print` in the old processor
+5. `MoveUpZ`: replaces `move_up_z` in the old processor
+6. `AllWelderControl`: replaces `all_welder_control` in the old processor
+
+These are all executed in sequential order in `CuraPostProcessor` through `CuraGCodePipeline` to post-process the generated Cura GCode.
+
+As of 10/17, the order is:
+
+![](images/first_half_pipeline_diagram.png)
+
+However, these operations should be independent of order, which means that if we execute them in a different order, the result should be the same.
 
 Henry also fixed the issue with sleep not being properly added after each layer. I need to integrate this bug fix into the `AddSleep` section processor.
 
