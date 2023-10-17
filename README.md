@@ -7,6 +7,7 @@ GCode Parser for the Arc One WAAM 3D Printer.
 - [Getting Started](#getting-started)
 - [Setting Up the Cura Plugin](#setting-up-the-cura-plugin)
   - [Command for opening cura for Henry in windows](#command-for-opening-cura-for-henry-in-windows)
+- [Setting up the `ArcPlugin`](#setting-up-the-arcplugin)
 
 ## Getting Started
 
@@ -57,4 +58,13 @@ C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/sc
 
 ```
 setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
+```
+
+## Setting up the `ArcPlugin`
+
+Copy this directory into the plugins directory in Cura with the ArcPlugin folder name
+
+```bash
+# Linux
+cp -r . ~/.local/share/cura/5.3/plugins/ArcPlugin
 ```
