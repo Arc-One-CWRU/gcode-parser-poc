@@ -20,6 +20,7 @@ The purpose of this document is to provide a broad overview of what the Software
   - [1. Integrate Temperature Sensor](#1-integrate-temperature-sensor)
   - [2. Talk with Team on Arc 2 Development](#2-talk-with-team-on-arc-2-development)
   - [3. `ArcPlugin` and Current Post-Processing Scripts](#3-arcplugin-and-current-post-processing-scripts)
+  - [4. Design Documentation for `arcgcode`](#4-design-documentation-for-arcgcode)
 
 ## Background
 
@@ -68,6 +69,18 @@ Henry unit-tested all of the components and integrated realistic GCodes for the 
 
 These are all executed in sequential order in `CuraPostProcessor` through `CuraGCodePipeline` to post-process the generated Cura GCode.
 
+**TODO: Add UML diagram with `CuraPostProcessor` and the interfaces + the classes that implement the interfaces.**
+
+- Add information about different stages
+- Add information on how to use framework to create a new post-processor (section/command)
+  - How can you add different components to pipeline?
+  - Simple use-case vs. complex use-case
+  - What is the design philosophy of the processors + pipeline?
+- Talk about reusability
+- Talk about human-machine interactions (i.e. parameter tuning)
+  - Using system to improve components
+- decouple the architecture from the actual application
+
 As of 10/17, the order is:
 
 ![](images/first_half_pipeline_diagram.png)
@@ -114,3 +127,7 @@ We need to investigate how we can incorporate Cura G-Codes into the Arc 2 pipeli
 While we are blocked, we will continue to test and fix bugs by testing prints with more complex shapes and settings.
 
 One of the key initiatives that we are investigating is creating an actual Cura plugin and distributing it for WAAM post-processing on the Cura marketplace. The advantages are that an official plugin is easier to setup and install than the current approach for non-programmers. The disadvantages is that developing an actual plugin is much more complex than developing post-processing scripts for the Cura `PostProcessingPlugin`.
+
+### 4. Design Documentation for `arcgcode`
+
+See **TODO**
