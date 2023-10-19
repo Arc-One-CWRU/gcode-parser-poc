@@ -5,10 +5,25 @@ GCode Parser for the Arc One WAAM 3D Printer.
 ## Table of Contents <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
-- [Setting Up the Cura Plugin](#setting-up-the-cura-plugin)
-  - [Command for opening cura for Henry in windows](#command-for-opening-cura-for-henry-in-windows)
+- [Contributor's Getting Started](#contributors-getting-started)
 
 ## Getting Started
+
+To install the Cura scripts, run `install.py` with a path to the Cura scripts directory:
+
+```bash
+# Linux
+python3 install.py ~/.local/share/cura/5.3/scripts
+
+# Windows
+# TODO:
+```
+
+You can get the Cura scripts directory through `Cura > Help > Show configuration folder`. It will open up the configuration folder and you should copy the path to the `scripts` directory as the argument for `install.py`.
+
+Afterwards, just open up Cura and go to `Extensions > Post Processing > Modify G-Code > Add Script > Micer`. Afterwards, feel free to slice and print!
+
+## Contributor's Getting Started
 
 Make sure that you have Python 3 installed (at least Python 3.8).
 
@@ -19,42 +34,14 @@ pip3 install -r requirements.txt
 pip install -e .
 ```
 
-To run Cura with the plugin on Linux:
+To deploy new changes, simply re-run the `install.py` script for your respective OS!
+
+Likewise, to debug your changes, run:
 
 ```bash
-# Replace the paths with your own paths
-make -f Makefile.unix prepare && make -f Makefile.unix cura GCODE_REPO_DIR=${HOME}/Coding/arc_one/gcode-parser-poc/src ULTIMAKER_EXE=${HOME}/Desktop/UltiMaker-Cura-5.3.1-linux-modern.AppImage
-```
+# Linux
+make -f Makefile.unix debug
 
-To run Cura with the plugin on Windows:
-
-```bash
-make -f Makefile.win prepare && make -f Makefile.win cura GCODE_REPO_DIR="C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" ULTIMAKER_EXE="C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
-```
-
-## Setting Up the Cura Plugin
-
-For Linux, the path to your Cura scripts directory will look like:
-
-```bash
-$HOME/.config/cura/5.3/scripts/
-
-# Don't use the path below EVEN if it looks right:
-# (For some reason it doesn't work)
-$HOME/.local/share/cura/5.3/plugins/PostProcessingPlugin/scripts
-
-# Debugging
-cat $HOME/.local/share/cura/5.3/cura.log | grep Error
-```
-
-On Windows, the path will look like:
-
-```bash
-C:/Program Files/UltiMaker Cura 5.4.0/share/cura/plugins/PostProcessingPlugin/scripts/Micer.py
-```
-
-### Command for opening cura for Henry in windows
-
-```
-setx GCODE_REPO_DIR "C:\\Users\hwodz\\The Ultimate Vault\\Code\\gcode-parser-poc\\src" && "C:\Program Files\UltiMaker Cura 5.4.0\UltiMaker-Cura.exe"
+# Windows
+# TODO
 ```

@@ -6,23 +6,21 @@ from UM.Logger import Logger
 # I made a symlink between there and the symlink_micer.py file
 
 import sys
-
 try:
     import os
-    Logger.log("e", f"arcgcode_debug: before sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"arcgcode_debug: curr wd {os.getcwd()}")
-    repo_dir = os.getenv("GCODE_REPO_DIR")
-    Logger.log("e", f"arcgcode_debug: env var: {repo_dir}")
-    if repo_dir == None:
-        raise Exception("env var GCODE_REPO_DIR should not be None")
-    raw_repo_path = repo_dir.replace('"', "").strip()
-    Logger.log("e", f"arcgcode_debug: raw path: {raw_repo_path}")
-    sys.path.append(raw_repo_path)
+    import pathlib
+
+    Logger.log("e", f"arcgcode_debug_micer: before sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"arcgcode_debug_micer: curr wd {os.getcwd()}")
+    # Assumes that the Micer is in the same directory as the repository
+    sys.path.append(os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
+                                                 "./src")))
+    Logger.log("e", f"arcgcode_debug_micer: after sys.path insert: Python Sys Path: {sys.path}")
     from arcgcode import v1
-    Logger.log("e", "arcgcode_debug: imported arcgcode successfully!")
+    Logger.log("e", "arcgcode_debug_micer: imported arcgcode successfully!")
 except Exception as e:
-    Logger.log("e", f"arcgcode_debug: after sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"arcgcode_debug: after sys.path insert: {str(e)}")
+    Logger.log("e", f"arcgcode_debug_micer: after sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"arcgcode_debug_micer: after sys.path insert: {str(e)}")
 
 
 class Micer(Script):
