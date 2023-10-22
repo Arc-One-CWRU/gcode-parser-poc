@@ -2,6 +2,8 @@
 
 GCode Parser for the Arc One WAAM 3D Printer.
 
+You can find the `arcgcode` framework developer documentation in [here](./docs/ARCGCODE.md).
+
 ## Table of Contents <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
