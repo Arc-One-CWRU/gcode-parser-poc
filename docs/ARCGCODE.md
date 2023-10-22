@@ -9,6 +9,9 @@
   - [Implementing a Custom Section Processor](#implementing-a-custom-section-processor)
   - [Implementing a Custom Command Processor](#implementing-a-custom-command-processor)
   - [Integrate New Custom Processors](#integrate-new-custom-processors)
+- [UltiMaker Cura Integration](#ultimaker-cura-integration)
+  - [Cura `PostProcessingPlugin`](#cura-postprocessingplugin)
+  - [Importing `arcgcode` into a Cura Post-Processing Script](#importing-arcgcode-into-a-cura-post-processing-script)
 
 ## Concepts Overview
 
@@ -189,9 +192,9 @@ In the above example, `ExtruderRemover.should_skip` is not required to implement
 
 ### Integrate New Custom Processors
 
-Once you've created a custom processor (either a section or command processor), simply add it to the list in `CuraPostProcessor`'s `CuraGCodePipeline` initialization:
+Once you've created a custom processor (either a section or command processor), simply add it to the list in [`CuraPostProcessor`](../src/arcgcode/v1/postprocessor.py)'s `CuraGCodePipeline` initialization:
 
-```py
+```python
         gcode_pipeline = CuraGCodePipeline(
             section_processors=[
                 # INSERT HERE:
@@ -208,3 +211,51 @@ Once you've created a custom processor (either a section or command processor), 
             ])
         new_gcode = gcode_pipeline.process(data)
 ```
+
+## UltiMaker Cura Integration
+
+This section covers the deep-dive on how we actually integrate `arcgcode` into UltiMaker Cura.
+
+### Cura `PostProcessingPlugin`
+
+The Cura [`PostProcessingPlugin`](https://github.com/Ultimaker/Cura/tree/main/plugins/PostProcessingPlugin) is Cura's official way to allow you to use custom Python scripts to post-process a Cura G-Code.
+
+The `PostProcessingPlugin` reads those Python scripts from the configuration scripts directory. For example, on Linux, that directory is `~/.local/share/cura/5.3/scripts`.
+
+> You can get the Cura scripts directory through `Cura > Help > Show configuration folder`. It will open up the configuration folder and you should copy the path to the `scripts` directory as the argument for `install.py`. Afterwards, just open up Cura and go to `Extensions > Post Processing > Modify G-Code > Add Script` and you should see your post-processing script if it is valid!
+
+Examples of post-processing scripts we have for Arc Research are in the [`plugins` direcotry](../plugins/). These are the actual scripts that we use for the Arc One WAAM machine!
+
+### Importing `arcgcode` into a Cura Post-Processing Script
+
+In normal Python, you would install `arcgcode` through `pip3 install -r requirements.txt && pip3 install -e .`. Then would would simply import it with something like `import arcgcode`.
+
+However, that workflow does not work for a Cura post-processing script because UltiMaker Cura has its own built-in Python executable! That means that it does **not** use the same Python executable and packages as the one you have installed on your system or virtual environment! Therefore, if you installed `arcgcode` with `pip3`, it would only install it for your local Python installation, not the Cura one.
+
+We circumvented this issue by essentially adding the `arcgcode` package path to the Cura Python's `sys.path`. In Python, `sys.path` is a list of paths to directories that contain Python packages. Therefore, by adding the path to this repository + "src" to `sys.path` in a Cura post-processing script, we're able to `import arcgcode` successfully!
+
+For example, in [`plugins/Micer.py`](../plugins/Micer.py), we call:
+
+```python
+import sys
+try:
+    import os
+    import pathlib
+
+    # Assumes that the Micer is in the same directory as the repository
+    sys.path.append(os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
+                                                 "./src")))
+    from arcgcode import v1
+...
+```
+
+`sys.path.append(os.path.abspath(os.path.join(pathlib.Path(__file__).parent,"./src")))` looks like magic, but in essence, all it does is:
+
+1. Look for the path to the plugins file (i.e. `~/.local/share/cura/5.3/scripts/Micer.py`)
+2. Get the parent directory (`~/.local/share/cura/5.3/scripts`)
+3. Add the absolute path of that parent directory + "src" to the `sys.path` (i.e. Add `~/.local/share/cura/5.3/scripts/src` to the `sys.path`)
+   1. **Note:** `src` refers to the same `src` that contains the `arcgcode` folder in this repository!
+
+This lets Cura's Python discover the `arcgcode` package in `src` and import it properly to utilize all of the utilities in `arcgcode`!
+
+However, a downside with this approach is that everytime you want to make a change, you would need to re-run the `install.py` script as described in the official [README.md](../README.md).
