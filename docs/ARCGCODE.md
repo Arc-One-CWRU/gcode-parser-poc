@@ -6,7 +6,8 @@
 
 - [Concepts Overview](#concepts-overview)
 - [Create Your Own `CuraGCodePipeline`](#create-your-own-curagcodepipeline)
-  - [Implementing Custom Processors](#implementing-custom-processors)
+  - [Implementing a Custom Section Processor](#implementing-a-custom-section-processor)
+  - [Implementing a Custom Command Processor](#implementing-a-custom-command-processor)
   - [Integrate New Custom Processors](#integrate-new-custom-processors)
 
 ## Concepts Overview
@@ -51,11 +52,37 @@ Likewise, you can easily customize your own pipeline by adding or removing secti
 
 In the following sections, we will cover how to create your own custom processors and use them!
 
-### Implementing Custom Processors
+### Implementing a Custom Section Processor
 
 All of the processors are classes that implement either `SectionProcessorInterface` or `CommandProcessorInterface`.
 
-To implement `SectionProcessorInterface`, you need to create a class that has the methods `process(self, gcode_section: list[str]) -> list[str]` and `section_type(self) -> GCodeSection`. A simple example of a section processor used by the Arc Research team as of 10/21 is `AddMicerSettings`.
+To implement `SectionProcessorInterface`, you need to create a class that has the methods `process(self, gcode_section: list[str]) -> list[str]` and `section_type(self) -> GCodeSection`. A minimal section processor for the G-Code Movements Section would look like:
+
+```python
+class HelloWorldSectionProcessor(SectionProcessorInterface):
+    """Prints Hello World while processing :)
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+
+    def process(self, gcode_section: list[str]) -> list[str]:
+        """Prints Hello World while processing :)
+        """
+        print("Hello World!")
+        # TODO: Normally you would just iterate through the
+        # gcode_section and create a new list of G-Code command
+        # strings. The resulting list of strings DOES NOT
+        # need to be the same length as the input.
+        return gcode_section
+
+    def section_type(self) -> GCodeSection:
+        """Returns the current section type.
+        """
+        return GCodeSection.GCODE_MOVEMENTS_SECTION
+```
+
+A realistic example of a section processor used by the Arc Research team as of 10/21 is `AddMicerSettings`.
 
 ```python
 class AddMicerSettings(SectionProcessorInterface):
@@ -96,7 +123,25 @@ class AddMicerSettings(SectionProcessorInterface):
 
 As you can see, `AddMicerSettings` just implements the two required methods. Anything else including the `__init__` function signature is flexible.
 
-`CommandProcessorInterface` is a bit simpler. To implement this interface, create a class that has the `process(self, gcode_instruction: str) -> str` method. For example, the command processor that we currently use for Arc Research is `ExtruderRemover`:
+### Implementing a Custom Command Processor
+
+`CommandProcessorInterface` is a bit simpler. To implement this interface, create a class that has the `process(self, gcode_instruction: str) -> str` method. A minimal command processor would look like:
+
+```python
+class HelloWorldCommandProcessor(CommandProcessorInterface):
+    def __init__(self) -> None:
+        super().__init__()
+
+    def process(self, gcode_instruction: str) -> str:
+        """Prints Hello World when processing each G-Code command!
+        """
+        print("Hello World!")
+        # TODO: Do some manipulation with the gcode_instruction
+        # which could look like G1 E..., or G92 E0, etc.
+        return gcode_instruction
+```
+
+An example we currently use is `ExtruderRemover`:
 
 ```python
 class ExtruderRemover(CommandProcessorInterface):
@@ -150,7 +195,7 @@ Once you've created a custom processor (either a section or command processor), 
         gcode_pipeline = CuraGCodePipeline(
             section_processors=[
                 # INSERT HERE:
-                YourNewCuraSectionProcessor(),
+                HelloWorldSectionProcessor(),
                 AddSleep(sleep_time=self.settings.sleep_time),
                 RotateStartLayerPrint(self.settings.rotate_amount),
                 AllWelderControl(), MoveUpZ(self.settings.weld_gap),
@@ -158,7 +203,7 @@ Once you've created a custom processor (either a section or command processor), 
             ],
             command_processor=[
                 # OR HERE
-                YourNewCuraCommandProcessor(),
+                HelloWorldCommandProcessor(),
                 ExtruderRemover()
             ])
         new_gcode = gcode_pipeline.process(data)
