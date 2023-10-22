@@ -5,6 +5,12 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Concepts Overview](#concepts-overview)
+- [Cura G-Code Sections](#cura-g-code-sections)
+  - [Top Comment Section](#top-comment-section)
+  - [Startup Script Section](#startup-script-section)
+  - [G-Code Movements Section](#g-code-movements-section)
+  - [End Script Section](#end-script-section)
+  - [Bottom Comment Section](#bottom-comment-section)
 - [Create Your Own `CuraGCodePipeline`](#create-your-own-curagcodepipeline)
   - [Implementing a Custom Section Processor](#implementing-a-custom-section-processor)
   - [Implementing a Custom Command Processor](#implementing-a-custom-command-processor)
@@ -23,11 +29,142 @@ The key building blocks to make that possible are:
 2. `CommandProcessorInterface`: Takes in a G-Code command and returns a resulting transformed command.
 3. `CuraGCodePipeline`: Splits the input G-Code file into different sections and runs both the `SectionProcessorInterface` classes and the `CommandProcessorInterface` classes in succession.
 
-A key aspect of any class that implements a processor interface is that they should be order-independent, which means that the order in-which it is specified in `CuraGCodePipeline` should not matter. This means that classes that implement `SectionProcessorInterface` for the G-Code movements section should be produce the same outputs regardless of the order they were specified in.
+A key aspect of any class that implements a processor interface is that they should be order-independent, which means that the order in-which it is specified in `CuraGCodePipeline` should not matter. This means that classes that implement `SectionProcessorInterface` **for the same section** should be produce the same outputs regardless of the order they were specified in.
 
 You can see the general workflow below:
 
 ![](images/curagcodepipeline_overview.png)
+
+**Figure 1. Overview of the processors executed in `CuraGCodePipeline.process`**
+
+## Cura G-Code Sections
+
+As you can see in **Figure 1**, there are multiple different types of section processors. Each of these sections is represented the `GCodeSection` enum, which looks like:
+
+```python
+class GCodeSection(str, Enum):
+    TOP_COMMENT_SECTION = "TOP_COMMENT"
+    STARTUP_SCRIPT_SECTION = "STARTUP_SCRIPT"
+    GCODE_MOVEMENTS_SECTION = "GCODE_MOVEMENTS"
+    END_SCRIPT_SECTION = "END_SCRIPT"
+    BOTTOM_COMMENT = "BOTTOM_COMMENT"
+```
+
+All sections in `GCodeSection` are in **chronological order** from top to bottom. This means that a G-Code is structured as:
+
+1. A top comment
+2. A startup script
+3. G-Code movements
+4. An end script
+5. A bottom comment
+
+In the following documentation, we will describe what each section looks like and how we split the sections up in G-Codes in a general manner.
+
+### Top Comment Section
+
+The `TOP_COMMENT_SECTION` represents the top comment section in a Cura G-Code file. All comments in G-Code files start with a `;` character. An example of a `TOP_COMMENT_SECTION` is:
+
+```
+;FLAVOR:Marlin
+;TIME:66
+;Filament used: 0.00563198m
+;Layer height: 1
+;MINX:312.526
+;MINY:120
+;MINZ:0.3
+;MAXX:342.474
+;MAXY:120
+;MAXZ:0.3
+;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
+....
+; thumbnail_QOI end
+;Generated with Cura_SteamEngine 5.3.0
+```
+
+A `TOP_COMMENT_SECTION` typically ends with a comment that starts with `;Generated with` (`END_OF_TOP_METADATA`) and we use that as the criteria for when it should be sliced.
+
+### Startup Script Section
+
+The `STARTUP_SCRIPT_SECTION` occurs right after the `TOP_COMMENT_SECTION`. It represents the start up script for the 3D printer or WAAM machine, which typically consists of sanity checks and calibration.
+
+For instance, this may look like:
+
+```
+M105
+M109 S0
+M82 ;absolute extrusion mode
+G28 ;Home
+;G1 Z15.0 F6000 ;Move the platform down 15mm
+;Prime the extruder
+;G92 E0
+;G1 F200 E3
+;G92 E0
+;M42 P1 S1
+G92 E0
+G92 E0
+;LAYER_COUNT:2
+```
+
+The end of the startup script is when the G-Code movements start running which is represented by `";LAYER_COUNT:"` (`END_OF_STARTUP_SCRIPT`).
+
+### G-Code Movements Section
+
+The `GCODE_MOVEMENTS_SECTION` represents the commands that run the actual printing (movements, sleep, wait until temperature, extruder control, etc.). This section is characterized by layers (represented by the `;LAYER` comment) and different types of layers. You can see the [`ExcludeMeshLayer`](../src/arcgcode//processor/section/exclude_mesh.py) section processor as an example of how a layer type can be detected and manipulated.
+
+A very simple example of a `GCODE_MOVEMENTS_SECTION` looks like:
+
+```
+;LAYER_COUNT:2
+;LAYER:0
+M107
+;MESH:WeldingLineTest.STL
+G0 F600 X342.474 Y120 Z0.3
+;TYPE:WALL-OUTER
+G1 F60 X312.526 Y120 E5.63198
+;TIME_ELAPSED:66.230551
+```
+
+A `GCODE_MOVEMENTS_SECTION` ends when the `;TIME_ELAPSED` (`END_OF_GCODE_MOVEMENTS`) shows up.
+
+### End Script Section
+
+Just like how each G-Code has a startup script, each one has an end script, which consists of cleanup and sanity checks like turning the extruder off. The end script occurs **right after** the G-Code movements are done.
+
+An example `END_SCRIPT_SECTION` looks like:
+
+```
+;M104 S0
+;M140 S0
+;Retract the filament
+;G92 E1
+;G1 E-1 F300
+;G28 X0 Y0
+;M84
+M42 P1 S0
+G4 S5
+G28
+M82 ;absolute extrusion mode
+;End of Gcode
+```
+
+The end script ends when the comment `;End of Gcode` (`END_OF_GCODE`) is specified.
+
+### Bottom Comment Section
+
+The `BOTTOM_COMMENT` is whatever is left **after** the end script, which is typically a comment, such as:
+
+```
+;SETTING_3 {"global_quality": "[general]\\nversion = 4\\nname = Arc One #2\\ndef
+;SETTING_3 inition = custom\\n\\n[metadata]\\ntype = quality_changes\\nquality_t
+;SETTING_3 ype = extra coarse\\nsetting_version = 21\\n\\n[values]\\nadhesion_ty
+;SETTING_3 pe = none\\nlayer_height = 1\\n\\n", "extruder_quality": ["[general]\
+;SETTING_3 \nversion = 4\\nname = Arc One #2\\ndefinition = custom\\n\\n[metadat
+;SETTING_3 a]\\ntype = quality_changes\\nquality_type = extra coarse\\nintent_ca
+;SETTING_3 tegory = default\\nposition = 0\\nsetting_version = 21\\n\\n[values]\
+;SETTING_3 \ncool_fan_enabled = False\\nmaterial_print_temperature = 0\\nretract
+;SETTING_3 ion_enable = False\\nspeed_print = 2\\nspeed_travel = 20\\nwall_thick
+;SETTING_3 ness = 1\\n\\n"]}
+```
 
 ## Create Your Own `CuraGCodePipeline`
 
