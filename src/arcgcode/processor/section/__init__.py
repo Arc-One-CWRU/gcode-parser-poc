@@ -7,3 +7,4 @@ from .weld_control import *
 from .move_up_z import *
 from .add_micer_settings import *
 from .add_sleep import *
+from .add_gcode_version import *
