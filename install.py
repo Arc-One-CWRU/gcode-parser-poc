@@ -12,16 +12,23 @@ def main(cura_scripts_dir: str):
     print(f"Inferred Plugins Dir: {custom_plugins_dir}")
     print(f"Inferred Package Src Dir: {package_src_dir}\n")
     src_symlink_path = os.path.join(cura_scripts_dir, "src")
-    if not os.path.isdir(src_symlink_path):
-        print("inferred src dir is not a directory: {src_symlink_path}")
-        raise Exception("Please run the install script in the root directory" +
-                        " of this repository.")
+
+    # TODO: what was I trying to do here lol?
+    # if not os.path.isdir(src_symlink_path):
+    #     print("inferred src dir is not a directory: {src_symlink_path}")
+    #     raise Exception("Please run the install script in the root directory"
+    #  +
+    #                     " of this repository.")
+
     try:
         os.symlink(package_src_dir, src_symlink_path)
     except Exception as e:
         err_msg = str(e)
-        okay_err_msg = "[Errno 17] File exists:"
-        if okay_err_msg not in err_msg:
+        okay_linux_err_msg = "[Errno 17] File exists:"
+        okay_windows_err_msg = "file already exists"
+        ok_linux = okay_linux_err_msg not in err_msg
+        ok_windows = (okay_windows_err_msg not in err_msg)
+        if ok_linux or ok_windows:
             print("Please contact the software team!")
             print("Unexpected error: ", e)
             return
@@ -68,7 +75,7 @@ if __name__ == "__main__":
     """
     parser.add_argument("scripts_dir", type=str,
                         help=help_descrip)
-    
+
     args = parser.parse_args()
     scripts_dir = args.scripts_dir
     main(scripts_dir)
