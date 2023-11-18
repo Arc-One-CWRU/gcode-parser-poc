@@ -361,7 +361,11 @@ The `PostProcessingPlugin` reads those Python scripts from the configuration scr
 
 > You can get the Cura scripts directory through `Cura > Help > Show configuration folder`. It will open up the configuration folder and you should copy the path to the `scripts` directory as the argument for `install.py`. Afterwards, just open up Cura and go to `Extensions > Post Processing > Modify G-Code > Add Script` and you should see your post-processing script if it is valid!
 
-Examples of post-processing scripts we have for Arc Research are in the [`plugins` direcotry](../plugins/). These are the actual scripts that we use for the Arc One WAAM machine!
+Examples of post-processing scripts we have for Arc Research are in the [`plugins` directory](../plugins/). These are the actual scripts that we use for the Arc One WAAM machine!
+
+To actually print with the plugin, make sure that the you've added the scripts with the parameters you want to test. These paramters are empirically optimized based on trial and error (looking at which parameters produce the best quality prints).
+
+Afterwards, slice the STL model with the script active and upload it to the WAAM machine (the Duet3D). Please refer to the standard operating procedure. Please ask an Arc Research team member for access to that document.
 
 ### Importing `arcgcode` into a Cura Post-Processing Script
 
