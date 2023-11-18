@@ -18,6 +18,9 @@ To install the Cura scripts, run `install.py` with a path to the Cura scripts di
 python3 install.py ~/.local/share/cura/5.3/scripts
 
 # Windows
+# In Administrator Command Prompt, cd into this repository.
+cd C:\Users\Arc One\gcode-parser-poc
+python install.py "C:\\Users\\Arc One\\AppData\\Roaming\\cura\\5.4\\scripts"
 # TODO:
 ```
 

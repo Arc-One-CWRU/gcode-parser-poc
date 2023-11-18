@@ -1,6 +1,7 @@
 import argparse
 import os
 import shutil
+import platform
 
 
 def main(cura_scripts_dir: str):
@@ -25,10 +26,11 @@ def main(cura_scripts_dir: str):
     except Exception as e:
         err_msg = str(e)
         okay_linux_err_msg = "[Errno 17] File exists:"
-        okay_windows_err_msg = "file already exists"
-        ok_linux = okay_linux_err_msg not in err_msg
-        ok_windows = (okay_windows_err_msg not in err_msg)
-        if ok_linux or ok_windows:
+        okay_windows_err_msg = "[WinError 183]"
+        is_okay_linux_err = okay_linux_err_msg in err_msg
+        is_okay_windows_err = okay_windows_err_msg in err_msg
+        if (platform.system() == "Linux" and not is_okay_linux_err) or \
+           (platform.system() == "Windows" and not is_okay_windows_err):
             print("Please contact the software team!")
             print("Unexpected error: ", e)
             return
