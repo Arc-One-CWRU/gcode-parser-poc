@@ -15,8 +15,8 @@ def main(cura_scripts_dir: str):
     print(f"Inferred Package Src Dir: {package_src_dir}\n")
 
     # Try to write in the current version to version.py to make sure that it's always up-to-date
-    version_file = os.path.join(package_src_dir, "processor", "base", "version.py")
-    if os.path.isfile(version_file):
+    version_file = os.path.join(package_src_dir, "arcgcode", "processor", "base", "version.py")
+    if not os.path.isfile(version_file):
         raise Exception(f"Could not find version file {version_file}. Please contact the " +
                         "software team!")
 
@@ -25,11 +25,15 @@ def main(cura_scripts_dir: str):
         print(f"Version: {curr_version}")
         # Manually overwrite the ARCGCODE_VERSION in the file
         # Yes, this is hacky, but it works LOL
-        with open(version_file, "w") as f:
+        with open(version_file, "r+") as f:
             version_py_contents = f.read()
+            # Seek and truncate are needed to reset and properly overwrite the file
+            # https://stackoverflow.com/questions/11469228/replace-and-overwrite-instead-of-appending
+            f.seek(0)
             with_new_version = version.replace_arcgcode_version(version_py_contents,
                                                                 new_version=curr_version)
             f.write(with_new_version)
+            f.truncate()
 
     src_symlink_path = os.path.join(cura_scripts_dir, "src")
 
