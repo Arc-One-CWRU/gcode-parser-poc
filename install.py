@@ -2,6 +2,7 @@ import argparse
 import os
 import shutil
 import platform
+from arcgcode.processor.base import version
 
 
 def main(cura_scripts_dir: str):
@@ -12,6 +13,24 @@ def main(cura_scripts_dir: str):
     package_src_dir = os.path.abspath("./src")
     print(f"Inferred Plugins Dir: {custom_plugins_dir}")
     print(f"Inferred Package Src Dir: {package_src_dir}\n")
+
+    # Try to write in the current version to version.py to make sure that it's always up-to-date
+    version_file = os.path.join(package_src_dir, "processor", "base", "version.py")
+    if os.path.isfile(version_file):
+        raise Exception(f"Could not find version file {version_file}. Please contact the " +
+                        "software team!")
+
+    curr_version = version.get_current_arcgcode_version()
+    if curr_version != version.ARCGCODE_VERSION:
+        print(f"Version: {curr_version}")
+        # Manually overwrite the ARCGCODE_VERSION in the file
+        # Yes, this is hacky, but it works LOL
+        with open(version_file, "w") as f:
+            version_py_contents = f.read()
+            with_new_version = version.replace_arcgcode_version(version_py_contents,
+                                                                new_version=curr_version)
+            f.write(with_new_version)
+
     src_symlink_path = os.path.join(cura_scripts_dir, "src")
 
     # TODO: what was I trying to do here lol?
