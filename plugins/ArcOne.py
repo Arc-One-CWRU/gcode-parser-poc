@@ -3,22 +3,46 @@ from UM.Logger import Logger
 
 logging_tag = "arcgcode_debug_arcone"
 
-import sys
+
+def cura_log(message: str, is_error: bool):
+    log_type = "d" if is_error else "d"
+    Logger.log(log_type, f"{logging_tag}: {message}")
+
+
 try:
     import os
+    import sys
     import pathlib
+    from importlib.machinery import SourceFileLoader
+    cura_log(f"before sys.path insert: Python Sys Path: {sys.path}", False)
+    cura_log(f"curr wd {os.getcwd()}", False)
 
-    Logger.log("e", f"{logging_tag}: before sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"{logging_tag}: curr wd {os.getcwd()}")
     # Assumes that the ArcOne is in the same directory as the repository
-    sys.path.append(os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
-                                                 "./src")))
-    Logger.log("e", f"{logging_tag}: after sys.path insert: Python Sys Path: {sys.path}")
+    src_dir = os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
+                                           "./src"))
+    if not os.path.isdir(src_dir):
+        raise Exception(f"could not find src directory: {src_dir}")
+
+    if src_dir not in sys.path:
+        sys.path.insert(0, src_dir)
+
+    cura_log(f"after sys.path insert: Python Sys Path: {sys.path}", False)
+    import arcgcode
+    cura_log(f"arcgcode init info: {arcgcode.__dict__}", False)
+    raw_import_path = os.path.join(src_dir, "arcgcode", "__init__.py")
+    raw_arcgcode = SourceFileLoader("arcgcode", raw_import_path).load_module()
+    cura_log(f"raw_arcgcode init info: {raw_arcgcode.__dict__}", False)
+
     from arcgcode import v1
-    Logger.log("e", "{logging_tag}: imported arcgcode successfully!")
+    cura_log(f"arcgcode.v1 init file: {v1.__file__}", False)
+
+    from arcgcode.processor.base.version import ARCGCODE_VERSION
+    cura_log("imported arcgcode successfully!", False)
+    cura_log(f"VERSION: {ARCGCODE_VERSION}", False)
 except Exception as e:
-    Logger.log("e", f"{logging_tag}: after sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"{logging_tag}: after sys.path insert: {str(e)}")
+    cura_log(f"after error sys.path insert: Python Sys Path: {sys.path}",
+             False)
+    cura_log(f"error after sys.path insert: {str(e)}", True)
 
 
 class ArcOne(Script):
@@ -69,11 +93,11 @@ class ArcOne(Script):
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
         movement_rate = float(self.getSettingValueByKey(self.keywords[3]))
-        debug_str = f"{logging_tag}: weld_gap: {weld_gap}, " + \
+        debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
             f" movement_rate: {movement_rate}"
-        Logger.log("e", debug_str)
-        Logger.log("e", f"{logging_tag}: {v1.CuraMicerSettings.__annotations__}")
+        cura_log(debug_str, False)
+        cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
                                         rotate_amount=rotate_amount,
