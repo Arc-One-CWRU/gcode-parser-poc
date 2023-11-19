@@ -1,12 +1,8 @@
 from typing import List, Tuple
 from .processor import CommandProcessorInterface, SectionProcessorInterface, \
     GCodeSection
-
-# Cura specific constants.
-END_OF_TOP_METADATA = ";Generated with"
-END_OF_STARTUP_SCRIPT = ";LAYER_COUNT:"
-END_OF_GCODE_MOVEMENTS = ";TIME_ELAPSED"
-END_OF_GCODE = ";End of Gcode"
+from .processor.base.cura import END_OF_TOP_METADATA, END_OF_STARTUP_SCRIPT, \
+    END_OF_GCODE, is_end_of_gcode_movements
 
 
 class CuraGCodePipeline(object):
@@ -130,19 +126,8 @@ class CuraGCodePipeline(object):
         while is_in_section and iter_idx < len(gcode_data):
             curr_line = gcode_data[iter_idx]
             section_contents.append(curr_line)
-            at_boundary = curr_line.startswith(END_OF_GCODE_MOVEMENTS)
-            next_line_is_end_script = True
-            if len(gcode_data) - 1 > iter_idx:
-                next_line = gcode_data[iter_idx+1]
-                # When the Cura flavor is Griffin, there is a TIME_ELAPSED
-                # after each layer
-                if (next_line.startswith(";TYPE") or
-                   next_line.startswith(";LAYER") or
-                   next_line.startswith(";MESH")):
-                    next_line_is_end_script = False
-
-            if at_boundary and next_line_is_end_script:
-                is_in_section = False
+            is_end = is_end_of_gcode_movements(curr_line, iter_idx, gcode_data)
+            is_in_section = not is_end
             iter_idx += 1
 
         return section_contents, iter_idx-1
