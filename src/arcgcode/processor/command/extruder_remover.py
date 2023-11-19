@@ -24,6 +24,9 @@ class ExtruderRemover(CommandProcessorInterface):
         Returns:
             bool: True if the instruction should be skipped.
         """
+        is_comment = gcode_instruction.startswith(";")
+        if is_comment:
+            return True
 
         skip_line = "X" not in gcode_instruction and \
             "Y" not in gcode_instruction and \
