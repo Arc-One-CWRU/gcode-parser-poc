@@ -1,6 +1,7 @@
 from ..base import SectionProcessorInterface, GCodeSection
 from math import modf
 from arcgcode.cura.gcodes import GCodes
+from arcgcode.processor.base.cura import CURA_LAYER
 
 
 class AddSleep(SectionProcessorInterface):
@@ -22,12 +23,9 @@ class AddSleep(SectionProcessorInterface):
         (ds, s) = modf(self.sleep_time)
         # Converts into ms
         ms = int(ds*1000)
-
-        # lines2: list[str] = []
         skip_first = True
-        for instruction in gcode_section:
-            # TODO weird gap between ;LAYER and ;LAYER_COUNT
-            if instruction.startswith(";LAYER:"):
+        for idx, instruction in enumerate(gcode_section):
+            if instruction.startswith(CURA_LAYER):
                 sum_sleep_time += self.sleep_time
                 new_gcode_section.append(instruction)
                 if skip_first:
@@ -35,8 +33,9 @@ class AddSleep(SectionProcessorInterface):
                     continue
                 sleep_instruction = f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n"
                 new_gcode_section.append(sleep_instruction)
-
-            elif instruction.startswith(";TIME_ELAPSED:"):
+            # Only care about the end of the movements section.
+            # Assumed that it is Cura.
+            elif idx == (len(gcode_section) - 1):
                 offset = len(";TIME_ELAPSED:")
                 time_elapsed = float(instruction[offset:len(instruction)].
                                      replace("\n", ""))
