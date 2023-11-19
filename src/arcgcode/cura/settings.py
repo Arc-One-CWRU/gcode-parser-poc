@@ -6,3 +6,4 @@ class CuraMicerSettings:
     weld_gap: float
     sleep_time: float
     rotate_amount: float
+    movement_rate: float
