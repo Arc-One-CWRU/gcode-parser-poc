@@ -5,7 +5,7 @@ from arcgcode.processor.base.cura import CURA_LAYER
 
 
 class AddSleep(SectionProcessorInterface):
-    """Adds sleep.
+    """Adds sleep after each layer.
     """
 
     def __init__(self, sleep_time: float) -> None:
