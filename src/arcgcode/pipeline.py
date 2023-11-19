@@ -54,7 +54,9 @@ class CuraGCodePipeline(object):
             processed_line = gcode_line
             for cmd_processor in self.command_processors:
                 processed_line = cmd_processor.process(processed_line)
-            new_gcode.append(processed_line + "\n")
+            if not processed_line.endswith("\n"):
+                processed_line = processed_line + "\n"
+            new_gcode.append(processed_line)
         return new_gcode
 
     def read_section(self, gcode_data: list[str],
@@ -109,7 +111,8 @@ class CuraGCodePipeline(object):
         Returns the startup script section and the last index of the section
         inclusive.
         """
-        return self.read_section(gcode_data, start_idx, END_OF_STARTUP_SCRIPT)
+        return self.read_section(gcode_data, start_idx,
+                                 END_OF_STARTUP_SCRIPT)
 
     def read_gcode_movements(self, gcode_data: list[str],
                              start_idx: int) -> Tuple[list[str], int]:
@@ -118,7 +121,31 @@ class CuraGCodePipeline(object):
         Returns the GCode movements section and the last index of the section
         inclusive.
         """
-        return self.read_section(gcode_data, start_idx, END_OF_GCODE_MOVEMENTS)
+        # Similar to read_section except that it needs to check the next line
+        # since the end indicator can occur multiple times throughout the
+        # G-Code
+        is_in_section = True
+        section_contents: list[str] = []
+        iter_idx = start_idx
+        while is_in_section and iter_idx < len(gcode_data):
+            curr_line = gcode_data[iter_idx]
+            section_contents.append(curr_line)
+            at_boundary = curr_line.startswith(END_OF_GCODE_MOVEMENTS)
+            next_line_is_end_script = True
+            if len(gcode_data) - 1 > iter_idx:
+                next_line = gcode_data[iter_idx+1]
+                # When the Cura flavor is Griffin, there is a TIME_ELAPSED
+                # after each layer
+                if (next_line.startswith(";TYPE") or
+                   next_line.startswith(";LAYER") or
+                   next_line.startswith(";MESH")):
+                    next_line_is_end_script = False
+
+            if at_boundary and next_line_is_end_script:
+                is_in_section = False
+            iter_idx += 1
+
+        return section_contents, iter_idx-1
 
     def read_end_script(self, gcode_data: list[str],
                         start_idx: int) -> Tuple[list[str], int]:
@@ -138,15 +165,21 @@ class CuraGCodePipeline(object):
         compatible G-Code file string.
         """
         gcode_file: list[str] = []
+
+        gcode_file.append(";Generated with ArcOne Post-Processing Script\n")
+        gcode_file.append(";top metadata start\n")
         # Divide into sections
         # 1. Top Comment (Settings & Metadata)
         top_metadata, top_meta_end_idx = self.read_top_metadata(gcode_data,
                                                                 0)
+        for processor in self.top_metadata_processors:
+            top_metadata = processor.process(top_metadata)
         gcode_file.extend(top_metadata)
+        gcode_file.append(";top metadata end\n")
 
         # 2. Startup Script: Apply all start up script processors
         gcode_file.append(";startup script start\n")
-        start_idx = top_meta_end_idx+1
+        start_idx = top_meta_end_idx+3
         startup_script, start_end_idx = self.read_startup_script(gcode_data,
                                                                  start_idx)
         for processor in self.startup_script_processors:
@@ -158,7 +191,7 @@ class CuraGCodePipeline(object):
         # TODO: Read layer by layer
         gcode_file.append(";gcode movements start\n")
         movements, move_end_idx = self.read_gcode_movements(gcode_data,
-                                                            start_end_idx+1)
+                                                            start_end_idx+2)
         for processor in self.gcode_movements_processors:
             movements = processor.process(movements)
         gcode_file.extend(movements)
@@ -167,7 +200,7 @@ class CuraGCodePipeline(object):
         # 4. End Script: Apply all end script processors.
         gcode_file.append(";end script start\n")
         end_script, end_script_idx = self.read_end_script(gcode_data,
-                                                          move_end_idx+1)
+                                                          move_end_idx+2)
         for processor in self.end_script_processors:
             end_script = processor.process(end_script)
         gcode_file.extend(end_script)
@@ -176,7 +209,7 @@ class CuraGCodePipeline(object):
         # 5. Bottom Comment
         gcode_file.append(";bottom comment start\n")
         bottom_comment, _ = self.read_bottom_comment(gcode_data,
-                                                     end_script_idx+1)
+                                                     end_script_idx+2)
         gcode_file.extend(bottom_comment)
         gcode_file.append(";bottom comment end\n\n")
 
