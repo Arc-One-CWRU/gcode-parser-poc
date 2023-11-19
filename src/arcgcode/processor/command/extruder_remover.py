@@ -42,5 +42,8 @@ class ExtruderRemover(CommandProcessorInterface):
             return gcode_instruction
 
         # Remove all extruder instructions in G1 commands
-        new_g1 = self.extruder_g1_matcher.sub("", gcode_instruction)
-        return new_g1
+        # Handle case where there is a comment after the instruction
+        split_instructions = gcode_instruction.split(";")
+        actual_gcode_cmd = split_instructions[0]
+        new_g1 = self.extruder_g1_matcher.sub("", actual_gcode_cmd)
+        return new_g1 + ";".join(split_instructions[1:])
