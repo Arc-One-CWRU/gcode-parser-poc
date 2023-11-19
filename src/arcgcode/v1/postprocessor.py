@@ -22,11 +22,12 @@ class CuraPostProcessor():
             section_processors=[
                 AddSleep(sleep_time=self.settings.sleep_time),
                 RotateStartLayerPrint(self.settings.rotate_amount),
-                AllWelderControl(), MoveUpZ(self.settings.weld_gap),
+                AllWelderControl(),
+                MoveUpZ(self.settings.weld_gap),
                 AddMicerSettings(settings=self.settings),
                 AddGcodeVersion()
-                
             ],
-            command_processor=[ExtruderRemover()])
+            # command_processor=[ExtruderRemover()])
+            command_processor=[])
         new_gcode = gcode_pipeline.process(data)
         return new_gcode

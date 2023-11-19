@@ -2,6 +2,7 @@ import re
 from math import ceil
 import numpy as np
 from ..base import SectionProcessorInterface, GCodeSection
+from ..base.cura import CURA_LAYER, CURA_OUTER_WALL
 
 
 class RotateStartLayerPrint(SectionProcessorInterface):
@@ -24,10 +25,10 @@ class RotateStartLayerPrint(SectionProcessorInterface):
         new_gcode_section: list[str] = []
         wall_lines: list[str] = []
         for instruction in gcode_section:
-            if instruction.startswith(";LAYER:"):
+            if instruction.startswith(CURA_LAYER):
                 new_gcode_section.append(instruction)
                 layer_count += 1
-            elif instruction.startswith(";TYPE:WALL-OUTER"):
+            elif instruction.startswith(CURA_OUTER_WALL):
                 start_wall = True
                 line_count = 0
                 wall_lines = []
