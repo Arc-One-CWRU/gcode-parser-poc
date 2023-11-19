@@ -14,11 +14,13 @@ def main(cura_scripts_dir: str):
     print(f"Inferred Plugins Dir: {custom_plugins_dir}")
     print(f"Inferred Package Src Dir: {package_src_dir}\n")
 
-    # Try to write in the current version to version.py to make sure that it's always up-to-date
-    version_file = os.path.join(package_src_dir, "arcgcode", "processor", "base", "version.py")
+    # Try to write in the current version to version.py to make sure that it's
+    # always up-to-date
+    version_file = os.path.join(package_src_dir, "arcgcode", "processor",
+                                "base", "version.py")
     if not os.path.isfile(version_file):
-        raise Exception(f"Could not find version file {version_file}. Please contact the " +
-                        "software team!")
+        raise Exception(f"Could not find version file {version_file}. " +
+                        "Please contact the software team!")
 
     curr_version = version.get_current_arcgcode_version()
     if curr_version != version.ARCGCODE_VERSION:
@@ -27,7 +29,8 @@ def main(cura_scripts_dir: str):
         # Yes, this is hacky, but it works LOL
         with open(version_file, "r+") as f:
             version_py_contents = f.read()
-            # Seek and truncate are needed to reset and properly overwrite the file
+            # Seek and truncate are needed to reset and properly overwrite the
+            # file
             # https://stackoverflow.com/questions/11469228/replace-and-overwrite-instead-of-appending
             f.seek(0)
             with_new_version = version.replace_arcgcode_version(version_py_contents,
@@ -35,17 +38,19 @@ def main(cura_scripts_dir: str):
             f.write(with_new_version)
             f.truncate()
 
-    src_symlink_path = os.path.join(cura_scripts_dir, "src")
-
-    # TODO: what was I trying to do here lol?
-    # if not os.path.isdir(src_symlink_path):
-    #     print("inferred src dir is not a directory: {src_symlink_path}")
-    #     raise Exception("Please run the install script in the root directory"
-    #  +
-    #                     " of this repository.")
+    # Cura is not able to import the symlinked library.
+    # Must remove the src directory, then copy everything in it to the scripts
+    # directory.
+    cura_src_path = os.path.join(cura_scripts_dir, "src")
+    if os.path.isdir(cura_src_path):
+        print(f"Cleaning up Cura src directory {cura_src_path} before " +
+              "copying fresh version...")
+        shutil.rmtree(cura_src_path)
 
     try:
-        os.symlink(package_src_dir, src_symlink_path)
+        print(f"Copying fresh {package_src_dir} to Cura scripts src dir " +
+              f"{cura_src_path}")
+        shutil.copytree(package_src_dir, cura_src_path, dirs_exist_ok=True)
     except Exception as e:
         err_msg = str(e)
         okay_linux_err_msg = "[Errno 17] File exists:"
@@ -57,18 +62,13 @@ def main(cura_scripts_dir: str):
             print("Please contact the software team!")
             print("Unexpected error: ", e)
             return
-
-    print(f"Created symlink for arcgcode src dir: {package_src_dir} to " +
-          f"{src_symlink_path}\n")
+    print(f"Created arcgcode src dir in Cura scripts: {cura_src_path}\n")
 
     print("Moving Arc Post-Processing Scripts to the correct directory...")
-    # Create a symlink from ./src to the scripts dir
-    # Then create a symlink for each plugin to the scripts directory.
     # Get a list of all files in the source directory
     files = os.listdir(custom_plugins_dir)
-    # ???? $$$
-    # Iterate through the files and create symbolic links in the target
-    # directory
+    # Iterate through all 'plugins' and copy them into the Cura scripts
+    # directory.
     for file in files:
         if not file.endswith(".py"):
             continue
@@ -79,15 +79,10 @@ def main(cura_scripts_dir: str):
         # Check if the file is a regular file (not a directory) before
         # creating a symbolic link
         if os.path.isfile(source_file_path):
-            
-            # Create a symbolic link in the target directory pointing to the
-            # source file
-            # os.symlink(source_file_path, target_file_path)
-            # print(f"Symbolic link created for {source_file_path} to " +
-            #       f"{target_file_path}")
             shutil.copyfile(source_file_path, target_file_path)
             print(f"Copied {source_file_path} to " +
                   f"{target_file_path}")
+
     print("You have successfully installed the Cura post-processing scripts!")
 
 
