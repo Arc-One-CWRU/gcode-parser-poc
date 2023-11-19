@@ -4,22 +4,26 @@ import re
 # Using commits for now since they are granular
 # In the future, could tag each arcgcode version with its release
 # and ditch this variable nonsense
-ARCGCODE_VERSION = "e12d357f71f3061f846107a092f88dfb7541c0fd"
+ARCGCODE_VERSION = "263167bc2337e4e6d017b970e8e894d87c0bb50f"
 
 
 def get_current_arcgcode_version() -> str:
     """Gets the most recent commit on the current branch and returns the hash.
     """
     get_git_commit_cmd = "git rev-parse HEAD"
-    result = subprocess.check_output(get_git_commit_cmd, shell=True,  stderr=subprocess.STDOUT,
+    result = subprocess.check_output(get_git_commit_cmd, shell=True,
+                                     stderr=subprocess.STDOUT,
                                      text=True)
     return result.strip()
 
 
-def replace_arcgcode_version(version_file_contents: str, new_version: str) -> str:
+def replace_arcgcode_version(version_file_contents: str,
+                             new_version: str) -> str:
     pattern = r'(ARCGCODE_VERSION\s*=\s*")[^"]+(")'
-    # Don't f-string the whole variable because it will break the regex replacing
-    # (The regex will replace new_version with raw hash when running install.py)
+    # Don't f-string the whole variable because it will break the regex
+    # replacing (The regex will replace new_version with raw hash when running
+    # install.py)
     new_version_variable = "ARCGCODE_VERSION" + f' = "{new_version}"'
-    file_with_new_ver = re.sub(pattern, new_version_variable, version_file_contents)
+    file_with_new_ver = re.sub(pattern, new_version_variable,
+                               version_file_contents)
     return file_with_new_ver
