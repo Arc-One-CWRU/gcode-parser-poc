@@ -12,8 +12,8 @@ class ExtruderRemover(CommandProcessorInterface):
 
     def __init__(self) -> None:
         super().__init__()
-        self.extruder_g1_matcher = re.compile(
-            r"([E][-+]?([0-9]*\.[0-9]*|[0-9]*))\w+")
+        self.extruder_arg_matcher = re.compile(
+            r"(\s[E][-+]?([0-9]*\.[0-9]*))")
 
     def should_skip(self, gcode_instruction: str) -> bool:
         """Checks if the given G-Code instruction should be skipped.
@@ -24,6 +24,9 @@ class ExtruderRemover(CommandProcessorInterface):
         Returns:
             bool: True if the instruction should be skipped.
         """
+        if len(gcode_instruction.strip()) == 0:
+            return True
+
         is_comment = gcode_instruction.startswith(";")
         if is_comment:
             return True
@@ -44,6 +47,13 @@ class ExtruderRemover(CommandProcessorInterface):
         # Remove all extruder instructions in G1 commands
         # Handle case where there is a comment after the instruction
         split_instructions = gcode_instruction.split(";")
-        actual_gcode_cmd = split_instructions[0]
-        new_g1 = self.extruder_g1_matcher.sub("", actual_gcode_cmd)
-        return new_g1 + ";".join(split_instructions[1:])
+        contains_comment = len(split_instructions) > 1
+        if contains_comment:
+            actual_gcode_cmd = split_instructions[0]
+            new_g1 = self.extruder_arg_matcher.sub("", actual_gcode_cmd)
+            # Append comment to parsed gcode command
+            return new_g1 + ";" + "".join(split_instructions[1:])
+        
+        # No comment after instruction
+        new_g1 = self.extruder_arg_matcher.sub("", gcode_instruction)
+        return new_g1

@@ -27,7 +27,6 @@ class CuraPostProcessor():
                 AddMicerSettings(settings=self.settings),
                 AddGcodeVersion()
             ],
-            # command_processor=[ExtruderRemover()])
-            command_processor=[])
+            command_processor=[ExtruderRemover()])
         new_gcode = gcode_pipeline.process(data)
         return new_gcode
