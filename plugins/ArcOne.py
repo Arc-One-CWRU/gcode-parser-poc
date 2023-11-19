@@ -1,26 +1,28 @@
 from ..Script import Script
 from UM.Logger import Logger
 
+logging_tag = "arcgcode_debug_arcone"
+
 import sys
 try:
     import os
     import pathlib
 
-    Logger.log("e", f"arcgcode_debug_arcone: before sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"arcgcode_debug_arcone: curr wd {os.getcwd()}")
+    Logger.log("e", f"{logging_tag}: before sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"{logging_tag}: curr wd {os.getcwd()}")
     # Assumes that the ArcOne is in the same directory as the repository
     sys.path.append(os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
                                                  "./src")))
-    Logger.log("e", f"arcgcode_debug_arcone: after sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"{logging_tag}: after sys.path insert: Python Sys Path: {sys.path}")
     from arcgcode import v1
-    Logger.log("e", "arcgcode_debug_arcone: imported arcgcode successfully!")
+    Logger.log("e", "{logging_tag}: imported arcgcode successfully!")
 except Exception as e:
-    Logger.log("e", f"arcgcode_debug_arcone: after sys.path insert: Python Sys Path: {sys.path}")
-    Logger.log("e", f"arcgcode_debug_arcone: after sys.path insert: {str(e)}")
+    Logger.log("e", f"{logging_tag}: after sys.path insert: Python Sys Path: {sys.path}")
+    Logger.log("e", f"{logging_tag}: after sys.path insert: {str(e)}")
 
 
 class ArcOne(Script):
-    keywords = ["weldgap", "sleeptime", "rotate_amount"]
+    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate"]
 
     def getSettingDataString(self) -> str:
         return """{
@@ -51,6 +53,13 @@ class ArcOne(Script):
                 "type": "int",
                 "default_value": 6,
                 "minimum_value": 0
+            },
+            "movement_rate": {
+                "label": "(NOT IMPLEMENTED YET) Set the Movement Rate (mm/min)",
+                "description": "Set the movement rate (mm/min)",
+                "type": "float",
+                "default_value": 275.0,
+                "minimum_value": 100.0
             }
         }
         }"""
@@ -59,13 +68,16 @@ class ArcOne(Script):
         weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
-        debug_str = f"arcgcode_debug: weld_gap: {weld_gap}, " + \
-            f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}"
+        movement_rate = float(self.getSettingValueByKey(self.keywords[3]))
+        debug_str = f"{logging_tag}: weld_gap: {weld_gap}, " + \
+            f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
+            f" movement_rate: {movement_rate}"
         Logger.log("e", debug_str)
-
+        Logger.log("e", f"{logging_tag}: {v1.CuraMicerSettings.__annotations__}")
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
-                                        rotate_amount=rotate_amount)
+                                        rotate_amount=rotate_amount,
+                                        movement_rate=movement_rate)
         return settings
 
     # TODO could use a helper to get numbers out of lines
@@ -78,11 +90,10 @@ class ArcOne(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        micer = v1.CuraPostProcessor(self.get_settings())
-
         try:
-            settings = micer.execute(data)
-            return settings
+            postprocessor = v1.CuraPostProcessor(self.get_settings())
+            processed_gcode = postprocessor.execute(data)
+            return processed_gcode
         except Exception as e:
-            Logger.log("e", str(e))
+            Logger.log("e", f"{logging_tag}: {str(e)}")
             return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]
