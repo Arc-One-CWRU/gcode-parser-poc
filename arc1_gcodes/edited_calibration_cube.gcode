@@ -25,7 +25,12 @@
 ;PRINT.SIZE.MAX.Z:20
 ;SLICE_UUID:4268d424-cd8a-4b47-9ef5-c5bd85a62978
 ;END_OF_HEADER
-;Generated with Cura_SteamEngine 5.3.1
+
+;Arc One Settings
+;weld_gap = 8
+;sleep_time = 30
+;rotate_amount = 6
+;Generated with Cura_SteamEngine 5.3.1 + Arc One
 ;top metadata end
 ;startup script start
 
