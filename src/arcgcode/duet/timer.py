@@ -1,4 +1,5 @@
 from duetwebapi import DuetWebAPI
+from collections import defaultdict
 import time
 import atexit
 # from Consts import URL
@@ -22,18 +23,43 @@ class DuetTimer(object):
         start_time = 0
         started_flag = False
         atexit.register(self.duet.disconnect)
+        layer = self.duet.get_layer()
+        # Key: Layer
+        # Values: defaultdict(float)
+        #   start -> start timestamp (s)
+        #   end -> end timestamp (s)
+        #   duration -> s
+        layer_times = {
+            0: defaultdict(float, {
+                "start": time.time()
+            })
+        }
         while True:
             try:
-                if (self.duet.get_model("state.status") == "processing" and
+                curr_layer = self.duet.get_layer()
+                if curr_layer != layer:
+                    layer_end_time = time.time()
+                    layer_start_time = layer_times[layer]["start"]
+                    layer_duration = layer_start_time - layer_end_time
+                    layer_times[layer]["end"] = layer_end_time
+                    layer_times[layer]["duration"] = layer_duration
+                    print(f"Changed from layer {layer} to layer {curr_layer}, total duration: {layer_duration}")
+                    layer = curr_layer
+                if (self.duet.get_status() == "processing" and
                    not started_flag):
                     print("Started Timer")
                     start_time = time.time()
                     started_flag = True
-                if (self.duet.get_model("state.status") == "idle" and
+                if (self.duet.get_status() == "idle" and
                    started_flag):
                     end_time = time.time()
-                    print(f"Print finished in{end_time-start_time} seconds")
+                    print(f"Print finished in {end_time-start_time} seconds")
                     start_time = 0
                     started_flag = False
-            except ValueError:
-                pass
+            except Exception as e:
+                if str(e) == "":
+                    continue
+
+                print("Err: ", str(e))
+
+            time.sleep(0.01)
