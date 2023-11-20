@@ -1,7 +1,8 @@
 from ..base import SectionProcessorInterface, GCodeSection
 from math import modf
 from arcgcode.cura.gcodes import GCodes
-from arcgcode.processor.base.cura import CURA_LAYER
+from arcgcode.processor.base.cura import CURA_LAYER, END_OF_GCODE_MOVEMENTS, \
+    find_end_of_gcode_movements_idx
 
 
 class AddSleep(SectionProcessorInterface):
@@ -16,6 +17,10 @@ class AddSleep(SectionProcessorInterface):
         """Reads the G-Code file buffer and does an action. It should return
         the desired G-Code string for that section.
         """
+        # Sanity check, just in case there's an extra new line at the end of
+        # the section for some reason.
+        end_of_movements_idx = find_end_of_gcode_movements_idx(gcode_section)
+
         new_gcode_section: list[str] = []
         sum_sleep_time = 0.0
         end_time = -1
@@ -35,7 +40,11 @@ class AddSleep(SectionProcessorInterface):
                 new_gcode_section.append(sleep_instruction)
             # Only care about the end of the movements section.
             # Assumed that it is Cura.
-            elif idx == (len(gcode_section) - 1):
+            elif idx == end_of_movements_idx:
+                if not instruction.startswith(END_OF_GCODE_MOVEMENTS):
+                    raise Exception(f"expected {END_OF_GCODE_MOVEMENTS} as " +
+                                    f"last element, but got {instruction}")
+
                 offset = len(";TIME_ELAPSED:")
                 time_elapsed = float(instruction[offset:len(instruction)].
                                      replace("\n", ""))
