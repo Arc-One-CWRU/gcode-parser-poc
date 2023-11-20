@@ -1,6 +1,6 @@
 ;Generated with ArcOne Post-Processing Script
 ;top metadata start
-;Git Commit Hash (Version): 263167bc2337e4e6d017b970e8e894d87c0bb50f
+;Git Commit Hash (Version): 154a6c48e500720bfecb9adb8561c03316a57b2f
 ;START_OF_HEADER
 ;HEADER_VERSION:0.1
 ;FLAVOR:Griffin
@@ -34,6 +34,8 @@
 ;Generated with Cura_SteamEngine 5.3.1 + Arc One
 ;top metadata end
 ;startup script start
+T0
+M82 ;absolute extrusion mode
 
 G92 E0
 M109 S200
@@ -44,6 +46,7 @@ G1 F2700 E-6.5
 ;startup script end
 
 ;gcode movements start
+;LAYER:0
 M106 S255
 M204 S1000
 M205 X20 Y20
@@ -449,10 +452,10 @@ M42 P1 S0 ;Disable Welder
 G0 F9000 X174.522 Y129.522
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F1035 X174.522 Y110.477  ;Moved 4 lines
-G1 X155.477 Y110.477  ;Moved 4 lines
-G1 X155.477 Y129.522  ;Moved 4 lines
-G1 X174.522 Y129.522  ;Moved 4 lines
+G1 F1035 X174.522 Y110.477  ;Moved 0 lines
+G1 X155.477 Y110.477  ;Moved 0 lines
+G1 X155.477 Y129.522  ;Moved 0 lines
+G1 X174.522 Y129.522  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.522 Y129.322
 G0 X174.122 Y129.122
@@ -726,6 +729,7 @@ G0 X174.252 Y129.252
 G0 X174.551 Y129.749
 ;TIME_ELAPSED:166.852836
 ;LAYER:1
+G4 S30 P0
 ;TYPE:WALL-OUTER
 ;MESH:20mm_cube_soft_edges.STL
 M42 P1 S1 ;Enable Welder
@@ -2538,20 +2542,20 @@ G0 F9000 X155.869 Y129.135
 G0 X155.526 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.494 Y129.804  ;Moved 0 lines
-G1 X174.653 Y129.761  ;Moved 0 lines
-G1 X174.76 Y129.654  ;Moved 0 lines
-G1 X174.804 Y129.495  ;Moved 0 lines
-G1 X174.805 Y110.506  ;Moved 0 lines
-G1 X174.761 Y110.347  ;Moved 0 lines
-G1 X174.546 Y110.199  ;Moved 0 lines
-G1 X155.465 Y110.199  ;Moved 0 lines
-G1 X155.287 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.463  ;Moved 0 lines
-G1 X155.2 Y129.533  ;Moved 0 lines
-G1 X155.282 Y129.702  ;Moved 0 lines
-G1 X155.526 Y129.805  ;Moved 0 lines
+G1 F2700 X155.2 Y129.533  ;Moved 3 lines
+G1 X155.282 Y129.702  ;Moved 3 lines
+G1 X155.526 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.494 Y129.804  ;Moved 3 lines
+G1 X174.653 Y129.761  ;Moved 3 lines
+G1 X174.76 Y129.654  ;Moved 3 lines
+G1 X174.804 Y129.495  ;Moved 3 lines
+G1 X174.805 Y110.506  ;Moved 3 lines
+G1 X174.761 Y110.347  ;Moved 3 lines
+G1 X174.546 Y110.199  ;Moved 3 lines
+G1 X155.465 Y110.199  ;Moved 3 lines
+G1 X155.287 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.463  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.726 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -2615,18 +2619,18 @@ G0 F9000 X174.135 Y129.135
 G0 X174.473 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.44 Y129.805  ;Moved 2 lines
-G1 X174.473 Y129.805  ;Moved 2 lines
-G1  ;Moved 2 lines
-G1 F1380 X174.722 Y129.702  ;Moved 2 lines
-G1 X174.805 Y129.559  ;Moved 2 lines
-G1 X174.805 Y110.506  ;Moved 2 lines
-G1 X174.761 Y110.347  ;Moved 2 lines
-G1 X174.546 Y110.199  ;Moved 2 lines
-G1 X155.373 Y110.199  ;Moved 2 lines
-G1 X155.199 Y110.453  ;Moved 2 lines
-G1 X155.199 Y129.529  ;Moved 2 lines
-G1 X155.292 Y129.719  ;Moved 2 lines
+G1 F2700 X155.199 Y129.529  ;Moved 4 lines
+G1 X155.292 Y129.719  ;Moved 4 lines
+G1 X155.44 Y129.805  ;Moved 4 lines
+G1 X174.473 Y129.805  ;Moved 4 lines
+G1  ;Moved 4 lines
+G1 F1380 X174.722 Y129.702  ;Moved 4 lines
+G1 X174.805 Y129.559  ;Moved 4 lines
+G1 X174.805 Y110.506  ;Moved 4 lines
+G1 X174.761 Y110.347  ;Moved 4 lines
+G1 X174.546 Y110.199  ;Moved 4 lines
+G1 X155.373 Y110.199  ;Moved 4 lines
+G1 X155.199 Y110.453  ;Moved 4 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.658 Y129.729
 M42 P1 S1 ;Enable Welder
@@ -2690,19 +2694,19 @@ G0 F9000 X174.135 Y129.135
 G0 X174.473 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.2 Y110.463  ;Moved 5 lines
-G1 X155.199 Y129.529  ;Moved 5 lines
-G1 X155.292 Y129.719  ;Moved 5 lines
-G1 X155.44 Y129.805  ;Moved 5 lines
-G1 X174.473 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.722 Y129.702  ;Moved 5 lines
-G1 X174.805 Y129.559  ;Moved 5 lines
-G1 X174.805 Y110.527  ;Moved 5 lines
-G1 X174.703 Y110.282  ;Moved 5 lines
-G1 X174.536 Y110.2  ;Moved 5 lines
-G1 X155.471 Y110.199  ;Moved 5 lines
-G1 X155.286 Y110.289  ;Moved 5 lines
+G1 F2700 X155.471 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.289  ;Moved 7 lines
+G1 X155.2 Y110.463  ;Moved 7 lines
+G1 X155.199 Y129.529  ;Moved 7 lines
+G1 X155.292 Y129.719  ;Moved 7 lines
+G1 X155.44 Y129.805  ;Moved 7 lines
+G1 X174.473 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.722 Y129.702  ;Moved 7 lines
+G1 X174.805 Y129.559  ;Moved 7 lines
+G1 X174.805 Y110.527  ;Moved 7 lines
+G1 X174.703 Y110.282  ;Moved 7 lines
+G1 X174.536 Y110.2  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.658 Y129.729
 M42 P1 S1 ;Enable Welder
@@ -2766,19 +2770,19 @@ G0 F9000 X174.13 Y129.135
 G0 X174.48 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.326 Y110.255  ;Moved 7 lines
-G1 X155.199 Y110.475  ;Moved 7 lines
-G1 X155.2 Y129.535  ;Moved 7 lines
-G1 X155.255 Y129.673  ;Moved 7 lines
-G1 X155.475 Y129.8  ;Moved 7 lines
-G1 X174.48 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.676 Y129.737  ;Moved 7 lines
-G1 X174.8 Y129.524  ;Moved 7 lines
-G1 X174.804 Y110.52  ;Moved 7 lines
-G1 X174.736 Y110.323  ;Moved 7 lines
-G1 X174.524 Y110.2  ;Moved 7 lines
+G1 F2700 X174.736 Y110.323  ;Moved 9 lines
+G1 X174.524 Y110.2  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.326 Y110.255  ;Moved 9 lines
+G1 X155.199 Y110.475  ;Moved 9 lines
+G1 X155.2 Y129.535  ;Moved 9 lines
+G1 X155.255 Y129.673  ;Moved 9 lines
+G1 X155.475 Y129.8  ;Moved 9 lines
+G1 X174.48 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.676 Y129.737  ;Moved 9 lines
+G1 X174.8 Y129.524  ;Moved 9 lines
+G1 X174.804 Y110.52  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.669 Y129.74
 G0 X174.4 Y129.404
@@ -2836,19 +2840,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.521 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.805 Y110.506  ;Moved 9 lines
-G1 X174.762 Y110.348  ;Moved 9 lines
-G1 X174.546 Y110.2  ;Moved 9 lines
-G1 X155.472 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.288  ;Moved 9 lines
-G1 X155.2 Y110.463  ;Moved 9 lines
-G1 X155.2 Y129.526  ;Moved 9 lines
-G1 X155.286 Y129.705  ;Moved 9 lines
-G1 X155.521 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.495 Y129.805  ;Moved 9 lines
-G1 X174.651 Y129.762  ;Moved 9 lines
-G1 X174.805 Y129.497  ;Moved 9 lines
+G1 F2700 X174.651 Y129.762  ;Moved 11 lines
+G1 X174.805 Y129.497  ;Moved 11 lines
+G1 X174.805 Y110.506  ;Moved 11 lines
+G1 X174.762 Y110.348  ;Moved 11 lines
+G1 X174.546 Y110.2  ;Moved 11 lines
+G1 X155.472 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.288  ;Moved 11 lines
+G1 X155.2 Y110.463  ;Moved 11 lines
+G1 X155.2 Y129.526  ;Moved 11 lines
+G1 X155.286 Y129.705  ;Moved 11 lines
+G1 X155.521 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.495 Y129.805  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.721 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -2912,19 +2916,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.52 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.758 Y129.66  ;Moved 11 lines
-G1 X174.805 Y129.498  ;Moved 11 lines
-G1 X174.805 Y110.506  ;Moved 11 lines
-G1 X174.762 Y110.344  ;Moved 11 lines
-G1 X174.546 Y110.199  ;Moved 11 lines
-G1 X155.472 Y110.199  ;Moved 11 lines
-G1 X155.287 Y110.287  ;Moved 11 lines
-G1 X155.199 Y110.463  ;Moved 11 lines
-G1 X155.199 Y129.527  ;Moved 11 lines
-G1 X155.285 Y129.705  ;Moved 11 lines
-G1 X155.52 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.495 Y129.805  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.495 Y129.805  ;Moved 0 lines
+G1 X174.758 Y129.66  ;Moved 0 lines
+G1 X174.805 Y129.498  ;Moved 0 lines
+G1 X174.805 Y110.506  ;Moved 0 lines
+G1 X174.762 Y110.344  ;Moved 0 lines
+G1 X174.546 Y110.199  ;Moved 0 lines
+G1 X155.472 Y110.199  ;Moved 0 lines
+G1 X155.287 Y110.287  ;Moved 0 lines
+G1 X155.199 Y110.463  ;Moved 0 lines
+G1 X155.199 Y129.527  ;Moved 0 lines
+G1 X155.285 Y129.705  ;Moved 0 lines
+G1 X155.52 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.72 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -2988,19 +2992,19 @@ G0 F9000 X174.135 Y129.135
 G0 X174.482 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.69 Y129.734  ;Moved 0 lines
-G1 X174.805 Y129.589  ;Moved 0 lines
-G1 X174.805 Y110.414  ;Moved 0 lines
-G1 X174.686 Y110.259  ;Moved 0 lines
-G1 X174.545 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.329 Y110.253  ;Moved 0 lines
-G1 X155.199 Y110.475  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.26 Y129.687  ;Moved 0 lines
-G1 X155.41 Y129.805  ;Moved 0 lines
-G1 X174.482 Y129.805  ;Moved 0 lines
+G1 F2700 X155.26 Y129.687  ;Moved 3 lines
+G1 X155.41 Y129.805  ;Moved 3 lines
+G1 X174.482 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.69 Y129.734  ;Moved 3 lines
+G1 X174.805 Y129.589  ;Moved 3 lines
+G1 X174.805 Y110.414  ;Moved 3 lines
+G1 X174.686 Y110.259  ;Moved 3 lines
+G1 X174.545 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.329 Y110.253  ;Moved 3 lines
+G1 X155.199 Y110.475  ;Moved 3 lines
+G1 X155.199 Y129.535  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.671 Y129.741
 M42 P1 S1 ;Enable Welder
@@ -3064,17 +3068,17 @@ G0 F9000 X174.135 Y129.135
 G0 X174.494 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.413 Y129.805  ;Moved 2 lines
-G1 X174.494 Y129.805  ;Moved 2 lines
-G1  ;Moved 2 lines
-G1 F1380 X174.647 Y129.763  ;Moved 2 lines
-G1 X174.805 Y129.586  ;Moved 2 lines
-G1 X174.805 Y110.506  ;Moved 2 lines
-G1 X174.763 Y110.352  ;Moved 2 lines
-G1 X174.591 Y110.199  ;Moved 2 lines
-G1 X155.385 Y110.199  ;Moved 2 lines
-G1 X155.199 Y110.408  ;Moved 2 lines
-G1 X155.199 Y129.614  ;Moved 2 lines
+G1 F2700 X155.199 Y110.408  ;Moved 4 lines
+G1 X155.199 Y129.614  ;Moved 4 lines
+G1 X155.413 Y129.805  ;Moved 4 lines
+G1 X174.494 Y129.805  ;Moved 4 lines
+G1  ;Moved 4 lines
+G1 F1380 X174.647 Y129.763  ;Moved 4 lines
+G1 X174.805 Y129.586  ;Moved 4 lines
+G1 X174.805 Y110.506  ;Moved 4 lines
+G1 X174.763 Y110.352  ;Moved 4 lines
+G1 X174.591 Y110.199  ;Moved 4 lines
+G1 X155.385 Y110.199  ;Moved 4 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.647 Y129.763
 G0 X174.675 Y129.732
@@ -3139,18 +3143,18 @@ G0 F9000 X174.135 Y129.135
 G0 X174.495 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.548  ;Moved 4 lines
-G1 X155.34 Y129.758  ;Moved 4 lines
-G1 X155.501 Y129.805  ;Moved 4 lines
-G1 X174.495 Y129.805  ;Moved 4 lines
-G1  ;Moved 4 lines
-G1 F1380 X174.758 Y129.659  ;Moved 4 lines
-G1 X174.805 Y129.499  ;Moved 4 lines
-G1 X174.805 Y110.504  ;Moved 4 lines
-G1 X174.763 Y110.347  ;Moved 4 lines
-G1 X174.552 Y110.199  ;Moved 4 lines
-G1 X155.373 Y110.199  ;Moved 4 lines
-G1 X155.2 Y110.447  ;Moved 4 lines
+G1 F2700 X155.373 Y110.199  ;Moved 6 lines
+G1 X155.2 Y110.447  ;Moved 6 lines
+G1 X155.199 Y129.548  ;Moved 6 lines
+G1 X155.34 Y129.758  ;Moved 6 lines
+G1 X155.501 Y129.805  ;Moved 6 lines
+G1 X174.495 Y129.805  ;Moved 6 lines
+G1  ;Moved 6 lines
+G1 F1380 X174.758 Y129.659  ;Moved 6 lines
+G1 X174.805 Y129.499  ;Moved 6 lines
+G1 X174.805 Y110.504  ;Moved 6 lines
+G1 X174.763 Y110.347  ;Moved 6 lines
+G1 X174.552 Y110.199  ;Moved 6 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.67 Y129.708
 M42 P1 S1 ;Enable Welder
@@ -3214,19 +3218,19 @@ G0 F9000 X174.135 Y129.135
 G0 X174.494 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.547 Y110.2  ;Moved 7 lines
-G1 X155.451 Y110.199  ;Moved 7 lines
-G1 X155.2 Y110.374  ;Moved 7 lines
-G1 X155.199 Y129.548  ;Moved 7 lines
-G1 X155.349 Y129.762  ;Moved 7 lines
-G1 X155.5 Y129.805  ;Moved 7 lines
-G1 X174.494 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.649 Y129.763  ;Moved 7 lines
-G1 X174.763 Y129.651  ;Moved 7 lines
-G1 X174.805 Y129.5  ;Moved 7 lines
-G1 X174.805 Y110.506  ;Moved 7 lines
-G1 X174.763 Y110.35  ;Moved 7 lines
+G1 F2700 X174.805 Y110.506  ;Moved 9 lines
+G1 X174.763 Y110.35  ;Moved 9 lines
+G1 X174.547 Y110.2  ;Moved 9 lines
+G1 X155.451 Y110.199  ;Moved 9 lines
+G1 X155.2 Y110.374  ;Moved 9 lines
+G1 X155.199 Y129.548  ;Moved 9 lines
+G1 X155.349 Y129.762  ;Moved 9 lines
+G1 X155.5 Y129.805  ;Moved 9 lines
+G1 X174.494 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.649 Y129.763  ;Moved 9 lines
+G1 X174.763 Y129.651  ;Moved 9 lines
+G1 X174.805 Y129.5  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.649 Y129.763
 G0 X174.677 Y129.735
@@ -3291,17 +3295,17 @@ G0 F9000 X155.869 Y129.135
 G0 X155.433 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.407  ;Moved 8 lines
-G1 X174.69 Y110.261  ;Moved 8 lines
-G1 X174.54 Y110.199  ;Moved 8 lines
-G1 X155.407 Y110.199  ;Moved 8 lines
-G1 X155.261 Y110.309  ;Moved 8 lines
-G1 X155.199 Y110.459  ;Moved 8 lines
-G1 X155.199 Y129.591  ;Moved 8 lines
-G1 X155.433 Y129.805  ;Moved 8 lines
-G1  ;Moved 8 lines
-G1 F1380 X174.592 Y129.8  ;Moved 8 lines
-G1 X174.805 Y129.566  ;Moved 8 lines
+G1 F2700 F1380 X174.592 Y129.8  ;Moved 10 lines
+G1 X174.805 Y129.566  ;Moved 10 lines
+G1 X174.8 Y110.407  ;Moved 10 lines
+G1 X174.69 Y110.261  ;Moved 10 lines
+G1 X174.54 Y110.199  ;Moved 10 lines
+G1 X155.407 Y110.199  ;Moved 10 lines
+G1 X155.261 Y110.309  ;Moved 10 lines
+G1 X155.199 Y110.459  ;Moved 10 lines
+G1 X155.199 Y129.591  ;Moved 10 lines
+G1 X155.433 Y129.805  ;Moved 10 lines
+G1  ;Moved 10 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.633 Y129.805
 G0 X155.599 Y129.404
@@ -3359,19 +3363,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.517 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.705 Y129.716  ;Moved 11 lines
-G1 X174.805 Y129.482  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.537 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.462  ;Moved 11 lines
-G1 X155.2 Y129.535  ;Moved 11 lines
-G1 X155.283 Y129.706  ;Moved 11 lines
-G1 X155.517 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.799  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.799  ;Moved 0 lines
+G1 X174.705 Y129.716  ;Moved 0 lines
+G1 X174.805 Y129.482  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.537 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.462  ;Moved 0 lines
+G1 X155.2 Y129.535  ;Moved 0 lines
+G1 X155.283 Y129.706  ;Moved 0 lines
+G1 X155.517 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.717 Y129.805
 G0 X155.599 Y129.404
@@ -3429,19 +3433,19 @@ G0 F9000 X155.869 Y129.13
 G0 X155.461 Y129.8
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.537 Y129.799  ;Moved 0 lines
-G1 X174.713 Y129.713  ;Moved 0 lines
-G1 X174.8 Y129.538  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.537 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.462  ;Moved 0 lines
-G1 X155.2 Y129.537  ;Moved 0 lines
-G1 X155.286 Y129.713  ;Moved 0 lines
-G1 X155.461 Y129.8  ;Moved 0 lines
+G1 F2700 X155.2 Y129.537  ;Moved 3 lines
+G1 X155.286 Y129.713  ;Moved 3 lines
+G1 X155.461 Y129.8  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.537 Y129.799  ;Moved 3 lines
+G1 X174.713 Y129.713  ;Moved 3 lines
+G1 X174.8 Y129.538  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.537 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.462  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.661 Y129.8
 G0 X155.601 Y129.4
@@ -3499,19 +3503,19 @@ G0 F9000 X174.13 Y129.13
 G0 X174.531 Y129.8
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y129.712  ;Moved 3 lines
-G1 X155.462 Y129.8  ;Moved 3 lines
-G1 X174.531 Y129.8  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.712 Y129.713  ;Moved 3 lines
-G1 X174.8 Y129.537  ;Moved 3 lines
-G1 X174.8 Y110.468  ;Moved 3 lines
-G1 X174.712 Y110.287  ;Moved 3 lines
-G1 X174.537 Y110.199  ;Moved 3 lines
-G1 X155.468 Y110.199  ;Moved 3 lines
-G1 X155.287 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.462  ;Moved 3 lines
-G1 X155.199 Y129.531  ;Moved 3 lines
+G1 F2700 X155.199 Y110.462  ;Moved 5 lines
+G1 X155.199 Y129.531  ;Moved 5 lines
+G1 X155.286 Y129.712  ;Moved 5 lines
+G1 X155.462 Y129.8  ;Moved 5 lines
+G1 X174.531 Y129.8  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.712 Y129.713  ;Moved 5 lines
+G1 X174.8 Y129.537  ;Moved 5 lines
+G1 X174.8 Y110.468  ;Moved 5 lines
+G1 X174.712 Y110.287  ;Moved 5 lines
+G1 X174.537 Y110.199  ;Moved 5 lines
+G1 X155.468 Y110.199  ;Moved 5 lines
+G1 X155.287 Y110.286  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.712 Y129.713
 G0 X174.4 Y129.4
@@ -3569,19 +3573,19 @@ G0 F9000 X155.869 Y129.13
 G0 X155.461 Y129.8
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.462  ;Moved 5 lines
-G1 X155.2 Y129.537  ;Moved 5 lines
-G1 X155.286 Y129.713  ;Moved 5 lines
-G1 X155.461 Y129.8  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.537 Y129.799  ;Moved 5 lines
-G1 X174.713 Y129.713  ;Moved 5 lines
-G1 X174.8 Y129.538  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.537 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.537 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.462  ;Moved 7 lines
+G1 X155.2 Y129.537  ;Moved 7 lines
+G1 X155.286 Y129.713  ;Moved 7 lines
+G1 X155.461 Y129.8  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.537 Y129.799  ;Moved 7 lines
+G1 X174.713 Y129.713  ;Moved 7 lines
+G1 X174.8 Y129.538  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.661 Y129.8
 G0 X155.601 Y129.4
@@ -3639,19 +3643,19 @@ G0 F9000 X174.134 Y129.135
 G0 X174.473 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.281 Y110.289  ;Moved 7 lines
-G1 X155.195 Y110.439  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.289 Y129.718  ;Moved 7 lines
-G1 X155.439 Y129.804  ;Moved 7 lines
-G1 X174.473 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.724 Y129.701  ;Moved 7 lines
-G1 X174.804 Y129.561  ;Moved 7 lines
-G1 X174.804 Y110.527  ;Moved 7 lines
-G1 X174.701 Y110.275  ;Moved 7 lines
-G1 X174.561 Y110.196  ;Moved 7 lines
+G1 F2700 X174.701 Y110.275  ;Moved 9 lines
+G1 X174.561 Y110.196  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.281 Y110.289  ;Moved 9 lines
+G1 X155.195 Y110.439  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.289 Y129.718  ;Moved 9 lines
+G1 X155.439 Y129.804  ;Moved 9 lines
+G1 X174.473 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.724 Y129.701  ;Moved 9 lines
+G1 X174.804 Y129.561  ;Moved 9 lines
+G1 X174.804 Y110.527  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.658 Y129.729
 M42 P1 S1 ;Enable Welder
@@ -3715,19 +3719,19 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.761 Y110.345  ;Moved 9 lines
-G1 X174.503 Y110.195  ;Moved 9 lines
-G1 X155.451 Y110.199  ;Moved 9 lines
-G1 X155.238 Y110.345  ;Moved 9 lines
-G1 X155.195 Y110.497  ;Moved 9 lines
-G1 X155.2 Y129.548  ;Moved 9 lines
-G1 X155.346 Y129.761  ;Moved 9 lines
-G1 X155.497 Y129.804  ;Moved 9 lines
-G1 X174.493 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.654 Y129.76  ;Moved 9 lines
-G1 X174.804 Y129.503  ;Moved 9 lines
-G1 X174.804 Y110.506  ;Moved 9 lines
+G1 F2700 X174.804 Y129.503  ;Moved 11 lines
+G1 X174.804 Y110.506  ;Moved 11 lines
+G1 X174.761 Y110.345  ;Moved 11 lines
+G1 X174.503 Y110.195  ;Moved 11 lines
+G1 X155.451 Y110.199  ;Moved 11 lines
+G1 X155.238 Y110.345  ;Moved 11 lines
+G1 X155.195 Y110.497  ;Moved 11 lines
+G1 X155.2 Y129.548  ;Moved 11 lines
+G1 X155.346 Y129.761  ;Moved 11 lines
+G1 X155.497 Y129.804  ;Moved 11 lines
+G1 X174.493 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.654 Y129.76  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.67 Y129.732
@@ -3755,83 +3759,6 @@ G0 F600 X156.199 Y128.923 Z11.6
 G0 F9000 X174.004 Y110.997
 ;TIME_ELAPSED:535.999943
 ;LAYER:24
-G4 S30 P0
-;TYPE:FILL
-;MESH:20mm_cube_soft_edges.STL
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 F4200 X173.624 Y110.996 
-G1 X168.798 Y129.004 
-G1 X165.517 Y129.003 
-G1 X155.995 Y119.481 
-G1 X155.996 Y116.2 
-G1 X174.002 Y111.375 
-G1 X174.003 Y112.033 
-G1 X172.967 Y110.998 
-G1 X167.412 Y110.996 
-G1 X162.587 Y129.003 
-G1 X157.032 Y129.003 
-G1 X155.997 Y127.969 
-G1 X155.997 Y122.412 
-G1 X174.002 Y117.587 
-G1 X174.003 Y120.519 
-G1 X164.482 Y110.998 
-G1 X155.996 Y110.998 
-G1 X174.003 Y129.004 
-G1 X174.002 Y123.799 
-G1 X155.998 Y128.623 
-G1 X155.999 Y129.004 
-G1 X156.375 Y129.003 
-G1 X161.2 Y110.996 
-M42 P1 S0 ;Disable Welder
-M204 S1500
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.134 Y129.135
-G0 X174.493 Y129.805
-;TYPE:WALL-OUTER
-M42 P1 S1 ;Enable Welder
-G1 F2700 X174.804 Y129.504  ;Moved 11 lines
-G1 X174.804 Y110.506  ;Moved 11 lines
-G1 X174.76 Y110.344  ;Moved 11 lines
-G1 X174.504 Y110.196  ;Moved 11 lines
-G1 X155.451 Y110.199  ;Moved 11 lines
-G1 X155.238 Y110.345  ;Moved 11 lines
-G1 X155.195 Y110.496  ;Moved 11 lines
-G1 X155.2 Y129.548  ;Moved 11 lines
-G1 X155.346 Y129.761  ;Moved 11 lines
-G1 X155.496 Y129.804  ;Moved 11 lines
-G1 X174.493 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.654 Y129.759  ;Moved 11 lines
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.654 Y129.759
-G0 X174.67 Y129.731
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.134 Y129.135
-G0 X155.869 Y129.134
-G0 X155.599 Y129.404
-;TYPE:WALL-INNER
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 X174.404 Y129.404 
-G1 X174.404 Y110.597 
-G1 X155.595 Y110.598 
-G1 X155.599 Y129.404 
-M42 P1 S0 ;Disable Welder
-M204 S3500
-G0 F9000 X156.199 Y128.923
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-;MESH:NONMESH
-G0 F600 X156.199 Y128.923 Z11.75
-G0 F9000 X174.004 Y110.997
-;TIME_ELAPSED:546.108330
-;LAYER:25
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -3905,6 +3832,83 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
+G0 F600 X156.199 Y128.923 Z11.75
+G0 F9000 X174.004 Y110.997
+;TIME_ELAPSED:546.108330
+;LAYER:25
+G4 S30 P0
+;TYPE:FILL
+;MESH:20mm_cube_soft_edges.STL
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 F4200 X173.624 Y110.996 
+G1 X168.798 Y129.004 
+G1 X165.517 Y129.003 
+G1 X155.995 Y119.481 
+G1 X155.996 Y116.2 
+G1 X174.002 Y111.375 
+G1 X174.003 Y112.033 
+G1 X172.967 Y110.998 
+G1 X167.412 Y110.996 
+G1 X162.587 Y129.003 
+G1 X157.032 Y129.003 
+G1 X155.997 Y127.969 
+G1 X155.997 Y122.412 
+G1 X174.002 Y117.587 
+G1 X174.003 Y120.519 
+G1 X164.482 Y110.998 
+G1 X155.996 Y110.998 
+G1 X174.003 Y129.004 
+G1 X174.002 Y123.799 
+G1 X155.998 Y128.623 
+G1 X155.999 Y129.004 
+G1 X156.375 Y129.003 
+G1 X161.2 Y110.996 
+M42 P1 S0 ;Disable Welder
+M204 S1500
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.134 Y129.135
+G0 X174.493 Y129.805
+;TYPE:WALL-OUTER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X155.346 Y129.761  ;Moved 3 lines
+G1 X155.496 Y129.804  ;Moved 3 lines
+G1 X174.493 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.654 Y129.759  ;Moved 3 lines
+G1 X174.804 Y129.504  ;Moved 3 lines
+G1 X174.804 Y110.506  ;Moved 3 lines
+G1 X174.76 Y110.344  ;Moved 3 lines
+G1 X174.504 Y110.196  ;Moved 3 lines
+G1 X155.451 Y110.199  ;Moved 3 lines
+G1 X155.238 Y110.345  ;Moved 3 lines
+G1 X155.195 Y110.496  ;Moved 3 lines
+G1 X155.2 Y129.548  ;Moved 3 lines
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.654 Y129.759
+G0 X174.67 Y129.731
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.134 Y129.135
+G0 X155.869 Y129.134
+G0 X155.599 Y129.404
+;TYPE:WALL-INNER
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 X174.404 Y129.404 
+G1 X174.404 Y110.597 
+G1 X155.595 Y110.598 
+G1 X155.599 Y129.404 
+M42 P1 S0 ;Disable Welder
+M204 S3500
+G0 F9000 X156.199 Y128.923
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+;MESH:NONMESH
 G0 F600 X156.199 Y128.923 Z11.899999999999999
 G0 F9000 X174.004 Y110.997
 ;TIME_ELAPSED:556.216717
@@ -3946,19 +3950,19 @@ G0 F9000 X174.134 Y129.135
 G0 X174.473 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.289 Y129.717  ;Moved 3 lines
-G1 X155.437 Y129.804  ;Moved 3 lines
-G1 X174.473 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.723 Y129.701  ;Moved 3 lines
-G1 X174.804 Y129.563  ;Moved 3 lines
-G1 X174.804 Y110.527  ;Moved 3 lines
-G1 X174.701 Y110.277  ;Moved 3 lines
-G1 X174.563 Y110.196  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.282 Y110.289  ;Moved 3 lines
-G1 X155.195 Y110.437  ;Moved 3 lines
-G1 X155.199 Y129.535  ;Moved 3 lines
+G1 F2700 X155.195 Y110.437  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.289 Y129.717  ;Moved 5 lines
+G1 X155.437 Y129.804  ;Moved 5 lines
+G1 X174.473 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.723 Y129.701  ;Moved 5 lines
+G1 X174.804 Y129.563  ;Moved 5 lines
+G1 X174.804 Y110.527  ;Moved 5 lines
+G1 X174.701 Y110.277  ;Moved 5 lines
+G1 X174.563 Y110.196  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
+G1 X155.282 Y110.289  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.658 Y129.728
 M42 P1 S1 ;Enable Welder
@@ -4017,18 +4021,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.548  ;Moved 4 lines
-G1 X155.347 Y129.762  ;Moved 4 lines
-G1 X155.494 Y129.804  ;Moved 4 lines
-G1 X174.493 Y129.805  ;Moved 4 lines
-G1  ;Moved 4 lines
-G1 F1380 X174.654 Y129.76  ;Moved 4 lines
-G1 X174.804 Y129.505  ;Moved 4 lines
-G1 X174.804 Y110.506  ;Moved 4 lines
-G1 X174.761 Y110.345  ;Moved 4 lines
-G1 X174.549 Y110.2  ;Moved 4 lines
-G1 X155.373 Y110.2  ;Moved 4 lines
-G1 X155.201 Y110.45  ;Moved 4 lines
+G1 F2700 X155.373 Y110.2  ;Moved 6 lines
+G1 X155.201 Y110.45  ;Moved 6 lines
+G1 X155.199 Y129.548  ;Moved 6 lines
+G1 X155.347 Y129.762  ;Moved 6 lines
+G1 X155.494 Y129.804  ;Moved 6 lines
+G1 X174.493 Y129.805  ;Moved 6 lines
+G1  ;Moved 6 lines
+G1 F1380 X174.654 Y129.76  ;Moved 6 lines
+G1 X174.804 Y129.505  ;Moved 6 lines
+G1 X174.804 Y110.506  ;Moved 6 lines
+G1 X174.761 Y110.345  ;Moved 6 lines
+G1 X174.549 Y110.2  ;Moved 6 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.67 Y129.732
@@ -4093,20 +4097,20 @@ G0 F9000 X174.135 Y129.135
 G0 X174.493 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.451 Y110.199  ;Moved 7 lines
-G1 X155.238 Y110.345  ;Moved 7 lines
-G1 X155.196 Y110.494  ;Moved 7 lines
-G1 X155.199 Y129.548  ;Moved 7 lines
-G1 X155.347 Y129.762  ;Moved 7 lines
-G1 X155.494 Y129.804  ;Moved 7 lines
-G1 X174.493 Y129.804  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.654 Y129.76  ;Moved 7 lines
-G1 X174.76 Y129.654  ;Moved 7 lines
-G1 X174.804 Y129.493  ;Moved 7 lines
-G1 X174.805 Y110.506  ;Moved 7 lines
-G1 X174.76 Y110.344  ;Moved 7 lines
-G1 X174.506 Y110.196  ;Moved 7 lines
+G1 F2700 X174.805 Y110.506  ;Moved 10 lines
+G1 X174.76 Y110.344  ;Moved 10 lines
+G1 X174.506 Y110.196  ;Moved 10 lines
+G1 X155.451 Y110.199  ;Moved 10 lines
+G1 X155.238 Y110.345  ;Moved 10 lines
+G1 X155.196 Y110.494  ;Moved 10 lines
+G1 X155.199 Y129.548  ;Moved 10 lines
+G1 X155.347 Y129.762  ;Moved 10 lines
+G1 X155.494 Y129.804  ;Moved 10 lines
+G1 X174.493 Y129.804  ;Moved 10 lines
+G1  ;Moved 10 lines
+G1 F1380 X174.654 Y129.76  ;Moved 10 lines
+G1 X174.76 Y129.654  ;Moved 10 lines
+G1 X174.804 Y129.493  ;Moved 10 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.678 Y129.736
@@ -4171,20 +4175,20 @@ G0 F9000 X174.135 Y129.135
 G0 X174.493 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.805 Y110.506  ;Moved 10 lines
-G1 X174.76 Y110.344  ;Moved 10 lines
-G1 X174.506 Y110.196  ;Moved 10 lines
-G1 X155.451 Y110.199  ;Moved 10 lines
-G1 X155.238 Y110.345  ;Moved 10 lines
-G1 X155.196 Y110.493  ;Moved 10 lines
-G1 X155.199 Y129.548  ;Moved 10 lines
-G1 X155.347 Y129.762  ;Moved 10 lines
-G1 X155.493 Y129.804  ;Moved 10 lines
-G1 X174.493 Y129.804  ;Moved 10 lines
-G1  ;Moved 10 lines
-G1 F1380 X174.654 Y129.76  ;Moved 10 lines
-G1 X174.76 Y129.654  ;Moved 10 lines
-G1 X174.804 Y129.493  ;Moved 10 lines
+G1 F2700 X174.76 Y129.654  ;Moved 12 lines
+G1 X174.804 Y129.493  ;Moved 12 lines
+G1 X174.805 Y110.506  ;Moved 12 lines
+G1 X174.76 Y110.344  ;Moved 12 lines
+G1 X174.506 Y110.196  ;Moved 12 lines
+G1 X155.451 Y110.199  ;Moved 12 lines
+G1 X155.238 Y110.345  ;Moved 12 lines
+G1 X155.196 Y110.493  ;Moved 12 lines
+G1 X155.199 Y129.548  ;Moved 12 lines
+G1 X155.347 Y129.762  ;Moved 12 lines
+G1 X155.493 Y129.804  ;Moved 12 lines
+G1 X174.493 Y129.804  ;Moved 12 lines
+G1  ;Moved 12 lines
+G1 F1380 X174.654 Y129.76  ;Moved 12 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.678 Y129.736
@@ -4249,19 +4253,19 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.804 Y129.507  ;Moved 11 lines
-G1 X174.804 Y110.506  ;Moved 11 lines
-G1 X174.76 Y110.344  ;Moved 11 lines
-G1 X174.507 Y110.196  ;Moved 11 lines
-G1 X155.451 Y110.199  ;Moved 11 lines
-G1 X155.238 Y110.345  ;Moved 11 lines
-G1 X155.196 Y110.493  ;Moved 11 lines
-G1 X155.199 Y129.548  ;Moved 11 lines
-G1 X155.347 Y129.762  ;Moved 11 lines
-G1 X155.493 Y129.804  ;Moved 11 lines
-G1 X174.493 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.654 Y129.76  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.654 Y129.76  ;Moved 0 lines
+G1 X174.804 Y129.507  ;Moved 0 lines
+G1 X174.804 Y110.506  ;Moved 0 lines
+G1 X174.76 Y110.344  ;Moved 0 lines
+G1 X174.507 Y110.196  ;Moved 0 lines
+G1 X155.451 Y110.199  ;Moved 0 lines
+G1 X155.238 Y110.345  ;Moved 0 lines
+G1 X155.196 Y110.493  ;Moved 0 lines
+G1 X155.199 Y129.548  ;Moved 0 lines
+G1 X155.347 Y129.762  ;Moved 0 lines
+G1 X155.493 Y129.804  ;Moved 0 lines
+G1 X174.493 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.67 Y129.732
@@ -4326,19 +4330,19 @@ G0 F9000 X155.869 Y129.134
 G0 X155.492 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.555 Y129.804  ;Moved 0 lines
-G1 X174.763 Y129.652  ;Moved 0 lines
-G1 X174.804 Y129.507  ;Moved 0 lines
-G1 X174.804 Y110.444  ;Moved 0 lines
-G1 X174.653 Y110.238  ;Moved 0 lines
-G1 X174.507 Y110.197  ;Moved 0 lines
-G1 X155.451 Y110.199  ;Moved 0 lines
-G1 X155.237 Y110.345  ;Moved 0 lines
-G1 X155.196 Y110.492  ;Moved 0 lines
-G1 X155.199 Y129.548  ;Moved 0 lines
-G1 X155.347 Y129.762  ;Moved 0 lines
-G1 X155.492 Y129.804  ;Moved 0 lines
+G1 F2700 X155.199 Y129.548  ;Moved 3 lines
+G1 X155.347 Y129.762  ;Moved 3 lines
+G1 X155.492 Y129.804  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.555 Y129.804  ;Moved 3 lines
+G1 X174.763 Y129.652  ;Moved 3 lines
+G1 X174.804 Y129.507  ;Moved 3 lines
+G1 X174.804 Y110.444  ;Moved 3 lines
+G1 X174.653 Y110.238  ;Moved 3 lines
+G1 X174.507 Y110.197  ;Moved 3 lines
+G1 X155.451 Y110.199  ;Moved 3 lines
+G1 X155.237 Y110.345  ;Moved 3 lines
+G1 X155.196 Y110.492  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.692 Y129.804
 G0 X155.599 Y129.404
@@ -4391,17 +4395,17 @@ G0 F9000 X174.129 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.449 Y129.799  ;Moved 2 lines
-G1 X174.493 Y129.805  ;Moved 2 lines
-G1  ;Moved 2 lines
-G1 F1380 X174.654 Y129.76  ;Moved 2 lines
-G1 X174.799 Y129.55  ;Moved 2 lines
-G1 X174.804 Y110.506  ;Moved 2 lines
-G1 X174.761 Y110.345  ;Moved 2 lines
-G1 X174.55 Y110.2  ;Moved 2 lines
-G1 X155.374 Y110.2  ;Moved 2 lines
-G1 X155.201 Y110.449  ;Moved 2 lines
-G1 X155.199 Y129.625  ;Moved 2 lines
+G1 F2700 X155.201 Y110.449  ;Moved 4 lines
+G1 X155.199 Y129.625  ;Moved 4 lines
+G1 X155.449 Y129.799  ;Moved 4 lines
+G1 X174.493 Y129.805  ;Moved 4 lines
+G1  ;Moved 4 lines
+G1 F1380 X174.654 Y129.76  ;Moved 4 lines
+G1 X174.799 Y129.55  ;Moved 4 lines
+G1 X174.804 Y110.506  ;Moved 4 lines
+G1 X174.761 Y110.345  ;Moved 4 lines
+G1 X174.55 Y110.2  ;Moved 4 lines
+G1 X155.374 Y110.2  ;Moved 4 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.672 Y129.733
@@ -4459,19 +4463,19 @@ G0 F9000 X174.129 Y129.13
 G0 X174.535 Y129.8
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.2 Y110.459  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.286 Y129.713  ;Moved 5 lines
-G1 X155.459 Y129.799  ;Moved 5 lines
-G1 X174.535 Y129.8  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.713 Y129.713  ;Moved 5 lines
-G1 X174.799 Y129.54  ;Moved 5 lines
-G1 X174.804 Y110.486  ;Moved 5 lines
-G1 X174.709 Y110.285  ;Moved 5 lines
-G1 X174.54 Y110.201  ;Moved 5 lines
-G1 X155.464 Y110.2  ;Moved 5 lines
-G1 X155.286 Y110.286  ;Moved 5 lines
+G1 F2700 X155.464 Y110.2  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.2 Y110.459  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.286 Y129.713  ;Moved 7 lines
+G1 X155.459 Y129.799  ;Moved 7 lines
+G1 X174.535 Y129.8  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.713 Y129.713  ;Moved 7 lines
+G1 X174.799 Y129.54  ;Moved 7 lines
+G1 X174.804 Y110.486  ;Moved 7 lines
+G1 X174.709 Y110.285  ;Moved 7 lines
+G1 X174.54 Y110.201  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.713 Y129.713
 G0 X174.713 Y129.712
@@ -4530,19 +4534,19 @@ G0 F9000 X174.134 Y129.13
 G0 X174.534 Y129.8
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.464 Y110.2  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.2 Y110.459  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.286 Y129.713  ;Moved 7 lines
-G1 X155.459 Y129.799  ;Moved 7 lines
-G1 X174.534 Y129.8  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.705 Y129.715  ;Moved 7 lines
-G1 X174.804 Y129.49  ;Moved 7 lines
-G1 X174.8 Y110.463  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
-G1 X174.54 Y110.2  ;Moved 7 lines
+G1 F2700 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.54 Y110.2  ;Moved 9 lines
+G1 X155.464 Y110.2  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.2 Y110.459  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.286 Y129.713  ;Moved 9 lines
+G1 X155.459 Y129.799  ;Moved 9 lines
+G1 X174.534 Y129.8  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.705 Y129.715  ;Moved 9 lines
+G1 X174.804 Y129.49  ;Moved 9 lines
+G1 X174.8 Y110.463  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.705 Y129.715
 G0 X174.709 Y129.706
@@ -4601,17 +4605,17 @@ G0 F9000 X155.869 Y129.134
 G0 X155.491 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.804 Y129.51  ;Moved 8 lines
-G1 X174.8 Y110.373  ;Moved 8 lines
-G1 X174.55 Y110.201  ;Moved 8 lines
-G1 X155.374 Y110.2  ;Moved 8 lines
-G1 X155.201 Y110.449  ;Moved 8 lines
-G1 X155.199 Y129.548  ;Moved 8 lines
-G1 X155.348 Y129.763  ;Moved 8 lines
-G1 X155.491 Y129.804  ;Moved 8 lines
-G1  ;Moved 8 lines
-G1 F1380 X174.548 Y129.8  ;Moved 8 lines
-G1 X174.763 Y129.651  ;Moved 8 lines
+G1 F2700 F1380 X174.548 Y129.8  ;Moved 10 lines
+G1 X174.763 Y129.651  ;Moved 10 lines
+G1 X174.804 Y129.51  ;Moved 10 lines
+G1 X174.8 Y110.373  ;Moved 10 lines
+G1 X174.55 Y110.201  ;Moved 10 lines
+G1 X155.374 Y110.2  ;Moved 10 lines
+G1 X155.201 Y110.449  ;Moved 10 lines
+G1 X155.199 Y129.548  ;Moved 10 lines
+G1 X155.348 Y129.763  ;Moved 10 lines
+G1 X155.491 Y129.804  ;Moved 10 lines
+G1  ;Moved 10 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.691 Y129.804
 G0 X155.599 Y129.403
@@ -4669,17 +4673,17 @@ G0 F9000 X155.869 Y129.134
 G0 X155.491 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 F1380 X174.548 Y129.8  ;Moved 10 lines
-G1 X174.763 Y129.651  ;Moved 10 lines
-G1 X174.804 Y129.511  ;Moved 10 lines
-G1 X174.8 Y110.374  ;Moved 10 lines
-G1 X174.551 Y110.2  ;Moved 10 lines
-G1 X155.374 Y110.2  ;Moved 10 lines
-G1 X155.2 Y110.448  ;Moved 10 lines
-G1 X155.199 Y129.548  ;Moved 10 lines
-G1 X155.348 Y129.763  ;Moved 10 lines
-G1 X155.491 Y129.804  ;Moved 10 lines
-G1  ;Moved 10 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.548 Y129.8  ;Moved 0 lines
+G1 X174.763 Y129.651  ;Moved 0 lines
+G1 X174.804 Y129.511  ;Moved 0 lines
+G1 X174.8 Y110.374  ;Moved 0 lines
+G1 X174.551 Y110.2  ;Moved 0 lines
+G1 X155.374 Y110.2  ;Moved 0 lines
+G1 X155.2 Y110.448  ;Moved 0 lines
+G1 X155.199 Y129.548  ;Moved 0 lines
+G1 X155.348 Y129.763  ;Moved 0 lines
+G1 X155.491 Y129.804  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.691 Y129.804
 G0 X155.599 Y129.403
@@ -4737,17 +4741,17 @@ G0 F9000 X155.869 Y129.134
 G0 X155.489 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.548 Y129.8  ;Moved 0 lines
-G1 X174.763 Y129.651  ;Moved 0 lines
-G1 X174.804 Y129.511  ;Moved 0 lines
-G1 X174.8 Y110.451  ;Moved 0 lines
-G1 X174.625 Y110.196  ;Moved 0 lines
-G1 X155.451 Y110.199  ;Moved 0 lines
-G1 X155.196 Y110.374  ;Moved 0 lines
-G1 X155.199 Y129.548  ;Moved 0 lines
-G1 X155.348 Y129.763  ;Moved 0 lines
-G1 X155.489 Y129.804  ;Moved 0 lines
+G1 F2700 X155.348 Y129.763  ;Moved 2 lines
+G1 X155.489 Y129.804  ;Moved 2 lines
+G1  ;Moved 2 lines
+G1 F1380 X174.548 Y129.8  ;Moved 2 lines
+G1 X174.763 Y129.651  ;Moved 2 lines
+G1 X174.804 Y129.511  ;Moved 2 lines
+G1 X174.8 Y110.451  ;Moved 2 lines
+G1 X174.625 Y110.196  ;Moved 2 lines
+G1 X155.451 Y110.199  ;Moved 2 lines
+G1 X155.196 Y110.374  ;Moved 2 lines
+G1 X155.199 Y129.548  ;Moved 2 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.689 Y129.804
 G0 X155.599 Y129.403
@@ -4805,17 +4809,17 @@ G0 F9000 X155.869 Y129.134
 G0 X155.489 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.348 Y129.763  ;Moved 2 lines
-G1 X155.489 Y129.804  ;Moved 2 lines
-G1  ;Moved 2 lines
-G1 F1380 X174.548 Y129.8  ;Moved 2 lines
-G1 X174.763 Y129.651  ;Moved 2 lines
-G1 X174.804 Y129.511  ;Moved 2 lines
-G1 X174.8 Y110.451  ;Moved 2 lines
-G1 X174.624 Y110.196  ;Moved 2 lines
-G1 X155.451 Y110.199  ;Moved 2 lines
-G1 X155.196 Y110.374  ;Moved 2 lines
-G1 X155.199 Y129.548  ;Moved 2 lines
+G1 F2700 X155.196 Y110.374  ;Moved 4 lines
+G1 X155.199 Y129.548  ;Moved 4 lines
+G1 X155.348 Y129.763  ;Moved 4 lines
+G1 X155.489 Y129.804  ;Moved 4 lines
+G1  ;Moved 4 lines
+G1 F1380 X174.548 Y129.8  ;Moved 4 lines
+G1 X174.763 Y129.651  ;Moved 4 lines
+G1 X174.804 Y129.511  ;Moved 4 lines
+G1 X174.8 Y110.451  ;Moved 4 lines
+G1 X174.624 Y110.196  ;Moved 4 lines
+G1 X155.451 Y110.199  ;Moved 4 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.689 Y129.804
 G0 X155.599 Y129.403
@@ -4873,18 +4877,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.548  ;Moved 4 lines
-G1 X155.348 Y129.763  ;Moved 4 lines
-G1 X155.488 Y129.804  ;Moved 4 lines
-G1 X174.493 Y129.805  ;Moved 4 lines
-G1  ;Moved 4 lines
-G1 F1380 X174.654 Y129.76  ;Moved 4 lines
-G1 X174.804 Y129.511  ;Moved 4 lines
-G1 X174.804 Y110.506  ;Moved 4 lines
-G1 X174.76 Y110.344  ;Moved 4 lines
-G1 X174.511 Y110.197  ;Moved 4 lines
-G1 X155.451 Y110.199  ;Moved 4 lines
-G1 X155.196 Y110.375  ;Moved 4 lines
+G1 F2700 X155.451 Y110.199  ;Moved 6 lines
+G1 X155.196 Y110.375  ;Moved 6 lines
+G1 X155.199 Y129.548  ;Moved 6 lines
+G1 X155.348 Y129.763  ;Moved 6 lines
+G1 X155.488 Y129.804  ;Moved 6 lines
+G1 X174.493 Y129.805  ;Moved 6 lines
+G1  ;Moved 6 lines
+G1 F1380 X174.654 Y129.76  ;Moved 6 lines
+G1 X174.804 Y129.511  ;Moved 6 lines
+G1 X174.804 Y110.506  ;Moved 6 lines
+G1 X174.76 Y110.344  ;Moved 6 lines
+G1 X174.511 Y110.197  ;Moved 6 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.671 Y129.732
@@ -4949,18 +4953,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.451 Y110.199  ;Moved 6 lines
-G1 X155.196 Y110.375  ;Moved 6 lines
-G1 X155.199 Y129.548  ;Moved 6 lines
-G1 X155.348 Y129.763  ;Moved 6 lines
-G1 X155.488 Y129.804  ;Moved 6 lines
-G1 X174.493 Y129.805  ;Moved 6 lines
-G1  ;Moved 6 lines
-G1 F1380 X174.654 Y129.76  ;Moved 6 lines
-G1 X174.804 Y129.51  ;Moved 6 lines
-G1 X174.804 Y110.506  ;Moved 6 lines
-G1 X174.761 Y110.345  ;Moved 6 lines
-G1 X174.513 Y110.196  ;Moved 6 lines
+G1 F2700 X174.761 Y110.345  ;Moved 8 lines
+G1 X174.513 Y110.196  ;Moved 8 lines
+G1 X155.451 Y110.199  ;Moved 8 lines
+G1 X155.196 Y110.375  ;Moved 8 lines
+G1 X155.199 Y129.548  ;Moved 8 lines
+G1 X155.348 Y129.763  ;Moved 8 lines
+G1 X155.488 Y129.804  ;Moved 8 lines
+G1 X174.493 Y129.805  ;Moved 8 lines
+G1  ;Moved 8 lines
+G1 F1380 X174.654 Y129.76  ;Moved 8 lines
+G1 X174.804 Y129.51  ;Moved 8 lines
+G1 X174.804 Y110.506  ;Moved 8 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.671 Y129.732
@@ -5025,18 +5029,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.761 Y110.345  ;Moved 8 lines
-G1 X174.513 Y110.196  ;Moved 8 lines
-G1 X155.451 Y110.199  ;Moved 8 lines
-G1 X155.196 Y110.376  ;Moved 8 lines
-G1 X155.199 Y129.548  ;Moved 8 lines
-G1 X155.348 Y129.763  ;Moved 8 lines
-G1 X155.488 Y129.804  ;Moved 8 lines
-G1 X174.493 Y129.805  ;Moved 8 lines
-G1  ;Moved 8 lines
-G1 F1380 X174.654 Y129.76  ;Moved 8 lines
-G1 X174.804 Y129.51  ;Moved 8 lines
-G1 X174.804 Y110.506  ;Moved 8 lines
+G1 F2700 X174.804 Y129.51  ;Moved 10 lines
+G1 X174.804 Y110.506  ;Moved 10 lines
+G1 X174.761 Y110.345  ;Moved 10 lines
+G1 X174.513 Y110.196  ;Moved 10 lines
+G1 X155.451 Y110.199  ;Moved 10 lines
+G1 X155.196 Y110.376  ;Moved 10 lines
+G1 X155.199 Y129.548  ;Moved 10 lines
+G1 X155.348 Y129.763  ;Moved 10 lines
+G1 X155.488 Y129.804  ;Moved 10 lines
+G1 X174.493 Y129.805  ;Moved 10 lines
+G1  ;Moved 10 lines
+G1 F1380 X174.654 Y129.76  ;Moved 10 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.671 Y129.732
@@ -5101,18 +5105,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.804 Y129.511  ;Moved 10 lines
-G1 X174.804 Y110.506  ;Moved 10 lines
-G1 X174.761 Y110.345  ;Moved 10 lines
-G1 X174.513 Y110.196  ;Moved 10 lines
-G1 X155.451 Y110.199  ;Moved 10 lines
-G1 X155.196 Y110.376  ;Moved 10 lines
-G1 X155.199 Y129.548  ;Moved 10 lines
-G1 X155.348 Y129.763  ;Moved 10 lines
-G1 X155.488 Y129.804  ;Moved 10 lines
-G1 X174.493 Y129.805  ;Moved 10 lines
-G1  ;Moved 10 lines
-G1 F1380 X174.654 Y129.76  ;Moved 10 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.654 Y129.76  ;Moved 0 lines
+G1 X174.804 Y129.511  ;Moved 0 lines
+G1 X174.804 Y110.506  ;Moved 0 lines
+G1 X174.761 Y110.345  ;Moved 0 lines
+G1 X174.513 Y110.196  ;Moved 0 lines
+G1 X155.451 Y110.199  ;Moved 0 lines
+G1 X155.196 Y110.376  ;Moved 0 lines
+G1 X155.199 Y129.548  ;Moved 0 lines
+G1 X155.348 Y129.763  ;Moved 0 lines
+G1 X155.488 Y129.804  ;Moved 0 lines
+G1 X174.493 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.671 Y129.732
@@ -5140,82 +5144,6 @@ G0 F600 X156.199 Y128.923 Z14.45
 G0 F9000 X174.004 Y110.998
 ;TIME_ELAPSED:722.282079
 ;LAYER:43
-G4 S30 P0
-;TYPE:FILL
-;MESH:20mm_cube_soft_edges.STL
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 F4200 X173.623 Y110.997 
-G1 X168.798 Y129.004 
-G1 X165.517 Y129.003 
-G1 X155.996 Y119.482 
-G1 X155.996 Y116.2 
-G1 X174.003 Y111.375 
-G1 X174.003 Y112.033 
-G1 X172.967 Y110.998 
-G1 X167.412 Y110.997 
-G1 X162.587 Y129.003 
-G1 X157.032 Y129.003 
-G1 X155.997 Y127.969 
-G1 X155.998 Y122.411 
-G1 X174.002 Y117.587 
-G1 X174.003 Y120.519 
-G1 X164.482 Y110.998 
-G1 X155.996 Y110.998 
-G1 X174.003 Y129.004 
-G1 X174.002 Y123.799 
-G1 X155.998 Y128.623 
-G1 X155.999 Y129.004 
-G1 X156.375 Y129.003 
-G1 X161.2 Y110.996 
-M42 P1 S0 ;Disable Welder
-M204 S1500
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.134 Y129.135
-G0 X174.493 Y129.805
-;TYPE:WALL-OUTER
-M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.654 Y129.759  ;Moved 0 lines
-G1 X174.804 Y129.512  ;Moved 0 lines
-G1 X174.804 Y110.506  ;Moved 0 lines
-G1 X174.761 Y110.345  ;Moved 0 lines
-G1 X174.514 Y110.196  ;Moved 0 lines
-G1 X155.451 Y110.199  ;Moved 0 lines
-G1 X155.196 Y110.375  ;Moved 0 lines
-G1 X155.2 Y129.548  ;Moved 0 lines
-G1 X155.347 Y129.762  ;Moved 0 lines
-G1 X155.489 Y129.804  ;Moved 0 lines
-G1 X174.493 Y129.805  ;Moved 0 lines
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.654 Y129.759
-G0 X174.671 Y129.731
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X174.134 Y129.135
-G0 X155.869 Y129.134
-G0 X155.599 Y129.404
-;TYPE:WALL-INNER
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 X174.404 Y129.404 
-G1 X174.404 Y110.598 
-G1 X155.596 Y110.598 
-G1 X155.599 Y129.404 
-M42 P1 S0 ;Disable Welder
-M204 S3500
-G0 F9000 X156.199 Y128.923
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-;MESH:NONMESH
-G0 F600 X156.199 Y128.923 Z14.6
-G0 F9000 X174.004 Y110.998
-;TIME_ELAPSED:732.391312
-;LAYER:44
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5284,6 +5212,82 @@ G1 X155.599 Y129.404
 M42 P1 S0 ;Disable Welder
 M204 S3500
 G0 F9000 X156.199 Y128.923
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+;MESH:NONMESH
+G0 F600 X156.199 Y128.923 Z14.6
+G0 F9000 X174.004 Y110.998
+;TIME_ELAPSED:732.391312
+;LAYER:44
+G4 S30 P0
+;TYPE:FILL
+;MESH:20mm_cube_soft_edges.STL
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 F4200 X173.623 Y110.997 
+G1 X168.798 Y129.004 
+G1 X165.517 Y129.003 
+G1 X155.996 Y119.482 
+G1 X155.996 Y116.2 
+G1 X174.003 Y111.375 
+G1 X174.003 Y112.033 
+G1 X172.967 Y110.998 
+G1 X167.412 Y110.997 
+G1 X162.587 Y129.003 
+G1 X157.032 Y129.003 
+G1 X155.997 Y127.969 
+G1 X155.998 Y122.411 
+G1 X174.002 Y117.587 
+G1 X174.003 Y120.519 
+G1 X164.482 Y110.998 
+G1 X155.996 Y110.998 
+G1 X174.003 Y129.004 
+G1 X174.002 Y123.799 
+G1 X155.998 Y128.623 
+G1 X155.999 Y129.004 
+G1 X156.375 Y129.003 
+G1 X161.2 Y110.996 
+M42 P1 S0 ;Disable Welder
+M204 S1500
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.134 Y129.135
+G0 X174.493 Y129.805
+;TYPE:WALL-OUTER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X155.2 Y129.548  ;Moved 4 lines
+G1 X155.347 Y129.762  ;Moved 4 lines
+G1 X155.489 Y129.804  ;Moved 4 lines
+G1 X174.493 Y129.805  ;Moved 4 lines
+G1  ;Moved 4 lines
+G1 F1380 X174.654 Y129.759  ;Moved 4 lines
+G1 X174.804 Y129.512  ;Moved 4 lines
+G1 X174.804 Y110.506  ;Moved 4 lines
+G1 X174.761 Y110.345  ;Moved 4 lines
+G1 X174.514 Y110.196  ;Moved 4 lines
+G1 X155.451 Y110.199  ;Moved 4 lines
+G1 X155.196 Y110.375  ;Moved 4 lines
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.654 Y129.759
+G0 X174.671 Y129.731
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X174.134 Y129.135
+G0 X155.869 Y129.134
+G0 X155.599 Y129.404
+;TYPE:WALL-INNER
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 X174.404 Y129.404 
+G1 X174.404 Y110.598 
+G1 X155.596 Y110.598 
+G1 X155.599 Y129.404 
+M42 P1 S0 ;Disable Welder
+M204 S3500
+G0 F9000 X156.199 Y128.923
 ;MESH:NONMESH
 G0 F600 X156.199 Y128.923 Z14.75
 G0 F9000 X155.999 Y127.971
@@ -5324,18 +5328,18 @@ G0 F9000 X174.134 Y129.135
 G0 X174.493 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.2 Y129.548  ;Moved 4 lines
-G1 X155.347 Y129.762  ;Moved 4 lines
-G1 X155.488 Y129.804  ;Moved 4 lines
-G1 X174.493 Y129.805  ;Moved 4 lines
-G1  ;Moved 4 lines
-G1 F1380 X174.654 Y129.76  ;Moved 4 lines
-G1 X174.804 Y129.512  ;Moved 4 lines
-G1 X174.804 Y110.506  ;Moved 4 lines
-G1 X174.761 Y110.345  ;Moved 4 lines
-G1 X174.554 Y110.2  ;Moved 4 lines
-G1 X155.374 Y110.2  ;Moved 4 lines
-G1 X155.2 Y110.445  ;Moved 4 lines
+G1 F2700 X155.374 Y110.2  ;Moved 6 lines
+G1 X155.2 Y110.445  ;Moved 6 lines
+G1 X155.2 Y129.548  ;Moved 6 lines
+G1 X155.347 Y129.762  ;Moved 6 lines
+G1 X155.488 Y129.804  ;Moved 6 lines
+G1 X174.493 Y129.805  ;Moved 6 lines
+G1  ;Moved 6 lines
+G1 F1380 X174.654 Y129.76  ;Moved 6 lines
+G1 X174.804 Y129.512  ;Moved 6 lines
+G1 X174.804 Y110.506  ;Moved 6 lines
+G1 X174.761 Y110.345  ;Moved 6 lines
+G1 X174.554 Y110.2  ;Moved 6 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X174.654 Y129.76
 G0 X174.671 Y129.732
@@ -5400,19 +5404,19 @@ G0 F9000 X155.869 Y129.134
 G0 X155.504 Y129.804
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.496 Y110.196  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.293 Y110.284  ;Moved 7 lines
-G1 X155.196 Y110.504  ;Moved 7 lines
-G1 X155.2 Y129.535  ;Moved 7 lines
-G1 X155.285 Y129.707  ;Moved 7 lines
-G1 X155.504 Y129.804  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.707 Y129.714  ;Moved 7 lines
-G1 X174.804 Y129.496  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.715 Y110.292  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.715 Y110.292  ;Moved 9 lines
+G1 X174.496 Y110.196  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.293 Y110.284  ;Moved 9 lines
+G1 X155.196 Y110.504  ;Moved 9 lines
+G1 X155.2 Y129.535  ;Moved 9 lines
+G1 X155.285 Y129.707  ;Moved 9 lines
+G1 X155.504 Y129.804  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.707 Y129.714  ;Moved 9 lines
+G1 X174.804 Y129.496  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.704 Y129.804
 G0 X155.599 Y129.403
@@ -5433,76 +5437,6 @@ G0 F600 X156.082 Y128.803 Z15.05
 G0 F9000 X174.001 Y110.999
 ;TIME_ELAPSED:761.606876
 ;LAYER:47
-G4 S30 P0
-;TYPE:FILL
-;MESH:20mm_cube_soft_edges.STL
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 F4200 X173.623 Y110.998 
-G1 X168.8 Y129 
-G1 X165.515 Y129.001 
-G1 X155.998 Y119.484 
-G1 X155.998 Y116.2 
-G1 X174 Y111.376 
-G1 X174.001 Y112.031 
-G1 X172.968 Y110.999 
-G1 X167.411 Y110.998 
-G1 X162.587 Y129.002 
-G1 X157.031 Y129.003 
-G1 X155.998 Y127.97 
-G1 X155.998 Y122.411 
-G1 X174 Y117.587 
-G1 X174.002 Y120.518 
-G1 X164.483 Y110.999 
-G1 X155.998 Y110.999 
-G1 X174.004 Y129 
-G1 X174.002 Y123.799 
-G1 X155.998 Y128.623 
-G1 X155.999 Y129.004 
-G1 X156.375 Y129.003 
-G1 X161.2 Y110.997 
-M42 P1 S0 ;Disable Welder
-M204 S1500
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.869 Y129.135
-G0 X155.527 Y129.805
-;TYPE:WALL-OUTER
-M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.727 Y129.805
-G0 X155.599 Y129.401
-;TYPE:WALL-INNER
-M42 P1 S1 ;Enable Welder
-G1 F2700 X174.402 Y129.4 
-G1 X174.401 Y110.599 
-G1 X155.599 Y110.599 
-G1 X155.599 Y129.401 
-M42 P1 S0 ;Disable Welder
-M204 S3500
-G0 F9000 X156.082 Y128.804
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.2
-G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:771.145208
-;LAYER:48
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5569,10 +5503,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.35
+G0 F600 X156.082 Y128.804 Z15.2
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:780.683540
-;LAYER:49
+;TIME_ELAPSED:771.145208
+;LAYER:48
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5639,10 +5573,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.5
+G0 F600 X156.082 Y128.804 Z15.35
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:790.221872
-;LAYER:50
+;TIME_ELAPSED:780.683540
+;LAYER:49
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5709,10 +5643,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.649999999999999
+G0 F600 X156.082 Y128.804 Z15.5
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:799.760203
-;LAYER:51
+;TIME_ELAPSED:790.221872
+;LAYER:50
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5779,10 +5713,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.8
+G0 F600 X156.082 Y128.804 Z15.649999999999999
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:809.298535
-;LAYER:52
+;TIME_ELAPSED:799.760203
+;LAYER:51
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5849,10 +5783,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z15.95
+G0 F600 X156.082 Y128.804 Z15.8
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:818.836867
-;LAYER:53
+;TIME_ELAPSED:809.298535
+;LAYER:52
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5887,7 +5821,7 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.869 Y129.135
-G0 X155.506 Y129.805
+G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
 G1 F2700 X174.8 Y110.464  ;Moved 9 lines
@@ -5896,22 +5830,22 @@ G1 X174.536 Y110.199  ;Moved 9 lines
 G1 X155.464 Y110.199  ;Moved 9 lines
 G1 X155.286 Y110.286  ;Moved 9 lines
 G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.548  ;Moved 9 lines
-G1 X155.344 Y129.76  ;Moved 9 lines
-G1 X155.506 Y129.805  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
 G1  ;Moved 9 lines
-G1 F1380 X174.548 Y129.8  ;Moved 9 lines
-G1 X174.76 Y129.654  ;Moved 9 lines
-G1 X174.805 Y129.493  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
-G0 F9000 X155.706 Y129.805
-G0 X155.599 Y129.404
+G0 F9000 X155.727 Y129.805
+G0 X155.599 Y129.401
 ;TYPE:WALL-INNER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.404 Y129.4 
+G1 F2700 X174.402 Y129.4 
 G1 X174.401 Y110.599 
 G1 X155.599 Y110.599 
-G1 X155.599 Y129.404 
+G1 X155.599 Y129.401 
 M42 P1 S0 ;Disable Welder
 M204 S3500
 G0 F9000 X156.082 Y128.804
@@ -5919,10 +5853,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z16.1
+G0 F600 X156.082 Y128.804 Z15.95
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:828.375381
-;LAYER:54
+;TIME_ELAPSED:818.836867
+;LAYER:53
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -5989,10 +5923,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z16.25
+G0 F600 X156.082 Y128.804 Z16.1
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:837.913895
-;LAYER:55
+;TIME_ELAPSED:828.375381
+;LAYER:54
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6059,10 +5993,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z16.4
+G0 F600 X156.082 Y128.804 Z16.25
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:847.452409
-;LAYER:56
+;TIME_ELAPSED:837.913895
+;LAYER:55
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6129,6 +6063,76 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
+G0 F600 X156.082 Y128.804 Z16.4
+G0 F9000 X174.001 Y110.999
+;TIME_ELAPSED:847.452409
+;LAYER:56
+G4 S30 P0
+;TYPE:FILL
+;MESH:20mm_cube_soft_edges.STL
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 F4200 X173.623 Y110.998 
+G1 X168.8 Y129 
+G1 X165.515 Y129.001 
+G1 X155.998 Y119.484 
+G1 X155.998 Y116.2 
+G1 X174 Y111.376 
+G1 X174.001 Y112.031 
+G1 X172.968 Y110.999 
+G1 X167.411 Y110.998 
+G1 X162.587 Y129.002 
+G1 X157.031 Y129.003 
+G1 X155.998 Y127.97 
+G1 X155.998 Y122.411 
+G1 X174 Y117.587 
+G1 X174.002 Y120.518 
+G1 X164.483 Y110.999 
+G1 X155.998 Y110.999 
+G1 X174.004 Y129 
+G1 X174.002 Y123.799 
+G1 X155.998 Y128.623 
+G1 X155.999 Y129.004 
+G1 X156.375 Y129.003 
+G1 X161.2 Y110.997 
+M42 P1 S0 ;Disable Welder
+M204 S1500
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.869 Y129.135
+G0 X155.506 Y129.805
+;TYPE:WALL-OUTER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.548  ;Moved 5 lines
+G1 X155.344 Y129.76  ;Moved 5 lines
+G1 X155.506 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.548 Y129.8  ;Moved 5 lines
+G1 X174.76 Y129.654  ;Moved 5 lines
+G1 X174.805 Y129.493  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.706 Y129.805
+G0 X155.599 Y129.404
+;TYPE:WALL-INNER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X174.404 Y129.4 
+G1 X174.401 Y110.599 
+G1 X155.599 Y110.599 
+G1 X155.599 Y129.404 
+M42 P1 S0 ;Disable Welder
+M204 S3500
+G0 F9000 X156.082 Y128.804
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+;MESH:NONMESH
 G0 F600 X156.082 Y128.804 Z16.55
 G0 F9000 X174.001 Y110.996
 ;TIME_ELAPSED:856.990937
@@ -6170,18 +6174,18 @@ G0 F9000 X155.869 Y129.135
 G0 X155.506 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y110.463  ;Moved 4 lines
-G1 X155.199 Y129.548  ;Moved 4 lines
-G1 X155.344 Y129.76  ;Moved 4 lines
-G1 X155.506 Y129.805  ;Moved 4 lines
-G1  ;Moved 4 lines
-G1 F1380 X174.548 Y129.8  ;Moved 4 lines
-G1 X174.76 Y129.654  ;Moved 4 lines
-G1 X174.805 Y129.493  ;Moved 4 lines
-G1 X174.8 Y110.451  ;Moved 4 lines
-G1 X174.626 Y110.196  ;Moved 4 lines
-G1 X155.463 Y110.199  ;Moved 4 lines
-G1 X155.286 Y110.286  ;Moved 4 lines
+G1 F2700 X155.463 Y110.199  ;Moved 6 lines
+G1 X155.286 Y110.286  ;Moved 6 lines
+G1 X155.199 Y110.463  ;Moved 6 lines
+G1 X155.199 Y129.548  ;Moved 6 lines
+G1 X155.344 Y129.76  ;Moved 6 lines
+G1 X155.506 Y129.805  ;Moved 6 lines
+G1  ;Moved 6 lines
+G1 F1380 X174.548 Y129.8  ;Moved 6 lines
+G1 X174.76 Y129.654  ;Moved 6 lines
+G1 X174.805 Y129.493  ;Moved 6 lines
+G1 X174.8 Y110.451  ;Moved 6 lines
+G1 X174.626 Y110.196  ;Moved 6 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.706 Y129.805
 G0 X155.599 Y129.404
@@ -6239,19 +6243,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -6309,19 +6313,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -6379,76 +6383,6 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.727 Y129.805
-G0 X155.599 Y129.401
-;TYPE:WALL-INNER
-M42 P1 S1 ;Enable Welder
-G1 F2700 X174.402 Y129.4 
-G1 X174.401 Y110.599 
-G1 X155.599 Y110.599 
-G1 X155.599 Y129.401 
-M42 P1 S0 ;Disable Welder
-M204 S3500
-G0 F9000 X156.082 Y128.804
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.15
-G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:895.145375
-;LAYER:61
-G4 S30 P0
-;TYPE:FILL
-;MESH:20mm_cube_soft_edges.STL
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 F4200 X173.623 Y110.998 
-G1 X168.8 Y129 
-G1 X165.515 Y129.001 
-G1 X155.998 Y119.484 
-G1 X155.998 Y116.2 
-G1 X174 Y111.376 
-G1 X174.001 Y112.031 
-G1 X172.968 Y110.999 
-G1 X167.411 Y110.998 
-G1 X162.587 Y129.002 
-G1 X157.031 Y129.003 
-G1 X155.998 Y127.97 
-G1 X155.998 Y122.411 
-G1 X174 Y117.587 
-G1 X174.002 Y120.518 
-G1 X164.483 Y110.999 
-G1 X155.998 Y110.999 
-G1 X174.004 Y129 
-G1 X174.002 Y123.799 
-G1 X155.998 Y128.623 
-G1 X155.999 Y129.004 
-G1 X156.375 Y129.003 
-G1 X161.2 Y110.997 
-M42 P1 S0 ;Disable Welder
-M204 S1500
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.869 Y129.135
-G0 X155.527 Y129.805
-;TYPE:WALL-OUTER
-M42 P1 S1 ;Enable Welder
 G1 F2700  ;Moved 0 lines
 G1 F1380 X174.535 Y129.8  ;Moved 0 lines
 G1 X174.703 Y129.718  ;Moved 0 lines
@@ -6478,10 +6412,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.3
+G0 F600 X156.082 Y128.804 Z17.15
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:904.683706
-;LAYER:62
+;TIME_ELAPSED:895.145375
+;LAYER:61
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6548,10 +6482,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.45
+G0 F600 X156.082 Y128.804 Z17.3
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:914.222038
-;LAYER:63
+;TIME_ELAPSED:904.683706
+;LAYER:62
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6618,10 +6552,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.6
+G0 F600 X156.082 Y128.804 Z17.45
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:923.760370
-;LAYER:64
+;TIME_ELAPSED:914.222038
+;LAYER:63
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6688,10 +6622,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.75
+G0 F600 X156.082 Y128.804 Z17.6
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:933.298702
-;LAYER:65
+;TIME_ELAPSED:923.760370
+;LAYER:64
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6758,10 +6692,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z17.9
+G0 F600 X156.082 Y128.804 Z17.75
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:942.837034
-;LAYER:66
+;TIME_ELAPSED:933.298702
+;LAYER:65
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6828,10 +6762,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.05
+G0 F600 X156.082 Y128.804 Z17.9
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:952.375365
-;LAYER:67
+;TIME_ELAPSED:942.837034
+;LAYER:66
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6898,10 +6832,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.2
+G0 F600 X156.082 Y128.804 Z18.05
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:961.913697
-;LAYER:68
+;TIME_ELAPSED:952.375365
+;LAYER:67
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -6968,10 +6902,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.35
+G0 F600 X156.082 Y128.804 Z18.2
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:971.452029
-;LAYER:69
+;TIME_ELAPSED:961.913697
+;LAYER:68
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -7038,10 +6972,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.5
+G0 F600 X156.082 Y128.804 Z18.35
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:980.990361
-;LAYER:70
+;TIME_ELAPSED:971.452029
+;LAYER:69
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -7108,10 +7042,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.65
+G0 F600 X156.082 Y128.804 Z18.5
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:990.528693
-;LAYER:71
+;TIME_ELAPSED:980.990361
+;LAYER:70
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -7146,7 +7080,7 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.869 Y129.135
-G0 X155.476 Y129.805
+G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
 G1 F2700 X174.8 Y110.464  ;Moved 9 lines
@@ -7156,21 +7090,21 @@ G1 X155.464 Y110.199  ;Moved 9 lines
 G1 X155.286 Y110.286  ;Moved 9 lines
 G1 X155.199 Y110.464  ;Moved 9 lines
 G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.286 Y129.712  ;Moved 9 lines
-G1 X155.476 Y129.805  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
 G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.799  ;Moved 9 lines
-G1 X174.712 Y129.713  ;Moved 9 lines
-G1 X174.805 Y129.523  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
-G0 F9000 X155.676 Y129.805
-G0 X155.599 Y129.404
+G0 F9000 X155.727 Y129.805
+G0 X155.599 Y129.401
 ;TYPE:WALL-INNER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.404 Y129.4 
+G1 F2700 X174.402 Y129.4 
 G1 X174.401 Y110.599 
 G1 X155.599 Y110.599 
-G1 X155.599 Y129.404 
+G1 X155.599 Y129.401 
 M42 P1 S0 ;Disable Welder
 M204 S3500
 G0 F9000 X156.082 Y128.804
@@ -7178,10 +7112,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z18.8
+G0 F600 X156.082 Y128.804 Z18.65
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1000.066772
-;LAYER:72
+;TIME_ELAPSED:990.528693
+;LAYER:71
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -7248,6 +7182,76 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
+G0 F600 X156.082 Y128.804 Z18.8
+G0 F9000 X174.001 Y110.999
+;TIME_ELAPSED:1000.066772
+;LAYER:72
+G4 S30 P0
+;TYPE:FILL
+;MESH:20mm_cube_soft_edges.STL
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 F4200 X173.623 Y110.998 
+G1 X168.8 Y129 
+G1 X165.515 Y129.001 
+G1 X155.998 Y119.484 
+G1 X155.998 Y116.2 
+G1 X174 Y111.376 
+G1 X174.001 Y112.031 
+G1 X172.968 Y110.999 
+G1 X167.411 Y110.998 
+G1 X162.587 Y129.002 
+G1 X157.031 Y129.003 
+G1 X155.998 Y127.97 
+G1 X155.998 Y122.411 
+G1 X174 Y117.587 
+G1 X174.002 Y120.518 
+G1 X164.483 Y110.999 
+G1 X155.998 Y110.999 
+G1 X174.004 Y129 
+G1 X174.002 Y123.799 
+G1 X155.998 Y128.623 
+G1 X155.999 Y129.004 
+G1 X156.375 Y129.003 
+G1 X161.2 Y110.997 
+M42 P1 S0 ;Disable Welder
+M204 S1500
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.869 Y129.135
+G0 X155.476 Y129.805
+;TYPE:WALL-OUTER
+M42 P1 S1 ;Enable Welder
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.799  ;Moved 0 lines
+G1 X174.712 Y129.713  ;Moved 0 lines
+G1 X174.805 Y129.523  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.286 Y129.712  ;Moved 0 lines
+G1 X155.476 Y129.805  ;Moved 0 lines
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.676 Y129.805
+G0 X155.599 Y129.404
+;TYPE:WALL-INNER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X174.404 Y129.4 
+G1 X174.401 Y110.599 
+G1 X155.599 Y110.599 
+G1 X155.599 Y129.404 
+M42 P1 S0 ;Disable Welder
+M204 S3500
+G0 F9000 X156.082 Y128.804
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+;MESH:NONMESH
 G0 F600 X156.082 Y128.804 Z18.95
 G0 F9000 X174.001 Y110.999
 ;TIME_ELAPSED:1009.604851
@@ -7289,19 +7293,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7359,19 +7363,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7429,19 +7433,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7499,19 +7503,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7569,19 +7573,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7639,19 +7643,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7709,19 +7713,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7779,19 +7783,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7849,19 +7853,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7919,19 +7923,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -7989,19 +7993,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8059,19 +8063,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8129,19 +8133,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8199,19 +8203,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8269,19 +8273,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8339,19 +8343,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8409,19 +8413,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8479,19 +8483,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8549,19 +8553,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8619,19 +8623,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8689,19 +8693,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8759,19 +8763,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8829,19 +8833,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8899,19 +8903,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -8969,19 +8973,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9039,19 +9043,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9109,19 +9113,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9179,19 +9183,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9249,19 +9253,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9319,19 +9323,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9389,19 +9393,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
+G1 F2700 X155.199 Y129.535  ;Moved 3 lines
+G1 X155.281 Y129.702  ;Moved 3 lines
+G1 X155.527 Y129.805  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.8  ;Moved 3 lines
+G1 X174.703 Y129.718  ;Moved 3 lines
+G1 X174.805 Y129.473  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.286  ;Moved 3 lines
+G1 X174.536 Y110.199  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.199 Y110.464  ;Moved 3 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9459,19 +9463,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9529,19 +9533,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.535 Y129.8  ;Moved 5 lines
-G1 X174.703 Y129.718  ;Moved 5 lines
-G1 X174.805 Y129.473  ;Moved 5 lines
-G1 X174.8 Y110.464  ;Moved 5 lines
-G1 X174.713 Y110.286  ;Moved 5 lines
-G1 X174.536 Y110.199  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.536 Y110.199  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.535 Y129.8  ;Moved 7 lines
+G1 X174.703 Y129.718  ;Moved 7 lines
+G1 X174.805 Y129.473  ;Moved 7 lines
+G1 X174.8 Y110.464  ;Moved 7 lines
+G1 X174.713 Y110.286  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9599,19 +9603,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.536 Y110.199  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.535 Y129.8  ;Moved 7 lines
-G1 X174.703 Y129.718  ;Moved 7 lines
-G1 X174.805 Y129.473  ;Moved 7 lines
-G1 X174.8 Y110.464  ;Moved 7 lines
-G1 X174.713 Y110.286  ;Moved 7 lines
+G1 F2700 X174.8 Y110.464  ;Moved 9 lines
+G1 X174.713 Y110.286  ;Moved 9 lines
+G1 X174.536 Y110.199  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.535 Y129.8  ;Moved 9 lines
+G1 X174.703 Y129.718  ;Moved 9 lines
+G1 X174.805 Y129.473  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9669,19 +9673,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.8 Y110.464  ;Moved 9 lines
-G1 X174.713 Y110.286  ;Moved 9 lines
-G1 X174.536 Y110.199  ;Moved 9 lines
-G1 X155.464 Y110.199  ;Moved 9 lines
-G1 X155.286 Y110.286  ;Moved 9 lines
-G1 X155.199 Y110.464  ;Moved 9 lines
-G1 X155.199 Y129.535  ;Moved 9 lines
-G1 X155.281 Y129.702  ;Moved 9 lines
-G1 X155.527 Y129.805  ;Moved 9 lines
-G1  ;Moved 9 lines
-G1 F1380 X174.535 Y129.8  ;Moved 9 lines
-G1 X174.703 Y129.718  ;Moved 9 lines
-G1 X174.805 Y129.473  ;Moved 9 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
+G1 X174.8 Y110.464  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
+G1 X155.464 Y110.199  ;Moved 11 lines
+G1 X155.286 Y110.286  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
+G1  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9739,19 +9743,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.703 Y129.718  ;Moved 11 lines
-G1 X174.805 Y129.473  ;Moved 11 lines
-G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.286  ;Moved 11 lines
-G1 X174.536 Y110.199  ;Moved 11 lines
-G1 X155.464 Y110.199  ;Moved 11 lines
-G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.199 Y110.464  ;Moved 11 lines
-G1 X155.199 Y129.535  ;Moved 11 lines
-G1 X155.281 Y129.702  ;Moved 11 lines
-G1 X155.527 Y129.805  ;Moved 11 lines
-G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.8  ;Moved 11 lines
+G1 F2700  ;Moved 0 lines
+G1 F1380 X174.535 Y129.8  ;Moved 0 lines
+G1 X174.703 Y129.718  ;Moved 0 lines
+G1 X174.805 Y129.473  ;Moved 0 lines
+G1 X174.8 Y110.464  ;Moved 0 lines
+G1 X174.713 Y110.286  ;Moved 0 lines
+G1 X174.536 Y110.199  ;Moved 0 lines
+G1 X155.464 Y110.199  ;Moved 0 lines
+G1 X155.286 Y110.286  ;Moved 0 lines
+G1 X155.199 Y110.464  ;Moved 0 lines
+G1 X155.199 Y129.535  ;Moved 0 lines
+G1 X155.281 Y129.702  ;Moved 0 lines
+G1 X155.527 Y129.805  ;Moved 0 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -9809,76 +9813,6 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700  ;Moved 0 lines
-G1 F1380 X174.535 Y129.8  ;Moved 0 lines
-G1 X174.703 Y129.718  ;Moved 0 lines
-G1 X174.805 Y129.473  ;Moved 0 lines
-G1 X174.8 Y110.464  ;Moved 0 lines
-G1 X174.713 Y110.286  ;Moved 0 lines
-G1 X174.536 Y110.199  ;Moved 0 lines
-G1 X155.464 Y110.199  ;Moved 0 lines
-G1 X155.286 Y110.286  ;Moved 0 lines
-G1 X155.199 Y110.464  ;Moved 0 lines
-G1 X155.199 Y129.535  ;Moved 0 lines
-G1 X155.281 Y129.702  ;Moved 0 lines
-G1 X155.527 Y129.805  ;Moved 0 lines
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.727 Y129.805
-G0 X155.599 Y129.401
-;TYPE:WALL-INNER
-M42 P1 S1 ;Enable Welder
-G1 F2700 X174.402 Y129.4 
-G1 X174.401 Y110.599 
-G1 X155.599 Y110.599 
-G1 X155.599 Y129.401 
-M42 P1 S0 ;Disable Welder
-M204 S3500
-G0 F9000 X156.082 Y128.804
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z24.5
-G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1362.523127
-;LAYER:110
-G4 S30 P0
-;TYPE:FILL
-;MESH:20mm_cube_soft_edges.STL
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-G1 F4200 X173.623 Y110.998 
-G1 X168.8 Y129 
-G1 X165.515 Y129.001 
-G1 X155.998 Y119.484 
-G1 X155.998 Y116.2 
-G1 X174 Y111.376 
-G1 X174.001 Y112.031 
-G1 X172.968 Y110.999 
-G1 X167.411 Y110.998 
-G1 X162.587 Y129.002 
-G1 X157.031 Y129.003 
-G1 X155.998 Y127.97 
-G1 X155.998 Y122.411 
-G1 X174 Y117.587 
-G1 X174.002 Y120.518 
-G1 X164.483 Y110.999 
-G1 X155.998 Y110.999 
-G1 X174.004 Y129 
-G1 X174.002 Y123.799 
-G1 X155.998 Y128.623 
-G1 X155.999 Y129.004 
-G1 X156.375 Y129.003 
-G1 X161.2 Y110.997 
-M42 P1 S0 ;Disable Welder
-M204 S1500
-M42 P1 S1 ;Enable Welder
-G1 F2700 
-M42 P1 S0 ;Disable Welder
-G0 F9000 X155.869 Y129.135
-G0 X155.527 Y129.805
-;TYPE:WALL-OUTER
-M42 P1 S1 ;Enable Welder
 G1 F2700 X155.199 Y129.535  ;Moved 3 lines
 G1 X155.281 Y129.702  ;Moved 3 lines
 G1 X155.527 Y129.805  ;Moved 3 lines
@@ -9908,10 +9842,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z24.650000000000002
+G0 F600 X156.082 Y128.804 Z24.5
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1372.061459
-;LAYER:111
+;TIME_ELAPSED:1362.523127
+;LAYER:110
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -9978,10 +9912,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z24.8
+G0 F600 X156.082 Y128.804 Z24.650000000000002
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1381.599790
-;LAYER:112
+;TIME_ELAPSED:1372.061459
+;LAYER:111
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10048,10 +9982,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z24.95
+G0 F600 X156.082 Y128.804 Z24.8
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1391.138122
-;LAYER:113
+;TIME_ELAPSED:1381.599790
+;LAYER:112
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10118,10 +10052,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.1
+G0 F600 X156.082 Y128.804 Z24.95
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1400.676454
-;LAYER:114
+;TIME_ELAPSED:1391.138122
+;LAYER:113
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10188,10 +10122,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.25
+G0 F600 X156.082 Y128.804 Z25.1
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1410.214786
-;LAYER:115
+;TIME_ELAPSED:1400.676454
+;LAYER:114
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10258,10 +10192,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.400000000000002
+G0 F600 X156.082 Y128.804 Z25.25
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1419.753118
-;LAYER:116
+;TIME_ELAPSED:1410.214786
+;LAYER:115
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10328,10 +10262,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.55
+G0 F600 X156.082 Y128.804 Z25.400000000000002
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1429.291449
-;LAYER:117
+;TIME_ELAPSED:1419.753118
+;LAYER:116
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10398,10 +10332,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.7
+G0 F600 X156.082 Y128.804 Z25.55
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1438.829781
-;LAYER:118
+;TIME_ELAPSED:1429.291449
+;LAYER:117
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10468,10 +10402,10 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z25.85
+G0 F600 X156.082 Y128.804 Z25.7
 G0 F9000 X174.001 Y110.999
-;TIME_ELAPSED:1448.368113
-;LAYER:119
+;TIME_ELAPSED:1438.829781
+;LAYER:118
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10538,80 +10472,80 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.804 Z26.0
-G0 F9000 X174.001 Y110.998
-;TIME_ELAPSED:1457.906449
-;LAYER:120
+G0 F600 X156.082 Y128.804 Z25.85
+G0 F9000 X174.001 Y110.999
+;TIME_ELAPSED:1448.368113
+;LAYER:119
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
 M42 P1 S1 ;Enable Welder
 G1 F2700 
-G1 F4200 X173.623 Y110.997 
+G1 F4200 X173.623 Y110.998 
 G1 X168.8 Y129 
-G1 X165.513 Y129 
-G1 X155.997 Y119.484 
+G1 X165.515 Y129.001 
+G1 X155.998 Y119.484 
 G1 X155.998 Y116.2 
-G1 X173.999 Y111.376 
-G1 X174 Y112.031 
-G1 X172.968 Y110.998 
-G1 X167.412 Y110.997 
-G1 X162.588 Y129 
-G1 X157.028 Y129 
-G1 X155.997 Y127.969 
+G1 X174 Y111.376 
+G1 X174.001 Y112.031 
+G1 X172.968 Y110.999 
+G1 X167.411 Y110.998 
+G1 X162.587 Y129.002 
+G1 X157.031 Y129.003 
+G1 X155.998 Y127.97 
 G1 X155.998 Y122.411 
-G1 X173.999 Y117.588 
-G1 X174 Y120.516 
-G1 X164.482 Y110.998 
+G1 X174 Y117.587 
+G1 X174.002 Y120.518 
+G1 X164.483 Y110.999 
 G1 X155.998 Y110.999 
-G1 X174.001 Y129 
-G1 X173.999 Y123.799 
+G1 X174.004 Y129 
+G1 X174.002 Y123.799 
 G1 X155.998 Y128.623 
-G1 X155.999 Y129.001 
-G1 X156.376 Y129 
+G1 X155.999 Y129.004 
+G1 X156.375 Y129.003 
 G1 X161.2 Y110.997 
 M42 P1 S0 ;Disable Welder
 M204 S1500
 M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
-G0 F9000 X155.869 Y129.131
-G0 X155.468 Y129.801
+G0 F9000 X155.869 Y129.135
+G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.712 Y129.713  ;Moved 11 lines
-G1 X174.801 Y129.531  ;Moved 11 lines
+G1 F2700 X174.703 Y129.718  ;Moved 11 lines
+G1 X174.805 Y129.473  ;Moved 11 lines
 G1 X174.8 Y110.464  ;Moved 11 lines
-G1 X174.713 Y110.287  ;Moved 11 lines
-G1 X174.531 Y110.198  ;Moved 11 lines
+G1 X174.713 Y110.286  ;Moved 11 lines
+G1 X174.536 Y110.199  ;Moved 11 lines
 G1 X155.464 Y110.199  ;Moved 11 lines
 G1 X155.286 Y110.286  ;Moved 11 lines
-G1 X155.198 Y110.467  ;Moved 11 lines
-G1 X155.2 Y129.535  ;Moved 11 lines
-G1 X155.286 Y129.712  ;Moved 11 lines
-G1 X155.468 Y129.801  ;Moved 11 lines
+G1 X155.199 Y110.464  ;Moved 11 lines
+G1 X155.199 Y129.535  ;Moved 11 lines
+G1 X155.281 Y129.702  ;Moved 11 lines
+G1 X155.527 Y129.805  ;Moved 11 lines
 G1  ;Moved 11 lines
-G1 F1380 X174.535 Y129.799  ;Moved 11 lines
+G1 F1380 X174.535 Y129.8  ;Moved 11 lines
 M42 P1 S0 ;Disable Welder
-G0 F9000 X155.668 Y129.801
+G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
 ;TYPE:WALL-INNER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.401 Y129.4 
-G1 X174.401 Y110.598 
-G1 X155.598 Y110.599 
+G1 F2700 X174.402 Y129.4 
+G1 X174.401 Y110.599 
+G1 X155.599 Y110.599 
 G1 X155.599 Y129.401 
 M42 P1 S0 ;Disable Welder
 M204 S3500
-G0 F9000 X156.082 Y128.8
+G0 F9000 X156.082 Y128.804
 M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
-G0 F600 X156.082 Y128.8 Z26.150000000000002
+G0 F600 X156.082 Y128.804 Z26.0
 G0 F9000 X174.001 Y110.998
-;TIME_ELAPSED:1467.443873
-;LAYER:121
+;TIME_ELAPSED:1457.906449
+;LAYER:120
 G4 S30 P0
 ;TYPE:FILL
 ;MESH:20mm_cube_soft_edges.STL
@@ -10678,6 +10612,76 @@ M42 P1 S1 ;Enable Welder
 G1 F2700 
 M42 P1 S0 ;Disable Welder
 ;MESH:NONMESH
+G0 F600 X156.082 Y128.8 Z26.150000000000002
+G0 F9000 X174.001 Y110.998
+;TIME_ELAPSED:1467.443873
+;LAYER:121
+G4 S30 P0
+;TYPE:FILL
+;MESH:20mm_cube_soft_edges.STL
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+G1 F4200 X173.623 Y110.997 
+G1 X168.8 Y129 
+G1 X165.513 Y129 
+G1 X155.997 Y119.484 
+G1 X155.998 Y116.2 
+G1 X173.999 Y111.376 
+G1 X174 Y112.031 
+G1 X172.968 Y110.998 
+G1 X167.412 Y110.997 
+G1 X162.588 Y129 
+G1 X157.028 Y129 
+G1 X155.997 Y127.969 
+G1 X155.998 Y122.411 
+G1 X173.999 Y117.588 
+G1 X174 Y120.516 
+G1 X164.482 Y110.998 
+G1 X155.998 Y110.999 
+G1 X174.001 Y129 
+G1 X173.999 Y123.799 
+G1 X155.998 Y128.623 
+G1 X155.999 Y129.001 
+G1 X156.376 Y129 
+G1 X161.2 Y110.997 
+M42 P1 S0 ;Disable Welder
+M204 S1500
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.869 Y129.131
+G0 X155.468 Y129.801
+;TYPE:WALL-OUTER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X155.2 Y129.535  ;Moved 3 lines
+G1 X155.286 Y129.712  ;Moved 3 lines
+G1 X155.468 Y129.801  ;Moved 3 lines
+G1  ;Moved 3 lines
+G1 F1380 X174.535 Y129.799  ;Moved 3 lines
+G1 X174.712 Y129.713  ;Moved 3 lines
+G1 X174.801 Y129.531  ;Moved 3 lines
+G1 X174.8 Y110.464  ;Moved 3 lines
+G1 X174.713 Y110.287  ;Moved 3 lines
+G1 X174.531 Y110.198  ;Moved 3 lines
+G1 X155.464 Y110.199  ;Moved 3 lines
+G1 X155.286 Y110.286  ;Moved 3 lines
+G1 X155.198 Y110.467  ;Moved 3 lines
+M42 P1 S0 ;Disable Welder
+G0 F9000 X155.668 Y129.801
+G0 X155.599 Y129.401
+;TYPE:WALL-INNER
+M42 P1 S1 ;Enable Welder
+G1 F2700 X174.401 Y129.4 
+G1 X174.401 Y110.598 
+G1 X155.598 Y110.599 
+G1 X155.599 Y129.401 
+M42 P1 S0 ;Disable Welder
+M204 S3500
+G0 F9000 X156.082 Y128.8
+M42 P1 S1 ;Enable Welder
+G1 F2700 
+M42 P1 S0 ;Disable Welder
+;MESH:NONMESH
 G0 F600 X156.082 Y128.8 Z26.3
 G0 F9000 X174.001 Y110.999
 ;TIME_ELAPSED:1476.981291
@@ -10719,19 +10723,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.199 Y129.535  ;Moved 3 lines
-G1 X155.281 Y129.702  ;Moved 3 lines
-G1 X155.527 Y129.805  ;Moved 3 lines
-G1  ;Moved 3 lines
-G1 F1380 X174.535 Y129.8  ;Moved 3 lines
-G1 X174.703 Y129.718  ;Moved 3 lines
-G1 X174.805 Y129.473  ;Moved 3 lines
-G1 X174.8 Y110.464  ;Moved 3 lines
-G1 X174.713 Y110.286  ;Moved 3 lines
-G1 X174.536 Y110.199  ;Moved 3 lines
-G1 X155.464 Y110.199  ;Moved 3 lines
-G1 X155.286 Y110.286  ;Moved 3 lines
-G1 X155.199 Y110.464  ;Moved 3 lines
+G1 F2700 X155.286 Y110.286  ;Moved 5 lines
+G1 X155.199 Y110.464  ;Moved 5 lines
+G1 X155.199 Y129.535  ;Moved 5 lines
+G1 X155.281 Y129.702  ;Moved 5 lines
+G1 X155.527 Y129.805  ;Moved 5 lines
+G1  ;Moved 5 lines
+G1 F1380 X174.535 Y129.8  ;Moved 5 lines
+G1 X174.703 Y129.718  ;Moved 5 lines
+G1 X174.805 Y129.473  ;Moved 5 lines
+G1 X174.8 Y110.464  ;Moved 5 lines
+G1 X174.713 Y110.286  ;Moved 5 lines
+G1 X174.536 Y110.199  ;Moved 5 lines
+G1 X155.464 Y110.199  ;Moved 5 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 G0 X155.599 Y129.401
@@ -10789,20 +10793,20 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X155.286 Y110.286  ;Moved 5 lines
-G1 X155.199 Y110.464  ;Moved 5 lines
-G1 X155.199 Y129.535  ;Moved 5 lines
-G1 X155.281 Y129.702  ;Moved 5 lines
-G1 X155.527 Y129.805  ;Moved 5 lines
-G1  ;Moved 5 lines
-G1 F1380 X174.496 Y129.804  ;Moved 5 lines
-G1 X174.653 Y129.761  ;Moved 5 lines
-G1 X174.762 Y129.651  ;Moved 5 lines
-G1 X174.804 Y129.494  ;Moved 5 lines
-G1 X174.805 Y110.503  ;Moved 5 lines
-G1 X174.761 Y110.346  ;Moved 5 lines
-G1 X174.548 Y110.2  ;Moved 5 lines
-G1 X155.464 Y110.199  ;Moved 5 lines
+G1 F2700 X174.548 Y110.2  ;Moved 7 lines
+G1 X155.464 Y110.199  ;Moved 7 lines
+G1 X155.286 Y110.286  ;Moved 7 lines
+G1 X155.199 Y110.464  ;Moved 7 lines
+G1 X155.199 Y129.535  ;Moved 7 lines
+G1 X155.281 Y129.702  ;Moved 7 lines
+G1 X155.527 Y129.805  ;Moved 7 lines
+G1  ;Moved 7 lines
+G1 F1380 X174.496 Y129.804  ;Moved 7 lines
+G1 X174.653 Y129.761  ;Moved 7 lines
+G1 X174.762 Y129.651  ;Moved 7 lines
+G1 X174.804 Y129.494  ;Moved 7 lines
+G1 X174.805 Y110.503  ;Moved 7 lines
+G1 X174.761 Y110.346  ;Moved 7 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -10866,19 +10870,19 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.535 Y110.2  ;Moved 7 lines
-G1 X155.464 Y110.199  ;Moved 7 lines
-G1 X155.286 Y110.286  ;Moved 7 lines
-G1 X155.199 Y110.464  ;Moved 7 lines
-G1 X155.199 Y129.535  ;Moved 7 lines
-G1 X155.281 Y129.702  ;Moved 7 lines
-G1 X155.527 Y129.805  ;Moved 7 lines
-G1  ;Moved 7 lines
-G1 F1380 X174.496 Y129.805  ;Moved 7 lines
-G1 X174.76 Y129.654  ;Moved 7 lines
-G1 X174.804 Y129.495  ;Moved 7 lines
-G1 X174.805 Y110.524  ;Moved 7 lines
-G1 X174.703 Y110.282  ;Moved 7 lines
+G1 F2700 X174.805 Y110.524  ;Moved 9 lines
+G1 X174.703 Y110.282  ;Moved 9 lines
+G1 X174.535 Y110.2  ;Moved 9 lines
+G1 X155.464 Y110.199  ;Moved 9 lines
+G1 X155.286 Y110.286  ;Moved 9 lines
+G1 X155.199 Y110.464  ;Moved 9 lines
+G1 X155.199 Y129.535  ;Moved 9 lines
+G1 X155.281 Y129.702  ;Moved 9 lines
+G1 X155.527 Y129.805  ;Moved 9 lines
+G1  ;Moved 9 lines
+G1 F1380 X174.496 Y129.805  ;Moved 9 lines
+G1 X174.76 Y129.654  ;Moved 9 lines
+G1 X174.804 Y129.495  ;Moved 9 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -10942,20 +10946,20 @@ G0 F9000 X155.869 Y129.135
 G0 X155.527 Y129.805
 ;TYPE:WALL-OUTER
 M42 P1 S1 ;Enable Welder
-G1 F2700 X174.805 Y129.493  ;Moved 10 lines
-G1 X174.805 Y110.525  ;Moved 10 lines
-G1 X174.703 Y110.281  ;Moved 10 lines
-G1 X174.535 Y110.199  ;Moved 10 lines
-G1 X155.464 Y110.199  ;Moved 10 lines
-G1 X155.286 Y110.286  ;Moved 10 lines
-G1 X155.199 Y110.464  ;Moved 10 lines
-G1 X155.199 Y129.535  ;Moved 10 lines
-G1 X155.281 Y129.702  ;Moved 10 lines
-G1 X155.527 Y129.805  ;Moved 10 lines
-G1  ;Moved 10 lines
-G1 F1380 X174.496 Y129.804  ;Moved 10 lines
-G1 X174.653 Y129.762  ;Moved 10 lines
-G1 X174.76 Y129.655  ;Moved 10 lines
+G1 F2700 X174.653 Y129.762  ;Moved 12 lines
+G1 X174.76 Y129.655  ;Moved 12 lines
+G1 X174.805 Y129.493  ;Moved 12 lines
+G1 X174.805 Y110.525  ;Moved 12 lines
+G1 X174.703 Y110.281  ;Moved 12 lines
+G1 X174.535 Y110.199  ;Moved 12 lines
+G1 X155.464 Y110.199  ;Moved 12 lines
+G1 X155.286 Y110.286  ;Moved 12 lines
+G1 X155.199 Y110.464  ;Moved 12 lines
+G1 X155.199 Y129.535  ;Moved 12 lines
+G1 X155.281 Y129.702  ;Moved 12 lines
+G1 X155.527 Y129.805  ;Moved 12 lines
+G1  ;Moved 12 lines
+G1 F1380 X174.496 Y129.804  ;Moved 12 lines
 M42 P1 S0 ;Disable Welder
 G0 F9000 X155.727 Y129.805
 M42 P1 S1 ;Enable Welder
@@ -13080,10 +13084,11 @@ M42 P1 S0 ;Disable Welder
 G0 F9000 X156.935 Y128.651
 M42 P1 S1 ;Enable Welder
 G1 F2100 X156.346 Y128.062 
-;TIME_ELAPSED:5713.132264
+;TIME_ELAPSED:5743.132264
 ;gcode movements end
 
 ;end script start
+G1 F2700 E549.54992
 M204 S3000
 M107
 
