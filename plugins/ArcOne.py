@@ -114,7 +114,7 @@ class ArcOne(Script):
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        cura_log(f"before: {data[:2]}", False)
+        cura_log(f"data before: {data[:2]}", False)
         # For some reason, sometimes cura combines several commands into
         # a single entry in `data` (i.e. when the flavor is Griffin)
         #
@@ -122,15 +122,15 @@ class ArcOne(Script):
         parsed_data: list[str] = []
         for cmd in data:
             all_commands = cmd.split("\n")
-            cura_log(f"num split cmds: {len(all_commands)}", False)
             for split_cmd in all_commands:
-                parsed_data.append(f"{split_cmd}\n")
-        cura_log(f"after: {parsed_data[:20]}", False)
+                parsed_data.append(f"{split_cmd.strip()}\n")
 
         try:
             postprocessor = v1.CuraPostProcessor(self.get_settings())
             processed_gcode = postprocessor.execute(parsed_data)
             return processed_gcode
         except Exception as e:
+            import json
             cura_log(str(e), True)
-            return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n"]
+            return ["\n\n\n\n", f'Error is "{str(e)}"', "\n\n\n\n",
+                    "with parsed data: " + json.dumps(parsed_data, indent=2)]
