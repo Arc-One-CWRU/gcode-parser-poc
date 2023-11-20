@@ -2,7 +2,7 @@ from typing import List, Tuple
 from .processor import CommandProcessorInterface, SectionProcessorInterface, \
     GCodeSection
 from .processor.base.cura import END_OF_TOP_METADATA, END_OF_STARTUP_SCRIPT, \
-    END_OF_GCODE, is_end_of_gcode_movements
+    END_OF_GCODE, find_end_of_gcode_movements_idx
 
 
 class CuraGCodePipeline(object):
@@ -49,7 +49,12 @@ class CuraGCodePipeline(object):
         for gcode_line in section_processed_file:
             processed_line = gcode_line
             for cmd_processor in self.command_processors:
-                processed_line = cmd_processor.process(processed_line)
+                try:
+                    processed_line = cmd_processor.process(processed_line)
+                except Exception as e:
+                    class_name = cmd_processor.__class__
+                    raise Exception("cmd processor " +
+                                    f"{class_name} failed: {str(e)}")
             if not processed_line.endswith("\n"):
                 processed_line = processed_line + "\n"
             new_gcode.append(processed_line)
@@ -120,14 +125,12 @@ class CuraGCodePipeline(object):
         # Similar to read_section except that it needs to check the next line
         # since the end indicator can occur multiple times throughout the
         # G-Code
-        is_in_section = True
         section_contents: list[str] = []
         iter_idx = start_idx
-        while is_in_section and iter_idx < len(gcode_data):
+        end_idx = find_end_of_gcode_movements_idx(gcode_data)
+        while iter_idx <= end_idx:
             curr_line = gcode_data[iter_idx]
             section_contents.append(curr_line)
-            is_end = is_end_of_gcode_movements(curr_line, iter_idx, gcode_data)
-            is_in_section = not is_end
             iter_idx += 1
 
         return section_contents, iter_idx-1
@@ -168,7 +171,11 @@ class CuraGCodePipeline(object):
         startup_script, start_end_idx = self.read_startup_script(gcode_data,
                                                                  start_idx)
         for processor in self.startup_script_processors:
-            startup_script = processor.process(startup_script)
+            try:
+                startup_script = processor.process(startup_script)
+            except Exception as e:
+                raise Exception("startup script processor " +
+                                f"{processor.__class__} failed: {str(e)}")
         gcode_file.extend(startup_script)
         gcode_file.append(";startup script end\n\n")
 
@@ -178,7 +185,11 @@ class CuraGCodePipeline(object):
         movements, move_end_idx = self.read_gcode_movements(gcode_data,
                                                             start_end_idx+1)
         for processor in self.gcode_movements_processors:
-            movements = processor.process(movements)
+            try:
+                movements = processor.process(movements)
+            except Exception as e:
+                raise Exception("gcode movements processor " +
+                                f"{processor.__class__} failed: {str(e)}")
         gcode_file.extend(movements)
         gcode_file.append(";gcode movements end\n\n")
 
@@ -187,7 +198,11 @@ class CuraGCodePipeline(object):
         end_script, end_script_idx = self.read_end_script(gcode_data,
                                                           move_end_idx+1)
         for processor in self.end_script_processors:
-            end_script = processor.process(end_script)
+            try:
+                end_script = processor.process(end_script)
+            except Exception as e:
+                raise Exception("end script processor " +
+                                f"{processor.__class__} failed: {str(e)}")
         gcode_file.extend(end_script)
         gcode_file.append(";end script end\n\n")
 
