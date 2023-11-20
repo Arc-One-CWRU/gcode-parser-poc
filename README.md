@@ -58,8 +58,7 @@ make -f Makefile.unix debug
 You can also debug the G-Code parsing with default settings with the CLI:
 
 ```bash
-python cli.py gcode -i tests/gcodes/inputs/calibration_cube.gcode \
-    -o arc1_gcodes -v
+python cli.py gcode -i tests/gcodes/inputs/calibration_cube.gcode -o arc1_gcodes -v
 ```
 
 This is much faster than slicing and then downloading the parsed G-Code in Cura to view your results.
