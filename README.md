@@ -9,6 +9,7 @@ You can find the `arcgcode` framework developer documentation in [here](./docs/A
 - [Getting Started](#getting-started)
 - [Contributor's Getting Started](#contributors-getting-started)
 - [Debugging with the CLI](#debugging-with-the-cli)
+- [Timing with the CLI](#timing-with-the-cli)
 
 ## Getting Started
 
@@ -57,7 +58,16 @@ make -f Makefile.unix debug
 You can also debug the G-Code parsing with default settings with the CLI:
 
 ```bash
-python3 cli.py -i tests/gcodes/inputs/calibration_cube.gcode -o arc1_gcodes -v
+python cli.py gcode -i tests/gcodes/inputs/calibration_cube.gcode \
+    -o arc1_gcodes -v
 ```
 
 This is much faster than slicing and then downloading the parsed G-Code in Cura to view your results.
+
+## Timing with the CLI
+
+To time your printing run with nice exporting, call:
+
+```bash
+python cli.py time
+```
