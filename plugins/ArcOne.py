@@ -86,10 +86,10 @@ class ArcOne(Script):
                 "minimum_value": 100.0
             },
             "wait_for_temp": {
-                "label": "Set the cool down temperature between each layer (Celsius)",
-                "description": "Sets the temperature that must be reached before starting new layer",
+                "label": "Set the temperature to wait for between layers",
+                "description": "Sets the cool down temperature temperature (Celsius) that must be reached before starting new layer",
                 "type": "float",
-                "defualt_value": 275.0,
+                "default_value": 275.0,
                 "minimum_value": 35
             }
         }
