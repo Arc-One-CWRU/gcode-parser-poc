@@ -77,7 +77,7 @@ class CuraGCodePipeline(object):
         while is_in_section and iter_idx < len(gcode_data):
             curr_line = gcode_data[iter_idx]
             section_contents.append(curr_line)
-            if curr_line.startswith(end_indicator):
+            if curr_line.strip().startswith(end_indicator):
                 is_in_section = False
             iter_idx += 1
 
@@ -164,7 +164,7 @@ class CuraGCodePipeline(object):
 
         # 2. Startup Script: Apply all start up script processors
         gcode_file.append(";startup script start\n")
-        start_idx = top_meta_end_idx+3
+        start_idx = top_meta_end_idx + 1
         startup_script, start_end_idx = self.read_startup_script(gcode_data,
                                                                  start_idx)
         for processor in self.startup_script_processors:
@@ -176,7 +176,7 @@ class CuraGCodePipeline(object):
         # TODO: Read layer by layer
         gcode_file.append(";gcode movements start\n")
         movements, move_end_idx = self.read_gcode_movements(gcode_data,
-                                                            start_end_idx+2)
+                                                            start_end_idx+1)
         for processor in self.gcode_movements_processors:
             movements = processor.process(movements)
         gcode_file.extend(movements)
@@ -185,7 +185,7 @@ class CuraGCodePipeline(object):
         # 4. End Script: Apply all end script processors.
         gcode_file.append(";end script start\n")
         end_script, end_script_idx = self.read_end_script(gcode_data,
-                                                          move_end_idx+2)
+                                                          move_end_idx+1)
         for processor in self.end_script_processors:
             end_script = processor.process(end_script)
         gcode_file.extend(end_script)
@@ -194,7 +194,7 @@ class CuraGCodePipeline(object):
         # 5. Bottom Comment
         gcode_file.append(";bottom comment start\n")
         bottom_comment, _ = self.read_bottom_comment(gcode_data,
-                                                     end_script_idx+2)
+                                                     end_script_idx+1)
         gcode_file.extend(bottom_comment)
         gcode_file.append(";bottom comment end\n\n")
 
