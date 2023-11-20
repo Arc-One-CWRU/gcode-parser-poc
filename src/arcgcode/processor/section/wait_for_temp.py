@@ -19,7 +19,7 @@ class WaitForTemp(SectionProcessorInterface):
         new_gcode_section: list[str] = []
         skip_first = True
 
-        for idx, instruction in enumerate(gcode_section):
+        for _, instruction in enumerate(gcode_section):
             if instruction.startswith(CURA_LAYER):
                 new_gcode_section.append(instruction)
                 if skip_first:
@@ -29,15 +29,10 @@ class WaitForTemp(SectionProcessorInterface):
                 new_gcode_section.append(wait_instruction)
             # Only care about the end of the movements section.
             # Assumed that it is Cura.
-            
             else:
                 new_gcode_section.append(instruction)
 
-        section_with_wait: list[str] = []
-        for line in new_gcode_section:
-            section_with_wait.append(line)
-
-        return section_with_wait
+        return new_gcode_section
 
     def section_type(self) -> GCodeSection:
         """Returns the current section type.

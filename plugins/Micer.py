@@ -24,7 +24,7 @@ except Exception as e:
 
 
 class Micer(Script):
-    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate"]
+    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate", "wait_for_temp"]
 
     def getSettingDataString(self) -> str:
         return """{
@@ -70,7 +70,6 @@ class Micer(Script):
                 "defualt_value": 275.0,
                 "minimum_value": 35
             }
-            }
         }
         }"""
     
@@ -88,7 +87,8 @@ class Micer(Script):
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
                                         rotate_amount=rotate_amount,
-                                        movement_rate=movement_rate)
+                                        movement_rate=movement_rate,
+                                        wait_for_temp=wait_for_temp)
         return settings
 
     # TODO could use a helper to get numbers out of lines

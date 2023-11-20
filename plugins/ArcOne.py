@@ -46,7 +46,7 @@ except Exception as e:
 
 
 class ArcOne(Script):
-    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate"]
+    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate", "wait_for_temp"]
 
     def getSettingDataString(self) -> str:
         return """{
@@ -84,6 +84,13 @@ class ArcOne(Script):
                 "type": "float",
                 "default_value": 275.0,
                 "minimum_value": 100.0
+            },
+            "wait_for_temp": {
+                "label": "Set the cool down temperature between each layer (Celsius)",
+                "description": "Sets the temperature that must be reached before starting new layer",
+                "type": "float",
+                "defualt_value": 275.0,
+                "minimum_value": 35
             }
         }
         }"""
@@ -93,15 +100,17 @@ class ArcOne(Script):
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
         movement_rate = float(self.getSettingValueByKey(self.keywords[3]))
+        wait_for_temp = float(self.getSettingValueByKey(self.keywords[4]))
         debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
-            f" movement_rate: {movement_rate}"
+            f" movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}"
         cura_log(debug_str, False)
         cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
                                         rotate_amount=rotate_amount,
-                                        movement_rate=movement_rate)
+                                        movement_rate=movement_rate,
+                                        wait_for_temp=wait_for_temp)
         return settings
 
     # TODO could use a helper to get numbers out of lines
