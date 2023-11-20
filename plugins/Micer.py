@@ -62,6 +62,14 @@ class Micer(Script):
                 "type": "float",
                 "default_value": 275.0,
                 "minimum_value": 100.0
+            },
+            "wait_for_temp": {
+                "label": "Set the cool down temperature between each layer (Celsius)",
+                "description": "Sets the temperature that must be reached before starting new layer",
+                "type": "float",
+                "defualt_value": 275.0,
+                "minimum_value": 35
+            }
             }
         }
         }"""
@@ -71,8 +79,10 @@ class Micer(Script):
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
         movement_rate = float(self.getSettingValueByKey(self.keywords[3]))
+        wait_for_temp = float(self.getSettingValueByKey(self.keywords[4]))
+
         debug_str = f"arcgcode_debug: weld_gap: {weld_gap}, " + \
-            f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, movement_rate: {movement_rate}"
+            f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}"
         Logger.log("e", debug_str)
 
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,

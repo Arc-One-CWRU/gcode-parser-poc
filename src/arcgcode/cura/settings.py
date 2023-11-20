@@ -7,3 +7,4 @@ class CuraMicerSettings:
     sleep_time: float
     rotate_amount: float
     movement_rate: float
+    wait_for_temp: float

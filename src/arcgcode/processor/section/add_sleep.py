@@ -31,11 +31,11 @@ class AddSleep(SectionProcessorInterface):
         skip_first = True
         for idx, instruction in enumerate(gcode_section):
             if instruction.startswith(CURA_LAYER):
-                sum_sleep_time += self.sleep_time
                 new_gcode_section.append(instruction)
                 if skip_first:
                     skip_first = False
                     continue
+                sum_sleep_time += self.sleep_time
                 sleep_instruction = f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n"
                 new_gcode_section.append(sleep_instruction)
             # Only care about the end of the movements section.

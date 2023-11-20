@@ -1,7 +1,7 @@
 from arcgcode.cura.settings import CuraMicerSettings
 from arcgcode.pipeline import CuraGCodePipeline
 from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
-    AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion
+    AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion, WaitForTemp
 
 
 class CuraPostProcessor():
@@ -25,7 +25,8 @@ class CuraPostProcessor():
                 AllWelderControl(),
                 MoveUpZ(self.settings.weld_gap),
                 AddMicerSettings(settings=self.settings),
-                AddGcodeVersion()
+                AddGcodeVersion(),
+                WaitForTemp()
             ],
             command_processor=[ExtruderRemover()])
         new_gcode = gcode_pipeline.process(data)

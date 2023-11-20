@@ -105,7 +105,8 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
     gcode_pipeline = CuraPostProcessor(CuraMicerSettings(weld_gap=8,
                                                          sleep_time=30,
                                                          rotate_amount=6,
-                                                         movement_rate=0))
+                                                         movement_rate=0,
+                                                         wait_for_temp=275))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
             new_gcode = gcode_pipeline.execute(f.readlines())
