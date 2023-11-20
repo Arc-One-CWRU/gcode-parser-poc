@@ -1,6 +1,7 @@
-duetwebapi
+duetwebapi==1.2.2
 PyQt6
 pyqtgraph
 PyOpenGL
 pyyaml
-numpy
+numpy==1.25.1
+typer==0.9.0
