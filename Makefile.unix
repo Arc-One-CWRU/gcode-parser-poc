@@ -26,3 +26,6 @@ cura:
 
 debug:
 	cat ${LINUX_CURA_LOG_DIR}/cura.log | grep -e arcgcode_debug | tail
+
+debug_long:
+	cat ${LINUX_CURA_LOG_DIR}/cura.log | grep -e arcgcode_debug
