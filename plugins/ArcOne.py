@@ -115,7 +115,7 @@ class ArcOne(Script):
                 "unit": "°C",
                 "type": "float",
                 "default_value": 275.0,
-                "minimum_value": 35,
+                "minimum_value": 0,
                 "enabled": "use_temperature_sensor"
             },
         }
