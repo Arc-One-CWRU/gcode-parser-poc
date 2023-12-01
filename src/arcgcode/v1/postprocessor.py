@@ -1,7 +1,9 @@
 from arcgcode.cura.settings import CuraMicerSettings
 from arcgcode.pipeline import CuraGCodePipeline
 from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
-    AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion, WaitForTemp, ChangeInitialZ
+    AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion, \
+    WaitForTemp, ChangeInitialZ, ChangeMovementRate, \
+    CommandProcessorInterface, SectionProcessorInterface
 
 
 class CuraPostProcessor():
@@ -18,17 +20,30 @@ class CuraPostProcessor():
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        gcode_pipeline = CuraGCodePipeline(
-            section_processors=[
+        section_processors: list[SectionProcessorInterface] =[
                 AddSleep(sleep_time=self.settings.sleep_time),
                 RotateStartLayerPrint(self.settings.rotate_amount),
                 AllWelderControl(),
                 MoveUpZ(self.settings.weld_gap),
                 AddMicerSettings(settings=self.settings),
                 AddGcodeVersion(),
-                WaitForTemp(),
                 ChangeInitialZ()
-            ],
-            command_processor=[ExtruderRemover()])
+            ]
+        command_processors: list[CommandProcessorInterface] = [
+            ExtruderRemover()
+        ]
+
+        if self.settings.overwrite_movement_rate:
+            processor = ChangeMovementRate(self.settings.movement_rate)
+            command_processors.append(processor)
+
+        if self.settings.use_temperature_sensor:
+            processor = WaitForTemp()
+            section_processors.append(processor)
+
+        gcode_pipeline = CuraGCodePipeline(
+            section_processors=section_processors,
+            command_processor=command_processors)
+
         new_gcode = gcode_pipeline.process(data)
         return new_gcode

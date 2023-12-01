@@ -149,7 +149,9 @@ class ArcOne(Script):
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
                                         sleep_time=sleep_time,
                                         rotate_amount=rotate_amount,
+                                        overwrite_movement_rate=overwrite_movement_rate,
                                         movement_rate=movement_rate,
+                                        use_temperature_sensor=use_temperature_sensor,
                                         wait_for_temp=wait_for_temp)
         return settings
 
