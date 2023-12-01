@@ -31,6 +31,12 @@ class ExtruderRemover(CommandProcessorInterface):
         if is_comment:
             return True
 
+        # Just remove the extruder from every G1 command.
+        # Welder control relies on the extruder value, so we should never
+        # call this processor before the AllWelderControl
+        if gcode_instruction.strip().startswith("G1"):
+            return False
+
         skip_line = "X" not in gcode_instruction and \
             "Y" not in gcode_instruction and \
             "Z" not in gcode_instruction and " E" in gcode_instruction

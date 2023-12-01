@@ -45,7 +45,7 @@ G92 E0
 M109 S200
 G280 S1
 G0 Z20.001
-G1 F2700 E-6.5
+G1 F2700
 ;LAYER_COUNT:133
 ;startup script end
 
@@ -13093,7 +13093,7 @@ G1 F2100 X156.346 Y128.062
 ;gcode movements end
 
 ;end script start
-G1 F2700 E549.54992
+G1 F2700
 M204 S3000
 M107
 
