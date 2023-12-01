@@ -11,6 +11,7 @@ def cura_log(message: str, is_error: bool):
 
 try:
     import os
+    import json
     import sys
     import pathlib
     from importlib.machinery import SourceFileLoader
@@ -46,18 +47,17 @@ except Exception as e:
 
 
 class ArcOne(Script):
-    keywords = ["weldgap", "sleeptime", "rotate_amount", "movement_rate", "wait_for_temp"]
+    keywords = ["weldgap", "sleeptime", "rotate_amount",
+                "overwrite_movement_rate", "movement_rate",
+                "use_temperature_sensor", "wait_for_temp"]
 
     def getSettingDataString(self) -> str:
-        return """{
-        "name": "ArcOne",
-        "key": "ArcOne",
-        "metadata":{},
-        "version": 2,
-        "settings":{
+        script_name = "ArcOne"
+        options = {
             "weldgap": {
                 "label": "Set Weld Gap",
-                "description": "Set the welding gap. (mm)",
+                "description": "Set the welding gap.",
+                "unit": "mm",
                 "type": "float",
                 "default_value": 8,
                 "minimum_value": 0,
@@ -66,7 +66,8 @@ class ArcOne(Script):
             },
             "sleeptime": {
                 "label": "Set Sleep Time",
-                "description": "Set the layer sleep time. (s)",
+                "description": "Set the layer sleep time.",
+                "unit": "s",
                 "type": "float",
                 "default_value": 30,
                 "minimum_value": 0
@@ -74,35 +75,74 @@ class ArcOne(Script):
             "rotate_amount": {
                 "label": "Set the Rotate Count",
                 "description": "Set the amount of times to rotate.",
+                "unit": "times",
                 "type": "int",
                 "default_value": 6,
                 "minimum_value": 0
             },
+            "overwrite_movement_rate": {
+                "label": "Overwrite G-Code Movement Rate",
+                "description": "Enable this option when you want to " +
+                "overwrite the existing G-Code movement rates. This is " +
+                "useful for testing simple prints.",
+                "type": "bool",
+                "default_value": False,
+                "enabled": True,
+            },
             "movement_rate": {
-                "label": "(NOT IMPLEMENTED YET) Set the Movement Rate (mm/min)",
-                "description": "Set the movement rate (mm/min)",
+                "label": "Constant Movement Rate",
+                "description": "Sets the extruder movement rate",
+                "unit": "mm/min",
                 "type": "float",
                 "default_value": 275.0,
-                "minimum_value": 100.0
+                "minimum_value": 100.0,
+                # Only show movement_rate option when
+                # overwrite_movement_rate is true.
+                "enabled": "overwrite_movement_rate"
+            },
+            "use_temperature_sensor": {
+                "label": "Use Temperature Sensor",
+                "description": "Enable this to toggle on temperature " +
+                "sensor options",
+                "type": "bool",
+                "default_value": False,
+                "enabled": True,
             },
             "wait_for_temp": {
                 "label": "Set the temperature to wait for between layers",
-                "description": "Sets the cool down temperature temperature (Celsius) that must be reached before starting new layer",
+                "description": "Sets the cool down temperature temperature " +
+                "that must be reached before starting new layer",
+                "unit": "°C",
                 "type": "float",
                 "default_value": 275.0,
-                "minimum_value": 35
-            }
+                "minimum_value": 35,
+                "enabled": "use_temperature_sensor"
+            },
         }
-        }"""
+        settings = {
+            "name": script_name,
+            "key": script_name,
+            "metadata": {},
+            "version": 2,
+            "settings": options,
+        }
+
+        json_str = json.dumps(settings)
+        return json_str
 
     def get_settings(self) -> v1.CuraMicerSettings:
         weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
         rotate_amount = int(self.getSettingValueByKey(self.keywords[2]))
-        movement_rate = float(self.getSettingValueByKey(self.keywords[3]))
-        wait_for_temp = float(self.getSettingValueByKey(self.keywords[4]))
+        overwrite_movement_rate = bool(self.getSettingValueByKey(self.keywords[3]))
+        movement_rate = float(self.getSettingValueByKey(self.keywords[4]))
+        use_temperature_sensor = bool(self.getSettingValueByKey(self.keywords[5]))
+        wait_for_temp = float(self.getSettingValueByKey(self.keywords[6]))
+
         debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
+            f"overwrite_movement_rate: {overwrite_movement_rate}" + \
+            f"use_temperature_sensor: {use_temperature_sensor}" + \
             f" movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}"
         cura_log(debug_str, False)
         cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
