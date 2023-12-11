@@ -28,23 +28,21 @@ class DuetTimer(object):
             raise ValueError
         return r.text
     
-    # def get_file(self, filename: str, binary: bool = False) -> str | bytes:
-    #     """
-    #     filename: name of the file you want to download including extension
-    #     directory: the folder that the file is in, options are ['gcodes', 'macros', 'sys']
-    #     binary: return binary data instead of a string
-
-    #     returns the file as a string or binary data
-    #     """
-    #     url = f'{self.url}/machine/file/{filename}'
-    #     print("url", url)
-    #     r = requests.get(url)
-    #     if not r.ok:
-    #         raise ValueError(f"failed with status code {r.status_code} and reason {r.reason}")
-    #     if binary:
-    #         return r.content
-    #     else:
-    #         return r.text
+    def get_gcode_file(self):
+        """Get a job model until a filename is not None (print started)
+        """
+        fileName = None
+        while fileName is None:
+            model = self.duet.get_model("job")
+            if model["file"] is not None:
+                fileName = model["file"]["fileName"]
+                if fileName is not None:
+                    print("Filename: ", fileName)
+                    from pathlib import Path
+                    gcode_file_name = Path(fileName).name
+                    print("tried to read file with name: ", gcode_file_name)
+                    rawFile = self.duet.get_file(filename=gcode_file_name, binary=True)
+                    return rawFile
 
     def run(self):
         start_time = 0
@@ -69,41 +67,26 @@ class DuetTimer(object):
        
         prev_err = "RANDOM_PLACEHOLDER_ERROR"
 
-        # fetched_dir = self.duet.get_directory("gcodes")
-        # fetched_file = self.duet.get_file("CFFFP_TubeTest.gcode")
-        # print("fetch file: ", fetched_file)
-        # print("Gcodes Dir: ", fetched_dir)
-        def get_gcode_file():
-            """Get a job model until a filename is not None (print started)
-            """
-            fileName = None
-            while fileName is None:
-                model = self.duet.get_model("job")
-                if model["file"] is not None:
-                    fileName = model["file"]["fileName"]
-                    if fileName is not None:
-                        print("Filename: ", fileName)
-                        from pathlib import Path
-                        gcode_file_name = Path(fileName).name
-                        print("tried to read file with name: ", gcode_file_name)
-                        rawFile = self.duet.get_file(filename=gcode_file_name, binary=True)
-                        return rawFile
-
-        # iwanttodie = self.duet.get_file("TimerExportTest2.gcode")
-        # print("i w", iwanttodie)
-        raw_gcode_file = get_gcode_file()
+        raw_gcode_file = self.get_gcode_file()
         model = self.duet.get_model("job")
+
         while True:
             try:
+                line = ""
                 model2 = self.duet.get_model("job")
                 if model["filePosition"] != model2["filePosition"]:
                     print(f"model {model2}")
                     model = model2
                     file_position = model["filePosition"]
                     new_line_position = raw_gcode_file.find(b'\n', file_position)
-                    print(raw_gcode_file[file_position:new_line_position])
+                    line = raw_gcode_file[file_position:new_line_position
+                                          
+                    print(f"Line: {raw_gcode_file[file_position:new_line_position]}")
 
                 curr_layer = self.duet.get_layer()
+                if curr_layer == layer:
+                    
+                """
                 if curr_layer != layer:
                     layer_end_time = time.time()
                     layer_start_time = layer_times[layer]["start"]
@@ -126,6 +109,7 @@ class DuetTimer(object):
                     print(f"Print finished in {end_time-start_time} seconds")
                     start_time = 0
                     started_flag = False
+                    """
             except Exception as e:
                 if str(e) == "":
                     continue
