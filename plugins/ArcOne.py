@@ -91,11 +91,11 @@ class ArcOne(Script):
             },
             "movement_rate": {
                 "label": "Constant Movement Rate",
-                "description": "Sets the extruder movement rate",
+                "description": "Sets the extruder movement rate (Default 1035 mm/min)",
                 "unit": "mm/min",
                 "type": "float",
-                "default_value": 275.0,
-                "minimum_value": 100.0,
+                "default_value": 1035,
+                "minimum_value": 0.0,
                 # Only show movement_rate option when
                 # overwrite_movement_rate is true.
                 "enabled": "overwrite_movement_rate"
@@ -115,7 +115,7 @@ class ArcOne(Script):
                 "unit": "°C",
                 "type": "float",
                 "default_value": 275.0,
-                "minimum_value": 35,
+                "minimum_value": 0,
                 "enabled": "use_temperature_sensor"
             },
         }

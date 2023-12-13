@@ -16,7 +16,7 @@ class ChangeMovementRate(CommandProcessorInterface):
         # Matches only the speed in a G1 F{SPEED} command.
         # Generated with ChatGPT:
         # (?<=G1 F)\d+
-        self.g1_movement_matcher = re.compile(r"(?<=G1 F)\d+")
+        self.g1_movement_matcher = re.compile(r"(?<=G1 F)[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)")
         self.movement_rate = movement_rate
 
     def process(self, gcode_instruction: str) -> str:
@@ -29,4 +29,3 @@ class ChangeMovementRate(CommandProcessorInterface):
             return new_g1
 
         return gcode_instruction
-
