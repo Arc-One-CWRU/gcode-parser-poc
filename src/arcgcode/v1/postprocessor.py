@@ -20,8 +20,7 @@ class CuraPostProcessor():
             data[n-2] retracts extruder
             data[n-1] End Commands
         """
-        section_processors: list[SectionProcessorInterface] =[
-                AddSleep(sleep_time=self.settings.sleep_time),
+        section_processors: list[SectionProcessorInterface] = [
                 RotateStartLayerPrint(self.settings.rotate_amount),
                 AllWelderControl(),
                 MoveUpZ(self.settings.weld_gap),
@@ -40,6 +39,8 @@ class CuraPostProcessor():
         if self.settings.use_temperature_sensor:
             processor = WaitForTemp()
             section_processors.append(processor)
+        else:
+            section_processors.append(AddSleep(sleep_time=self.settings.sleep_time))
 
         gcode_pipeline = CuraGCodePipeline(
             section_processors=section_processors,
