@@ -26,8 +26,8 @@ class WaitForTemp(SectionProcessorInterface):
                     skip_first = False
                     continue
 
-                num = 0
-                changed_movement = new_gcode_section[len(new_gcode_section)-3-num]
+                num = 3
+                changed_movement = new_gcode_section[len(new_gcode_section)-num]
                 
                 x_index = changed_movement.find("X")
                 y_index = changed_movement.find("Y")
@@ -38,8 +38,8 @@ class WaitForTemp(SectionProcessorInterface):
                 new_y = str(float(changed_movement[y_index+1:z_index-1])+offset)
                 
                 temp = f"{changed_movement[:x_index+1]}{new_x} Y{new_y} {changed_movement[z_index:]}"
-                print(f"before: {new_gcode_section[len(new_gcode_section)-3]}after: {temp}")
-                new_gcode_section[len(new_gcode_section)-3-num] = temp
+                print(f"before: {new_gcode_section[len(new_gcode_section)-num]}after: {temp}")
+                new_gcode_section[len(new_gcode_section)-num] = temp
                 
                 wait_instruction = f"{GCodes.WAIT.value} P2 S2"
                 new_gcode_section.append(wait_instruction)
