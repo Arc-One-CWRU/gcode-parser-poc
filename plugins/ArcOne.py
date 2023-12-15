@@ -70,7 +70,8 @@ class ArcOne(Script):
                 "unit": "s",
                 "type": "float",
                 "default_value": 30,
-                "minimum_value": 0
+                "minimum_value": 0,
+                "enabled": "not use_temperature_sensor",
             },
             "rotate_amount": {
                 "label": "Set the Rotate Count",
@@ -174,7 +175,9 @@ class ArcOne(Script):
         for cmd in data:
             all_commands = cmd.split("\n")
             for split_cmd in all_commands:
-                parsed_data.append(f"{split_cmd.strip()}\n")
+                stripped_cmd = split_cmd.strip()
+                if stripped_cmd != "":
+                    parsed_data.append(f"{stripped_cmd}\n")
 
         try:
             postprocessor = v1.CuraPostProcessor(self.get_settings())
