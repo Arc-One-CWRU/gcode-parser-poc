@@ -5,3 +5,4 @@ PyOpenGL
 pyyaml
 numpy==1.25.1
 typer==0.9.0
+pandas==2.1.4
