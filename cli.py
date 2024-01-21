@@ -50,8 +50,7 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
 
     An example that works as of 11/19 is:
 
-    python cli.py gcode -i tests/gcodes/inputs/calibration_cube.gcode \
-        -o arc1_gcodes -v
+    python cli.py gcode -i tests/gcodes/inputs/calibration_cube.gcode -o arc1_gcodes -v
 
     This will generate a file called edited_calibration_cube.gcode in the
     arc1_gcodes directory. This new G-Code file should be compatible with the
@@ -107,7 +106,7 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
                                                          rotate_amount=6,
                                                          overwrite_movement_rate=False,
                                                          movement_rate=0,
-                                                         use_temperature_sensor=False,
+                                                         use_temperature_sensor=True,
                                                          wait_for_temp=275))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
