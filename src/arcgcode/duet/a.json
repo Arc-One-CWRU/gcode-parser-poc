@@ -1,0 +1,9 @@
+{'build': None, 'duration': None, 'file': 
+{'filament': [747.0], 'fileName': None, 'generatedBy': 'ArcOne Post-Processing Script', 'height': 21.2, 'lastModified': '2023-12-10T15:53:14', 'layerHeight': 1.55, 'numLayers': 
+14, 'printTime': 91, 'simulatedTime': None, 'size': 64239, 'thumbnails': 
+[{'format': 'qoi', 'height': 48, 'offset': 159, 'size': 1344, 'width': 48},
+{'format': 'qoi', 'height': 128, 'offset': 1612, 'size': 6904, 'width': 128},
+{'format': 'qoi', 'height': 160, 'offset': 8839, 'size': 10120, 'width': 160},
+{'format': 'qoi', 'height': 256, 'offset': 19405, 'size': 22304, 'width': 256}]},
+ 'filePosition': 0, 'lastDuration': 0, 'lastFileName': '0:/gcodes/TimerExportTest2.gcode',
+  'layer': None, 'layerTime': None, 'pauseDuration': None, 'rawExtrusion': None, 'timesLeft': {'filament': None, 'file': None, 'slicer': 1}, 'warmUpDuration': None}

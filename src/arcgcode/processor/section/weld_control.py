@@ -36,6 +36,7 @@ class AllWelderControl(SectionProcessorInterface):
             # Skip last line
             if i + 1 == len(gcode_section):
                 new_gcode_section.append(instruction)
+                new_gcode_section.append(GCodes.WELD_OFF.value)
                 continue
 
             # Start the welder once when it's off and it encounters an
