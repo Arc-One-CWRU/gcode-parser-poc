@@ -119,7 +119,15 @@ class ArcOne(Script):
                 "minimum_value": 0,
                 "enabled": "use_temperature_sensor"
             },
+            "pause_after_layer": {
+                "label": "Pause after each layer until manually resumed",
+                "description": " Pause after each layer until manually resumed",
+                "type": "boolean",
+                "default_value": False,
+                "enabled": True,
+            },
         }
+
         settings = {
             "name": script_name,
             "key": script_name,
@@ -139,12 +147,15 @@ class ArcOne(Script):
         movement_rate = float(self.getSettingValueByKey(self.keywords[4]))
         use_temperature_sensor = bool(self.getSettingValueByKey(self.keywords[5]))
         wait_for_temp = float(self.getSettingValueByKey(self.keywords[6]))
+        pause_after_layer = bool(self.getSettingValueByKey(self.keywords[7]))
 
         debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
-            f"overwrite_movement_rate: {overwrite_movement_rate}" + \
-            f"use_temperature_sensor: {use_temperature_sensor}" + \
-            f" movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}"
+            f"overwrite_movement_rate: {overwrite_movement_rate}, " + \
+            f"use_temperature_sensor: {use_temperature_sensor}, " + \
+            f"movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}, " + \
+            f"pause_after_layer: {pause_after_layer}"
+
         cura_log(debug_str, False)
         cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
         settings = v1.CuraMicerSettings(weld_gap=weld_gap,
@@ -153,7 +164,9 @@ class ArcOne(Script):
                                         overwrite_movement_rate=overwrite_movement_rate,
                                         movement_rate=movement_rate,
                                         use_temperature_sensor=use_temperature_sensor,
-                                        wait_for_temp=wait_for_temp)
+                                        wait_for_temp=wait_for_temp,
+                                        pause_after_layer=pause_after_layer,
+                                        )
         return settings
 
     # TODO could use a helper to get numbers out of lines

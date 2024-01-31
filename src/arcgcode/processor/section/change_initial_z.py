@@ -38,13 +38,20 @@ class ChangeInitialZ(SectionProcessorInterface):
                     # 1st layer
                     # On layer change append!
                     if is_layer_zero:
-                        new_gcode_section.insert(-1, INITIAL_Z_MOVE)     
+                        new_gcode_section.insert(-1, ";Initial Z Offset")  
+                        new_gcode_section.insert(-1, INITIAL_Z_MOVE)
+                        new_gcode_section.insert(-1, '\n')
+                        
                     is_layer_zero = False
 
             if is_layer_zero and line.startswith("G0"):
                 if ("X" in line or "Y" in line) and "Z" in line:
                     zindex = line.find("Z")
-                    new_gcode_section.append(line[0:zindex])
+                    new_gcode_section.append("")
+                    new_gcode_section.append("G1" + line[2:zindex])
+            elif is_layer_zero and line.startswith(";TYPE"):
+                new_gcode_section.append(new_gcode_section[len(new_gcode_section)-1])
+                new_gcode_section.append(line)
             else:
                 new_gcode_section.append(line)
 

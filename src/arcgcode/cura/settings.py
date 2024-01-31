@@ -10,3 +10,4 @@ class CuraMicerSettings:
     movement_rate: float
     use_temperature_sensor: bool
     wait_for_temp: float
+    pause_after_layer: bool
