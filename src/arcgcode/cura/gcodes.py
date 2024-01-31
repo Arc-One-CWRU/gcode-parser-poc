@@ -13,3 +13,4 @@ class GCodes(Enum):
     WELD_ON = "M42 P1 S1 ;Enable Welder\n"
     SLEEP = "G4"
     WAIT = "M116"
+    PAUSE = "M226"

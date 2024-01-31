@@ -107,7 +107,9 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
                                                          overwrite_movement_rate=False,
                                                          movement_rate=0,
                                                          use_temperature_sensor=True,
-                                                         wait_for_temp=275))
+                                                         wait_for_temp=275,
+                                                         pause_after_layer=True,
+                                                         ))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
             new_gcode = gcode_pipeline.execute(f.readlines())
