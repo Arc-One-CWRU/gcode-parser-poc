@@ -3,7 +3,7 @@ from arcgcode.pipeline import CuraGCodePipeline
 from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
     AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion, \
     WaitForTemp, ChangeInitialZ, ChangeMovementRate, \
-    CommandProcessorInterface, SectionProcessorInterface, AddPause
+    CommandProcessorInterface, SectionProcessorInterface, AddPause, ChangeG0ToG1, SpeedCapAdder
 
 
 class CuraPostProcessor():
@@ -26,10 +26,13 @@ class CuraPostProcessor():
                 MoveUpZ(self.settings.weld_gap),
                 AddMicerSettings(settings=self.settings),
                 AddGcodeVersion(),
-                ChangeInitialZ()
+                ChangeInitialZ(),
+                ChangeG0ToG1()
             ]
         command_processors: list[CommandProcessorInterface] = [
-            ExtruderRemover()
+            ExtruderRemover(),
+            SpeedCapAdder()
+
         ]
 
         if self.settings.overwrite_movement_rate:

@@ -11,3 +11,4 @@ from .add_gcode_version import *
 from .wait_for_temp import *
 from .change_initial_z import *
 from .add_pause_after_layer import *
+from .change_G0_to_G1 import *

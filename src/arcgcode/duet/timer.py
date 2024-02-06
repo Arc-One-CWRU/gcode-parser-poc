@@ -102,14 +102,17 @@ class DuetTimer(object):
         model1 = self.duet.get_model("job")
         model2 = self.duet.get_model("job")
         model3 = self.duet.get_model("job")
+        model4 = self.duet.get_model("job")
+        model5 = self.duet.get_model("job")
         line = ""
+        flag = False
         while True:
             try:
                 # 1. Read entire file in
                 # 2. Iterate through the entire file line by line and get the beginning of each line's bytes position
                 # 3. 
-                model3 = self.duet.get_model("job")
-                if model2["filePosition"] != model3["filePosition"]:
+                model5 = self.duet.get_model("job")
+                if not flag and model5["filePosition"] != model4["filePosition"] or flag and model["filePosition"] != model5["filePosition"]:
                     #print(f"model {model2}")
                     
                     file_position = model["filePosition"]
@@ -134,9 +137,17 @@ class DuetTimer(object):
                             "started_weld": False,
                             "ended_weld": False
                         })
-                    model = model1
-                    model1 = model2
-                    model2 = model3
+                    
+                    if layer == 1 and layer_times[layer]["started_weld"] is False:
+                        model = model1
+                        model1 = model2
+                        model2 = model3
+                        model3 = model4
+                        model4 = model5
+                    else:
+                        flag = True
+                        model = model5
+                        model4 = model5
                     
                     temp_time = time.time()
                     if layer_times[layer]["started_weld"] == False and model["filePosition"] >= weld_start_filepositions[layer-1]:
