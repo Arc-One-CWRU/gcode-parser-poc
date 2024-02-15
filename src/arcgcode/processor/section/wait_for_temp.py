@@ -32,16 +32,17 @@ class WaitForTemp(SectionProcessorInterface):
                 x_index = changed_movement.find("X")
                 y_index = changed_movement.find("Y")
                 z_index = changed_movement.find("Z")
-                offset = 7.5
+                offset = 75
                 
                 new_x = str(float(changed_movement[x_index+1:y_index-1])+offset)
-                new_y = str(float(changed_movement[y_index+1:z_index-1])+offset)
+                new_y = str(float(changed_movement[y_index+1:z_index-1])+offset+10)
+                new_z = str(float(changed_movement[z_index+1:]) + 20)
                 
-                temp = f"{changed_movement[:x_index+1]}{new_x} Y{new_y} {changed_movement[z_index:]}"
+                temp = f"{changed_movement[:x_index+1]}{new_x} Y{new_y} Z{new_z}"
                 print(f"before: {new_gcode_section[len(new_gcode_section)-num]}after: {temp}")
                 new_gcode_section[len(new_gcode_section)-num] = temp
                 
-                wait_instruction = f"{GCodes.WAIT.value} P2 S2"
+                wait_instruction = f"{GCodes.WAIT.value} P7 S2"
                 new_gcode_section.append(wait_instruction)
             # Only care about the end of the movements section.
             # Assumed that it is Cura.

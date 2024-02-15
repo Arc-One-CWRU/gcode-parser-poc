@@ -14,3 +14,5 @@ class GCodes(Enum):
     SLEEP = "G4"
     WAIT = "M116"
     PAUSE = "M226"
+    WELD_OFF_MESSAGE = "M291 P\"Weld Off\""
+    WELD_ON_MESSAGE = "M291 P\"Weld On\""

@@ -91,9 +91,9 @@ class DuetTimer(object):
         for i,line in enumerate(gcode_lines):
             if line.startswith(";LAYER:"):
                 layer2 = line[7:]
-            if line.startswith("M42 P1 S1 ;Enable Welder"):
+            if line.startswith("M291 P\"Weld On\""):
                 weld_start_filepositions.append(byteposition)
-            if line.startswith("M42 P1 S0 ;Disable Welder"):
+            if line.startswith("M291 P\"Weld Off\""):
                 weld_end_filepositions.append(byteposition)
             byteposition += len(line.encode())
 
@@ -106,6 +106,10 @@ class DuetTimer(object):
         model5 = self.duet.get_model("job")
         line = ""
         flag = False
+        start_index = 0
+        end_index = 0
+        num_beads = 0
+        max_beads = 0
         while True:
             try:
                 # 1. Read entire file in
@@ -135,8 +139,12 @@ class DuetTimer(object):
                         layer_times[layer] = defaultdict(float, {
                             "start": time.time(),
                             "started_weld": False,
-                            "ended_weld": False
+                            "ended_weld": False,
+                            "new_layer": True
                         })
+                        if num_beads + 1> max_beads:
+                            max_beads = num_beads + 1
+                        num_beads = 0
                     
                     if layer == 1 and layer_times[layer]["started_weld"] is False:
                         model = model1
@@ -150,18 +158,34 @@ class DuetTimer(object):
                         model4 = model5
                     
                     temp_time = time.time()
-                    if layer_times[layer]["started_weld"] == False and model["filePosition"] >= weld_start_filepositions[layer-1]:
-                        print(f"Weld_Start: {temp_time}")
+                    if layer_times[layer]["started_weld"] == False and model["filePosition"] >= weld_start_filepositions[start_index]:
+                        name = "begin" + str(num_beads)
+                        print(f"Weld_Start: {temp_time} {name}")
+                        
+                        layer_times[layer][name] = temp_time
                         layer_times[layer]["Weld_Start"] = temp_time
                         layer_times[layer]["started_weld"] = True
-                    if layer_times[layer-1]["ended_weld"] == False and model["filePosition"] >= weld_end_filepositions[layer-2]:
+                        layer_times[layer]["ended_weld"] = False
+                        start_index += 1
+                    if layer_times[layer-1]["started_weld"] == True and model["filePosition"] >= weld_end_filepositions[end_index]:
+                        name = "end" + str(max_beads-1)
+                        layer_times[layer-1][name] = temp_time
                         layer_times[layer-1]["Weld_End"] = temp_time
                         layer_times[layer-1]["ended_weld"] = True
-                        print(f"Weld_End: {temp_time}")
-                    if layer_times[layer]["ended_weld"] == False and model["filePosition"] >= weld_end_filepositions[layer]:
+                        layer_times[layer-1]["started_weld"] = False
+                        layer_times[layer-1]["new_layer"] = False
+                        print(f"Weld_End: {temp_time} {name}")
+                        end_index += 1
+                    if layer_times[layer]["started_weld"] == True and model["filePosition"] >= weld_end_filepositions[end_index]:
+                        name = "end" + str(num_beads)
+                        layer_times[layer][name] = temp_time
                         layer_times[layer]["Weld_End"] = temp_time
                         layer_times[layer]["ended_weld"] = True
-                        print(f"Weld_End: {temp_time}")
+                        layer_times[layer]["started_weld"] = False
+                        layer_times[layer]["new_layer"] = False
+                        print(f"Weld_End: {temp_time} {name}")
+                        end_index += 1
+                        num_beads += 1
                         
                         # print(line)
                         # if line.startswith("M42 P1 S1"):
@@ -175,8 +199,13 @@ class DuetTimer(object):
                     print("Started Timer")
                     #start_time = time.time()
                     started_flag = True
-                if (self.duet.get_status() == "idle" and
-                   started_flag):
+                #print(self.duet.get_status())
+                #print(started_flag)
+                #if self.duet.get_status() == "idle":
+                    #print("HEREREWQRWQERQWERQWREW")
+                    
+                if (self.duet.get_status() == "idle" and started_flag):
+                    print("dsafjhdsakfjljsf")
                     end_time = time.time()
                     layer_times[layer]["end"] = end_time
                     total_time = end_time - start_time
@@ -188,14 +217,23 @@ class DuetTimer(object):
                         arr = [layer]
                         arr.append(layer_times[layer]["start"])
                         arr.append(layer_times[layer]["end"])
-                        arr.append(layer_times[layer]["duration"])
-                        arr.append(layer_times[layer]["Weld_Start"])
-                        arr.append(layer_times[layer]["Weld_End"])
-                        arr.append(layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"])
-                        total_weld_time += layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"]
+                        #arr.append(layer_times[layer]["duration"])
+                        print()
+                        for i in range(max_beads):
+                            if layer == len(layer_times)-1 and i == max_beads-1:
+                                layer_times[layer]["end" + str(i)] = end_time
+                            arr.append(layer_times[layer]["begin" + str(i)])
+                            arr.append(layer_times[layer]["end" + str(i)])
+                            arr.append(layer_times[layer]["end" + str(i)] - layer_times[layer]["begin" + str(i)])
+                            total_weld_time += layer_times[layer]["end" + str(i)] - layer_times[layer]["begin" + str(i)]
+                        # arr.append(layer_times[layer]["Weld_Start"])
+                        # arr.append(layer_times[layer]["Weld_End"])
+                        #arr.append(layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"])
+                        #total_weld_time += layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"]
                         layer_arr.append(arr)
-                    layer_arr.insert(0,["Totals", layer_times[1]["start"], end_time, total_time, "N/A", "N/A", total_weld_time])
-                    df = pd.DataFrame(layer_arr, columns=["Layer", "Start", "End", "Duration", "Weld_Start", "Weld_End", "Weld_Duration"])
+                    #columns = ["Totals", layer_times[1]"start"], end_time, 
+                    layer_arr.insert(0,["Totals", layer_times[1]["start"], end_time, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", total_weld_time])
+                    df = pd.DataFrame(layer_arr, columns=["Layer", "Start", "End", "Weld_Start1", "Weld_End1", "Weld_Total1", "Weld_Start2", "Weld_End2", "Weld_Total2", "Weld_Duration"])
                     df.to_csv(f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}TimeData.csv")
                 
             except Exception as e:
