@@ -16,3 +16,4 @@ class GCodes(Enum):
     PAUSE = "M226"
     WELD_OFF_MESSAGE = "M291 P\"Weld Off\""
     WELD_ON_MESSAGE = "M291 P\"Weld On\""
+    INTERPASS_MACRO = "M98 P\"/macros/WaitForInterpassTemp.g\""

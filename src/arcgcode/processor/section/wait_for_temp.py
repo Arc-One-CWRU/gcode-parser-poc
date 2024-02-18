@@ -42,7 +42,7 @@ class WaitForTemp(SectionProcessorInterface):
                 print(f"before: {new_gcode_section[len(new_gcode_section)-num]}after: {temp}")
                 new_gcode_section[len(new_gcode_section)-num] = temp
                 
-                wait_instruction = f"{GCodes.WAIT.value} P7 S2"
+                wait_instruction = f"{GCodes.INTERPASS_MACRO.value}"
                 new_gcode_section.append(wait_instruction)
             # Only care about the end of the movements section.
             # Assumed that it is Cura.
