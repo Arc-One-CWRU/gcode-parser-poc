@@ -39,15 +39,15 @@ class CuraPostProcessor():
             processor = ChangeMovementRate(self.settings.movement_rate)
             command_processors.append(processor)
 
+        if self.settings.pause_after_layer:
+            processor = AddPause()
+            section_processors.append(processor)
+
         if self.settings.use_temperature_sensor:
             processor = WaitForTemp()
             section_processors.append(processor)
         else:
             section_processors.append(AddSleep(sleep_time=self.settings.sleep_time))
-
-        if self.settings.pause_after_layer:
-            processor = AddPause()
-            section_processors.append(processor)
 
         gcode_pipeline = CuraGCodePipeline(
             section_processors=section_processors,

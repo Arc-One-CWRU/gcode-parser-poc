@@ -18,32 +18,53 @@ class WaitForTemp(SectionProcessorInterface):
         """
         new_gcode_section: list[str] = []
         skip_first = True
-
+        skip_pause = False
         for i, instruction in enumerate(gcode_section):
+            if skip_pause:
+                skip_pause = False
+                continue
             if instruction.startswith(CURA_LAYER):
                 new_gcode_section.append(instruction)
                 if skip_first:
                     skip_first = False
                     continue
-
-                num = 3
-                changed_movement = new_gcode_section[len(new_gcode_section)-num]
                 
-                x_index = changed_movement.find("X")
-                y_index = changed_movement.find("Y")
-                z_index = changed_movement.find("Z")
-                offset = 75
+                x_offset = 75
+                y_offset = 85
+                z_offset = 20
+                new_gcode_section.append("G91")
+                new_gcode_section.append(f"G1 Z{z_offset}")
+                new_gcode_section.append(f"G1 X{x_offset} Y{y_offset}")
+                new_gcode_section.append("G4 P0")
+                new_gcode_section.append("M291 P\"Interpass Start\"")
+                new_gcode_section.append(f"{GCodes.INTERPASS_MACRO.value}")
                 
-                new_x = str(float(changed_movement[x_index+1:y_index-1])+offset)
-                new_y = str(float(changed_movement[y_index+1:z_index-1])+offset+10)
-                new_z = str(float(changed_movement[z_index+1:]) + 20)
+                new_gcode_section.append("G4 P0")
+                new_gcode_section.append("M291 P\"Interpass End\"")
+                if gcode_section[i+1].startswith("M226"):
+                    new_gcode_section.append("M226")
+                    skip_pause = True
+                new_gcode_section.append(f"G1 X-{x_offset} Y-{y_offset}")
+                new_gcode_section.append(f"G1 Z-{z_offset}")
+                new_gcode_section.append("G90")
+                # num = 3
+                # changed_movement = new_gcode_section[len(new_gcode_section)-num]
                 
-                temp = f"{changed_movement[:x_index+1]}{new_x} Y{new_y} Z{new_z}"
-                print(f"before: {new_gcode_section[len(new_gcode_section)-num]}after: {temp}")
-                new_gcode_section[len(new_gcode_section)-num] = temp
+                # x_index = changed_movement.find("X")
+                # y_index = changed_movement.find("Y")
+                # z_index = changed_movement.find("Z")
+                # offset = 75
                 
-                wait_instruction = f"{GCodes.INTERPASS_MACRO.value}"
-                new_gcode_section.append(wait_instruction)
+                # new_x = str(float(changed_movement[x_index+1:y_index-1])+offset)
+                # new_y = str(float(changed_movement[y_index+1:z_index-1])+offset+10)
+                # new_z = str(float(changed_movement[z_index+1:]) + 20)
+                
+                # temp = f"{changed_movement[:x_index+1]}{new_x} Y{new_y} Z{new_z}"
+                # print(f"before: {new_gcode_section[len(new_gcode_section)-num]}after: {temp}")
+                # new_gcode_section[len(new_gcode_section)-num] = temp
+                
+                # wait_instruction = f"{GCodes.INTERPASS_MACRO.value}"
+                # new_gcode_section.append(wait_instruction)
             # Only care about the end of the movements section.
             # Assumed that it is Cura.
             else:

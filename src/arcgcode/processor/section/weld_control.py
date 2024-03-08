@@ -27,7 +27,13 @@ class AllWelderControl(SectionProcessorInterface):
         """
         new_gcode_section: list[str] = []
         welder_is_on = False
+        layer = 0
+        bead = 1
         for i, instruction in enumerate(gcode_section):
+            
+            if instruction.startswith(";LAYER"):
+                layer = int(instruction[7:])
+                bead = 1
             # Edge Cases
             # Skip first line
             if i - 1 < 0:
@@ -35,10 +41,11 @@ class AllWelderControl(SectionProcessorInterface):
                 continue
             # Skip last line
             if i + 1 == len(gcode_section):
+                new_gcode_section.append(instruction)
                 new_gcode_section.append(GCodes.WELD_OFF.value)
                 new_gcode_section.append("G4 P0")
-                new_gcode_section.append(GCodes.WELD_OFF_MESSAGE.value)
-                
+                new_gcode_section.append(f"{GCodes.WELD_OFF_MESSAGE.value} L{layer} B{bead}\"")
+                bead += 1
                 continue
 
             # Start the welder once when it's off and it encounters an
@@ -47,7 +54,7 @@ class AllWelderControl(SectionProcessorInterface):
                 welder_is_on = True
                 new_gcode_section.append("G4 P0")
                 new_gcode_section.append(GCodes.WELD_ON.value)
-                new_gcode_section.append(GCodes.WELD_ON_MESSAGE.value)
+                new_gcode_section.append(f"{GCodes.WELD_ON_MESSAGE.value} L{layer} B{bead}\"")
                 parsed_instruction = self.parse_extruder_cmd(instruction)
                 new_gcode_section.append(parsed_instruction)
             # If the welder is already on, extrude as usual
@@ -60,8 +67,9 @@ class AllWelderControl(SectionProcessorInterface):
                 welder_is_on = False
                 new_gcode_section.append(GCodes.WELD_OFF.value)
                 new_gcode_section.append("G4 P0")
-                new_gcode_section.append(instruction)                
-                new_gcode_section.append(GCodes.WELD_OFF_MESSAGE.value)
+                new_gcode_section.append(f"{GCodes.WELD_OFF_MESSAGE.value} L{layer} B{bead}\"")
+                bead += 1
+                new_gcode_section.append(instruction)     
                 
             # Just append any instructions where the welder is off and there
             # is no extruding.
