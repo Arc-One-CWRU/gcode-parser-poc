@@ -126,6 +126,17 @@ class ArcOne(Script):
                 "default_value": False,
                 "enabled": True,
             },
+
+             "return_home": {
+                "label": "Return to home button",
+                "description": "Return to home after print finishes",
+                "type": "bool",
+                "default_value": False,
+                "enabled": True,
+            },
+
+
+
         }
 
         settings = {
@@ -148,13 +159,15 @@ class ArcOne(Script):
         use_temperature_sensor = bool(self.getSettingValueByKey(self.keywords[5]))
         wait_for_temp = float(self.getSettingValueByKey(self.keywords[6]))
         pause_after_layer = bool(self.getSettingValueByKey(self.keywords[7]))
+        return_home = bool(self.getSettingValueByKey(self.keywords[8]))
 
         debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
             f"overwrite_movement_rate: {overwrite_movement_rate}, " + \
             f"use_temperature_sensor: {use_temperature_sensor}, " + \
             f"movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}, " + \
-            f"pause_after_layer: {pause_after_layer}"
+            f"pause_after_layer: {pause_after_layer}, " + \
+            f"return_home: {return_home}"
 
         cura_log(debug_str, False)
         cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
@@ -166,6 +179,7 @@ class ArcOne(Script):
                                         use_temperature_sensor=use_temperature_sensor,
                                         wait_for_temp=wait_for_temp,
                                         pause_after_layer=pause_after_layer,
+                                        return_home =return_home,
                                         )
         return settings
 
