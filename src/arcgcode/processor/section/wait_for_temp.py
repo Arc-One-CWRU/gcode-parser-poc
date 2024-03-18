@@ -29,9 +29,9 @@ class WaitForTemp(SectionProcessorInterface):
                     skip_first = False
                     continue
                 
-                x_offset = 75
-                y_offset = 85
-                z_offset = 20
+                x_offset = 72
+                y_offset = 74
+                z_offset = 40
                 new_gcode_section.append("G91")
                 new_gcode_section.append(f"G1 Z{z_offset}")
                 new_gcode_section.append(f"G1 X{x_offset} Y{y_offset}")
