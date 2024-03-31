@@ -11,3 +11,4 @@ class CuraMicerSettings:
     use_temperature_sensor: bool
     wait_for_temp: float
     pause_after_layer: bool
+    return_home: bool

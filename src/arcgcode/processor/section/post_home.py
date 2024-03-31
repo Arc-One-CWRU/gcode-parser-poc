@@ -14,7 +14,7 @@ class PostHome(SectionProcessorInterface):
         """
         
         gcode_section.insert(0, "G28 Z")
-        gcode_section.insert(0,"G28 XY")
+        gcode_section.insert(0, "G28 XY")
         gcode_section.insert(0, "G90")
         gcode_section.insert(0, "G1 Z100")
         gcode_section.insert(0, "G91")

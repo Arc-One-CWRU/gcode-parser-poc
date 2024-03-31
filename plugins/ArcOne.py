@@ -49,7 +49,7 @@ except Exception as e:
 class ArcOne(Script):
     keywords = ["weldgap", "sleeptime", "rotate_amount",
                 "overwrite_movement_rate", "movement_rate",
-                "use_temperature_sensor", "wait_for_temp", "pause_after_layer"]
+                "use_temperature_sensor", "wait_for_temp", "pause_after_layer", "return_home"]
 
     def getSettingDataString(self) -> str:
         script_name = "ArcOne"
@@ -126,8 +126,7 @@ class ArcOne(Script):
                 "default_value": False,
                 "enabled": True,
             },
-
-             "return_home": {
+            "return_home": {
                 "label": "Return to home button",
                 "description": "Return to home after print finishes",
                 "type": "bool",
@@ -179,7 +178,7 @@ class ArcOne(Script):
                                         use_temperature_sensor=use_temperature_sensor,
                                         wait_for_temp=wait_for_temp,
                                         pause_after_layer=pause_after_layer,
-                                        return_home =return_home,
+                                        return_home=return_home,
                                         )
         return settings
 

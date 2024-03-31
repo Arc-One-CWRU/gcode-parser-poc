@@ -106,9 +106,10 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
                                                          rotate_amount=6,
                                                          overwrite_movement_rate=False,
                                                          movement_rate=0,
-                                                         use_temperature_sensor=True,
+                                                         use_temperature_sensor=False,
                                                          wait_for_temp=275,
-                                                         pause_after_layer=True,
+                                                         pause_after_layer=False,
+                                                         return_home=False,
                                                          ))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:

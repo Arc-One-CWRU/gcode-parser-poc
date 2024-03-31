@@ -1,0 +1,854 @@
+;Generated with ArcOne Post-Processing Script
+;top metadata start
+;Git Commit Hash (Version): 08c46f357b2cd87c0827d1e44ba98b8e898be4f5
+;FLAVOR:RepRap
+;TIME:83
+;Filament used: 0.747053m
+;Layer height: 1.55
+;MINX:15.937
+;MINY:21.39
+;MINZ:1.55
+;MAXX:48.035
+;MAXY:53.488
+;MAXZ:7.75
+
+;Arc One Settings
+;weld_gap = 8
+;sleep_time = 30
+;rotate_amount = 6
+;overwrite_movement_rate = False
+;movement_rate = 0
+;use_temperature_sensor = False
+;wait_for_temp = 275
+;pause_after_layer = False
+;return_home = False
+;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
+;Generated with Cura_SteamEngine 5.4.0 + Arc One
+M568 P7 S275
+;top metadata end
+;startup script start
+T0
+M104 S200
+M109 S200
+M82 ;absolute extrusion mode
+G28 ;Home
+M83 ;relative extrusion mode
+G1 F1000
+;LAYER_COUNT:5
+;startup script end
+
+;gcode movements start
+;LAYER:0
+M107
+G1 F600 Z9.0
+;MESH:100mm Donut.stl
+
+;Initial Z Offset
+G1 F1000 Z100
+
+G1 F1000 X35.456 Y53.109 
+;TYPE:WALL-OUTER
+G1 F600 Z8.0
+G4 P0
+M42 P1 S1 ;Enable Welder
+M291 P"Weld On L0 B1"
+G1 F1000 
+G1 F380.9 X34.782 Y53.243 
+G1 F381.1 X34.09 Y53.351 
+G1 X33.369 Y53.429 
+G1 F381 X32.755 Y53.469 
+G1 X31.986 Y53.488 
+G1 F381.1 X31.263 Y53.472 
+G1 F381.1 X30.602 Y53.429 
+G1 X29.883 Y53.351 
+G1 F381.1 X29.192 Y53.244 
+G1 X28.511 Y53.108 
+G1 X27.892 Y52.957 
+G1 F381 X27.15 Y52.742 
+G1 F381.1 X26.431 Y52.496 
+G1 X25.837 Y52.263 
+G1 F381 X25.271 Y52.017 
+G1 F381.1 X24.563 Y51.669 
+G1 F381.1 X23.97 Y51.344 
+G1 F381.1 X23.36 Y50.974 
+G1 F381 X22.78 Y50.586 
+G1 F381.1 X22.215 Y50.172 
+G1 F381.2 X21.68 Y49.743 
+G1 F381.1 X21.095 Y49.229 
+G1 F380.9 X20.635 Y48.786 
+G1 F381 X20.153 Y48.283 
+G1 F381.1 X19.692 Y47.757 
+G1 F381.1 X19.243 Y47.198 
+G1 F381 X18.846 Y46.654 
+G1 X18.449 Y46.06 
+G1 X18.087 Y45.465 
+G1 X17.717 Y44.787 
+G1 X17.432 Y44.205 
+G1 X17.138 Y43.535 
+G1 X16.921 Y42.972 
+G1 F381.1 X16.682 Y42.275 
+G1 F381.2 X16.475 Y41.56 
+G1 F381.1 X16.314 Y40.904 
+G1 X16.189 Y40.277 
+G1 F381.1 X16.071 Y39.518 
+G1 F381.1 X15.996 Y38.836 
+G1 F381 X15.953 Y38.168 
+G1 X15.937 Y37.439 
+G1 X15.953 Y36.704 
+G1 X15.992 Y36.101 
+G1 F381.1 X16.07 Y35.363 
+G1 F381.1 X16.174 Y34.683 
+G1 X16.324 Y33.932 
+G1 X16.478 Y33.304 
+G1 X16.698 Y32.554 
+G1 F381 X16.916 Y31.918 
+G1 X17.141 Y31.335 
+G1 F381.1 X17.433 Y30.671 
+G1 X17.748 Y30.031 
+G1 F381.1 X18.086 Y29.413 
+G1 X18.449 Y28.818 
+G1 F381.1 X18.845 Y28.224 
+G1 X19.249 Y27.673 
+G1 F381.1 X19.696 Y27.116 
+G1 F381 X20.108 Y26.645 
+G1 F380.9 X20.636 Y26.091 
+G1 X21.097 Y25.647 
+G1 F381.1 X21.68 Y25.135 
+G1 F381.2 X22.215 Y24.706 
+G1 F381.1 X22.78 Y24.292 
+G1 F381 X23.36 Y23.904 
+G1 F381.1 X23.975 Y23.531 
+G1 F381.1 X24.563 Y23.209 
+G1 F381.1 X25.271 Y22.861 
+G1 F381 X25.837 Y22.615 
+G1 F381.1 X26.421 Y22.387 
+G1 X27.15 Y22.136 
+G1 F381 X27.859 Y21.929 
+G1 F381.1 X28.443 Y21.786 
+G1 F381.2 X29.192 Y21.633 
+G1 F381.1 X29.839 Y21.534 
+G1 X30.602 Y21.449 
+G1 X31.217 Y21.409 
+G1 X31.986 Y21.39 
+G1 X32.709 Y21.406 
+G1 X33.324 Y21.446 
+G1 F381.2 X34.09 Y21.527 
+G1 X34.782 Y21.634 
+G1 F381.1 X35.456 Y21.768 
+G1 F381.1 X36.114 Y21.93 
+G1 F381 X36.82 Y22.136 
+G1 F381.2 X37.465 Y22.353 
+G1 F381.2 X38.146 Y22.619 
+G1 F381.1 X38.761 Y22.89 
+G1 X39.387 Y23.198 
+G1 F381.2 X39.955 Y23.508 
+G1 X40.611 Y23.904 
+G1 F381.1 X41.192 Y24.293 
+G1 F381.1 X41.756 Y24.706 
+G1 F381.2 X42.303 Y25.145 
+G1 F381.2 X42.818 Y25.596 
+G1 F381.1 X43.293 Y26.051 
+G1 X43.816 Y26.593 
+G1 F381.2 X44.331 Y27.183 
+G1 X44.712 Y27.661 
+G1 F381.1 X45.125 Y28.222 
+G1 X45.525 Y28.821 
+G1 X45.881 Y29.407 
+G1 X46.224 Y30.033 
+G1 X46.539 Y30.67 
+G1 X46.817 Y31.304 
+G1 F381.1 X47.057 Y31.918 
+G1 X47.291 Y32.609 
+G1 X47.497 Y33.317 
+G1 F381 X47.642 Y33.908 
+G1 X47.792 Y34.651 
+G1 X47.899 Y35.345 
+G1 X47.975 Y36.04 
+G1 F380.9 X48.018 Y36.705 
+G1 F381 X48.035 Y37.439 
+G1 F381.1 X48.019 Y38.163 
+G1 F381.1 X47.974 Y38.838 
+G1 F381.1 X47.899 Y39.531 
+G1 F381.2 X47.792 Y40.228 
+G1 F381.1 X47.656 Y40.908 
+G1 F381.1 X47.499 Y41.55 
+G1 F381.1 X47.289 Y42.274 
+G1 F381.2 X47.063 Y42.943 
+G1 F381.2 X46.786 Y43.646 
+G1 X46.539 Y44.208 
+G1 F381.2 X46.251 Y44.792 
+G1 X45.881 Y45.471 
+G1 F381.3 X45.478 Y46.13 
+G1 F381.4 X45.129 Y46.65 
+G1 F381.2 X44.719 Y47.209 
+G1 X44.299 Y47.733 
+G1 F381.2 X43.816 Y48.285 
+G1 F381.1 X43.322 Y48.798 
+G1 X42.82 Y49.28 
+G1 F381.2 X42.303 Y49.733 
+G1 F381.2 X41.756 Y50.172 
+G1 X41.192 Y50.586 
+G1 F381.2 X40.614 Y50.972 
+G1 F381.1 X40.021 Y51.332 
+G1 X39.392 Y51.677 
+G1 F381.1 X38.763 Y51.987 
+G1 F381.1 X38.147 Y52.259 
+G1 F381.2 X37.465 Y52.525 
+G1 F381.1 X36.82 Y52.742 
+G1 F381 X36.114 Y52.948 
+G1 F380.9 X35.456 Y53.109 
+M42 P1 S0 ;Disable Welder
+G4 P0
+M291 P"Weld Off L0 B1"
+;TIME_ELAPSED:18.719452
+;LAYER:1
+G4 S30 P0
+;MESH:100mm Donut.stl
+G1 F1000 X35.456 Y53.109 Z9.55
+;TYPE:WALL-OUTER
+G4 P0
+M42 P1 S1 ;Enable Welder
+M291 P"Weld On L1 B1"
+G1 F380.9 F381.2 X47.063 Y42.943  ;Moved 24 lines
+G1 F381.2 X46.786 Y43.646  ;Moved 24 lines
+G1 X46.539 Y44.208  ;Moved 24 lines
+G1 F381.2 X46.251 Y44.792  ;Moved 24 lines
+G1 X45.881 Y45.471  ;Moved 24 lines
+G1 F381.3 X45.478 Y46.13  ;Moved 24 lines
+G1 F381.4 X45.129 Y46.65  ;Moved 24 lines
+G1 F381.2 X44.719 Y47.209  ;Moved 24 lines
+G1 X44.299 Y47.733  ;Moved 24 lines
+G1 F381.2 X43.816 Y48.285  ;Moved 24 lines
+G1 F381.1 X43.322 Y48.798  ;Moved 24 lines
+G1 X42.82 Y49.28  ;Moved 24 lines
+G1 F381.2 X42.303 Y49.733  ;Moved 24 lines
+G1 F381.2 X41.756 Y50.172  ;Moved 24 lines
+G1 X41.192 Y50.586  ;Moved 24 lines
+G1 F381.2 X40.614 Y50.972  ;Moved 24 lines
+G1 F381.1 X40.021 Y51.332  ;Moved 24 lines
+G1 X39.392 Y51.677  ;Moved 24 lines
+G1 F381.1 X38.763 Y51.987  ;Moved 24 lines
+G1 F381.1 X38.147 Y52.259  ;Moved 24 lines
+G1 F381.2 X37.465 Y52.525  ;Moved 24 lines
+G1 F381.1 X36.82 Y52.742  ;Moved 24 lines
+G1 F381 X36.114 Y52.948  ;Moved 24 lines
+G1 F380.9 X35.456 Y53.109  ;Moved 24 lines
+G1 X34.782 Y53.243  ;Moved 24 lines
+G1 F381.1 X34.09 Y53.351  ;Moved 24 lines
+G1 X33.369 Y53.429  ;Moved 24 lines
+G1 F381 X32.755 Y53.469  ;Moved 24 lines
+G1 X31.986 Y53.488  ;Moved 24 lines
+G1 F381.1 X31.263 Y53.472  ;Moved 24 lines
+G1 F381.1 X30.602 Y53.429  ;Moved 24 lines
+G1 X29.883 Y53.351  ;Moved 24 lines
+G1 F381.1 X29.192 Y53.244  ;Moved 24 lines
+G1 X28.511 Y53.108  ;Moved 24 lines
+G1 X27.892 Y52.957  ;Moved 24 lines
+G1 F381 X27.15 Y52.742  ;Moved 24 lines
+G1 F381.1 X26.431 Y52.496  ;Moved 24 lines
+G1 X25.837 Y52.263  ;Moved 24 lines
+G1 F381 X25.271 Y52.017  ;Moved 24 lines
+G1 F381.1 X24.563 Y51.669  ;Moved 24 lines
+G1 F381.1 X23.97 Y51.344  ;Moved 24 lines
+G1 F381.1 X23.36 Y50.974  ;Moved 24 lines
+G1 F381 X22.78 Y50.586  ;Moved 24 lines
+G1 F381.1 X22.215 Y50.172  ;Moved 24 lines
+G1 F381.2 X21.68 Y49.743  ;Moved 24 lines
+G1 F381.1 X21.095 Y49.229  ;Moved 24 lines
+G1 F380.9 X20.635 Y48.786  ;Moved 24 lines
+G1 F381 X20.153 Y48.283  ;Moved 24 lines
+G1 F381.1 X19.692 Y47.757  ;Moved 24 lines
+G1 F381.1 X19.243 Y47.198  ;Moved 24 lines
+G1 F381 X18.846 Y46.654  ;Moved 24 lines
+G1 X18.449 Y46.06  ;Moved 24 lines
+G1 X18.087 Y45.465  ;Moved 24 lines
+G1 X17.717 Y44.787  ;Moved 24 lines
+G1 X17.432 Y44.205  ;Moved 24 lines
+G1 X17.138 Y43.535  ;Moved 24 lines
+G1 X16.921 Y42.972  ;Moved 24 lines
+G1 F381.1 X16.682 Y42.275  ;Moved 24 lines
+G1 F381.2 X16.475 Y41.56  ;Moved 24 lines
+G1 F381.1 X16.314 Y40.904  ;Moved 24 lines
+G1 X16.189 Y40.277  ;Moved 24 lines
+G1 F381.1 X16.071 Y39.518  ;Moved 24 lines
+G1 F381.1 X15.996 Y38.836  ;Moved 24 lines
+G1 F381 X15.953 Y38.168  ;Moved 24 lines
+G1 X15.937 Y37.439  ;Moved 24 lines
+G1 X15.953 Y36.704  ;Moved 24 lines
+G1 X15.992 Y36.101  ;Moved 24 lines
+G1 F381.1 X16.07 Y35.363  ;Moved 24 lines
+G1 F381.1 X16.174 Y34.683  ;Moved 24 lines
+G1 X16.324 Y33.932  ;Moved 24 lines
+G1 X16.478 Y33.304  ;Moved 24 lines
+G1 X16.698 Y32.554  ;Moved 24 lines
+G1 F381 X16.916 Y31.918  ;Moved 24 lines
+G1 X17.141 Y31.335  ;Moved 24 lines
+G1 F381.1 X17.433 Y30.671  ;Moved 24 lines
+G1 X17.748 Y30.031  ;Moved 24 lines
+G1 F381.1 X18.086 Y29.413  ;Moved 24 lines
+G1 X18.449 Y28.818  ;Moved 24 lines
+G1 F381.1 X18.845 Y28.224  ;Moved 24 lines
+G1 X19.249 Y27.673  ;Moved 24 lines
+G1 F381.1 X19.696 Y27.116  ;Moved 24 lines
+G1 F381 X20.108 Y26.645  ;Moved 24 lines
+G1 F380.9 X20.636 Y26.091  ;Moved 24 lines
+G1 X21.097 Y25.647  ;Moved 24 lines
+G1 F381.1 X21.68 Y25.135  ;Moved 24 lines
+G1 F381.2 X22.215 Y24.706  ;Moved 24 lines
+G1 F381.1 X22.78 Y24.292  ;Moved 24 lines
+G1 F381 X23.36 Y23.904  ;Moved 24 lines
+G1 F381.1 X23.975 Y23.531  ;Moved 24 lines
+G1 F381.1 X24.563 Y23.209  ;Moved 24 lines
+G1 F381.1 X25.271 Y22.861  ;Moved 24 lines
+G1 F381 X25.837 Y22.615  ;Moved 24 lines
+G1 F381.1 X26.421 Y22.387  ;Moved 24 lines
+G1 X27.15 Y22.136  ;Moved 24 lines
+G1 F381 X27.859 Y21.929  ;Moved 24 lines
+G1 F381.1 X28.443 Y21.786  ;Moved 24 lines
+G1 F381.2 X29.192 Y21.633  ;Moved 24 lines
+G1 F381.1 X29.839 Y21.534  ;Moved 24 lines
+G1 X30.602 Y21.449  ;Moved 24 lines
+G1 X31.217 Y21.409  ;Moved 24 lines
+G1 X31.986 Y21.39  ;Moved 24 lines
+G1 X32.709 Y21.406  ;Moved 24 lines
+G1 X33.324 Y21.446  ;Moved 24 lines
+G1 F381.2 X34.09 Y21.527  ;Moved 24 lines
+G1 X34.782 Y21.634  ;Moved 24 lines
+G1 F381.1 X35.456 Y21.768  ;Moved 24 lines
+G1 F381.1 X36.114 Y21.93  ;Moved 24 lines
+G1 F381 X36.82 Y22.136  ;Moved 24 lines
+G1 F381.2 X37.465 Y22.353  ;Moved 24 lines
+G1 F381.2 X38.146 Y22.619  ;Moved 24 lines
+G1 F381.1 X38.761 Y22.89  ;Moved 24 lines
+G1 X39.387 Y23.198  ;Moved 24 lines
+G1 F381.2 X39.955 Y23.508  ;Moved 24 lines
+G1 X40.611 Y23.904  ;Moved 24 lines
+G1 F381.1 X41.192 Y24.293  ;Moved 24 lines
+G1 F381.1 X41.756 Y24.706  ;Moved 24 lines
+G1 F381.2 X42.303 Y25.145  ;Moved 24 lines
+G1 F381.2 X42.818 Y25.596  ;Moved 24 lines
+G1 F381.1 X43.293 Y26.051  ;Moved 24 lines
+G1 X43.816 Y26.593  ;Moved 24 lines
+G1 F381.2 X44.331 Y27.183  ;Moved 24 lines
+G1 X44.712 Y27.661  ;Moved 24 lines
+G1 F381.1 X45.125 Y28.222  ;Moved 24 lines
+G1 X45.525 Y28.821  ;Moved 24 lines
+G1 X45.881 Y29.407  ;Moved 24 lines
+G1 X46.224 Y30.033  ;Moved 24 lines
+G1 X46.539 Y30.67  ;Moved 24 lines
+G1 X46.817 Y31.304  ;Moved 24 lines
+G1 F381.1 X47.057 Y31.918  ;Moved 24 lines
+G1 X47.291 Y32.609  ;Moved 24 lines
+G1 X47.497 Y33.317  ;Moved 24 lines
+G1 F381 X47.642 Y33.908  ;Moved 24 lines
+G1 X47.792 Y34.651  ;Moved 24 lines
+G1 X47.899 Y35.345  ;Moved 24 lines
+G1 X47.975 Y36.04  ;Moved 24 lines
+G1 F380.9 X48.018 Y36.705  ;Moved 24 lines
+G1 F381 X48.035 Y37.439  ;Moved 24 lines
+G1 F381.1 X48.019 Y38.163  ;Moved 24 lines
+G1 F381.1 X47.974 Y38.838  ;Moved 24 lines
+G1 F381.1 X47.899 Y39.531  ;Moved 24 lines
+G1 F381.2 X47.792 Y40.228  ;Moved 24 lines
+G1 F381.1 X47.656 Y40.908  ;Moved 24 lines
+G1 F381.1 X47.499 Y41.55  ;Moved 24 lines
+G1 F381.1 X47.289 Y42.274  ;Moved 24 lines
+M42 P1 S0 ;Disable Welder
+G4 P0
+M291 P"Weld Off L1 B1"
+;TIME_ELAPSED:34.843256
+;LAYER:2
+G4 S30 P0
+;MESH:100mm Donut.stl
+G1 F1000 X35.456 Y53.109 Z11.100000000000001
+;TYPE:WALL-OUTER
+G4 P0
+M42 P1 S1 ;Enable Welder
+M291 P"Weld On L2 B1"
+G1 F380.9 F381.2 X44.331 Y27.183  ;Moved 48 lines
+G1 X44.712 Y27.661  ;Moved 48 lines
+G1 F381.1 X45.125 Y28.222  ;Moved 48 lines
+G1 X45.525 Y28.821  ;Moved 48 lines
+G1 X45.881 Y29.407  ;Moved 48 lines
+G1 X46.224 Y30.033  ;Moved 48 lines
+G1 X46.539 Y30.67  ;Moved 48 lines
+G1 X46.817 Y31.304  ;Moved 48 lines
+G1 F381.1 X47.057 Y31.918  ;Moved 48 lines
+G1 X47.291 Y32.609  ;Moved 48 lines
+G1 X47.497 Y33.317  ;Moved 48 lines
+G1 F381 X47.642 Y33.908  ;Moved 48 lines
+G1 X47.792 Y34.651  ;Moved 48 lines
+G1 X47.899 Y35.345  ;Moved 48 lines
+G1 X47.975 Y36.04  ;Moved 48 lines
+G1 F380.9 X48.018 Y36.705  ;Moved 48 lines
+G1 F381 X48.035 Y37.439  ;Moved 48 lines
+G1 F381.1 X48.019 Y38.163  ;Moved 48 lines
+G1 F381.1 X47.974 Y38.838  ;Moved 48 lines
+G1 F381.1 X47.899 Y39.531  ;Moved 48 lines
+G1 F381.2 X47.792 Y40.228  ;Moved 48 lines
+G1 F381.1 X47.656 Y40.908  ;Moved 48 lines
+G1 F381.1 X47.499 Y41.55  ;Moved 48 lines
+G1 F381.1 X47.289 Y42.274  ;Moved 48 lines
+G1 F381.2 X47.063 Y42.943  ;Moved 48 lines
+G1 F381.2 X46.786 Y43.646  ;Moved 48 lines
+G1 X46.539 Y44.208  ;Moved 48 lines
+G1 F381.2 X46.251 Y44.792  ;Moved 48 lines
+G1 X45.881 Y45.471  ;Moved 48 lines
+G1 F381.3 X45.478 Y46.13  ;Moved 48 lines
+G1 F381.4 X45.129 Y46.65  ;Moved 48 lines
+G1 F381.2 X44.719 Y47.209  ;Moved 48 lines
+G1 X44.299 Y47.733  ;Moved 48 lines
+G1 F381.2 X43.816 Y48.285  ;Moved 48 lines
+G1 F381.1 X43.322 Y48.798  ;Moved 48 lines
+G1 X42.82 Y49.28  ;Moved 48 lines
+G1 F381.2 X42.303 Y49.733  ;Moved 48 lines
+G1 F381.2 X41.756 Y50.172  ;Moved 48 lines
+G1 X41.192 Y50.586  ;Moved 48 lines
+G1 F381.2 X40.614 Y50.972  ;Moved 48 lines
+G1 F381.1 X40.021 Y51.332  ;Moved 48 lines
+G1 X39.392 Y51.677  ;Moved 48 lines
+G1 F381.1 X38.763 Y51.987  ;Moved 48 lines
+G1 F381.1 X38.147 Y52.259  ;Moved 48 lines
+G1 F381.2 X37.465 Y52.525  ;Moved 48 lines
+G1 F381.1 X36.82 Y52.742  ;Moved 48 lines
+G1 F381 X36.114 Y52.948  ;Moved 48 lines
+G1 F380.9 X35.456 Y53.109  ;Moved 48 lines
+G1 X34.782 Y53.243  ;Moved 48 lines
+G1 F381.1 X34.09 Y53.351  ;Moved 48 lines
+G1 X33.369 Y53.429  ;Moved 48 lines
+G1 F381 X32.755 Y53.469  ;Moved 48 lines
+G1 X31.986 Y53.488  ;Moved 48 lines
+G1 F381.1 X31.263 Y53.472  ;Moved 48 lines
+G1 F381.1 X30.602 Y53.429  ;Moved 48 lines
+G1 X29.883 Y53.351  ;Moved 48 lines
+G1 F381.1 X29.192 Y53.244  ;Moved 48 lines
+G1 X28.511 Y53.108  ;Moved 48 lines
+G1 X27.892 Y52.957  ;Moved 48 lines
+G1 F381 X27.15 Y52.742  ;Moved 48 lines
+G1 F381.1 X26.431 Y52.496  ;Moved 48 lines
+G1 X25.837 Y52.263  ;Moved 48 lines
+G1 F381 X25.271 Y52.017  ;Moved 48 lines
+G1 F381.1 X24.563 Y51.669  ;Moved 48 lines
+G1 F381.1 X23.97 Y51.344  ;Moved 48 lines
+G1 F381.1 X23.36 Y50.974  ;Moved 48 lines
+G1 F381 X22.78 Y50.586  ;Moved 48 lines
+G1 F381.1 X22.215 Y50.172  ;Moved 48 lines
+G1 F381.2 X21.68 Y49.743  ;Moved 48 lines
+G1 F381.1 X21.095 Y49.229  ;Moved 48 lines
+G1 F380.9 X20.635 Y48.786  ;Moved 48 lines
+G1 F381 X20.153 Y48.283  ;Moved 48 lines
+G1 F381.1 X19.692 Y47.757  ;Moved 48 lines
+G1 F381.1 X19.243 Y47.198  ;Moved 48 lines
+G1 F381 X18.846 Y46.654  ;Moved 48 lines
+G1 X18.449 Y46.06  ;Moved 48 lines
+G1 X18.087 Y45.465  ;Moved 48 lines
+G1 X17.717 Y44.787  ;Moved 48 lines
+G1 X17.432 Y44.205  ;Moved 48 lines
+G1 X17.138 Y43.535  ;Moved 48 lines
+G1 X16.921 Y42.972  ;Moved 48 lines
+G1 F381.1 X16.682 Y42.275  ;Moved 48 lines
+G1 F381.2 X16.475 Y41.56  ;Moved 48 lines
+G1 F381.1 X16.314 Y40.904  ;Moved 48 lines
+G1 X16.189 Y40.277  ;Moved 48 lines
+G1 F381.1 X16.071 Y39.518  ;Moved 48 lines
+G1 F381.1 X15.996 Y38.836  ;Moved 48 lines
+G1 F381 X15.953 Y38.168  ;Moved 48 lines
+G1 X15.937 Y37.439  ;Moved 48 lines
+G1 X15.953 Y36.704  ;Moved 48 lines
+G1 X15.992 Y36.101  ;Moved 48 lines
+G1 F381.1 X16.07 Y35.363  ;Moved 48 lines
+G1 F381.1 X16.174 Y34.683  ;Moved 48 lines
+G1 X16.324 Y33.932  ;Moved 48 lines
+G1 X16.478 Y33.304  ;Moved 48 lines
+G1 X16.698 Y32.554  ;Moved 48 lines
+G1 F381 X16.916 Y31.918  ;Moved 48 lines
+G1 X17.141 Y31.335  ;Moved 48 lines
+G1 F381.1 X17.433 Y30.671  ;Moved 48 lines
+G1 X17.748 Y30.031  ;Moved 48 lines
+G1 F381.1 X18.086 Y29.413  ;Moved 48 lines
+G1 X18.449 Y28.818  ;Moved 48 lines
+G1 F381.1 X18.845 Y28.224  ;Moved 48 lines
+G1 X19.249 Y27.673  ;Moved 48 lines
+G1 F381.1 X19.696 Y27.116  ;Moved 48 lines
+G1 F381 X20.108 Y26.645  ;Moved 48 lines
+G1 F380.9 X20.636 Y26.091  ;Moved 48 lines
+G1 X21.097 Y25.647  ;Moved 48 lines
+G1 F381.1 X21.68 Y25.135  ;Moved 48 lines
+G1 F381.2 X22.215 Y24.706  ;Moved 48 lines
+G1 F381.1 X22.78 Y24.292  ;Moved 48 lines
+G1 F381 X23.36 Y23.904  ;Moved 48 lines
+G1 F381.1 X23.975 Y23.531  ;Moved 48 lines
+G1 F381.1 X24.563 Y23.209  ;Moved 48 lines
+G1 F381.1 X25.271 Y22.861  ;Moved 48 lines
+G1 F381 X25.837 Y22.615  ;Moved 48 lines
+G1 F381.1 X26.421 Y22.387  ;Moved 48 lines
+G1 X27.15 Y22.136  ;Moved 48 lines
+G1 F381 X27.859 Y21.929  ;Moved 48 lines
+G1 F381.1 X28.443 Y21.786  ;Moved 48 lines
+G1 F381.2 X29.192 Y21.633  ;Moved 48 lines
+G1 F381.1 X29.839 Y21.534  ;Moved 48 lines
+G1 X30.602 Y21.449  ;Moved 48 lines
+G1 X31.217 Y21.409  ;Moved 48 lines
+G1 X31.986 Y21.39  ;Moved 48 lines
+G1 X32.709 Y21.406  ;Moved 48 lines
+G1 X33.324 Y21.446  ;Moved 48 lines
+G1 F381.2 X34.09 Y21.527  ;Moved 48 lines
+G1 X34.782 Y21.634  ;Moved 48 lines
+G1 F381.1 X35.456 Y21.768  ;Moved 48 lines
+G1 F381.1 X36.114 Y21.93  ;Moved 48 lines
+G1 F381 X36.82 Y22.136  ;Moved 48 lines
+G1 F381.2 X37.465 Y22.353  ;Moved 48 lines
+G1 F381.2 X38.146 Y22.619  ;Moved 48 lines
+G1 F381.1 X38.761 Y22.89  ;Moved 48 lines
+G1 X39.387 Y23.198  ;Moved 48 lines
+G1 F381.2 X39.955 Y23.508  ;Moved 48 lines
+G1 X40.611 Y23.904  ;Moved 48 lines
+G1 F381.1 X41.192 Y24.293  ;Moved 48 lines
+G1 F381.1 X41.756 Y24.706  ;Moved 48 lines
+G1 F381.2 X42.303 Y25.145  ;Moved 48 lines
+G1 F381.2 X42.818 Y25.596  ;Moved 48 lines
+G1 F381.1 X43.293 Y26.051  ;Moved 48 lines
+G1 X43.816 Y26.593  ;Moved 48 lines
+M42 P1 S0 ;Disable Welder
+G4 P0
+M291 P"Weld Off L2 B1"
+;TIME_ELAPSED:50.967060
+;LAYER:3
+G4 S30 P0
+;MESH:100mm Donut.stl
+G1 F1000 X35.456 Y53.109 Z12.65
+;TYPE:WALL-OUTER
+G4 P0
+M42 P1 S1 ;Enable Welder
+M291 P"Weld On L3 B1"
+G1 F380.9 F381.2 X29.192 Y21.633  ;Moved 72 lines
+G1 F381.1 X29.839 Y21.534  ;Moved 72 lines
+G1 X30.602 Y21.449  ;Moved 72 lines
+G1 X31.217 Y21.409  ;Moved 72 lines
+G1 X31.986 Y21.39  ;Moved 72 lines
+G1 X32.709 Y21.406  ;Moved 72 lines
+G1 X33.324 Y21.446  ;Moved 72 lines
+G1 F381.2 X34.09 Y21.527  ;Moved 72 lines
+G1 X34.782 Y21.634  ;Moved 72 lines
+G1 F381.1 X35.456 Y21.768  ;Moved 72 lines
+G1 F381.1 X36.114 Y21.93  ;Moved 72 lines
+G1 F381 X36.82 Y22.136  ;Moved 72 lines
+G1 F381.2 X37.465 Y22.353  ;Moved 72 lines
+G1 F381.2 X38.146 Y22.619  ;Moved 72 lines
+G1 F381.1 X38.761 Y22.89  ;Moved 72 lines
+G1 X39.387 Y23.198  ;Moved 72 lines
+G1 F381.2 X39.955 Y23.508  ;Moved 72 lines
+G1 X40.611 Y23.904  ;Moved 72 lines
+G1 F381.1 X41.192 Y24.293  ;Moved 72 lines
+G1 F381.1 X41.756 Y24.706  ;Moved 72 lines
+G1 F381.2 X42.303 Y25.145  ;Moved 72 lines
+G1 F381.2 X42.818 Y25.596  ;Moved 72 lines
+G1 F381.1 X43.293 Y26.051  ;Moved 72 lines
+G1 X43.816 Y26.593  ;Moved 72 lines
+G1 F381.2 X44.331 Y27.183  ;Moved 72 lines
+G1 X44.712 Y27.661  ;Moved 72 lines
+G1 F381.1 X45.125 Y28.222  ;Moved 72 lines
+G1 X45.525 Y28.821  ;Moved 72 lines
+G1 X45.881 Y29.407  ;Moved 72 lines
+G1 X46.224 Y30.033  ;Moved 72 lines
+G1 X46.539 Y30.67  ;Moved 72 lines
+G1 X46.817 Y31.304  ;Moved 72 lines
+G1 F381.1 X47.057 Y31.918  ;Moved 72 lines
+G1 X47.291 Y32.609  ;Moved 72 lines
+G1 X47.497 Y33.317  ;Moved 72 lines
+G1 F381 X47.642 Y33.908  ;Moved 72 lines
+G1 X47.792 Y34.651  ;Moved 72 lines
+G1 X47.899 Y35.345  ;Moved 72 lines
+G1 X47.975 Y36.04  ;Moved 72 lines
+G1 F380.9 X48.018 Y36.705  ;Moved 72 lines
+G1 F381 X48.035 Y37.439  ;Moved 72 lines
+G1 F381.1 X48.019 Y38.163  ;Moved 72 lines
+G1 F381.1 X47.974 Y38.838  ;Moved 72 lines
+G1 F381.1 X47.899 Y39.531  ;Moved 72 lines
+G1 F381.2 X47.792 Y40.228  ;Moved 72 lines
+G1 F381.1 X47.656 Y40.908  ;Moved 72 lines
+G1 F381.1 X47.499 Y41.55  ;Moved 72 lines
+G1 F381.1 X47.289 Y42.274  ;Moved 72 lines
+G1 F381.2 X47.063 Y42.943  ;Moved 72 lines
+G1 F381.2 X46.786 Y43.646  ;Moved 72 lines
+G1 X46.539 Y44.208  ;Moved 72 lines
+G1 F381.2 X46.251 Y44.792  ;Moved 72 lines
+G1 X45.881 Y45.471  ;Moved 72 lines
+G1 F381.3 X45.478 Y46.13  ;Moved 72 lines
+G1 F381.4 X45.129 Y46.65  ;Moved 72 lines
+G1 F381.2 X44.719 Y47.209  ;Moved 72 lines
+G1 X44.299 Y47.733  ;Moved 72 lines
+G1 F381.2 X43.816 Y48.285  ;Moved 72 lines
+G1 F381.1 X43.322 Y48.798  ;Moved 72 lines
+G1 X42.82 Y49.28  ;Moved 72 lines
+G1 F381.2 X42.303 Y49.733  ;Moved 72 lines
+G1 F381.2 X41.756 Y50.172  ;Moved 72 lines
+G1 X41.192 Y50.586  ;Moved 72 lines
+G1 F381.2 X40.614 Y50.972  ;Moved 72 lines
+G1 F381.1 X40.021 Y51.332  ;Moved 72 lines
+G1 X39.392 Y51.677  ;Moved 72 lines
+G1 F381.1 X38.763 Y51.987  ;Moved 72 lines
+G1 F381.1 X38.147 Y52.259  ;Moved 72 lines
+G1 F381.2 X37.465 Y52.525  ;Moved 72 lines
+G1 F381.1 X36.82 Y52.742  ;Moved 72 lines
+G1 F381 X36.114 Y52.948  ;Moved 72 lines
+G1 F380.9 X35.456 Y53.109  ;Moved 72 lines
+G1 X34.782 Y53.243  ;Moved 72 lines
+G1 F381.1 X34.09 Y53.351  ;Moved 72 lines
+G1 X33.369 Y53.429  ;Moved 72 lines
+G1 F381 X32.755 Y53.469  ;Moved 72 lines
+G1 X31.986 Y53.488  ;Moved 72 lines
+G1 F381.1 X31.263 Y53.472  ;Moved 72 lines
+G1 F381.1 X30.602 Y53.429  ;Moved 72 lines
+G1 X29.883 Y53.351  ;Moved 72 lines
+G1 F381.1 X29.192 Y53.244  ;Moved 72 lines
+G1 X28.511 Y53.108  ;Moved 72 lines
+G1 X27.892 Y52.957  ;Moved 72 lines
+G1 F381 X27.15 Y52.742  ;Moved 72 lines
+G1 F381.1 X26.431 Y52.496  ;Moved 72 lines
+G1 X25.837 Y52.263  ;Moved 72 lines
+G1 F381 X25.271 Y52.017  ;Moved 72 lines
+G1 F381.1 X24.563 Y51.669  ;Moved 72 lines
+G1 F381.1 X23.97 Y51.344  ;Moved 72 lines
+G1 F381.1 X23.36 Y50.974  ;Moved 72 lines
+G1 F381 X22.78 Y50.586  ;Moved 72 lines
+G1 F381.1 X22.215 Y50.172  ;Moved 72 lines
+G1 F381.2 X21.68 Y49.743  ;Moved 72 lines
+G1 F381.1 X21.095 Y49.229  ;Moved 72 lines
+G1 F380.9 X20.635 Y48.786  ;Moved 72 lines
+G1 F381 X20.153 Y48.283  ;Moved 72 lines
+G1 F381.1 X19.692 Y47.757  ;Moved 72 lines
+G1 F381.1 X19.243 Y47.198  ;Moved 72 lines
+G1 F381 X18.846 Y46.654  ;Moved 72 lines
+G1 X18.449 Y46.06  ;Moved 72 lines
+G1 X18.087 Y45.465  ;Moved 72 lines
+G1 X17.717 Y44.787  ;Moved 72 lines
+G1 X17.432 Y44.205  ;Moved 72 lines
+G1 X17.138 Y43.535  ;Moved 72 lines
+G1 X16.921 Y42.972  ;Moved 72 lines
+G1 F381.1 X16.682 Y42.275  ;Moved 72 lines
+G1 F381.2 X16.475 Y41.56  ;Moved 72 lines
+G1 F381.1 X16.314 Y40.904  ;Moved 72 lines
+G1 X16.189 Y40.277  ;Moved 72 lines
+G1 F381.1 X16.071 Y39.518  ;Moved 72 lines
+G1 F381.1 X15.996 Y38.836  ;Moved 72 lines
+G1 F381 X15.953 Y38.168  ;Moved 72 lines
+G1 X15.937 Y37.439  ;Moved 72 lines
+G1 X15.953 Y36.704  ;Moved 72 lines
+G1 X15.992 Y36.101  ;Moved 72 lines
+G1 F381.1 X16.07 Y35.363  ;Moved 72 lines
+G1 F381.1 X16.174 Y34.683  ;Moved 72 lines
+G1 X16.324 Y33.932  ;Moved 72 lines
+G1 X16.478 Y33.304  ;Moved 72 lines
+G1 X16.698 Y32.554  ;Moved 72 lines
+G1 F381 X16.916 Y31.918  ;Moved 72 lines
+G1 X17.141 Y31.335  ;Moved 72 lines
+G1 F381.1 X17.433 Y30.671  ;Moved 72 lines
+G1 X17.748 Y30.031  ;Moved 72 lines
+G1 F381.1 X18.086 Y29.413  ;Moved 72 lines
+G1 X18.449 Y28.818  ;Moved 72 lines
+G1 F381.1 X18.845 Y28.224  ;Moved 72 lines
+G1 X19.249 Y27.673  ;Moved 72 lines
+G1 F381.1 X19.696 Y27.116  ;Moved 72 lines
+G1 F381 X20.108 Y26.645  ;Moved 72 lines
+G1 F380.9 X20.636 Y26.091  ;Moved 72 lines
+G1 X21.097 Y25.647  ;Moved 72 lines
+G1 F381.1 X21.68 Y25.135  ;Moved 72 lines
+G1 F381.2 X22.215 Y24.706  ;Moved 72 lines
+G1 F381.1 X22.78 Y24.292  ;Moved 72 lines
+G1 F381 X23.36 Y23.904  ;Moved 72 lines
+G1 F381.1 X23.975 Y23.531  ;Moved 72 lines
+G1 F381.1 X24.563 Y23.209  ;Moved 72 lines
+G1 F381.1 X25.271 Y22.861  ;Moved 72 lines
+G1 F381 X25.837 Y22.615  ;Moved 72 lines
+G1 F381.1 X26.421 Y22.387  ;Moved 72 lines
+G1 X27.15 Y22.136  ;Moved 72 lines
+G1 F381 X27.859 Y21.929  ;Moved 72 lines
+G1 F381.1 X28.443 Y21.786  ;Moved 72 lines
+M42 P1 S0 ;Disable Welder
+G4 P0
+M291 P"Weld Off L3 B1"
+;TIME_ELAPSED:67.090864
+;LAYER:4
+G4 S30 P0
+;MESH:100mm Donut.stl
+G1 F1000 X35.456 Y53.109 Z14.2
+;TYPE:WALL-OUTER
+G4 P0
+M42 P1 S1 ;Enable Welder
+M291 P"Weld On L4 B1"
+G1 F380.9 F381 X16.916 Y31.918  ;Moved 96 lines
+G1 X17.141 Y31.335  ;Moved 96 lines
+G1 F381.1 X17.433 Y30.671  ;Moved 96 lines
+G1 X17.748 Y30.031  ;Moved 96 lines
+G1 F381.1 X18.086 Y29.413  ;Moved 96 lines
+G1 X18.449 Y28.818  ;Moved 96 lines
+G1 F381.1 X18.845 Y28.224  ;Moved 96 lines
+G1 X19.249 Y27.673  ;Moved 96 lines
+G1 F381.1 X19.696 Y27.116  ;Moved 96 lines
+G1 F381 X20.108 Y26.645  ;Moved 96 lines
+G1 F380.9 X20.636 Y26.091  ;Moved 96 lines
+G1 X21.097 Y25.647  ;Moved 96 lines
+G1 F381.1 X21.68 Y25.135  ;Moved 96 lines
+G1 F381.2 X22.215 Y24.706  ;Moved 96 lines
+G1 F381.1 X22.78 Y24.292  ;Moved 96 lines
+G1 F381 X23.36 Y23.904  ;Moved 96 lines
+G1 F381.1 X23.975 Y23.531  ;Moved 96 lines
+G1 F381.1 X24.563 Y23.209  ;Moved 96 lines
+G1 F381.1 X25.271 Y22.861  ;Moved 96 lines
+G1 F381 X25.837 Y22.615  ;Moved 96 lines
+G1 F381.1 X26.421 Y22.387  ;Moved 96 lines
+G1 X27.15 Y22.136  ;Moved 96 lines
+G1 F381 X27.859 Y21.929  ;Moved 96 lines
+G1 F381.1 X28.443 Y21.786  ;Moved 96 lines
+G1 F381.2 X29.192 Y21.633  ;Moved 96 lines
+G1 F381.1 X29.839 Y21.534  ;Moved 96 lines
+G1 X30.602 Y21.449  ;Moved 96 lines
+G1 X31.217 Y21.409  ;Moved 96 lines
+G1 X31.986 Y21.39  ;Moved 96 lines
+G1 X32.709 Y21.406  ;Moved 96 lines
+G1 X33.324 Y21.446  ;Moved 96 lines
+G1 F381.2 X34.09 Y21.527  ;Moved 96 lines
+G1 X34.782 Y21.634  ;Moved 96 lines
+G1 F381.1 X35.456 Y21.768  ;Moved 96 lines
+G1 F381.1 X36.114 Y21.93  ;Moved 96 lines
+G1 F381 X36.82 Y22.136  ;Moved 96 lines
+G1 F381.2 X37.465 Y22.353  ;Moved 96 lines
+G1 F381.2 X38.146 Y22.619  ;Moved 96 lines
+G1 F381.1 X38.761 Y22.89  ;Moved 96 lines
+G1 X39.387 Y23.198  ;Moved 96 lines
+G1 F381.2 X39.955 Y23.508  ;Moved 96 lines
+G1 X40.611 Y23.904  ;Moved 96 lines
+G1 F381.1 X41.192 Y24.293  ;Moved 96 lines
+G1 F381.1 X41.756 Y24.706  ;Moved 96 lines
+G1 F381.2 X42.303 Y25.145  ;Moved 96 lines
+G1 F381.2 X42.818 Y25.596  ;Moved 96 lines
+G1 F381.1 X43.293 Y26.051  ;Moved 96 lines
+G1 X43.816 Y26.593  ;Moved 96 lines
+G1 F381.2 X44.331 Y27.183  ;Moved 96 lines
+G1 X44.712 Y27.661  ;Moved 96 lines
+G1 F381.1 X45.125 Y28.222  ;Moved 96 lines
+G1 X45.525 Y28.821  ;Moved 96 lines
+G1 X45.881 Y29.407  ;Moved 96 lines
+G1 X46.224 Y30.033  ;Moved 96 lines
+G1 X46.539 Y30.67  ;Moved 96 lines
+G1 X46.817 Y31.304  ;Moved 96 lines
+G1 F381.1 X47.057 Y31.918  ;Moved 96 lines
+G1 X47.291 Y32.609  ;Moved 96 lines
+G1 X47.497 Y33.317  ;Moved 96 lines
+G1 F381 X47.642 Y33.908  ;Moved 96 lines
+G1 X47.792 Y34.651  ;Moved 96 lines
+G1 X47.899 Y35.345  ;Moved 96 lines
+G1 X47.975 Y36.04  ;Moved 96 lines
+G1 F380.9 X48.018 Y36.705  ;Moved 96 lines
+G1 F381 X48.035 Y37.439  ;Moved 96 lines
+G1 F381.1 X48.019 Y38.163  ;Moved 96 lines
+G1 F381.1 X47.974 Y38.838  ;Moved 96 lines
+G1 F381.1 X47.899 Y39.531  ;Moved 96 lines
+G1 F381.2 X47.792 Y40.228  ;Moved 96 lines
+G1 F381.1 X47.656 Y40.908  ;Moved 96 lines
+G1 F381.1 X47.499 Y41.55  ;Moved 96 lines
+G1 F381.1 X47.289 Y42.274  ;Moved 96 lines
+G1 F381.2 X47.063 Y42.943  ;Moved 96 lines
+G1 F381.2 X46.786 Y43.646  ;Moved 96 lines
+G1 X46.539 Y44.208  ;Moved 96 lines
+G1 F381.2 X46.251 Y44.792  ;Moved 96 lines
+G1 X45.881 Y45.471  ;Moved 96 lines
+G1 F381.3 X45.478 Y46.13  ;Moved 96 lines
+G1 F381.4 X45.129 Y46.65  ;Moved 96 lines
+G1 F381.2 X44.719 Y47.209  ;Moved 96 lines
+G1 X44.299 Y47.733  ;Moved 96 lines
+G1 F381.2 X43.816 Y48.285  ;Moved 96 lines
+G1 F381.1 X43.322 Y48.798  ;Moved 96 lines
+G1 X42.82 Y49.28  ;Moved 96 lines
+G1 F381.2 X42.303 Y49.733  ;Moved 96 lines
+G1 F381.2 X41.756 Y50.172  ;Moved 96 lines
+G1 X41.192 Y50.586  ;Moved 96 lines
+G1 F381.2 X40.614 Y50.972  ;Moved 96 lines
+G1 F381.1 X40.021 Y51.332  ;Moved 96 lines
+G1 X39.392 Y51.677  ;Moved 96 lines
+G1 F381.1 X38.763 Y51.987  ;Moved 96 lines
+G1 F381.1 X38.147 Y52.259  ;Moved 96 lines
+G1 F381.2 X37.465 Y52.525  ;Moved 96 lines
+G1 F381.1 X36.82 Y52.742  ;Moved 96 lines
+G1 F381 X36.114 Y52.948  ;Moved 96 lines
+G1 F380.9 X35.456 Y53.109  ;Moved 96 lines
+G1 X34.782 Y53.243  ;Moved 96 lines
+G1 F381.1 X34.09 Y53.351  ;Moved 96 lines
+G1 X33.369 Y53.429  ;Moved 96 lines
+G1 F381 X32.755 Y53.469  ;Moved 96 lines
+G1 X31.986 Y53.488  ;Moved 96 lines
+G1 F381.1 X31.263 Y53.472  ;Moved 96 lines
+G1 F381.1 X30.602 Y53.429  ;Moved 96 lines
+G1 X29.883 Y53.351  ;Moved 96 lines
+G1 F381.1 X29.192 Y53.244  ;Moved 96 lines
+G1 X28.511 Y53.108  ;Moved 96 lines
+G1 X27.892 Y52.957  ;Moved 96 lines
+G1 F381 X27.15 Y52.742  ;Moved 96 lines
+G1 F381.1 X26.431 Y52.496  ;Moved 96 lines
+G1 X25.837 Y52.263  ;Moved 96 lines
+G1 F381 X25.271 Y52.017  ;Moved 96 lines
+G1 F381.1 X24.563 Y51.669  ;Moved 96 lines
+G1 F381.1 X23.97 Y51.344  ;Moved 96 lines
+G1 F381.1 X23.36 Y50.974  ;Moved 96 lines
+G1 F381 X22.78 Y50.586  ;Moved 96 lines
+G1 F381.1 X22.215 Y50.172  ;Moved 96 lines
+G1 F381.2 X21.68 Y49.743  ;Moved 96 lines
+G1 F381.1 X21.095 Y49.229  ;Moved 96 lines
+G1 F380.9 X20.635 Y48.786  ;Moved 96 lines
+G1 F381 X20.153 Y48.283  ;Moved 96 lines
+G1 F381.1 X19.692 Y47.757  ;Moved 96 lines
+G1 F381.1 X19.243 Y47.198  ;Moved 96 lines
+G1 F381 X18.846 Y46.654  ;Moved 96 lines
+G1 X18.449 Y46.06  ;Moved 96 lines
+G1 X18.087 Y45.465  ;Moved 96 lines
+G1 X17.717 Y44.787  ;Moved 96 lines
+G1 X17.432 Y44.205  ;Moved 96 lines
+G1 X17.138 Y43.535  ;Moved 96 lines
+G1 X16.921 Y42.972  ;Moved 96 lines
+G1 F381.1 X16.682 Y42.275  ;Moved 96 lines
+G1 F381.2 X16.475 Y41.56  ;Moved 96 lines
+G1 F381.1 X16.314 Y40.904  ;Moved 96 lines
+G1 X16.189 Y40.277  ;Moved 96 lines
+G1 F381.1 X16.071 Y39.518  ;Moved 96 lines
+G1 F381.1 X15.996 Y38.836  ;Moved 96 lines
+G1 F381 X15.953 Y38.168  ;Moved 96 lines
+G1 X15.937 Y37.439  ;Moved 96 lines
+G1 X15.953 Y36.704  ;Moved 96 lines
+G1 X15.992 Y36.101  ;Moved 96 lines
+G1 F381.1 X16.07 Y35.363  ;Moved 96 lines
+G1 F381.1 X16.174 Y34.683  ;Moved 96 lines
+G1 X16.324 Y33.932  ;Moved 96 lines
+G1 X16.478 Y33.304  ;Moved 96 lines
+G1 X16.698 Y32.554  ;Moved 96 lines
+;TIME_ELAPSED:203.21466800000002
+M42 P1 S0 ;Disable Welder
+G4 P0
+M291 P"Weld Off L4 B1"
+;gcode movements end
+
+;end script start
+G1 F1000
+M82 ;absolute extrusion mode
+M42 P1 S0 ;Disable Welder
+M83 ;relative extrusion mode
+M104 S0
+;End of Gcode
+;end script end
+
+;bottom comment start
+;SETTING_3 {"global_quality": "[general]\\nversion = 4\\nname = Arc One #2\\ndef
+;SETTING_3 inition = custom\\n\\n[metadata]\\ntype = quality_changes\\nquality_t
+;SETTING_3 ype = extra coarse\\nsetting_version = 22\\n\\n[values]\\nadhesion_ty
+;SETTING_3 pe = none\\nlayer_height = 1.55\\nlayer_height_0 = 1.55\\nspeed_slowd
+;SETTING_3 own_layers = 0\\n\\n", "extruder_quality": ["[general]\\nversion = 4\
+;SETTING_3 \nname = Arc One #2\\ndefinition = custom\\n\\n[metadata]\\ntype = qu
+;SETTING_3 ality_changes\\nquality_type = extra coarse\\nintent_category = defau
+;SETTING_3 lt\\nposition = 0\\nsetting_version = 22\\n\\n[values]\\nbottom_layer
+;SETTING_3 s = 0\\ncool_fan_enabled = False\\ninfill_angles = [90,270]\\ninfill_
+;SETTING_3 sparse_density = 100\\nretraction_hop_enabled = True\\nspeed_layer_0 
+;SETTING_3 = 6.35\\nspeed_print = 6.35\\nspeed_wall = 6.35\\nspeed_wall_x = 6.35
+;SETTING_3 \\ntop_layers = 0\\nwall_thickness = 6.1\\nz_seam_type = back\\n\\n"]
+;SETTING_3 }
+;bottom comment end
+

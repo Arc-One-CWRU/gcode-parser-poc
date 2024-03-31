@@ -82,7 +82,8 @@ class DuetTimer(object):
         interpass_temps = []
         weld_contorl_layer = 0
         interpass = False
-        while True:
+        loop = True
+        while loop:
             try:
                 # message4 = self.duet.get_messagebox()
                 # print(message4)
@@ -106,7 +107,12 @@ class DuetTimer(object):
                     layer = curr_layer
                      
                 message2 = self.duet.get_messagebox()
-                if message2 != message:
+                # if message2 != None:
+                #     print("Message is Not None")
+                #     print(message2)
+                #     print(message2["message"])
+                #     print("Break\n")
+                if message2 != message and message2 != None:
                     
                     print(message2)
                     print(message2["message"])
@@ -148,8 +154,10 @@ class DuetTimer(object):
                         interpass_temps.append(temp_temps)
                         print(interpass_temps)
                 message = message2
-
-                if self.duet.get_status() == "idle" and started_flag:
+                
+                #Tried Removing the started_flag
+                if self.duet.get_status() == "idle":
+                    print("SAVING REACHED")
                     layer_times[layer]["end"] = time.time()
                     end_time = time.time()
                     total_time = end_time - start_time
@@ -235,50 +243,6 @@ class DuetTimer(object):
                         print(f"Interpass data can be found at {temperature_file_path}")
 
                     print("Print End")
-
-                
-
-                # if (self.duet.get_status() == "processing" and
-                #    not started_flag):
-                #     print("Started Timer")
-                #     #start_time = time.time()
-                #     started_flag = True
-                # #print(self.duet.get_status())
-                # #print(started_flag)
-                # #if self.duet.get_status() == "idle":
-                #     #print("HEREREWQRWQERQWERQWREW")
-                    
-                # if (self.duet.get_status() == "idle" and started_flag):
-                #     print(f"dsafjhdsakfjljsf {max_beads}")
-                #     end_time = time.time()
-                #     layer_times[layer]["end"] = end_time
-                #     total_time = end_time - start_time
-                #     print(f"Print finished in {total_time} seconds")
-                #     started_flag = False
-                #     layer_arr = []
-                #     total_weld_time = 0
-                #     for layer in layer_times:
-                #         arr = [layer]
-                #         arr.append(layer_times[layer]["start"])
-                #         arr.append(layer_times[layer]["end"])
-                #         #arr.append(layer_times[layer]["duration"])
-                #         print()
-                #         for i in range(max_beads-1):
-                #             if layer == len(layer_times)-1 and i == max_beads-2:
-                #                 layer_times[layer]["end" + str(i)] = end_time
-                #             arr.append(layer_times[layer]["begin" + str(i)])
-                #             arr.append(layer_times[layer]["end" + str(i)])
-                #             arr.append(layer_times[layer]["end" + str(i)] - layer_times[layer]["begin" + str(i)])
-                #             total_weld_time += layer_times[layer]["end" + str(i)] - layer_times[layer]["begin" + str(i)]
-                #         # arr.append(layer_times[layer]["Weld_Start"])
-                #         # arr.append(layer_times[layer]["Weld_End"])
-                #         #arr.append(layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"])
-                #         #total_weld_time += layer_times[layer]["Weld_End"] - layer_times[layer]["Weld_Start"]
-                #         layer_arr.append(arr)
-                #     #columns = ["Totals", layer_times[1]"start"], end_time, 
-                #     layer_arr.insert(0,["Totals", layer_times[1]["start"], end_time, "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", total_weld_time])
-                #     df = pd.DataFrame(layer_arr, columns=["Layer", "Start", "End", "Weld_Start1", "Weld_End1", "Weld_Total1", "Weld_Start2", "Weld_End2", "Weld_Total2", "Weld_Start3", "Weld_End3", "Weld_Total3", "Weld_Duration"])
-                #     df.to_csv(f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}TimeData.csv")
                 
             except Exception as e:
                 if str(e) == "":
@@ -287,9 +251,86 @@ class DuetTimer(object):
                 if str(e) != prev_err:
                     print("New Err: ", e)
                     prev_err = str(e)
-                    
 
-            #time.sleep(0.001)
+                # layer_times[layer]["end"] = time.time()
+                # end_time = time.time()
+                # total_time = end_time - start_time
+                # started_flag = False
+                # total_weld_time = 0
+                # data = []
+                # max_beads = 0
+                # total_interpass_time = 0
+                # for i in range(2, len(layer_times)):
+                #     # print(layer_times[i])    
+                #     # print(i)
+                #     layer_weld_time = 0
+                #     arr = [i-1]
+                #     arr.append(layer_times[i]["start"])
+                #     arr.append(layer_times[i]["end"])
+                #     arr.append(layer_times[i]["end"]-layer_times[i]["start"])
+                #     curr_max_beads = 0
+                #     for j in range(0, len(times[i-2]), 2):
+                #         curr_max_beads += 1
+                #         if curr_max_beads > max_beads:
+                #             max_beads = curr_max_beads
+                #         print(f"Here i{i} j{j}")
+                #         arr.append(times[i-2][j])
+                #         arr.append(times[i-2][j+1])
+                #         weld_time = times[i-2][j+1]-times[i-2][j]
+                #         arr.append(weld_time)
+                #         layer_weld_time += weld_time
+                #         total_weld_time += weld_time
+                #     arr.append(layer_weld_time)
+                #     if interpass:
+                #         arr.append(layer_times[i]["interpass_start"])
+                #         arr.append(layer_times[i]["interpass_end"])
+                #         arr.append(layer_times[i]["interpass_end"]-layer_times[i]["interpass_start"])
+                #         total_interpass_time += layer_times[i]["interpass_end"]-layer_times[i]["interpass_start"]
+                #     data.append(arr)
+                # columns = ["Layer", "Layer Start", "Layer End", "Layer Duration"]
+                # totals = ["Totals", start_time, end_time, total_time]
+                # for i in range(max_beads):
+                #     columns.append(f"Bead {i+1} Start")
+                #     columns.append(f"Bead {i+1} End")
+                #     columns.append(f"Bead {i+1} Weld Duration")
+                #     totals.append("N/A")
+                #     totals.append("N/A")
+                #     totals.append("N/A")
+                # columns.append("Total Weld Duration")
+                # totals.append(total_weld_time)
+                # if interpass:
+                #     columns.append("Interpass Start")
+                #     columns.append("Interpass End")
+                #     columns.append("Interpass Duration")
+                #     totals.append("N/A")
+                #     totals.append('N/A')
+                #     totals.append(total_interpass_time)
+                                    
+                # data.insert(0, totals)
+                # time_df = pd.DataFrame(data, columns=columns)
+                # time_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}TimeData.csv"
+                # time_df.to_csv(time_file_path)
+                # print(f"Time data can be found at {time_file_path}")
+                
+                # if interpass:
+                #     print(interpass_temps)
+                #     interpass_columns = []
+                #     for i in range(0, len(interpass_temps), 2):
+                #         interpass_columns.append(f"Interpass {int((i+3)/2)} Time (Between layers {int((i+3)/2)} and {int((i+4)/2)})")
+                #         interpass_columns.append(f"Interpass {int((i+3)/2)} Temperature (Between layers {int((i+3)/2)} and {int((i+4)/2)})")
+                #     print("dsfjk")
+                #     print(interpass_columns)
+                #     temp_temperature_df = pd.DataFrame(interpass_temps)
+                #     temperature_df = temp_temperature_df.T
+
+                #     temperature_file_path = f"C:\\Users\\Arc One\\Desktop\\InterpassData\\{self.gcode_file_name}InterpassData.csv"
+                #     temperature_df.columns = interpass_columns
+                #     temperature_df.to_csv(temperature_file_path)
+                #     print(f"Interpass data can be found at {temperature_file_path}")
+
+                print("Print End")
+                #loop = False
+            time.sleep(0.001)
         
         
 
