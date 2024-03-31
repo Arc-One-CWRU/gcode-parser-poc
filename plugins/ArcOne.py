@@ -152,6 +152,7 @@ class ArcOne(Script):
         json_str = json.dumps(settings)
         return json_str
 
+
     def get_settings(self) -> v1.CuraMicerSettings:
         weld_gap = float(self.getSettingValueByKey(self.keywords[0]))
         sleep_time = float(self.getSettingValueByKey(self.keywords[1]))
