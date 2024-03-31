@@ -51,7 +51,7 @@ class ArcOne(Script):
             "overwrite_movement_rate", "movement_rate",
             "use_temperature_sensor", "wait_for_temp", "pause_after_layer",
             "return_home", "enable_rotate_start_layer_print", "enable_all_welder_control",
-            "enable_move_up_z", "enable_extruder_remover", "enable_speed_cap_adder"]
+            "enable_move_up_z", "enable_extruder_remover", "enable_speed_cap_adder", "change_G0toG1", "change_initial_Z"]
 
     def getSettingDataString(self) -> str:
         script_name = "ArcOne"
@@ -137,6 +137,24 @@ class ArcOne(Script):
                 "enabled": True,
             },
 
+             "change_G0toG1": {
+                "label": "Change G0 to G1",
+                "description": "This is only for software testing purposes, do not touch, leave enabled",
+                "type": "bool",
+                "default_value": True,
+                "enabled": True,
+            },
+
+              
+
+              "change_initial_Z" :{
+                 "label": "Change to initial Z",
+                "description": "Move weld gap up to avoid any clamps or nozzle issues",
+                "type": "bool",
+                "default_value": True,
+                "enabled": True,
+
+              }
 
 
         }
@@ -148,6 +166,7 @@ class ArcOne(Script):
             "version": 2,
             "settings": options,
         }
+
 
         json_str = json.dumps(settings)
         return json_str
@@ -163,6 +182,8 @@ class ArcOne(Script):
         wait_for_temp = float(self.getSettingValueByKey(self.keywords[6]))
         pause_after_layer = bool(self.getSettingValueByKey(self.keywords[7]))
         return_home = bool(self.getSettingValueByKey(self.keywords[8]))
+        change_initial_Z = bool(self.getSettingValueByKey(self.keywords[9]))
+        change_G0toG1    = bool(self.getSettingValueByKey(self.keywords[10]))
 
         debug_str = f"weld_gap: {weld_gap}, " + \
             f"sleep_time: {sleep_time}, rotate_amount: {rotate_amount}, " + \
@@ -170,7 +191,10 @@ class ArcOne(Script):
             f"use_temperature_sensor: {use_temperature_sensor}, " + \
             f"movement_rate: {movement_rate}, wait_for_temp: {wait_for_temp}, " + \
             f"pause_after_layer: {pause_after_layer}, " + \
-            f"return_home: {return_home}"
+            f"return_home: {return_home},"        + \
+            f"change_initial_z: {change_initial_Z}," + \
+            f"changeG0toG1:{change_G0toG1},"      +\
+
 
         cura_log(debug_str, False)
         cura_log(f"{v1.CuraMicerSettings.__annotations__}", False)
@@ -183,6 +207,8 @@ class ArcOne(Script):
                                         wait_for_temp=wait_for_temp,
                                         pause_after_layer=pause_after_layer,
                                         return_home =return_home,
+                                        change_initial_Z =change_initial_Z
+                                        change_G0toG1 =change_G0toG1
                                         )
         return settings
 

@@ -36,6 +36,16 @@ class CuraPostProcessor():
 
         ]
 
+         if self.settings.change_initial_Z:
+            processor = change_initial_Z()
+            section_processors.append(processor)
+
+         if self.settings.change_G0toG1:
+            processor = change_G0toG1()
+            section_processors.append(processor)
+
+
+
         if self.settings.overwrite_movement_rate:
             processor = ChangeMovementRate(self.settings.movement_rate)
             command_processors.append(processor)
@@ -53,6 +63,7 @@ class CuraPostProcessor():
         if self.settings.return_home:
             processor = PostHome()
             section_processors.append(processor)
+
 
         gcode_pipeline = CuraGCodePipeline(
             section_processors=section_processors,
