@@ -48,8 +48,10 @@ except Exception as e:
 
 class ArcOne(Script):
     keywords = ["weldgap", "sleeptime", "rotate_amount",
-                "overwrite_movement_rate", "movement_rate",
-                "use_temperature_sensor", "wait_for_temp", "pause_after_layer"]
+            "overwrite_movement_rate", "movement_rate",
+            "use_temperature_sensor", "wait_for_temp", "pause_after_layer",
+            "return_home", "enable_rotate_start_layer_print", "enable_all_welder_control",
+            "enable_move_up_z", "enable_extruder_remover", "enable_speed_cap_adder"]
 
     def getSettingDataString(self) -> str:
         script_name = "ArcOne"
