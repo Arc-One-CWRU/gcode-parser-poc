@@ -33,7 +33,6 @@ class CuraPostProcessor():
         command_processors: list[CommandProcessorInterface] = [
             ExtruderRemover(),
             SpeedCapAdder()
-
         ]
 
         if self.settings.overwrite_movement_rate:

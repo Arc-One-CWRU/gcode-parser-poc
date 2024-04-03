@@ -127,10 +127,10 @@ class ArcOne(Script):
                 "enabled": True,
             },
             "return_home": {
-                "label": "Return to home button",
+                "label": "Return to home after print finishes",
                 "description": "Return to home after print finishes",
                 "type": "bool",
-                "default_value": False,
+                "default_value": True,
                 "enabled": True,
             },
 
