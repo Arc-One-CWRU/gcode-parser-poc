@@ -5,7 +5,11 @@ from typing_extensions import Annotated
 
 app = typer.Typer()
 
-
+@app.command()
+def interpass():
+    duet_timer = DuetTimer(ARC_ONE_DUET_URL)
+    duet_timer.interpass()
+    
 @app.command()
 def time():
     duet_timer = DuetTimer(ARC_ONE_DUET_URL)

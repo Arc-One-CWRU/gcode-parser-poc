@@ -48,6 +48,94 @@ class DuetTimer(object):
                     #print(rawFile)
                     return rawFile
 
+    def interpass(self):
+        interpass_temps = []
+        interpass_flag = True
+        while interpass_flag:
+            try:
+                message = self.duet.get_messagebox()
+                interpass_flag = False
+            except Exception as e:
+                print("fail")
+                print(e)
+        print(message)
+        raw_gcode_file = self.get_gcode_file()
+        flag = True
+        started_flag = False
+        while flag:
+            try:
+                # try:
+                #     print(self.duet.get_status())
+                # except Exception as e:
+                #     print("fail 4")
+                #     print(e)
+
+                # try:
+                if self.duet.get_status() == "processing" and not started_flag:
+                    # try:
+                        print("Started Timer")
+                        start_time = time.time()
+                        print(start_time)
+                        started_flag = True
+                    # except Exception as e:
+                        # print("fail 3")
+                        # print(e)
+
+            # except Exception as e:
+                # print("Fail 1")
+                # print(e)
+
+            # try:
+                if self.duet.get_status() == "idle" and started_flag:
+                    flag = False
+            # except Exception as e:
+                # print("fail 2")
+                # print(e)
+
+                message2 = self.duet.get_messagebox()
+                if message != message2:
+                    # if message2 != None:
+                    #     print("Here2")
+                    #     print(message2)
+                    # print("here")
+                    print(message2)
+                    if message2["message"].startswith("Interpass Start"):
+                        temp_temps = []
+                        time_temps = []
+                        try:
+                            while not message2["message"].startswith("Interpass End"):
+                                try:
+                                    message3 = self.duet.get_messagebox()
+                                    message2 = message3
+                                except:
+                                    print("this makes no sense")
+                                time_temp = time.time()
+                                temp = self.duet.get_temperatures()
+                                print(time_temp, temp[2]["lastReading"])
+                                time_temps.append(time_temp)
+                                temp_temps.append(temp[2]["lastReading"])
+                                time.sleep(.2)
+                        except:
+                            x=1
+                        print("Bob")      
+                        print(time_temps)
+                        print(interpass_temps)
+                        interpass_temps.append(time_temps)
+                        interpass_temps.append(temp_temps)
+                    message = message2
+                    
+            except Exception as e:
+                #print("fail")
+                #print(e)
+                x = 1
+            time.sleep(.1)
+        print(interpass_temps)
+        df = pd.DataFrame({"Time": interpass_temps[0], "Temperature": interpass_temps[1]})
+        file_path = f"C:\\Users\\Arc One\\Documents\\12_2_2023  Process Optimization\\{self.gcode_file_name}TimeData.csv"
+        df.to_csv(file_path)
+        print("Print End")
+        
+
     def run(self):
         start_time = 0
         end_time = 0
@@ -73,16 +161,26 @@ class DuetTimer(object):
         }
 
         prev_err = "RANDOM_PLACEHOLDER_ERROR"
-        start_time = time.time()
+        
         
         raw_gcode_file = self.get_gcode_file()
-        message = self.duet.get_messagebox()
+        message_flag = True
+        while message_flag:
+            try:
+                message = self.duet.get_messagebox()
+                message_flag = False
+            except Exception as e:
+                print("Message Error")
+                pass
+        print(message)
+        start_time = time.time()
         temp_times = []
         times = []
         interpass_temps = []
         weld_contorl_layer = 0
         interpass = False
-        while True:
+        flag = True
+        while flag:
             try:
                 # message4 = self.duet.get_messagebox()
                 # print(message4)
@@ -92,6 +190,7 @@ class DuetTimer(object):
                 #     print("wepuirqrupoiu")
                 if self.duet.get_status() == "processing" and not started_flag:
                     print("Started Timer")
+                    print("here")
                     start_time = time.time()
                     print(start_time)
                     started_flag = True
@@ -106,50 +205,66 @@ class DuetTimer(object):
                     layer = curr_layer
                      
                 message2 = self.duet.get_messagebox()
+                #print(message2)
                 if message2 != message:
+                    try:
+                        if message2 != None:
+                            print(message2)
+                            print(message2["message"])
+                        if message2["message"].startswith("Weld"):                        
+                            b_index = message2["message"].find("B")
+                            l_index = message2["message"].find("L")                    
+                            temp_layer = int(message2["message"][l_index+1:b_index-1])
+                            if temp_layer != weld_contorl_layer:
+                                weld_contorl_layer += 1
+                                print("appended")
+                                times.append(temp_times)
+                                temp_times.clear()
+                            temp_times.append(time.time())
+                            print(temp_times)
+                        if message2["message"].startswith("Interpass Start"):
+                            layer_times[layer]["interpass_start"] = time.time()
+                            interpass = True
+                            message2 = self.duet.get_messagebox()
+                            temp_temps = []
+                            time_temps = []
+                            end_flag = False
+                            while not end_flag:
+                                message2["message"].startswith("Interpass End")
+                                try:
+                                    message3 = self.duet.get_messagebox()
+                                    if message3["message"].startswith("Interpass End"):
+                                        end_flag = True
+                                except Exception as e:
+                                    print(e)
+                                    print("this makes no sense")
+                                
+                                time_temp = time.time()
+                                try:
+                                    temp = self.duet.get_temperatures()
+                                    print(time_temp, temp[2]["lastReading"])
+                                    time_temps.append(time_temp)
+                                    temp_temps.append(temp[2]["lastReading"])
+                                except Exception as e:
+                                    end_flag = True
+                                    print(e)
+                                    print("It")
+                                time.sleep(.2)
+                                print(7)
+                            print("maybe")    
+                            layer_times[layer]["interpass_end"] = time.time()
+                            print(time_temps)
+                            interpass_temps.append(time_temps)
+                            interpass_temps.append(temp_temps)
+                            print(interpass_temps)
+                    except Exception as e:
+                        print(e)
+                        print("cant check for None")
                     
-                    print(message2)
-                    print(message2["message"])
-                    
-                    if message2["message"].startswith("Weld"):                        
-                        b_index = message2["message"].find("B")
-                        l_index = message2["message"].find("L")                    
-                        temp_layer = int(message2["message"][l_index+1:b_index-1])
-                        if temp_layer != weld_contorl_layer:
-                            weld_contorl_layer += 1
-                            times.append(temp_times)
-                            temp_times.clear()
-                        temp_times.append(time.time())
-                        print(temp_times)
-                    if message2["message"].startswith("Interpass Start"):
-                        layer_times[layer]["interpass_start"] = time.time()
-                        interpass = True
-                        message2 = self.duet.get_messagebox()
-                        temp_temps = []
-                        time_temps = []
-                        while not message2["message"].startswith("Interpass End"):
-                            try:
-                                message3 = self.duet.get_messagebox()
-                            except:
-                                print("this makes no sense")
-                            if message3 != None:
-                                print(message3)
-                                message2 = copy.deepcopy(message3)
-                            time_temp = time.time()
-                            temp = self.duet.get_temperatures()
-                            print(temp[2]["lastReading"])
-                            time_temps.append(time_temp)
-                            temp_temps.append(temp[2]["lastReading"])
-                            time.sleep(.2)
-                            
-                        layer_times[layer]["interpass_end"] = time.time()
-                        print(time_temps)
-                        interpass_temps.append(time_temps)
-                        interpass_temps.append(temp_temps)
-                        print(interpass_temps)
                 message = message2
 
                 if self.duet.get_status() == "idle" and started_flag:
+                    print("here 2")
                     layer_times[layer]["end"] = time.time()
                     end_time = time.time()
                     total_time = end_time - start_time
@@ -235,6 +350,7 @@ class DuetTimer(object):
                         print(f"Interpass data can be found at {temperature_file_path}")
 
                     print("Print End")
+                    flag = False
 
                 
 
