@@ -29,22 +29,23 @@ class WaitForTemp(SectionProcessorInterface):
                     skip_first = False
                     continue
                 
-                x_offset = 72
+                x_offset = 90
                 y_offset = 74
                 z_offset = 40
                 new_gcode_section.append("G91")
+                new_gcode_section.append("G1 F1000")
                 new_gcode_section.append(f"G1 Z{z_offset}")
                 new_gcode_section.append(f"G1 X{x_offset} Y{y_offset}")
-                new_gcode_section.append("G4 P0")
-                new_gcode_section.append("M291 P\"Interpass Start\"")
                 if gcode_section[i+1].startswith("M226"):
                     new_gcode_section.append("M226")
                     skip_pause = True
-                new_gcode_section.append(f"{GCodes.INTERPASS_MACRO.value}")
-                
                 new_gcode_section.append("G4 P0")
+                new_gcode_section.append("M291 P\"Interpass Start\"")
+                new_gcode_section.append(f"{GCodes.INTERPASS_MACRO.value}")
+
+                new_gcode_section.append("G4 P0")
+                new_gcode_section.append("G4 P500")
                 new_gcode_section.append("M291 P\"Interpass End\"")
-                
                 new_gcode_section.append(f"G1 X-{x_offset} Y-{y_offset}")
                 new_gcode_section.append(f"G1 Z-{z_offset}")
                 new_gcode_section.append("G90")
