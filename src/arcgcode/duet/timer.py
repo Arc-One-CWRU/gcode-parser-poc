@@ -162,6 +162,27 @@ class DuetTimer(object):
 
         prev_err = "RANDOM_PLACEHOLDER_ERROR"
         
+        path = os.path.join("C:\\Users\\Arc One\\Desktop\\TimeData\\", self.gcode_file_name)
+        os.mkdir(path)
+        print(f"All files related to {self.gcode_file_name} will be saved in {path}")
+        error_log_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}\\{self.gcode_file_name}ErrorLog.txt"
+        error_log = open(error_log_file_path, "w")
+        error_log.write(f"{self.gcode_file_name} Error Log\n")
+        error_log.close()
+        error_log = open(error_log_file_path, "a")
+
+        backup_time_data_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}\\{self.gcode_file_name}BackupTimeData.txt"
+        backup_time_data = open(backup_time_data_file_path, "w")
+        backup_time_data.write(f"{self.gcode_file_name} Backup Time Data\n")
+        backup_time_data.close()
+        backup_time_data = open(backup_time_data_file_path, "a")
+
+        backup_interpass_data_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}\\{self.gcode_file_name}BackupInterpassData.txt"
+        backup_interpass_data = open(backup_interpass_data_file_path, "w")
+        backup_interpass_data.write(f"{self.gcode_file_name} Backup Interpass Data\n")
+        backup_interpass_data.close()
+        backup_interpass_data = open(backup_interpass_data_file_path, "a")
+
         
         raw_gcode_file = self.get_gcode_file()
         message_flag = True
@@ -188,28 +209,41 @@ class DuetTimer(object):
                 #     print("d;askfjasd;jflkj")
                 # if type(message4) == None:
                 #     print("wepuirqrupoiu")
-                if self.duet.get_status() == "processing" and not started_flag:
-                    print("Started Timer")
-                    print("here")
-                    start_time = time.time()
-                    print(start_time)
-                    started_flag = True
+                try:
+                    if self.duet.get_status() == "processing" and not started_flag:
+                        print("Started Timer")
+                        print("here")
+                        start_time = time.time()
+                        print(start_time)
+                        started_flag = True
+                except Exception as e:
+                    print("get_status() fail")
+                    print(e)
+                    error_log.write(f"get_status() fail\n{e}\n")    
                 
+                try:
+                    curr_layer = self.duet.get_layer()
+                    if curr_layer != layer:
+                        layer_times[curr_layer] = defaultdict(float, {
+                                "start": time.time(),
+                            })
+                        layer_times[layer]["end"] = time.time()
+                        layer = curr_layer
+                except Exception as e:
+                    print("get_layer() fail")
+                    print(e)
+                    error_log.write(f"get_layer() fail\n{e}\n")
+
                 
-                curr_layer = self.duet.get_layer()
-                if curr_layer != layer:
-                    layer_times[curr_layer] = defaultdict(float, {
-                            "start": time.time(),
-                        })
-                    layer_times[layer]["end"] = time.time()
-                    layer = curr_layer
-                     
-                message2 = self.duet.get_messagebox()
-                #print(message2)
+                try:     
+                    message2 = self.duet.get_messagebox()
+                except Exception as e:
+                    print("get_messagebox() fail")
+                    print(e)
+                    error_log.write(f"get_messagebox() fail\n{e}\n")
                 if message2 != message:
                     try:
                         if message2 != None:
-                            #print(message2)
                             print(message2["message"])
                         if message2["message"].startswith("Weld"):                        
                             b_index = message2["message"].find("B")
@@ -217,7 +251,6 @@ class DuetTimer(object):
                             temp_layer = int(message2["message"][l_index+1:b_index-1])
                             if temp_layer != weld_contorl_layer:
                                 weld_contorl_layer += 1
-                                #print("appended")
                                 times.append(temp_times)
                                 temp_times.clear()
                                 print(times)
@@ -227,19 +260,24 @@ class DuetTimer(object):
                         if message2["message"].startswith("Interpass Start"):
                             layer_times[layer]["interpass_start"] = time.time()
                             interpass = True
-                            message2 = self.duet.get_messagebox()
+                            try:
+                                message2 = self.duet.get_messagebox()
+                            except Exception as e:
+                                print("get_messagebox() fail")
+                                print(e)
+                                error_log.write(f"get_messagebox() fail\n{e}\n")
                             temp_temps = []
                             time_temps = []
                             end_flag = False
                             while not end_flag:
-                                message2["message"].startswith("Interpass End")
                                 try:
                                     message3 = self.duet.get_messagebox()
                                     if message3["message"].startswith("Interpass End"):
                                         end_flag = True
                                 except Exception as e:
+                                    print("get_messagebox() fail")
                                     print(e)
-                                    print("this makes no sense")
+                                    error_log.write(f"get_messagebox() fail\n{e}\n")
                                 
                                 time_temp = time.time()
                                 try:
@@ -248,9 +286,10 @@ class DuetTimer(object):
                                     time_temps.append(time_temp)
                                     temp_temps.append(temp[2]["lastReading"])
                                 except Exception as e:
-                                    time.sleep(1)
+                                    print("get_temperatures() fail")
                                     print(e)
-                                    print("It")
+                                    error_log.write(f"get_temperatures() fail\n{e}\n")
+                                    time.sleep(1)
                                 time.sleep(.2)
                             #print("maybe")    
                             layer_times[layer]["interpass_end"] = time.time()
@@ -258,9 +297,12 @@ class DuetTimer(object):
                             interpass_temps.append(time_temps)
                             interpass_temps.append(temp_temps)
                             print(interpass_temps)
+                            backup_time_data.write(f"Layer {layer} Interpass Data\n{time_temps}\n")
+                            backup_interpass_data.write(f"Layer {layer} Interpass Data\n{temp_temps}\n")
                     except Exception as e:
+                        print("Can't check for None fail")
                         print(e)
-                        print("cant check for None")
+                        error_log.write(f"Can't check for None fail\n{e}\n")
                     
                 message = message2
 
@@ -330,7 +372,7 @@ class DuetTimer(object):
                                      
                     data.insert(0, totals)
                     time_df = pd.DataFrame(data, columns=columns)
-                    time_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}TimeData.csv"
+                    time_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}\\{self.gcode_file_name}TimeData.csv"
                     time_df.to_csv(time_file_path)
                     print(f"Time data can be found at {time_file_path}")
                     
@@ -345,7 +387,7 @@ class DuetTimer(object):
                         temp_temperature_df = pd.DataFrame(interpass_temps)
                         temperature_df = temp_temperature_df.T
 
-                        temperature_file_path = f"C:\\Users\\Arc One\\Desktop\\InterpassData\\{self.gcode_file_name}InterpassData.csv"
+                        temperature_file_path = f"C:\\Users\\Arc One\\Desktop\\TimeData\\{self.gcode_file_name}\\{self.gcode_file_name}InterpassData.csv"
                         temperature_df.columns = interpass_columns
                         temperature_df.to_csv(temperature_file_path)
                         print(f"Interpass data can be found at {temperature_file_path}")

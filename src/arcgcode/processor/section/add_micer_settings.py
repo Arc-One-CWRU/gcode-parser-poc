@@ -15,8 +15,8 @@ class AddMicerSettings(SectionProcessorInterface):
         self.settings = settings
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Adds the post-processing script user-defined settings to the GCode file
+        in the top-metadata.
         """
         new_gcode_section: list[str] = []
         for instruction in gcode_section:

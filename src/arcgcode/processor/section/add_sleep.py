@@ -14,8 +14,7 @@ class AddSleep(SectionProcessorInterface):
         self.sleep_time = sleep_time
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Adds sleep after each layer.
         """
         # Sanity check, just in case there's an extra new line at the end of
         # the section for some reason.

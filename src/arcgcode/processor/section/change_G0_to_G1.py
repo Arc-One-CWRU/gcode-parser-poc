@@ -2,15 +2,14 @@ from ..base import SectionProcessorInterface, GCodeSection
 
 
 class ChangeG0ToG1(SectionProcessorInterface):
-    """Adds sleep after each layer.
+    """Changes all G0 commands to G1 commands in the movements section
     """
 
     def __init__(self) -> None:
         super().__init__()
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Changes all G0 commands to G1 commands in the movements section
         """
         # Sanity check, just in case there's an extra new line at the end of
         # the section for some reas

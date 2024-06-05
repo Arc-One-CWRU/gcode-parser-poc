@@ -4,15 +4,14 @@ from arcgcode.processor.base.cura import CURA_LAYER
 
 
 class AddPause(SectionProcessorInterface):
-    """Adds sleep after each layer.
+    """Adds a pause after each layer
     """
 
     def __init__(self) -> None:
         super().__init__()
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Adds a pause after each layer
         """
         # Sanity check, just in case there's an extra new line at the end of
         # the section for some reas
