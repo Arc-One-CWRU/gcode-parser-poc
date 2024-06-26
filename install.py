@@ -67,6 +67,7 @@ def main(cura_scripts_dir: str):
     print("Moving Arc Post-Processing Scripts to the correct directory...")
     # Get a list of all files in the source directory
     files = os.listdir(custom_plugins_dir)
+    print(f"All files in directory: {files}")  # Print all files in the directory
     # Iterate through all 'plugins' and copy them into the Cura scripts
     # directory.
     for file in files:
