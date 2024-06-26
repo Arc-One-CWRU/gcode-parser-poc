@@ -3,8 +3,8 @@ from arcgcode.pipeline import CuraGCodePipeline
 from arcgcode.processor import ExtruderRemover, RotateStartLayerPrint, \
     AllWelderControl, MoveUpZ, AddMicerSettings, AddSleep, AddGcodeVersion, \
     WaitForTemp, ChangeInitialZ, ChangeMovementRate, \
-    CommandProcessorInterface, SectionProcessorInterface, AddPause, ChangeG0ToG1, SpeedCapAdder,\
-    PostHome
+    CommandProcessorInterface, SectionProcessorInterface, AddPause, \
+    ChangeG0ToG1, SpeedCapAdder, PostHome
 
 
 class CuraPostProcessor():
@@ -36,15 +36,13 @@ class CuraPostProcessor():
 
         ]
 
-         if self.settings.change_initial_Z:
-            processor = change_initial_Z()
+        if self.settings.change_initial_Z:
+            processor = ChangeInitialZ()
             section_processors.append(processor)
 
-         if self.settings.change_G0toG1:
-            processor = change_G0toG1()
+        if self.settings.change_G0toG1:
+            processor = ChangeG0ToG1()
             section_processors.append(processor)
-
-
 
         if self.settings.overwrite_movement_rate:
             processor = ChangeMovementRate(self.settings.movement_rate)
@@ -63,7 +61,6 @@ class CuraPostProcessor():
         if self.settings.return_home:
             processor = PostHome()
             section_processors.append(processor)
-
 
         gcode_pipeline = CuraGCodePipeline(
             section_processors=section_processors,
