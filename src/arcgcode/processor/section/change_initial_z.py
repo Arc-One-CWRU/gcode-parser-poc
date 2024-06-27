@@ -38,7 +38,7 @@ class ChangeInitialZ(SectionProcessorInterface):
                     # 1st layer
                     # On layer change append!
                     if is_layer_zero:
-                        new_gcode_section.insert(-1, ";Initial Z Offset")  
+                        new_gcode_section.insert(-1, ";Initial Z Offset Changed by change_initial_z.py")  
                         new_gcode_section.insert(-1, INITIAL_Z_MOVE)
                         new_gcode_section.insert(-1, '\n')
                         
