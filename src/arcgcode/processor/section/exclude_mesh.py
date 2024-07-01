@@ -28,7 +28,7 @@ class ExcludeMeshLayer(SectionProcessorInterface):
             if not is_mesh_layer:
                 new_gcode_section.append(instruction) 
             else:
-                new_gcode_section.append(";Removed in exclude_mesh.py" + instruction)
+                new_gcode_section.append(instruction + ";Removed in exclude_mesh.py")
         return new_gcode_section
 
     def section_type(self) -> GCodeSection:
