@@ -34,8 +34,6 @@ class AddMicerSettings(SectionProcessorInterface):
                     new_gcode_section.append(parsed_settings)
             else:
                 new_gcode_section.append(instruction)
-        wait_val = getattr(self.settings, "wait_for_temp")
-        new_gcode_section.append(f"M568 P7 S{wait_val}")
         return new_gcode_section
 
     def section_type(self) -> GCodeSection:
