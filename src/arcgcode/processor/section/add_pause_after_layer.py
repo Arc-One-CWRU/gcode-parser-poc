@@ -14,24 +14,18 @@ class AddPause(SectionProcessorInterface):
         """Reads the G-Code file buffer and does an action. It should return
         the desired G-Code string for that section.
         """
-        # Sanity check, just in case there's an extra new line at the end of
-        # the section for some reas
 
         new_gcode_section: list[str] = []
 
         skip_first = True
-        for idx, instruction in enumerate(gcode_section):
+        for instruction in gcode_section:
+            new_gcode_section.append(instruction)
             if instruction.startswith(CURA_LAYER):
-                new_gcode_section.append(instruction)
                 if skip_first:
                     skip_first = False
                     continue
                 sleep_instruction = f"{GCodes.PAUSE.value}\n"
-                new_gcode_section.append(sleep_instruction)
-            # Only care about the end of the movements section.
-            # Assumed that it is Cura.
-            else:
-                new_gcode_section.append(instruction)
+                new_gcode_section.append(sleep_instruction + ";Added in add_pause_after_layer.py")
         return new_gcode_section
        
     def section_type(self) -> GCodeSection:
