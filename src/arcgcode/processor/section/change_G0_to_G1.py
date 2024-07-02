@@ -20,6 +20,7 @@ class ChangeG0ToG1(SectionProcessorInterface):
         for line in gcode_section:
             if line.startswith("G0"):
                 new_gcode_section.append(f"G1{line[2:]}")
+                new_gcode_section.append(";Added ^ in change_G0_to_G1.py")
             else:
                 new_gcode_section.append(line)
         return new_gcode_section
