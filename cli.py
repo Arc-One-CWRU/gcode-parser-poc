@@ -69,12 +69,10 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
         logging.getLogger().setLevel(logging.INFO)
 
     logging.debug("args: Input Path: %s, Output Path: %s, Verbose: %r",
-                  input_dir_or_file_path, output_dir, verbose)
+                    input_dir_or_file_path, output_dir, verbose)
 
-    if (not os.path.isdir(input_dir_or_file_path) and
-       not os.path.isfile(input_dir_or_file_path)):
-        logging.error("specified input dir '%s' is not a directory or file",
-                      input_dir_or_file_path)
+    if (not os.path.isdir(input_dir_or_file_path) and not os.path.isfile(input_dir_or_file_path)):
+        logging.error("specified input dir '%s' is not a directory or file", input_dir_or_file_path)
         sys.exit()
 
     # Allows you to specify a non-existing output directory if necessary
@@ -101,21 +99,21 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
     logging.info("Found %d gcode files.\nConverting to WAAM version...", len(
         gcode_files))
 
-    gcode_pipeline = CuraPostProcessor(CuraMicerSettings(weld_gap=8,
-                                                         sleep_time=30,
-                                                         rotate_amount=6,
-                                                         overwrite_movement_rate=False,
-                                                         movement_rate=0,
-                                                         use_temperature_sensor=True,
-                                                         wait_for_temp=275,
-                                                         pause_after_layer=True,
-                                                         ))
+    gcode_pipeline = CuraPostProcessor(
+                        CuraMicerSettings(
+                                            weld_gap=8,
+                                            sleep_time=30,
+                                            rotate_amount=6,
+                                            overwrite_movement_rate=False,
+                                            movement_rate=0,
+                                            use_temperature_sensor=True,
+                                            wait_for_temp=275,
+                                            pause_after_layer=True))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
             new_gcode = gcode_pipeline.execute(f.readlines())
             base_fname = f"edited_{Path(fname).name}"
-            with open(os.path.join(output_dir, base_fname), "w",
-                      encoding="utf-8") as f:
+            with open(os.path.join(output_dir, base_fname), "w", encoding="utf-8") as f:
                 f.write("".join(new_gcode))
 
     logging.info("Done! All created files are in %s", output_dir)
