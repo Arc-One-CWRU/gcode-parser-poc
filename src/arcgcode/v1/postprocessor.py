@@ -22,14 +22,14 @@ class CuraPostProcessor():
             data[n-1] End Commands
         """
         section_processors: list[SectionProcessorInterface] = [
-                RotateStartLayerPrint(self.settings.rotate_amount),
-                AllWelderControl(),
-                MoveUpZ(self.settings.weld_gap),
-                AddMicerSettings(settings=self.settings),
-                AddGcodeVersion(),
-                ChangeInitialZ(),
-                ChangeG0ToG1()
-            ]
+            RotateStartLayerPrint(self.settings.rotate_amount),
+            AllWelderControl(),
+            MoveUpZ(self.settings.weld_gap),
+            AddMicerSettings(settings=self.settings),
+            AddGcodeVersion(),
+            ChangeInitialZ(),
+            ChangeG0ToG1()
+        ]
         command_processors: list[CommandProcessorInterface] = [
             ExtruderRemover(),
             SpeedCapAdder()
