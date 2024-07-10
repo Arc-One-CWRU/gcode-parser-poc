@@ -19,5 +19,4 @@ class ArcGcodeTestProcessor():
             section_tests_processors, 
             command_tests_processors)
 
-        tests = test_pipeline.process()
-        return tests
+        test_pipeline.process()
