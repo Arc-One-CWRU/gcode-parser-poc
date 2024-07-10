@@ -1,8 +1,9 @@
 from abc import ABCMeta, abstractmethod
 from arcgcode.processor.base.sections import GCodeSection
+import unittest
 
 
-class TestCommandProcessorInterface:
+class TestCommandProcessorInterface(unittest.TestCase):
     """Processes a matched G-Code instruction line.
     """
     __metaclass__ = ABCMeta
@@ -16,7 +17,7 @@ class TestCommandProcessorInterface:
         raise NotImplementedError
 
 
-class TestSectionProcessorInterface:
+class TestSectionProcessorInterface(unittest.TestCase):
     """A section processor should be applied on a "section", such as:
     1. Top Comment (Settings & Metadata)
     2. Startup Script
