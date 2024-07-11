@@ -8,7 +8,7 @@ class ArcGcodeTestProcessor():
     def __init__(self, settings: CuraMicerSettings) -> None:
         self.settings = settings
 
-    def execute(self) -> list[str]:
+    def execute(self, data) -> list[str]:
         section_tests_processors: list[TestSectionProcessorInterface] = [
         ]
 
@@ -19,4 +19,4 @@ class ArcGcodeTestProcessor():
             section_tests_processors, 
             command_tests_processors)
 
-        test_pipeline.process()
+        test_pipeline.process(data)

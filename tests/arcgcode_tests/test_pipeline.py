@@ -1,6 +1,8 @@
 from .test_base.test_base import TestCommandProcessorInterface,  \
     TestSectionProcessorInterface, GCodeSection
 from typing import List, Tuple
+import unittest
+from arcgcode.pipeline import CuraGCodePipeline
 
 
 class ArcGcodeTestPipeline(object):
@@ -35,5 +37,50 @@ class ArcGcodeTestPipeline(object):
                         "is invalid"
             raise ValueError(err_msg)
 
-    def process(self) -> list[str]:
-        pass
+    def process(self, data) -> list[str]:
+        """Collects all of the tests and combines them into a single test
+        suite."""
+
+        # Top Comment Section Tests
+        top_metadata, top_metadata_end_index = CuraGCodePipeline.read_top_metadata(data,0)
+        top_metadata_tests = []
+        for test in self.top_metadata_tests:
+            top_metadata_tests.append(test.process(top_metadata))
+        top_metadata_test_suite = unittest.TestSuite(tests=top_metadata_tests)
+
+        # Startup Script Section Tests
+        startup_script, startup_script_end_index = CuraGCodePipeline.read_startup_script(data,top_metadata_end_index+1)
+        startup_script_tests = []
+        for test in self.startup_script_tests:
+            startup_script_tests.append(test.process(startup_script))
+        startup_script_test_suite = unittest.TestSuite(tests=startup_script_tests)
+
+        # GCode Movements Section Tests
+        gcode_movements, gcode_movements_end_index = CuraGCodePipeline.read_gcode_movements(data,startup_script_end_index+1)
+        gcode_movements_tests = []
+        for test in self.gcode_movements_tests:
+            gcode_movements_tests.append(test.process(gcode_movements))
+        gcode_movements_test_suite = unittest.TestSuite(tests=gcode_movements_tests)
+
+        # End Script Section Tests
+        end_script, end_script_end_index = CuraGCodePipeline.read_end_script(data,gcode_movements_end_index+1)
+        end_script_tests = []
+        for test in self.end_script_tests:
+            end_script_tests.append(test.process(end_script))
+        end_script_test_suite = unittest.TestSuite(tests=end_script_tests)
+
+        # Bottom Comment Section Tests
+        bottom_comment, bottom_comment_end_index = CuraGCodePipeline.read_bottom_comment(data,end_script_end_index+1)
+        bottom_comment_tests = []
+        for test in self.bottom_comment_tests:
+            bottom_comment_tests.append(test.process(bottom_comment))
+        bottom_comment_test_suite = unittest.TestSuite(tests=bottom_comment_tests)
+
+        final_suite = unittest.TestSuite([top_metadata_test_suite,
+                                          startup_script_test_suite,
+                                          gcode_movements_test_suite,
+                                          end_script_test_suite,
+                                          bottom_comment_test_suite])
+        test_runner = unittest.TextTestRunner(verbosity=2)
+        test_runner.run(final_suite)
+
