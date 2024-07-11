@@ -120,5 +120,61 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
     return
 
 
+@app.command()
+def test(input_dir_or_file_path: InputDirOrFilePathCliArg,
+          verbose: VerboseCliArg = True):
+    import logging
+    import os
+    import sys
+    from glob import glob
+    from pathlib import Path
+    from tests.arcgcode_tests import ArcGcodeTestProcessor
+    from arcgcode.cura.settings import CuraMicerSettings
+
+    if (verbose):
+        logging.getLogger().setLevel(logging.DEBUG)
+    else:
+        logging.getLogger().setLevel(logging.INFO)
+
+    logging.debug("args: Input Path: %s, Verbose: %r",
+                  input_dir_or_file_path, verbose)
+    
+    if (not os.path.isdir(input_dir_or_file_path) and not os.path.isfile(input_dir_or_file_path)):
+        logging.error("specified input dir '%s' is not a directory or file", input_dir_or_file_path)
+        sys.exit()
+
+    if os.path.isfile(input_dir_or_file_path):
+        gcode_files = [input_dir_or_file_path]
+    else:
+        input_dir = os.path.abspath(input_dir_or_file_path)
+        gcode_files = glob(os.path.join(input_dir, "*.gcode"))
+    
+    if len(gcode_files) == 0:
+        logging.error(
+            "Found 0 GCode files in the specified input directory %s.\n" +
+            "Please double check that it's specified correctly with -v",
+            input_dir_or_file_path)
+        sys.exit()
+    
+    logging.info("Found %d gcode files.\nRunning tests...", len(gcode_files))
+
+    test_pipeline = ArcGcodeTestProcessor(
+                        CuraMicerSettings(
+                            weld_gap=8,
+                            sleep_time=30,
+                            rotate_amount=6,
+                            overwrite_movement_rate=False,
+                            movement_rate=0,
+                            use_temperature_sensor=True,
+                            wait_for_temp=275,
+                            pause_after_layer=True))
+    
+    for fname in gcode_files:
+        with open(fname, "r", encoding="utf-8") as f:
+            test_pipeline.execute(f.readlines())
+    
+    logging.info("Done! All tests completed.")
+    return
+
 if __name__ == "__main__":
     app()
