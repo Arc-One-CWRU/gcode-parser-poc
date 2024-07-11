@@ -2,16 +2,14 @@ from ..base import SectionProcessorInterface, GCodeSection
 
 
 class PostHome(SectionProcessorInterface):
-    """Adds the micer settings to GCode file.
+    """Homes the machine after print finish.
     """
 
     def __init__(self) -> None:
         super().__init__()
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
-        """
+        """Homes the machine after print finish. """
         
         gcode_section.insert(0, "G28 Z")
         gcode_section.insert(0,"G28 XY")
