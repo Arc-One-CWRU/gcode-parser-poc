@@ -14,7 +14,7 @@ END_OF_HEADER_SETTINGS_MARLIN = ";MAXZ:"
 END_OF_HEADER_SETTINGS_GRIFFIN = ";END_OF_HEADER"
 
 # Cura specific constants.
-END_OF_TOP_METADATA = ";Generated with"
+END_OF_TOP_METADATA = ";Generated with Cura"
 END_OF_STARTUP_SCRIPT = ";LAYER_COUNT:"
 # This is only the end if the flavor is Marlin
 END_OF_GCODE_MOVEMENTS = ";TIME_ELAPSED"

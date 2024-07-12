@@ -127,8 +127,10 @@ class ArcGcodeTestPipeline(object):
         suite."""
 
         # Top Comment Section Tests
+        print(data[0:10])
         top_metadata, top_metadata_end_index = self.read_top_metadata(data, 0)
         top_metadata_tests = []
+        print(top_metadata)
         for test in self.top_metadata_tests:
             top_metadata_tests.append(test.process(top_metadata))
         top_metadata_test_suite = unittest.TestSuite(tests=top_metadata_tests)
