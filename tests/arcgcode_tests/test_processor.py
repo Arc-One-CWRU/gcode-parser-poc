@@ -1,5 +1,5 @@
 from arcgcode.cura.settings import CuraMicerSettings
-from test_pipeline import ArcGcodeTestPipeline
+from .test_pipeline import ArcGcodeTestPipeline
 from .test_base.test_base import TestCommandProcessorInterface,  \
     TestSectionProcessorInterface
 

@@ -128,7 +128,7 @@ def test(input_dir_or_file_path: InputDirOrFilePathCliArg,
     import sys
     from glob import glob
     from pathlib import Path
-    from tests.arcgcode_tests import ArcGcodeTestProcessor
+    from tests.arcgcode_tests.test_processor import ArcGcodeTestProcessor
     from arcgcode.cura.settings import CuraMicerSettings
 
     if (verbose):
