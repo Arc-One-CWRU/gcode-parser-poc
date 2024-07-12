@@ -1,7 +1,7 @@
 from arcgcode.cura.settings import CuraMicerSettings
 from .test_pipeline import ArcGcodeTestPipeline
-from .test_base.test_base import TestCommandProcessorInterface,  \
-    TestSectionProcessorInterface
+from .processor import TestCommandProcessorInterface,  \
+    TestSectionProcessorInterface, TestAddGcodeVersion
 
 
 class ArcGcodeTestProcessor():
@@ -10,6 +10,7 @@ class ArcGcodeTestProcessor():
 
     def execute(self, data) -> list[str]:
         section_tests_processors: list[TestSectionProcessorInterface] = [
+            TestAddGcodeVersion()
         ]
 
         command_tests_processors: list[TestCommandProcessorInterface] = [

@@ -108,7 +108,10 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
                                             movement_rate=0,
                                             use_temperature_sensor=True,
                                             wait_for_temp=275,
-                                            pause_after_layer=True))
+                                            pause_after_layer=True,
+                                            return_home=True,
+                                            change_initial_Z=True,
+                                            change_G0toG1=True))
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
             new_gcode = gcode_pipeline.execute(f.readlines())
@@ -167,7 +170,10 @@ def test(input_dir_or_file_path: InputDirOrFilePathCliArg,
                             movement_rate=0,
                             use_temperature_sensor=True,
                             wait_for_temp=275,
-                            pause_after_layer=True))
+                            pause_after_layer=True,
+                            return_home=True,
+                            change_initial_Z=True,
+                            change_G0toG1=True))
     
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:

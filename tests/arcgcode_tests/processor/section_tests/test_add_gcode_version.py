@@ -10,11 +10,11 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
     def __init__(self) -> None:
         super().__init__()
 
-    def test_add_gcode_version(self):
+    def test_add_gcode_version(self, gcode_section):
         flag = False
         git_hash = version.ARCGCODE_VERSION
-        for instruction in self.gcode_section:
-            if f"Git Commit Hash {git_hash})" in instruction:
+        for instruction in gcode_section:
+            if f"Git Commit Hash (Version): {git_hash})" in instruction:
                 flag = True
         
         self.assertTrue(flag)
@@ -24,7 +24,7 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
         differentiate versions
         """
         
-        tests = TestAddGcodeVersion("test_add_gcode_version")
+        tests = self.test_add_gcode_version(gcode_section)
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:

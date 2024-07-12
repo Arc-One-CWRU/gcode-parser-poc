@@ -1,4 +1,4 @@
-from .test_base.test_base import TestCommandProcessorInterface,  \
+from .processor import TestCommandProcessorInterface,  \
     TestSectionProcessorInterface, GCodeSection
 from typing import List, Tuple
 import unittest
