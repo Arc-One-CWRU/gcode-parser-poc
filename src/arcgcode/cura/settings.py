@@ -14,4 +14,3 @@ class CuraMicerSettings:
     return_home: bool
     change_initial_Z: bool
     change_G0toG1: bool
-
