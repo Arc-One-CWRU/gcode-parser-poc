@@ -57,8 +57,7 @@ G1 F1000
 M106 S255
 M204 S1000
 M205 X20 Y20
-G1 F600 Z10.0
-;Added in move_up_z.py
+G1 F600 Z10.0 ;Added in move_up_z.py
 
 ;Initial Z Offset Changed by change_initial_z.py
 G1 F1000 Z100 ;Added ^ in change_G0_to_G1.py
@@ -68,8 +67,7 @@ G1 F1000 Z100 ;Added ^ in change_G0_to_G1.py
 
 G1  F9000 X180.683 Y133.271  ;Removed Z in change_initial_z.py
 ;TYPE:SKIRT
-G1 F600 Z8.0
-;Added in move_up_z.py
+G1 F600 Z8.0 ;Added in move_up_z.py
 G4 P0;Added in weld_control.py
 M42 P1 S1 ;Enable WelderAdded in weld_control.py
 M291 P"Weld On L0 B1" ;Added in weld_control.py
@@ -1154,8 +1152,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L0 B82" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.865 Y128.581 Z8.15
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.865 Y128.581 Z8.15 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X156.865 Y129.082
  ;Added ^ in change_G0_to_G1.py
 G1 X174.252 Y129.252
@@ -1798,8 +1796,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L1 B66" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.252 Y111.375 Z8.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.252 Y111.375 Z8.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.076 Y129.08
  ;Added ^ in change_G0_to_G1.py
 G1 X174.548 Y129.794
@@ -2429,8 +2427,8 @@ M204 S1500
 G1 F1000 X156.572 Y128.794
  ;Added ^ in change_G0_to_G1.py
 ;MESH:NONMESH
-G1 F600 X156.572 Y128.794 Z8.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.572 Y128.794 Z8.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.527 Y129.805
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:233.406301
@@ -3077,8 +3075,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L3 B67" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y111.43 Z8.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y111.43 Z8.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.506 Y129.805
@@ -3717,8 +3715,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L4 B66" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y111.638 Z8.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y111.638 Z8.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.526 Y129.805
@@ -4368,8 +4366,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L5 B67" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y111.43 Z8.9
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y111.43 Z8.9 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.135 Y129.13
  ;Added ^ in change_G0_to_G1.py
 G1 X174.473 Y129.805
@@ -5012,8 +5010,8 @@ M204 S3500
 G1 F1000 X173.805 Y111.638
  ;Added ^ in change_G0_to_G1.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y111.638 Z9.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y111.638 Z9.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:367.982383
@@ -5147,8 +5145,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L7 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z9.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z9.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:377.869425
@@ -5279,8 +5277,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L8 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z9.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z9.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:387.979414
@@ -5413,8 +5411,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L9 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z9.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z9.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.003 Y111
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:398.088290
@@ -5535,8 +5533,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L10 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.918 Y128.805 Z9.65
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.918 Y128.805 Z9.65 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:407.596060
@@ -5669,8 +5667,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L11 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z9.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z9.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:417.637690
@@ -5803,8 +5801,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L12 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z9.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z9.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:427.679640
@@ -5937,8 +5935,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L13 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z10.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z10.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:437.790604
@@ -6069,8 +6067,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L14 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z10.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z10.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:447.902447
@@ -6201,8 +6199,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L15 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z10.4
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z10.4 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:458.011472
@@ -6337,8 +6335,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L16 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.805 Z10.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.805 Z10.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:468.121645
@@ -6455,8 +6453,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L17 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z10.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z10.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:477.660752
@@ -6577,8 +6575,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L18 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z10.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z10.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174 Y111
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:487.199131
@@ -6699,8 +6697,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L19 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.8 Z11.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.8 Z11.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174 Y111
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:496.735630
@@ -6821,8 +6819,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L20 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.8 Y128.918 Z11.15
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.8 Y128.918 Z11.15 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174 Y111
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:506.245746
@@ -6943,8 +6941,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L21 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.081 Y128.8 Z11.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.081 Y128.8 Z11.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:515.782278
@@ -7077,8 +7075,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L22 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z11.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z11.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:525.891492
@@ -7213,8 +7211,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L23 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z11.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z11.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:535.999943
@@ -7349,8 +7347,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L24 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z11.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z11.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:546.108330
@@ -7485,8 +7483,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L25 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z11.899999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z11.899999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:556.216717
@@ -7612,8 +7610,8 @@ M204 S3500
 G1 F1000 X156.199 Y128.923
  ;Added ^ in change_G0_to_G1.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z12.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z12.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.999 Y127.971
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:565.993391
@@ -7744,8 +7742,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L27 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.922 Z12.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.922 Z12.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:575.894196
@@ -7882,8 +7880,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L28 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z12.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z12.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.997
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:586.003214
@@ -8020,8 +8018,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L29 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z12.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z12.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:596.112230
@@ -8156,8 +8154,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L30 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z12.649999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z12.649999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:606.220686
@@ -8271,8 +8269,8 @@ M204 S3500
 G1 F1000 X156.199 Y128.923
  ;Added ^ in change_G0_to_G1.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z12.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z12.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.999 Y127.97
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:615.427336
@@ -8389,8 +8387,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L32 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.917 Y128.805 Z12.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.917 Y128.805 Z12.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.999 Y127.97
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:624.727291
@@ -8512,8 +8510,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L33 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.917 Y128.8 Z13.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.917 Y128.8 Z13.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:634.179621
@@ -8636,8 +8634,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L34 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.803 Y128.917 Z13.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.803 Y128.917 Z13.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:643.686463
@@ -8754,8 +8752,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L35 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.803 Z13.399999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.803 Z13.399999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:653.225671
@@ -8872,8 +8870,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L36 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.803 Z13.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.803 Z13.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.996
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:662.764922
@@ -8990,8 +8988,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L37 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.803 Z13.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.803 Z13.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.996
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:672.304951
@@ -9108,8 +9106,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L38 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.803 Z13.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.803 Z13.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:681.844962
@@ -9242,8 +9240,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L39 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:691.954225
@@ -9376,8 +9374,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L40 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.149999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.149999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:702.063523
@@ -9510,8 +9508,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L41 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:712.172798
@@ -9644,8 +9642,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L42 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:722.282079
@@ -9778,8 +9776,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L43 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.004 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:732.391312
@@ -9905,8 +9903,8 @@ M204 S3500
 G1 F1000 X156.199 Y128.923
  ;Added ^ in change_G0_to_G1.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.923 Z14.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.923 Z14.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.999 Y127.971
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:742.168050
@@ -10037,8 +10035,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L45 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y128.922 Z14.899999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y128.922 Z14.899999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.996
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:752.068951
@@ -10159,8 +10157,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L46 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.803 Z15.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.803 Z15.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:761.606876
@@ -10281,8 +10279,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L47 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:771.145208
@@ -10403,8 +10401,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L48 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:780.683540
@@ -10525,8 +10523,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L49 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:790.221872
@@ -10647,8 +10645,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L50 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.649999999999999
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.649999999999999 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:799.760203
@@ -10769,8 +10767,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L51 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:809.298535
@@ -10891,8 +10889,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L52 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z15.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z15.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:818.836867
@@ -11013,8 +11011,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L53 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:828.375381
@@ -11135,8 +11133,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L54 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:837.913895
@@ -11257,8 +11255,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L55 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.4
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.4 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:847.452409
@@ -11379,8 +11377,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L56 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.996
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:856.990937
@@ -11499,8 +11497,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L57 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:866.530379
@@ -11621,8 +11619,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L58 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z16.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z16.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:876.068711
@@ -11743,8 +11741,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L59 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:885.607043
@@ -11865,8 +11863,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L60 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.15
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.15 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:895.145375
@@ -11987,8 +11985,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L61 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:904.683706
@@ -12109,8 +12107,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L62 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:914.222038
@@ -12231,8 +12229,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L63 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:923.760370
@@ -12353,8 +12351,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L64 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:933.298702
@@ -12475,8 +12473,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L65 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z17.9
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z17.9 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:942.837034
@@ -12597,8 +12595,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L66 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:952.375365
@@ -12719,8 +12717,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L67 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:961.913697
@@ -12841,8 +12839,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L68 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:971.452029
@@ -12963,8 +12961,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L69 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:980.990361
@@ -13085,8 +13083,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L70 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.65
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.65 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:990.528693
@@ -13207,8 +13205,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L71 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1000.066772
@@ -13329,8 +13327,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L72 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z18.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z18.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1009.604851
@@ -13451,8 +13449,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L73 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1019.143183
@@ -13573,8 +13571,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L74 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1028.681515
@@ -13695,8 +13693,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L75 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.4
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.4 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1038.219846
@@ -13817,8 +13815,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L76 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1047.758178
@@ -13939,8 +13937,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L77 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1057.296510
@@ -14061,8 +14059,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L78 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z19.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z19.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1066.834842
@@ -14183,8 +14181,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L79 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1076.373173
@@ -14305,8 +14303,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L80 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.15
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.15 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1085.911505
@@ -14427,8 +14425,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L81 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1095.449837
@@ -14549,8 +14547,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L82 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1104.988169
@@ -14671,8 +14669,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L83 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1114.526501
@@ -14793,8 +14791,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L84 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1124.064832
@@ -14915,8 +14913,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L85 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z20.9
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z20.9 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1133.603164
@@ -15037,8 +15035,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L86 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1143.141496
@@ -15159,8 +15157,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L87 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1152.679828
@@ -15281,8 +15279,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L88 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1162.218159
@@ -15403,8 +15401,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L89 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1171.756491
@@ -15525,8 +15523,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L90 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.65
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.65 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1181.294823
@@ -15647,8 +15645,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L91 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1190.833155
@@ -15769,8 +15767,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L92 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z21.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z21.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1200.371487
@@ -15891,8 +15889,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L93 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1209.909818
@@ -16013,8 +16011,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L94 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1219.448150
@@ -16135,8 +16133,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L95 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.4
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.4 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1228.986482
@@ -16257,8 +16255,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L96 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1238.524814
@@ -16379,8 +16377,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L97 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1248.063146
@@ -16501,8 +16499,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L98 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z22.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z22.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1257.601477
@@ -16623,8 +16621,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L99 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1267.139809
@@ -16745,8 +16743,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L100 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.15
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.15 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1276.678141
@@ -16867,8 +16865,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L101 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1286.216473
@@ -16989,8 +16987,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L102 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1295.754804
@@ -17111,8 +17109,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L103 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1305.293136
@@ -17233,8 +17231,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L104 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1314.831468
@@ -17355,8 +17353,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L105 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z23.900000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z23.900000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1324.369800
@@ -17477,8 +17475,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L106 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1333.908132
@@ -17599,8 +17597,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L107 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1343.446463
@@ -17721,8 +17719,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L108 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1352.984795
@@ -17843,8 +17841,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L109 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1362.523127
@@ -17965,8 +17963,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L110 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.650000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.650000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1372.061459
@@ -18087,8 +18085,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L111 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1381.599790
@@ -18209,8 +18207,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L112 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z24.95
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z24.95 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1391.138122
@@ -18331,8 +18329,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L113 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.1
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.1 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1400.676454
@@ -18453,8 +18451,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L114 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.25
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.25 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1410.214786
@@ -18575,8 +18573,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L115 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.400000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.400000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1419.753118
@@ -18697,8 +18695,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L116 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.55
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.55 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1429.291449
@@ -18819,8 +18817,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L117 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.7
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.7 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1438.829781
@@ -18941,8 +18939,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L118 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z25.85
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z25.85 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1448.368113
@@ -19063,8 +19061,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L119 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z26.0
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z26.0 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1457.906449
@@ -19185,8 +19183,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L120 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.8 Z26.150000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.8 Z26.150000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.998
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1467.443873
@@ -19307,8 +19305,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L121 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.8 Z26.3
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.8 Z26.3 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.001 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1476.981291
@@ -19429,8 +19427,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L122 B5" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.082 Y128.804 Z26.45
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.082 Y128.804 Z26.45 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1486.519642
@@ -19565,8 +19563,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L123 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z26.6
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z26.6 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1496.561786
@@ -19699,8 +19697,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L124 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z26.75
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z26.75 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.005 Y110.999
  ;Added ^ in change_G0_to_G1.py
 ;TIME_ELAPSED:1506.603295
@@ -19834,8 +19832,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L125 B6" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y128.923 Z26.900000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y128.923 Z26.900000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.527 Y129.805
@@ -20497,8 +20495,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L126 B68" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.805 Y111.638 Z27.05
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.805 Y111.638 Z27.05 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.527 Y129.805
@@ -21170,8 +21168,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L127 B69" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y111.43 Z27.2
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y111.43 Z27.2 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.527 Y129.805
@@ -21832,8 +21830,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L128 B68" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.8 Y111.634 Z27.35
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.8 Y111.634 Z27.35 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.527 Y129.805
@@ -22483,8 +22481,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L129 B67" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.199 Y111.43 Z27.5
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.199 Y111.43 Z27.5 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X155.869 Y129.135
  ;Added ^ in change_G0_to_G1.py
 G1 X155.44 Y129.792
@@ -23121,8 +23119,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L130 B66" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X173.787 Y111.621 Z27.650000000000002
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X173.787 Y111.621 Z27.650000000000002 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.122 Y129.117
  ;Added ^ in change_G0_to_G1.py
 G1 X174.516 Y129.73
@@ -23763,8 +23761,8 @@ M42 P1 S0 ;Disable WelderAdded in weld_control.py
 G4 P0;Added in weld_control.py
 M291 P"Weld Off L131 B66" ;Added in weld_control.py
 ;MESH:NONMESH
-G1 F600 X156.27 Y111.358 Z27.8
-;Added in move_up_z.py Added ^ in change_G0_to_G1.py
+G1 F600 X156.27 Y111.358 Z27.8 ;Added in move_up_z.py
+ Added ^ in change_G0_to_G1.py
 G1 F1000 X174.058 Y129.06
  ;Added ^ in change_G0_to_G1.py
 G1 X174.485 Y129.593
