@@ -48,9 +48,9 @@ class ChangeInitialZ(SectionProcessorInterface):
                 if ("X" in line or "Y" in line) and "Z" in line:
                     zindex = line.find("Z")
                     new_gcode_section.append("")
-                    new_gcode_section.append("G1" + line[2:zindex])
+                    new_gcode_section.append(f"G1{line[2:zindex]};Removed Z in change_initial_z.py")
             elif is_layer_zero and line.startswith(";TYPE"):
-                new_gcode_section.append(new_gcode_section[len(new_gcode_section)-1])
+                new_gcode_section.append(f"{new_gcode_section[len(new_gcode_section)-1]} ;Added Z in change_inital_z.py")
                 new_gcode_section.append(line)
             else:
                 new_gcode_section.append(line)

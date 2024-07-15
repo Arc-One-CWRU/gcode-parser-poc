@@ -37,7 +37,7 @@ class AddSleep(SectionProcessorInterface):
                     continue
                 sum_sleep_time += self.sleep_time
                 sleep_instruction = f"{GCodes.SLEEP.value} S{int(s)} P{ms}\n"
-                new_gcode_section.append(sleep_instruction + ";Added Sleep in add_sleep.py")
+                new_gcode_section.append(sleep_instruction + ";Added sleep in add_sleep.py")
             # Only care about the end of the movements section.
             # Assumed that it is Cura.
             elif idx == end_of_movements_idx:
@@ -51,6 +51,7 @@ class AddSleep(SectionProcessorInterface):
                 new_time_elapsed = time_elapsed+sum_sleep_time
                 end_time = new_time_elapsed
                 new_gcode_section.append(f";TIME_ELAPSED:{new_time_elapsed}")
+                new_gcode_section.append(";Added ^ in add_sleep.py")
             else:
                 new_gcode_section.append(instruction)
 
@@ -58,6 +59,7 @@ class AddSleep(SectionProcessorInterface):
         for line in new_gcode_section:
             if line.startswith(";TIME:"):
                 section_with_time.append(f";TIME:{end_time}\n")
+                section_with_time.append(";Added ^ in add_sleep.py")
             else:
                 section_with_time.append(line)
 
