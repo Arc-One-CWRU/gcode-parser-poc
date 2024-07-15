@@ -42,8 +42,8 @@ class AllWelderControl(SectionProcessorInterface):
             # Skip last line
             if i + 1 == len(gcode_section):
                 new_gcode_section.append(instruction)
-                new_gcode_section.append(GCodes.WELD_OFF.value + ";Added in weld_control.py")
-                new_gcode_section.append("G4 P0" + ";Added in weld_control.py")
+                new_gcode_section.append(GCodes.WELD_OFF.value + ", Added in weld_control.py")
+                new_gcode_section.append("G4 P0" + " ;Added in weld_control.py")
                 new_gcode_section.append(f"{GCodes.WELD_OFF_MESSAGE.value} L{layer} B{bead}\" ;Added in weld_control.py")
                 bead += 1
                 continue
@@ -52,8 +52,8 @@ class AllWelderControl(SectionProcessorInterface):
             # instruction that requires it to extrude.
             if " E" in instruction and not welder_is_on:
                 welder_is_on = True
-                new_gcode_section.append("G4 P0" + ";Added in weld_control.py")
-                new_gcode_section.append(GCodes.WELD_ON.value + ";Added in weld_control.py")
+                new_gcode_section.append("G4 P0" + " ;Added in weld_control.py")
+                new_gcode_section.append(GCodes.WELD_ON.value + ", Added in weld_control.py")
                 new_gcode_section.append(f"{GCodes.WELD_ON_MESSAGE.value} L{layer} B{bead}\" ;Added in weld_control.py")
                 parsed_instruction = self.parse_extruder_cmd(instruction)
                 new_gcode_section.append(parsed_instruction)
@@ -65,8 +65,8 @@ class AllWelderControl(SectionProcessorInterface):
             # instruction.
             elif " E" not in instruction and welder_is_on:
                 welder_is_on = False
-                new_gcode_section.append(GCodes.WELD_OFF.value + ";Added in weld_control.py")
-                new_gcode_section.append("G4 P0" + ";Added in weld_control.py")
+                new_gcode_section.append(GCodes.WELD_OFF.value + ", Added in weld_control.py")
+                new_gcode_section.append("G4 P0" + " ;Added in weld_control.py")
                 new_gcode_section.append(f"{GCodes.WELD_OFF_MESSAGE.value} L{layer} B{bead}\" ;Added in weld_control.py")
                 bead += 1
                 new_gcode_section.append(instruction)     
