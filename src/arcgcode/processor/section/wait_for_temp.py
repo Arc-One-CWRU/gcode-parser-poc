@@ -5,7 +5,7 @@ from arcgcode.processor.base.cura import CURA_LAYER
 
 
 class WaitForTemp(SectionProcessorInterface):
-    """Adds command to wait for designated temperature after each layer before continueing.
+    """Adds command to wait for designated temperature after each layer before continuing.
     """
 
     def __init__(self) -> None:
@@ -32,21 +32,21 @@ class WaitForTemp(SectionProcessorInterface):
                 x_offset = 72
                 y_offset = 74
                 z_offset = 40
-                new_gcode_section.append("G91")
-                new_gcode_section.append(f"G1 Z{z_offset}")
-                new_gcode_section.append(f"G1 X{x_offset} Y{y_offset}")
-                new_gcode_section.append("G4 P0")
-                new_gcode_section.append("M291 P\"Interpass Start\"")
-                new_gcode_section.append(f"{GCodes.INTERPASS_MACRO.value}")
+                new_gcode_section.append("G91 ;Added in wait_for_temp.py")
+                new_gcode_section.append(f"G1 Z{z_offset} ;Added in wait_for_temp.py")
+                new_gcode_section.append(f"G1 X{x_offset} Y{y_offset} ;Added in wait_for_temp.py")
+                new_gcode_section.append("G4 P0 ;Added in wait_for_temp.py")
+                new_gcode_section.append("M291 P\"Interpass Start\" ;Added in wait_for_temp.py")
+                new_gcode_section.append(f"{GCodes.INTERPASS_MACRO.value} ;Added in wait_for_temp.py")
                 
-                new_gcode_section.append("G4 P0")
-                new_gcode_section.append("M291 P\"Interpass End\"")
-                if gcode_section[i+1].startswith("M226"):
-                    new_gcode_section.append("M226")
+                new_gcode_section.append("G4 P0 ;Added in wait_for_temp.py")
+                new_gcode_section.append("M291 P\"Interpass End\" ;Added in wait_for_temp.py")
+                if gcode_section[i+1].startswith("M226 ;Added in wait_for_temp.py"):
+                    new_gcode_section.append("M226 ;Added in wait_for_temp.py")
                     skip_pause = True
-                new_gcode_section.append(f"G1 X-{x_offset} Y-{y_offset}")
-                new_gcode_section.append(f"G1 Z-{z_offset}")
-                new_gcode_section.append("G90")
+                new_gcode_section.append(f"G1 X-{x_offset} Y-{y_offset} ;Added in wait_for_temp.py")
+                new_gcode_section.append(f"G1 Z-{z_offset} ;Added in wait_for_temp.py")
+                new_gcode_section.append("G90 ;Added in wait_for_temp.py")
                 # num = 3
                 # changed_movement = new_gcode_section[len(new_gcode_section)-num]
                 
