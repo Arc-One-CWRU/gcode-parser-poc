@@ -51,10 +51,10 @@ class RotateStartLayerPrint(SectionProcessorInterface):
                     if first_wall_line:
                         first_line = no_new_line.replace(" ", f" F{speed} ", 1)
                         first_wall_line = False
-                        new_gcode_section.append(first_line + moved_comment)
+                        new_gcode_section.append(first_line + moved_comment + ";Changed in rotate_start_layer_print.py")
                         continue
 
-                    new_gcode_section.append(no_new_line + moved_comment)
+                    new_gcode_section.append(no_new_line + moved_comment + ";Changed in rotate_start_layer_print.py")
 
                 new_gcode_section.append(instruction)
             elif start_wall:
@@ -68,7 +68,7 @@ class RotateStartLayerPrint(SectionProcessorInterface):
                     wall_lines.append(generic_line)
                     continue
 
-                wall_lines.append(instruction)
+                wall_lines.append(instruction + ";Changed in rotate_start_layer_print.py")
             else:
                 new_gcode_section.append(instruction)
 
