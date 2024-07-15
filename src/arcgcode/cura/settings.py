@@ -12,6 +12,6 @@ class CuraMicerSettings:
     wait_for_temp: float
     pause_after_layer: bool
     return_home: bool
-    change_initial_z: bool
+    change_initial_Z: bool
     change_G0toG1: bool
 
