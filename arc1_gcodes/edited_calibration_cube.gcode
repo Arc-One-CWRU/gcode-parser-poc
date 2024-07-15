@@ -65,7 +65,7 @@ G1 F1000 Z100 ;Changed in change_G0_to_G1.py
 ;Initial Z Offset Changed by change_initial_z.py
 G1 F1000 Z100 ;Changed in change_G0_to_G1.py
 
-G1  F9000 X180.683 Y133.271  ;Removed Z in change_initial_z.py
+G1 F1000 X180.683 Y133.271 ;Removed Z in change_initial_z.py
 ;TYPE:SKIRT
 G1 F600 Z8.0 ;Added in move_up_z.py
 G4 P0;Added in weld_control.py
