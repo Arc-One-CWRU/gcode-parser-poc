@@ -50,7 +50,7 @@ class MoveUpZ(SectionProcessorInterface):
             z_num = diff + self.get_z_num_from_instruction(instruction)
             z_front: str = instruction[0:z_index]
             new_z_instruction = z_front + str(z_num) + "\n"
-            new_gcode_section.append(new_z_instruction + "Added in move_up_z.py")
+            new_gcode_section.append(new_z_instruction + ";Added in move_up_z.py")
 
         return new_gcode_section
 
