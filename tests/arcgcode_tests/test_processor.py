@@ -1,7 +1,12 @@
 from arcgcode.cura.settings import CuraMicerSettings
 from .test_pipeline import ArcGcodeTestPipeline
 from .processor import TestCommandProcessorInterface,  \
-    TestSectionProcessorInterface, TestAddGcodeVersion, TestEnd
+    TestSectionProcessorInterface, TestAddGcodeVersion,  \
+    TestAddMicerSettings, TestAddPauseAfterLayer,  \
+    TestAddSleep, TestChangeG0ToG1, TestChangeInitialZ,  \
+    TestEnd, TestExcludeMesh, TestLayer, TestMoveUpZ,  \
+    TestPostHome, TestRotateStartLayerPrint, TestStartup,  \
+    TestWaitForTemp, TestWeldControl
 
 
 class ArcGcodeTestProcessor():
