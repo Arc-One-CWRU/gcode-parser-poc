@@ -21,7 +21,7 @@ class TestEnd(TestSectionProcessorInterface, unittest.TestCase):
             ";End Script Added in end.py"
             "M42 P1 S0; Turn off the welder\n",
             "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)\n"
-        ]
+            ]
             if end_script in self.gcode_section:
                 flag = True
             
