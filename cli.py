@@ -99,7 +99,7 @@ def gcode(input_dir_or_file_path: InputDirOrFilePathCliArg,
     logging.info("Found %d gcode files.\nConverting to WAAM version...", len(
         gcode_files))
 
-processor-tags
+
     gcode_pipeline = CuraPostProcessor(CuraMicerSettings(weld_gap=8,
                                                          sleep_time=30,
                                                          rotate_amount=6,
@@ -112,7 +112,6 @@ processor-tags
                                                          change_initial_Z=True,
                                                          change_G0toG1=True
                                                          ))
-main
     for fname in gcode_files:
         with open(fname, "r", encoding="utf-8") as f:
             new_gcode = gcode_pipeline.execute(f.readlines())

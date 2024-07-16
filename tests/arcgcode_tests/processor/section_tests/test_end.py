@@ -16,9 +16,10 @@ class TestEnd(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_end(self):
+            print(self.gcode_section)
             flag = False
             end_script = [
-            ";End Script Added in end.py"
+            ";End Script Added in end.py\n"
             "M42 P1 S0; Turn off the welder\n",
             "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)\n"
             ]

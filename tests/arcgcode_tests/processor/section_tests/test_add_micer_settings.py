@@ -3,7 +3,7 @@ from arcgcode.processor.base import version
 import unittest
 
 
-class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
+class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
     """Adds the micer settings to GCode file.
     """
 
