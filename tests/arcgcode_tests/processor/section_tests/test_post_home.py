@@ -18,11 +18,11 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
         def test_post_home(self):
             flag = False
             home_script = [
-            "G91"
+            "G91\n"
             "G1 Z100\n",
             "G90\n",
             "G28 XY\n",
-            "G28 Z\n"
+            "G28 Z"
             ]
             if home_script in self.gcode_section:
                 flag = True
