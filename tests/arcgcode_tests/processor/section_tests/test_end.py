@@ -3,8 +3,8 @@ from arcgcode.processor.base import version
 import unittest
 
 
-class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+class TestEnd(TestSectionProcessorInterface, unittest.TestCase):
+    """Replaces the Cura end script with our own.
     """
 
     def __init__(self) -> None:
@@ -25,14 +25,15 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
+        """Replaces the Cura end script with our own.
         """
-        self.gcode_section = gcode_section
-        tests = [self.Test("test_add_gcode_version", gcode_section)]
-        return unittest.TestSuite(tests=tests)
+        end_script = [
+            ";End Script Added in end.py"
+            "M42 P1 S0; Turn off the welder\n",
+            "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)\n"
+        ]
+
+        return end_script
 
     def section_type(self) -> GCodeSection:
-        """Returns the current section type.
-        """
         return GCodeSection.END_SCRIPT_SECTION
