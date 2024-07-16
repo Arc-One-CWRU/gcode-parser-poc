@@ -15,25 +15,24 @@ class TestEnd(TestSectionProcessorInterface, unittest.TestCase):
             super().__init__(methodName)
             self.gcode_section = gcode_section
 
-        def test_add_gcode_version(self):
+        def test_end(self):
             flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
+            end_script = [
+            ";End Script Added in end.py"
+            "M42 P1 S0; Turn off the welder\n",
+            "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)\n"
+        ]
+            if end_script in self.gcode_section:
+                flag = True
             
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Replaces the Cura end script with our own.
         """
-        end_script = [
-            ";End Script Added in end.py"
-            "M42 P1 S0; Turn off the welder\n",
-            "G0 F20000 Z60; Raises the welding tip, quickly (F sets speed)\n"
-        ]
-
-        return end_script
+        self.gcode_section = gcode_section
+        tests = [self.Test("test_end", gcode_section)]
+        return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:
         return GCodeSection.END_SCRIPT_SECTION
