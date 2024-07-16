@@ -3,8 +3,8 @@ from arcgcode.processor.base import version
 import unittest
 
 
-class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
+    """Homes the machine after print finish.
     """
 
     def __init__(self) -> None:
@@ -15,24 +15,28 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
             super().__init__(methodName)
             self.gcode_section = gcode_section
 
-        def test_add_gcode_version(self):
+        def test_post_home(self):
             flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
+            home_script = [
+            "G91"
+            "G1 Z100\n",
+            "G90\n",
+            "G28 XY\n",
+            "G28 Z\n"
+            ]
+            if home_script in self.gcode_section:
+                flag = True
             
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
+        """Homes the machine after print finish.
         """
         self.gcode_section = gcode_section
-        tests = [self.Test("test_add_gcode_version", gcode_section)]
+        tests = [self.Test("test_post_home", gcode_section)]
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:
         """Returns the current section type.
         """
-        return GCodeSection.TOP_COMMENT_SECTION
+        return GCodeSection.END_SCRIPT_SECTION
