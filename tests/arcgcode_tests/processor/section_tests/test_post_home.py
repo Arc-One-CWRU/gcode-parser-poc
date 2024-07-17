@@ -17,14 +17,24 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
         def test_post_home(self):
             flag = False
             home_script = [
-            """G91
-            G1 Z100
-            G90
-            G28 XY
-            G28 Z"""
+            "G91\n",
+            "G1 Z100\n",
+            "G90\n",
+            "G28 XY\n",
+            "G28 Z\n"
             ]
-            if home_script in self.gcode_section:
-                flag = True
+            i = 0
+            while i < len(self.gcode_section):
+                if "end script start" in self.gcode_section[i]:
+                    try:
+                        if self.gcode_section[i+1:i+6] == home_script:
+                            flag = True
+                    except Exception as e:
+                        print(e)
+                        i = len(self.gcode_section)
+                i += 1
+            # if home_script in self.gcode_section:
+            #    flag = True
             
             self.assertTrue(flag)
 
@@ -32,6 +42,7 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
         """Homes the machine after print finish.
         """
         self.gcode_section = gcode_section
+        # print(gcode_section)
         tests = [self.Test("test_post_home", gcode_section)]
         return unittest.TestSuite(tests=tests)
 

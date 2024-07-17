@@ -4,7 +4,7 @@ import unittest
 
 
 class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+    """Adds sleep after each layer.
     """
 
     def __init__(self) -> None:
@@ -15,7 +15,7 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             super().__init__(methodName)
             self.gcode_section = gcode_section
 
-        def test_add_gcode_version(self):
+        def test_add_sleep(self):
             flag = False
             git_hash = version.ARCGCODE_VERSION
             for instruction in self.gcode_section:
@@ -25,14 +25,14 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
+        """Reads the G-Code file buffer and does an action. It should return
+        the desired G-Code string for that section.
         """
         self.gcode_section = gcode_section
-        tests = [self.Test("test_add_gcode_version", gcode_section)]
+        tests = [self.Test("test_add_sleep", gcode_section)]
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:
         """Returns the current section type.
         """
-        return GCodeSection.TOP_COMMENT_SECTION
+        return GCodeSection.GCODE_MOVEMENTS_SECTION

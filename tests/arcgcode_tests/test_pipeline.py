@@ -132,6 +132,7 @@ class ArcGcodeTestPipeline(object):
         for test in self.top_metadata_tests:
             top_metadata_tests.append(test.process(top_metadata))
         top_metadata_test_suite = unittest.TestSuite(tests=top_metadata_tests)
+        print(top_metadata)
 
         # Startup Script Section Tests
         startup_script, startup_script_end_index = self.read_startup_script(data,top_metadata_end_index+1)
@@ -139,7 +140,7 @@ class ArcGcodeTestPipeline(object):
         for test in self.startup_script_tests:
             startup_script_tests.append(test.process(startup_script))
         startup_script_test_suite = unittest.TestSuite(tests=startup_script_tests)
-
+        print(startup_script)
         # GCode Movements Section Tests
         gcode_movements, gcode_movements_end_index = self.read_gcode_movements(data,startup_script_end_index+1)
         gcode_movements_tests = []
@@ -153,14 +154,14 @@ class ArcGcodeTestPipeline(object):
         for test in self.end_script_tests:
             end_script_tests.append(test.process(end_script))
         end_script_test_suite = unittest.TestSuite(tests=end_script_tests)
-
+        print(end_script)
         # Bottom Comment Section Tests
         bottom_comment, bottom_comment_end_index = self.read_bottom_comment(data,end_script_end_index+1)
         bottom_comment_tests = []
         for test in self.bottom_comment_tests:
             bottom_comment_tests.append(test.process(bottom_comment))
         bottom_comment_test_suite = unittest.TestSuite(tests=bottom_comment_tests)
-
+        print(bottom_comment)
         final_suite = unittest.TestSuite([top_metadata_test_suite,
                                           startup_script_test_suite,
                                           gcode_movements_test_suite,
