@@ -1,5 +1,4 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
 import unittest
 
 
@@ -18,11 +17,11 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
         def test_post_home(self):
             flag = False
             home_script = [
-            "G91\n"
-            "G1 Z100\n",
-            "G90\n",
-            "G28 XY\n",
-            "G28 Z"
+            """G91
+            G1 Z100
+            G90
+            G28 XY
+            G28 Z"""
             ]
             if home_script in self.gcode_section:
                 flag = True
