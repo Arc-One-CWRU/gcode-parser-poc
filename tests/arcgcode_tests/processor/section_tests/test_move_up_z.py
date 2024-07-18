@@ -15,7 +15,7 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
             super().__init__(methodName)
             self.gcode_section = gcode_section
 
-        def test_add_gcode_version(self):
+        def test_move_up_z(self):
             flag = False
             git_hash = version.ARCGCODE_VERSION
             for instruction in self.gcode_section:
@@ -29,10 +29,10 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
         differentiate versions
         """
         self.gcode_section = gcode_section
-        tests = [self.Test("test_add_gcode_version", gcode_section)]
+        tests = [self.Test("test_move_up_z", gcode_section)]
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:
         """Returns the current section type.
         """
-        return GCodeSection.TOP_COMMENT_SECTION
+        return GCodeSection.GCODE_MOVEMENTS_SECTION

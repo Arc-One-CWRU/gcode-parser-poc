@@ -35,7 +35,7 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
         the desired G-Code string for that section.
         """
         self.gcode_section = gcode_section
-        tests = [self.Test("test_add_micer_settings", gcode_section)]
+        tests = [self.Test("test_add_micer_settings", gcode_section, self.settings)]
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:

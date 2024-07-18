@@ -1,5 +1,6 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
 from arcgcode.processor.base import version
+from math import modf
 import unittest
 
 
