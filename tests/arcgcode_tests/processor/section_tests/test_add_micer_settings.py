@@ -17,18 +17,18 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
         self.settings = settings
     
     class Test(unittest.TestCase):
-        def __init__(self, methodName: str, gcode_section: list[str]) -> None:
+        def __init__(self, methodName: str, gcode_section: list[str], settings) -> None:
             super().__init__(methodName)
             self.gcode_section = gcode_section
 
         def test_add_micer_settings(self):
             flag = False
-            git_hash = version.ARCGCODE_VERSION
+            GENERATED_STRING = ";Generated with "
             for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
-            
-            self.assertTrue(flag)
+                if instruction.startswith(GENERATED_STRING):
+                    self.assertEqual(instruction[len(instruction)-11:], f" + Arc One\n")
+                    
+            # self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return

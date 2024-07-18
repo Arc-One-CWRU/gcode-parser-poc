@@ -154,7 +154,7 @@ class CuraGCodePipeline(object):
         """
         gcode_file: list[str] = []
 
-        gcode_file.append(";Generated with ArcOne Post-Processing Script\n")
+        gcode_file.append(";Gcode Generated with ArcOne Post-Processing Script\n")
         gcode_file.append(";top metadata start\n")
         # Divide into sections
         # 1. Top Comment (Settings & Metadata)

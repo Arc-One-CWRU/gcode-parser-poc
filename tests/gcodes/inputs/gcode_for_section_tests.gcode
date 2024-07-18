@@ -1,4 +1,4 @@
-;Generated with ArcOne Post-Processing Script
+;Gcode Generated with ArcOne Post-Processing Script
 ;POSTPROCESSED
 ;  [ArcOne]
 ;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
