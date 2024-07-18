@@ -5,7 +5,7 @@ class CuraMicerSettings:
     """Cura Micer Settings"""
     weld_gap: float
     sleep_time: float
-    rotate_amount: float
+    rotate_amount: int
     overwrite_movement_rate: bool
     movement_rate: float
     use_temperature_sensor: bool
