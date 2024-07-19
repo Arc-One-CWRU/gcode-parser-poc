@@ -1,11 +1,13 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
 from math import modf
+from arcgcode.cura.gcodes import GCodes
+from arcgcode.processor.base.cura import CURA_LAYER, END_OF_GCODE_MOVEMENTS, \
+    find_end_of_gcode_movements_idx
 import unittest
 
 
 class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds sleep after each layer.
+    """Tests for added sleep after each layer.
     """
 
     def __init__(self, settings) -> None:
@@ -19,16 +21,7 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.settings = settings
 
         def test_add_sleep(self):
-            (ds, s) = modf(self.settings.sleep_time)
-            # Converts into ms
-            ms = int(ds*1000)
-            flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
             
-            self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return

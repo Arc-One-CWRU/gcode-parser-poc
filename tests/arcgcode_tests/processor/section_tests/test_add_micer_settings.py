@@ -7,7 +7,7 @@ import unittest
 
 
 class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the post-processing script user-defined settings to the GCode file
+    """Tests for added post-processing script user-defined settings to the GCode file
     in the top-metadata.
     """
 
