@@ -1,10 +1,9 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
 import unittest
 
 
 class TestChangeG0ToG1(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+    """Tests if G0 becomes G1
     """
 
     def __init__(self) -> None:
@@ -16,17 +15,15 @@ class TestChangeG0ToG1(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_change_G0_to_G1(self):
-            flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
-            
-            self.assertTrue(flag)
+            flag = "G0 did get replaced"
+            for line in self.gcode_section:
+                if line.startswith("G0"):
+                    flag = "G0 did not get replaced"
+            self.assertEqual(flag, "G0 did get replaced")
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
+        """Reads the G-Code file buffer and does an action. It should return
+        the desired G-Code string for that section.
         """
         self.gcode_section = gcode_section
         tests = [self.Test("test_change_G0_to_G1", gcode_section)]
