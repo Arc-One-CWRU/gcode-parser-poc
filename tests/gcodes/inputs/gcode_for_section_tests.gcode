@@ -2,217 +2,196 @@
 ;POSTPROCESSED
 ;  [ArcOne]
 ;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
-; thumbnail_QOI begin 48x48 768
-; cW9pZgAAADAAAAAwBAAA/f39/f39/fL//78ABP7/v0D+v38A/kBAAMb/89A7K//71TuBwP7QsDX+ZV
-; Ukxv99aSaZ/7GVMP/A/qWLLv5mViTH/2ZUI3MAw/9jVCKGoobD/6uSL/f/rpQv//6QeioR3/9lVSTy
-; /0BAAAQAwv9PRCD//mVVIxHn/2ZVJLkAwv88NR7//mRUIxHn/2ZWJPr/ZFUjQgDBBP5OQyACEef/Zl
-; Ykwf8zMxkKAMAEwP5YSyIR5wL/WEoihgDABMCmkwIR5xr/ZlUiDwAEwf5XSiER6P9nVSKNAATBpZMC
-; oZjn/2ZVI/7/SD8fUQTC/ldJIRTo/2ZVI9QEwqSk/mVUIxToBMP+VUghFNL+fmknqILJ/rOXMP7RsT
-; XHBMMq/oVxKaOVxf7JqjSpoMn+8847qqDTBMN6/vLNOxXnBMMHKRXnBMMHKRXnBMMHKRXlacD/PDQe
-; 1gTCBykV4w7C/zouFxb/PDUd/ATBBykV4Q7EAP87NB2PBMEHKRXfDsYA/zwtHhH/OzUe+gTABykV3Q
-; 7IAMD/PDQeiATABykV2w7IZsAAwP8qKhUM/zw1HvcEwCkV2g7HCcIAwf87Mx6BBMApFdgOxwnEAMH/
-; ICAACP87NB31BCkV1g7HCcYAwv87NB16BCkV1A7HCcgAwv8AAAAE/zw1HvIpFdIOxwnKAMP/PDMdcy
-; kV0A7B///ZPKb//9c7gcj//9Y8d///v0AExv8AAAAA/f39/f39/ewAAAAAAAAAAQ==
+; thumbnail_QOI begin 48x48 1076
+; cW9pZgAAADAAAAAwBAAAw/8AAAAB/1VVAAPD/2YzAAX/alsiNcT/bFsjSf9tXCVnxP9tWiSW/2xbJJ
+; rD/21aJLL/bVskzMT/bVok9v9tWyX/w/9qWSNIAML/ZlYkz6WUwf9sWyTnBuT/bVolyQsAwf9QRCH/
+; Bun/bVskRgDB/zgyHv/+bVwl6f9tXCTHAMH/MSwd//5fUCP+blwl1X6mk8T+i3UppqTDp5L+sJQvxA
+; DBL/5TRyH+lX0rwv6kii7+spYww6KG/s6uNMT+4L43qaFmwqOG/v/XPcxpwwDBL/5iVST+/9g9zRDT
+; CcX/AAAAAMEv/mJVJBXKENQJxmb/AAAAAMEv/mJVJBXHENUJxgTB/wAAAADBL/5iVSQVxRDUCccEw/
+; 8AAAAAwS/+YlUkFcIQ1QnGBMb/AAAAAMEv/mJVJBUQ1QnHBMj/AAAAAMEv/mJUJBDUCcYEywDBLzsQ
+; 0QnHBM0AwS87EM4JxwTQAMEvOxDMCcYE0wDBLzsQyAnHBNYAwS87EMYJxgTZAMEvOxDDCccE2wDBLz
+; sQwAnHBN4AwS87CcYE32bAAMEvOwnDBOA/wgDBLzsJwATgP8UAwS87BOA/xwDBLzsE3T/KAMEvOwTb
+; P8wAwS87BNg/zwDBLzsE1T/SAMEvOwTTP9QAwf8wKxzOOwTQP9cAwf8xLB3NOwTNP9oAwQk7BMo/3Q
+; DBCTsExj/hAMEJOwTDP+QAwQk7BMA/5GbBAMEJOz/kOsBpwQDBCTs/4TrBM8MAwQk7P946wTPGAMEJ
+; Oz/cOsEzyADBCTs/2TrBM8sAwQk7P9Y6wTPOAMEJOz/TOsIz0ADBCTs/0DrCM9MAwf8xKx2xOz/OOs
+; Ez1gDB/zErHVk7P8o6wjPZAMH/MCAQEP9jViT3P8c6wjPcAML/dmQntT/EOsIz2P//1Dvp///UO8/C
+; /urKV//xzU2yAML/uZ0wWz/BOsL/9tBI/f//1DzMacL/+dBCxf//1Dqawv7tzFH/58hagv//1Ttnwv
+; 7fxmj/68pRP///1Do1wv/NvIAu//+qAAPD////AAH/AAAAAMYAAAAAAAAAAQ==
 ; thumbnail_QOI end
-; thumbnail_QOI begin 128x128 2336
-; cW9pZgAAAIAAAACABAAA/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39+f//2D2A///YPf/F/rufMv5mViTX/2ZWJEMA+v//2T0C///ZPXj//9k9n8X+lX4s
-; /mZWJNX/inQq0P+fhy3/xf6GcSkR1z0A2/7/2Tv//9k9R///2T1gw/7hvzj+b14lmH/U/2lYJGH/u5
-; 8y2P/GqDT/xf6EbykR9/9mViSJ/2ZWJDIAy/9mViQgzf9qWSUh/+bEOcb/7Mk6/8P+0bI2/m5dJRH9
-; 2v9mViSEAMv/ZlYk387/dWMm9/95Zif/w516/mdXJBH92ggAy/9MQSD//lxOIxH98P9mViTR/2ZWJH
-; z/ZlYkBgDJ/zw1Hv/+VkkiEf3x/2ZWJNz/ZlYkZf9mViQcAMgE/lNHIf5jUyQR/fL/ZlYkSwDIBKOF
-; q8AR/fL/ZlYkSwDIBMD+S0EgEf3y/2ZWJLv/ZlYkWADHBMCnov5YSyKpoRH98f9mViSMAMcEwaOW/l
-; 9RIxH98f9mViSb/2ZWJBr/ZlYkAgDFBMEmHBH98f9mViTx/2ZWJLT/ZlYkDwDFBMGhl6mh/ltNIhH9
-; 8f9hUiPt/0Q7IKb/QDgfNADEBMM7/ltOIhH98Jx7/lBEIf9OQyFTAMQExP5KQCAR/fL/ZlYkaP9mVi
-; QTAMMExDMR/fL/ZlYk6f9mViSCAMMExKSV/k1DICcR/fH/ZlYklADDBMWilv5eUCMR/fH/ZlYkvP9m
-; ViRQ/2ZWJAkAwQTFoob+WkwiqKIR/fH/ZlYk1v9mViQZAMEExiYS/mdWJP3x/2dWJNb/Z1YkGQDBBM
-; f+VEchFP3x/2dWJPD/Z1Ykqf9nViQ5AMAEx/5LQCD+XE0iFP3y/1dKIpj/QDgfOwAEyCsU/fL+UUUh
-; /0U8IJwABMgrFP3yAf9iUiOcAATILqnA/mFRIxT98f9nViTa/2dWJJ8EyaGX/l5PIxT98wTJoZf+Wk
-; siART98gTJeqOW/lVIIRT98gTJB8D+U0YhFP3yBMkHwDb+W00iFP3X/ohyKf6ghy3XBMkHwamhFPSh
-; l/53Yyejhd3+xqg0/v/YPdcEygfAIxn0qaH+1bQ2/uzIOt2poRXXBMoHwCn+TUIg/mBSIxnS/odyKT
-; vdpJT+9c87FfcEygfCIzPS/sCiMxX92v48NR7KB8EP/s6vNRX97wTKB8EPPRX97wTKB8EPPRX97wTK
-; B8EPPRX97wTKB8EPPRX97wTKB8EPPRX97wTKB8EPPRX97wTKB8EPPRX97wTKB8EPPRX97wTKB8EPPR
-; X97mkEygfBDz0V/esOwgTKB8EPPRX96w7C/zw1Ht//PDUe8wTIB8EPPRX96A7F/zw1HiD/PDUeqQTI
-; B8EPPRX95w7G/wAAAAD/PDUeO/88NR6YBMcHwQ89Ff3lDsgAwP88NR5bBMcHwQ89Ff3kDskAwP88NR
-; 5P/zw1HuL/PDUe+gTFB8EPPRX94Q7MAMD/PDUeC/88NR42/zw1HtsExQfBDz0V/d8OzgDB/zw1Hhn/
-; PDUe1gTFB8EPPRX93Q7QAMH/PDUeEP88NR6G/zw1HtcExAfBDz0V/dwO0QDD/zw1HpQExAfBDz0V/d
-; kO1ADDKwTEB8EPPRX91w7WAMP/PDUeOP88NR6TBMMHwQ89Ff3UDthmAMT/PDUeUwTDB8EPPRX91A7X
-; CcAAxP88NR5I/zw1HuH/PDUe+QTBB8EPPRX90Q7ZCcEAxP88NR4K/zw1Hi//PDUe1ATCB8AP/s6vNR
-; X90A7YCcMAxf88NR4R/zw1Hs4EwgfADz0V/c4O1wnGAMUI/zw1HoErBMEHwA89Ff3NDtgJxgDH/zw1
-; HowEwQfADz0V/csO1wnJAMcTBMEHwA89Ff3IDtgJywDH/zw1HjX/PDUejgTAB8APPRX9xg7XCc4AyP
-; 88NR5LBMAHwA89Ff3FDtcJzwDI/zw1HkH/PDUe4P88NR74B8APPRX9wg7YCdEAyP88NR4J/zw1Hij/
-; PDUezf89NR7/wA89Ff3ADtgJ0wDJMv88NR7GB8APPRX8DtcJ1gDJ/zw1Hgb/PDUefP89NR7RBw89Ff
-; sO1wnXAMv/PTUehAcPPRX4DtgJ2QDLPgcPPRX2DtcJ3ADL/z01HjL/PTUeiQ89FfMO2AnI///XPKj/
-; /9c8YNMAzP89NR5DDz0V8w7D///YPMz//9g8n9JmyP//1zxJAOEzDz0V8A7G///YPHcA/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f393gAAAAAAAAAB
+; thumbnail_QOI begin 128x128 2276
+; cW9pZgAAAIAAAACABAAA/dX/bVslc9D/bVsl/83/bVsl+f9tWyUGAPj/bVslRv9tWyVZzv9tWyVqBv
+; H/bVslYgDV/21bJT/P/21bJa3/bVsl//3X/21bJQr/AAAAAMgG/fUTAMj/TEEh/wb99f9tWyUDAMf/
+; My0d/wb99f9tWyVBAMf/MSwd/wb99gDHL/5GPSD+bVwl/fX/bVwlWgDGL8AL/fYAxi/A/lVJIgv99f
+; 9tXCVzAMUvwP5AOB8L/fYAxS/B/m5cJf32AMUvwaeiDv3T/o94K8/+/9c9zGnBAMUvwaajDu7+gWwo
+; z/7NrTUQ7AnDAMUvwg7Lo4V7zv59aSf+/9g91RD2CcUAxS/C/kE4H/70zzvKp5MV5BD1CcgAxS/Cqb
+; EV7hD2CcoAxS/CDhXrEPYJzQDFL8KpoRXoEPcJzwDFL8ILFeUQ+AnRAMUvwgsV4xD4CdMAxS/CCxXg
+; EPkJ1GYAxS/CCxXeEPgJ1QTBAMUvwgsV2xD5CdQExADFL8ILFdgQ+QnVBMYAxS/CCxXUEPoJ1QTJAM
+; UvwgsV0RD7CdUEywDFL8ILFc4Q+wnVBM4AxS/CCxXLEPwJ1QTQAMUvwgsVyBD8CdUE0wDFL8ILFcYQ
+; /QnUBNUAxS/CCxXDEP0J1QTXAMUvwgsVEP3ACdUE2gDFL8ILEP0J1ATdAMUvwgsQ+gnVBN8AxS/CCx
+; D3CdUE4gDFL8ILEPUJ1QTkAMUvwgsQ8gnVBOcAxS/CCxDvCdUE6gDFL8ILEO0J1QTsAMUvwgsQ6gnV
+; BO8AxS/CCxDoCdUE8QDFL8ILEOUJ1QT0AMUvwgsQ4gnVBPcAxS/CCxDfCdUE+gDFL8ILENwJ1QT9AM
+; UvwgsQ2QnVBP3CAMUvwgsQ1gnVBP3FAMUvwgsQ0wnWBP3HAMUvwgsQ0QnWBP3JAMUvwgsQzgnWBP3M
+; AMUvwgsQywnVBP3QAMUvwgsQyAnVBP3TAMUvwgsQxQnWBP3VAMUvwgsQwQnXBP3YAMUvwgsJ1gT92m
+; bAAMUvwgsJ0wT92z/CAMUvwgsJ0AT92z/FAMUvwgsJzQT93D/HAMUvwgsJywT93D/JAMUvwgsJyAT9
+; 3D/MAMUvwgsJxAT93j/OAMUvwgsJwQT93j/RAMUvwgsE/d4/1ADFL8ILBP3cP9YAxS/CCwT92T/ZAM
+; UvwgsE/dY/3ADFL8ILBP3UP94AxS/CCwT90D/iAMUvwgsE/c8/4wDFL8ILBP3MP+YAxS/CCwT9yT/p
+; AMUvwgsE/cY/7ADFL8ILBP3EP+4AxS/CCwT9wD/yAMUvwgsE/D/0AMUvwgsE+T/3AMX/MSwdpy/BCw
+; T2P/oAxf8xLB1zL8ELBPM//QDFKy/BCwTxP/3BAMUrL8ELBO4//cQAxSsvwQsE6z/9xwDFKy/BCwTo
+; P/3KAMUrL8ELBOU//c0AxSsvwQsE4j/90ADFKy/BCwTeP/3UAMUrL8ELBNs//dcAxSsvwQsE2D/92g
+; DFKy/BCwTVP/3dAMUrL8ELBNM//d8AxSsvwQsE0D/94gDFKy/BCwTMP/3lZgDFKy/BCwTJP/3lOsIA
+; xSsvwQsExT/95zrEAMUrL8ELBMI//ec6xGnBAMUrL8ELP/3oOsUzwwDFKy/BCz/95jrEM8YAxSsvwQ
+; s//eM6xTPIAMUrL8ELP/3hOsQzywDFKy/BCz/93jrFM80AxSsvwQs//dw6xTPPAMUrL8ELP/3ZOsUz
+; 0gDFKy/BCz/91jrFM9UAxSsvwQs//dM6xjPXAMUrL8ELP/3QOsYz2gDFKy/BCz/9zTrGM90AxSsvwQ
+; s//cs6xTPgAMUrL8ELP/3HOsYz4wDFKy/BCz/9xTrHM+QAxSsvwQs//cM6xjPnAMUrL8ELP/3AOsYz
+; 6gDFKy/BCz/7OsYz7QDFKy/BCz/4Oscz7wDFKy/BCz/0Oscz8wDFKy/BCz/xOsgz9QDFKy/BCz/uOs
+; gz+ADGL8ELP+s6yDP7AMb/MSwdoS/ACz/oOscz/cEAxv8xLB1aL8ALP+Y6xzP9wwDHL8ALP+M6yDP9
+; xQDH/zEsHc0vCz/fOskz/cgAx/8xLB1ALws/3GbJM/3LAMgvCz/ZOskz/c4AyC8LP9U6yTP90gDI/z
+; EsHScLP9I6yTP90P6gqLr+mqXBwP+vr6Vy///UOyUAyP8xLB0KCz/POslp9P62spz/ybuDdP//1Ds/
+; zP//1DswANoLP8s6ymnX/rKwocH//9Q7Wcv+iZ3YwAD5///VPA4/yDrJ/r62kv//1Dxzacz/iZ3YUg
+; D90gAAAAAAAAAB
 ; thumbnail_QOI end
-; thumbnail_QOI begin 160x160 3472
-; cW9pZgAAAKAAAACgBAAA/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39yf//2D2T///YPf/H/rCVMP5m
-; ViTd/2ZWJHwA/cz//9k9F///2T1S///ZPWTG/uXCOf6KdSr+ZlYk2/+vlDC9/8OlM//H/pN8KxHdMA
-; D9zP//2T07///ZPdD//9k9+8b+5cI5/op1Kv5mViTb/2dXJP3/aFgk/8dWVt0wAOP//9k9DP//2T1j
-; ///ZPZPF/r6iMv5mViTb/3xpKK3/oIct7f+njS//xpdf/nVjJhH9x/9mViTI/2ZWJIP/ZlYkLP8AAA
-; AAzv9mViQs0f+Qeis8/9u6N7r/5cI5/8X+r5UwEf3x/2ZWJOP/ZlYkTP8AAAAAzv9mViTD0f9qWSXI
-; /4BsKOv/inUq/8X+e2gnEf3xHSAAzv9XSiL/pZQR/f3O/2ZWJO3/ZlYkjP9mViRA/2ZWJAoAzP8+Nx
-; 7//k5DIf5lViQR/f3N/2ZWJP7/ZlYk9/9mViSr/2ZWJBsAzP88NR7//kxCIP5lVSQR/f3P/2ZWJN3/
-; ZlYkmP9mViRIAMsE/kpAIP5gUSOjlhH9/dD/ZlYkgwDLBKOWppP+WUwiEf390D0AywTB/lRIIRH9/d
-; D/ZlYkrP9mViRNBf8AAAAAyQTB/lRIIRH9/dD/ZlYk9f9mViTZK/8AAAAAyQTBqbH+VEghqrAR/f3P
-; /2ZWJOv/ZlYkVP8AAAAAyQTCppP+XE4jEf39zwv/ZlYkZv9mViQU/2ZWJAQAx/88NR7/wqaT/lxOIx
-; H9/c//ZlYk+f9mViTM/2ZWJIT/ZlYkGQDH/zw1Hv/CpJX+U0chqaEOEf39z/9iUyTP/01DIWX/QDgf
-; KQDGBMJ+opYV/mRVJBH9/c//XU8j+P9GPSDn/0A4H3wAxgTEpqOqsKqgEf39zif+VUki/1JHIYsAxg
-; TGOBH9/dD/ZlYklP9mViQT/2ZWJAcAxATG/lNHIRH9/dD/ZlYk2f9mViSj/2ZWJD4AxATG/k1CIP5c
-; TiOmkxH9/c//ZlYk8/9mViRcAMT/PDUe/8ajhaak/lxOIxH9/c8NEADE/zw1Hv/HpZT+W00iEf39z/
-; 9mViT4/2ZWJKb/ZlYkWP9mViQUAML/PDUe/8ekpSoJEf390P9mViTD/2ZWJCz/AAAAAMIEx6KGIP5U
-; SCH+ZFQkopb9/c//Z1Ykw/9nViQs/wAAAADCBMkz/mRTJBT9/c//Z1Yk0f9nViRd/2dWJCMAwQTJMz
-; wU/f3P/2dWJPX/Z1Yk2/9nViR6AMEEyaaj/lNHIaiyFP390P9eTyPB/0A4H2r/QDgfKgAEy/5SRiEU
-; /f3Q/ldKIv9BOB/7/0E4H2T/AAAAAATLMBT9/dCbfP9YSiL7/1hKImQABMv+TkMg/l9QI6SVFP39z/
-; 9nViT8/2dWJIP/Z1YkNATLo6ankv5dTiMU/f3P/2dWJP7/Z1Yk3/9nViTLBMt6pJX+W0wiFP390gTL
-; BzEwFP390gTLB6KGK6qwART9/dAEywfBK/5iUiMU/f3QBMsHwSsqFP390ATLB8Gmo/5VSCGoohT97K
-; mh/pN7K6qQ3f48NR7LB8F6fv5SRiEU/ez+hG8p/tq5N/740jzdBMwHwigZ/cT+jXcq/rqdMuX+yKk0
-; /vHMO/7/2D3dBM0HwQ7+YlMjopcZ16KG/nZkJqWV5f64mzH+/9g9/cgEzQfBMaeiDBnXqqD+tZox/t
-; e2NuX+6cU5Ff3IBM0HwqaT/ntoKP6ZgSzXqpD+4b44Ff3wBM0Hwv5LQSD+t5wy/vPOO9d+ppMV/fD+
-; PDUezQfC/kxCIP6/ozMV/f3NBM0HwgMGFf39zQTNB8IDBhX9/c0EzQfCAwYV/f3NBM0HwgMGFf39zQ
-; TNB8IDBhX9/c0EzQfCAwYV/f3NBM0HwgMGFf39zQTNB8IDBhX9/c0EzQfCAwYV/f3NBM0HwgMGFf39
-; zQTNB8IDBhX9/ctpwATNB8IDBhX9/cgOwwTNB8IDBhX9/cgOwwTNB8IDBhX9/cUOxv88NR6T/zw1Hr
-; 3/PDUe/QTKB8IDBhX9/cQOx/8AAAAA/zw1HmL/PDUe9y4EyQfCAwYV/f3DDsgA/zw1HicF/zw1Hr0E
-; yQfCAwYV/f3ADssAwSAEyQfCAwYV/f0OzADBIATJB8IDBhX9+g7PAMH/PDUeWv88NR6t/zw1HugEx3
-; rCAwYV/foOzwDB/zw1HgL/PDUeL/88NR7EBMcHwgMGFf33DtIAwv88NR4s/zw1HsMExwfCAwYV/fQO
-; 1QDC/zw1HiT/PDUeov88NR7j/zw1Hv0ExQfCAwYV/fMO1gDC/zw1Hgr/PDUeLv88NR6C/zw1HvYExQ
-; fCAwYV/fAO2QDE/zw1Hlz/PDUe8wTFB8L+TEIgBhX98A7Z/wAAAADE/zw1Hlz/PDUe8wTFB8L+TEIg
-; BhX97Q7c/wAAAADE/zw1Hir/PDUebv88NR7ABMQHwgMGFf3qDt5mAMb/PDUeiwTEB8IDBhX96Q7eCc
-; AAxggExAfCAwYV/eYO4AnBAMb/PDUeXv88NR63/zw1HukEwwfBAwYV/eYO3wnCAMb/PDUeC/88NR41
-; /zw1HsEExAfAAwYV/eQO3gnFAMcb/zw1HrsExAfAAwYV/eIO3gnHAMf/PDUeIP88NR6n/zw1HuwuBM
-; IHwAMGFf3hDt4JyADHCP88NR44/zw1Hof/PDUe8QTCB8ADBhX93g7eCcsAyf88NR5U/zw1HusEwgfA
-; AwYV/d0O3gnMAMkrKATCB8ADBhX92g7eCc8Ayf88NR4r/zw1HnkwBMEHwAMGFf3ZDt4J0ADL/zw1Ho
-; MEwQfAAwYV/dcO3gnSAMswBMEHwAMGFf3UDt4J1QDL/zw1HmH/PDUew/88NR7rBAfAAwYV/dMO3gnW
-; AMv/PDUeEv88NR48/zw1Hr4EB8ADBv7/2D390A7eCdkAzP88NR4c/zw1HrMEB8D+TEIgBhX9zw7eCd
-; r/AAAAAMz/PDUeG/88NR6r/zw1Hvf/PTUe/gcDBhX9zQ7eCdwAzD3/PDUeQP89NR6M/z01Hu0HAwYV
-; /coO3gnfAM7/PTUeTP89NR7jBwMGFf3JDt4J4ADOFhMHAwYV/cYO3gnjAM7/PTUeLP89NR6D/z01Hs
-; gDBhX9xQ7eCcj//9c87f//1zyt///XPJPYAND/PTUefP9MQiD/BhX9ww7E///YPP3//9g8+9dmyv//
-; 1zzQ///XPDsA6iYDBhX9wA7GOP//2Dyg///YPGTXZsr//9c8Uv//1zwXAOomAwYV/Q7HIiUA/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39
-; /f39/f39/f39/f39/f39/f39/f3lAAAAAAAAAAE=
+; thumbnail_QOI begin 160x160 2852
+; cW9pZgAAAKAAAACgBAAA/er/bVslKf9tWyVC0/9tWyVc/21bJf/R/21bJY4A/d//bVslF/9tWyXG0/
+; 9tWyXqBugA8f9tWyUH/21bJUzUBv3W/21bJeAA2/9tWyXQ0/9tWyXUBv3s/21bJfn/bVslSgDLBv39
+; 1P9tWyWRAMv/Rz0g/wb9/dQAy/87NB7//mhXJAb9/dMtAMr/MSwd//5gUSMG/f3T/21bJfr/bVslRg
+; DJL/5NQiEG/f3U/21bJZcAyS/A/m1cJf391QDJL8D+QzsfC/391P9tXCXIAMgvwD4L/f3U/21cJf3/
+; bVwlQADHL8H+Y1QkC/391P9tXCWeAMcvwf5kVCSoof391QDHL8IO/f3VAMcvwhsO/eekhaGX0/7/1z
+; 3QacH/AAAAAMcvwhsO/dH+g24o/r+hMtP+8Mo7EOIJxADHL8P+Z1YkDuOnoqN20/7/2D3IEP3ECcYA
+; x/8xLB3/wxQOzf6Dbin+xaYz0/7xzDsV2hD9xQnIAMcvw3oV/cAQ/cQJywDHL8MyFfoQ/cYJzQDHL8
+; MyFfgQ/cYJzwDHL8MyFfUQ/cYJ0gDHL8QV8hD9xwnUAMcvxBXvEP3ICdYAxy/EFe0Q/cgJ2ADHL8QV
+; 6RD9yQnaZgDHL8QV5xD9yQnaBMEAxy/EFeQQ/ckJ2gTEAMcvxBXiEP3JCdsExQDHL8QV3hD9ygnbBM
+; gAxy/EFdwQ/csJ2gTKAMcvxBXYEP3MCdoEzQDHL8QV1hD9ywnbBM8Axy/EFdIQ/cwJ2wTSAMcvxBXQ
+; EP3NCdoE1ADHL8QVzBD9zgnaBNcAxy/EFcoQ/c4J2gTZAMcvxBXGEP3PCdoE3ADHL8QVxBD9zwnaBN
+; 4Axy/EFcAQ/dAJ2gThAMcvxBD9zwnaBOQAxy/EEP3NCdsE5QDHL8QQ/coJ2gTpAMcvxBD9xwnbBOsA
+; xy/EEP3ECdsE7gDHL8QQ/cIJ2wTwAMcvxBD9CdsE8wDHL8QQ+wnbBPUAxy/EEPgJ2wT4AMcvxBD2Cd
+; sE+gDHL8QQ8wnaBP3AAMcvxBDwCdsE/cIAxy/EEO0J2wT9xQDHL8QQ6wnbBP3HAMcvxBDnCdsE/csA
+; xy/EEOUJ3AT9zADHL8QQ4QncBP3QAMcvxBDgCdsE/dIAxy/EENwJ2wT91gDHL8QQ2gnbBP3YAMcvxB
+; DWCdwE/dsAxy/EENQJ3AT93QDHL8QQ0AncBP3hAMcvxBDOCdwE/eMAxy/EEMoJ3AT95wDHL8QQxwnd
+; BP3pAMcvxBDECd0E/ewAxy/EEMEJ3AT98ADHL8QQCdsE/fFmwADHL8QJ2AT98j/DAMcvxAnWBP3yP8
+; UAxy/ECdIE/fM/yADHL8QJ0AT98z/KAMcvxAnNBP3zP80Axy/ECcoE/fQ/zwDHL8QJxgT99T/SAMcv
+; xAnEBP31P9QAxy/ECQT99z/XAMcvxAT99j/ZAMcvxAT98z/cAMcvxAT98T/eAMcvxAT97j/hAMcvxA
+; T96z/kAMcvxAT96D/nAMcvxAT95j/pAMcvxAT94z/sAMcvxAT94T/uAMcvxAT93j/xAMcvxAT93D/z
+; AMcvxAT92D/3AMcvxAT91j/5AMcvxAT90z/8AMcvxAT90D/9wQDHL8QE/c0//cQAxy/EBP3KP/3HAM
+; f/MSwd9C/DBP3HP/3KAMf/MSwdQy/DBP3EP/3NAMcbL8ME/cI//c8AxxsvwwT8P/3TAMcbL8ME+j/9
+; 1QDHGy/DBPc//dgAxxsvwwT0P/3bAMcbL8ME8T/93gDHGy/DBO4//eEAxxsvwwTrP/3kAMcbL8ME6D
+; /95wDHGy/DBOU//eoAxxsvwwTjP/3sAMcbL8ME3z/98ADHGy/DBNw//fMAxxsvwwTYP/33AMcbL8ME
+; 1j/9+QDHGy/DBNI//f0AxxsvwwTPP/39wGbAAMcbL8MEzD/9/cA6wwDHGy/DBMk//f3COsQAxxsvww
+; TFP/39wzrFacAAxxsvwwTDP/39wzrFM8IAxxsvwwQ//f3EOsUzxQDHGy/DP/39wjrFM8gAxxsvwz/9
+; /TrGM8oAxxsvwz/9+jrGM80Axxsvwz/9+DrHM84Axxsvwz/99TrHM9EAxxsvwz/98zrGM9QAxxsvwz
+; /97zrHM9cAxxsvwz/97TrHM9kAxxsvwz/96jrHM9wAxxsvwz/96DrHM94Axxsvwz/95TrHM+EAxxsv
+; wz/94jrIM+MAxxsvwz/93zrHM+cAxxsvwz/93TrIM+gAxxsvwz/92TrIM+wAxxsvwz/91zrJM+0Axx
+; svwz/91DrIM/EAxxsvwz/90jrIM/MAxxsvwz/9zjrJM/YAxxsvwz/9zDrIM/kAxxsvwz/9yDrJM/wA
+; xxsvwz/9xjrJM/3AAMcbL8M//cI6yTP9xADHGy/DP/3AOsoz/cUAxxsvwz/6Osoz/ckAyP8xLB3IL8
+; I/+DrKM/3LAMgSL8I/9DrKM/3PAMkvwj/xOsoz/dIAyf8xLB35L8E/7jrLM/3UAMn/MSwdTy/BP+o6
+; yzP92ADJ/zEsHUn/MSwd/C/AP+g6yzP92gDK/zEsHdQvwD/kOssz/d4Ayv8xLB29L8A/4jrLM/3gAM
+; svwD/eOssz/eQAy/8xLB3nLz/bOswz/eYAy/8xLB1aLz/YOssz/eT+sK+jwv//1DtVwADL/zEsHUot
+; P9U6zDP9wv7pylj/+tJB2f//1DvQ0P//1Ds0AOH/MSwd4D/RZswz7/7myFz+rK2pwP/jx2Bj///UO0
+; zP/omd2P+JndgOAPT/MSwdrj/OOs0zzf7zzkv//9Q7x///1DvGzf6JndjBLv8AAAAA/d0/yjrM/qir
+; sP+7tJac///UPEJpz/7IuoT/iZ3YAQD95gAAAAAAAAAB
 ; thumbnail_QOI end
-; thumbnail_QOI begin 256x256 7208
-; cW9pZgAAAQAAAAEABAAA/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39
-; /f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39xv//2D1R
-; ///YPbD//9g9/8z+2Lc3/p+GLf5mViTv/2ZWJNH/ZlYkcv9mViQTAP35///ZPQP//9k9Cf//2T0O//
-; /ZPQ/L/urHOv6ylzD+eWYn/mZWJOz/5sM5W//yzTu0//bQPP/M/tGxNv6chC0R7/9mViTRAi0A/fn/
-; /9k9Fv//2T0////ZPWf//9k9bsv+6sc6/rKXMP55Zif+ZlYk7P+TfCuc/6+UMNL/vaAy/8z+p40v/o
-; ZyKRHv/2ZWJNECLQD9+f//2T0o///ZPXX//9k9wf//2T3Ny/7qxzr+spcw/nlmJ/5mViTs/3FfJt3/
-; fGko7/+Ebyn/zJptl28R7xcCLQD5CP//2T0Z///ZPSr//9k9LchC/sSnM/6Ldir+ZlYk7P+vlTBW/9
-; W1NqT/48E48v/kwjn/y/7Tszb+pIsu/nZjJxH98f9mViTZ/2ZWJIv/ZlYkPf9mViQgAQD3///ZPRv/
-; /9k9Tv//2T2C///ZPYzIQv7EpzP+i3Yq/mZWJOz/e2gno/+XgCzN/6mPL/j/q5Ev/8uYf/6Icyr+bl
-; 0lEf3x/2ZWJOr/ZlYkv/9mViSV/2ZWJGP/ZlYkLwD3///ZPS3//9k9hP//2T3b///ZPevIQv7EpzP+
-; i3Yq/mZWJOz/aVgk7/9tXCX2/3FgJv7/cmAm/8tGnIuce1b98f9mViT7/2ZWJPT/ZlYk7f9mViSm/2
-; ZWJE4A2P9mViRL3f+Wfyxt/76hMrD/0LE18//Ssjb/yFX+qI8v/oBtKBH9/ff/ZlYktP9mViRVANj/
-; ZlYkqt3/c2Emuv+Hcyna/5eALPn/mYIs/8hW/oVxKf5yYSb+ZlYk/f33/2ZWJLQDANj/ZFUk/8B6Ef
-; 39/eX/ZlYkt/9mViRc/2ZWJAr/ZlYkBv9mViQCANX/VUgi/36llKWjEf39/eT/ZlYk0/9mViSb/2ZW
-; JGX/ZlYkPv9mViQXANX/RTwf/6KHqbCqoBH9/f3k/2ZWJO//ZlYk2v9mViTB/2ZWJHb/ZlYkLP8AAA
-; AA1f88NR7/oob+TkMh/l5PIxH9/f3m/2ZWJPf/ZlYkp/9mViRX/2ZWJCL/ZlYkE/9mViQEANIEFBUP
-; Ef39/eYl/2ZWJM7/ZlYkof9mViRz/2ZWJEH/ZlYkDwDSBBQVDxH9/f3m/2ZWJP7/ZlYk9f9mViTs/2
-; ZWJMMW/2ZWJBn/AAAAANIEoZepoamgpqSklKOWEf39/eb/ZlYk2f9mViR6/2ZWJBv/AAAAANL/PDUe
-; /36klaSlppOosaiiEf39/eYvGgUA0gTCppM4/mJTIxH9/f3m/2ZWJNn/ZlYkfTwI/2ZWJAIA0ATCPj
-; j+YlMjEf39/eb/ZlYk6P9mViSu/2ZWJHX/ZlYkSv9mViQlANAEwj44LxH9/f3m/2ZWJPb/ZlYk4P9m
-; ViTJ/2ZWJJD/ZlYkRwDQBMI2qsD+XU8jLwER/f395/9mViS8/2ZWJF0A0ATCo4WmpB2mo6ajEf39/e
-; cwGwDQBMJ+oZeih6ih/llMIhH9/f3nMBsA0ATFqbH+V0siEf39/ef/ZlYkzf9mViSG/2ZWJEH/ZlYk
-; KP9mViQQAM0ExSMfEf39/ef/ZlYk5j3/ZlYkn/9mViRkFADNBMUjHxH9/f3pBjH/ZlYkQADNBMWmk6
-; ihGqWULxH9/f3mBv9fUCPD/1JGIYf/QDgfVP9AOB8w/0A4Hw3/AAAAAMoExRejliA4qbER/f395/9a
-; TSLm/0xBIc7/QDgfp/9AOB9h/0A4HxoAygTHfjuqsC+hmKJ2Ef39/eT+WUwi/k1CIf9EPCDh/0Q8II
-; L/RDwgIwDKBMd6p4Kmo6ajpqQBEf39/eQXm1z/U0ch4f9TRyGC/1NHISP/AAAAAMr/PDUe/8iihqGY
-; paT+VEghLxH9/f3kAS//YVIj4f9hUiOC/2FSIyP/AAAAAMoEyjb+UUYh/mFSIxH9/f3m/2ZWJOgx/2
-; ZWJFf/ZlYkLv9mViQYMgDHBMo2LScR/f395v9mViTz/2ZWJM7/ZlYkqf9mViR3/2ZWJD3/ZlYkBADH
-; BMqllC0nEf39/eb/ZlYk/v9mViT9Jf9mViTA/2ZWJGP/ZlYkBgDHBMomqKGooaWkpYQR/f395/9mVi
-; TE/2ZWJGUe/wAAAADHBMqhlzajlaejNamh/f395wgzHgDHBM0b/lZKIhH9/f3n/2ZWJMr/ZlYkdP9m
-; ViQf/2ZWJBD/ZlYkBwDFBM0bFxH9/f3nPP9mViSu/2ZWJHv/ZlYkTxIAxQTNGxcR/f395/9mViT2/2
-; ZWJOf/ZlYk2P9mViSN/2ZWJD0AxQTNp5KpwaqgopajlhH9/f3n/2ZWJKf/ZlYkSADFBM0mGwsaH6Wk
-; /f395/9nViSn/2dWJEgAxQTOfg/+TUIg/lxOIhT9/f3n/2dWJKc3AMUE0P5MQSD+XE0iFP39/ef/Z1
-; YkxP9nViSF/2dWJE7/Z1YkLv9nViQOAMIE0D44FP39/ef/Z1Yk5f9nViTJ/2dWJKT/Z1YkYf9nViQf
-; AMIE0P5KQCD+WUsiAX4RFP39/eb/Z1Yk6v9lVCST/1xOIzz/QDgfEP9AOB8J/0A3HwEABNCnogano6
-; WkAaKW/f395v9lVSTz/1xOI7//TEEhi/9AOB9c/0A4HzH/QDgfBwD/PDUe/9CilqKXpYT+VUghqrAU
-; /f395v9kVCT7/1dKIur/SD4g2v9AOB+o/0A4H1r/QDgfDAAE0qSVKP5hUSMU/f395gGXb/5NQiH/SD
-; 4gzP9IPiBt/0g+IA4ABNIuKCIU/f395labbCX/VkkizP9WSSJt/1ZJIg4ABNIuKCIU/f3951Za/2VU
-; JMz/ZVQkbf9lVCQOAATSopapoQMHKhT9/f3n/2dWJNz/Z1Ykm/9nViRa/2dWJFAE0qGXpJWklaazqZ
-; AMFP39/eb/Z1Yk7/9nViTR/2dWJLT/Z1YkrwTUeqeiEgkU/f396gTUBwwSCRT9/f3qBNQHDBIJFP39
-; /eoE1AemoyiqsCqilxT9/f3o/jw1HtQHo5amk6Wkp6IfFP39/egE1Ad+F3oGOBT9/f3oBNQHwv5LQC
-; D+W0wiFP39/egE1AfCNjAU/f396ATUB8IzJQl6FP398KKGopd+8ATUB8Kmo6iRprSllAEU/f3ufv5/
-; ayj+l38s/qaMLvD+PDUe1HrCGjmkpQMiFP397iT+lX4s/sKjM/7evDjwBNQHxKOF/lBEIf5fUCMU/e
-; ymg6eip6P8oob+sZUw/uC+OP7/2D3wBNUHwx8gF6eS/ez+fWko/pqCLP63mzH8oZf+07M2/u7JOhXw
-; BNYHwh8g/l9RIxn97P6Mdir+v6Ey/vDLO/2lk6WEFfD+PDUe1gfCooY2EqajL6OWfuYL/n1pKA2klf
-; z+rpMw/te2NhX98wTWB8J+pKWlhCiooQkZ5v51YyYB/r6hMqmh/P7Ytzf+7Mg6Ff3zBNYHxaeiEhmj
-; heb+gGwoOP7uyjoV/f31BNZ6xf5QRSH+dmQn/pyELaaT5v6wlTD+0rI2/vXPOxX9/fUE1gfF/ltOI/
-; 6Wfyz+0LE1qaHmE/7uyTozFf399QTWB8X+YlQk/qqQL/7yzTsV/f394gTWB8U7DCkV/f394gTWB8U7
-; DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8
-; U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTW
-; B8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394gTWB8U7DCkV/f394g
-; TWB8U7DCkV/f394gTWB8U7DCkV/f394GnABNYHxTsMKRX9/f3fDsEE1gfFOwwpFf39/dsOxQTWB8U7
-; DCkV/f392g7GBNYHxTsMKRX9/f3ZDscE1gfFOwwpFf39/dUOy/88NR7r/zw1Huz/PDUe9P88NR77BN
-; IHxTsMKRX9/f3UDsz/PDUejP88NR6T/zw1Hr3/PDUe6ATSesU7DCkV/f390w7N/zw1Hi3/PDUeOf88
-; NR6H/zw1HtUE0gfFOwwpFf39/dIOzgD/PDUeDP88NR5Y/zw1HqQ2/zw1HugYBM96xTsMKRX9/f3RDs
-; 8A/zw1Hgb/PDUeLxcc/zw1Hrz/PDUe8gTPB8U7DCkV/f39zQ7TAP88NR0BEf88NR4M/zw1Hjj/PDUe
-; kf88NR7qBM8HxTsMKRX9/f3NDtMAwv88NR4r/zw1Hor/PDUe6QTPB8U7DCkV/f39zA7UAMIoPRIEzw
-; fFOwwpFf39/cgO2ADC/zw1Hin/PDUegv88NR7bC/88NR76BM0HxTsMKRX9/f3HDtkAwv88NR4Z/zw1
-; Hk7/PDUehP88NR6w/zw1HtkEzQfF/mJUJAz+8s07Ff39/cYO2gDC/zw1Hgj/PDUeG/88NR4u/zw1Hm
-; z/PDUeuATNB8U7DCkV/f39wg7eAMX/PDUeSP88NR6nBM0HxTsMKRX9/f3BDt8AxSc8BM0HxTsMKRX9
-; /fsO4wDFJzwEzQfFOwwpFf39+g7kAMX/PDUeM/88NR52/zw1Hrb/PDUe0v88NR7uBMoHxTsMKf7/2D
-; 39/foO5P8AAAAAxf88NR4Y/zw1Hjj/PDUeWf88NR6Y/zw1HtcEygfFO/6qkC8pFf399g7oAMcR/zw1
-; HmX/PDUexATKB8X+YlQkDCkV/f31DukAxxEm/zw1HsQEygfF/mJUJAwpFf399A7qAMcRJv88NR7EBM
-; oHxf5iVCQMKRX9/fAO7gDH/zw1HgX/PDUeVf88NR6l/zw1Ht3/PDUe6w0ExwfFOwwpFf3972nvAMf/
-; PDUeA/88NR4w/zw1Hlz/PDUeiy7/PDUe7wTHB8U7DCkV/f3rDvJmAMf/OzQeAf88NR4K/zw1HhMC/z
-; w1Ho7/PDUe5ATHB8U7DP7yzTsV/f3qDvEJwQDK/zw1HiMl/zw1HuEExwfFOwwpFf396g7xCcEAyhAl
-; OgTHB8U7DCkV/f3lDvQJwwDKEP88NR5//zw1HtwY/zw1Hv3/PDUe/8UHxTsMKRX9/eUO9AnDAMr/PD
-; UeFf88NR5P/zw1Hon/PDUetP88NR7Z/zw1Hv4ExQfEOwwpFf395A70CcQAyv88NR4I/zw1Hh//PDUe
-; Nf88NR5t/zw1HrU5BMcHwjsMKRX9/eIO8gnIAM3/PDUeQP88NR6fLgTHB8I7DCkV/f3iDvEJyQDNDy
-; QuBMcHwjsMKRX9/d4O8QnNAM0PJC4ExwfCOwwpFf393Q7xCc4AzR//PDUedv88NR69/zw1Htb/PDUe
-; 7gTFB8I7DCkV/f3cDvFmzwDN/zw1Hhj/PDUeO/88NR5e/zw1Hpn/PDUe1QTFB8I7DCkV/f3YDvEJ0w
-; DQ/zw1Hl0jBMUHwjsMKRX9/ddp8QnUAND/PDUeXSMExQfCOwwpFf391mnyCdQA0P88NR5dIwTFB8I7
-; DCkV/f3SafIJ2ADQ/zw1HlL/PDUephsUDQTCB8I7DCn+/9g9/f3SDvEJ2QDQ/zw1Hi//PDUeYP88NR
-; 6P/zw1Hr7/PDUe7ATCB8I7DCkV/f3RDvEJ2gDQ/zw1Hg3/PDUeGhj/PDUejP88NR7eBMIHwjsMKRX9
-; /c0O8QneANI4/zw1Hnr/PDUe2QTCB8I7DCkV/f3MDvEJ3wDSOA0iBMIHwjsMKRX9/cgO8QnjANI4DS
-; IEwgfCOwwpFf39xw7xCeQA0v88NR4S/zw1Hk8T/zw1Hrn/PDUe2v88NR78BAfCOwwp/v/YPf39xg7y
-; CeQA0if/PDUeIRj/PDUeb/88NR6z/zw1HvgEB8I7DCkV/f3CDvEJ6f8AAAAA1f88NR44/zw1Hpf/PD
-; Ue9gQHwjv+qpAvKRX9/cIO8QnpANU3/zw1HpchBAfCO/6qkC8pFf39wA7yCeoA1Tf/PDUelyEEB8I7
-; /qqQLykV/fsO8QnuANX/PDUeLP88NR52/zw1HsEt/z01Hu8HwTsMKRX9+g7xCe8A1f88NR4X/zw1Hj
-; 7/PDUeZf89NR6b/z01HtMHwf5iVCT+qpAvKRX99g7xCfMA1f88NR4CET3/PTUeXP89NR63B8E7DCkV
-; /fUO8Qn0ANj/PTUeVf89NR60B8E7DCkV/fRp8Qn1ANg5/z01HrQHwTsMKRX98GnxCfkA2P89NR5O/z
-; 01Hqb/PTUe7f89NR70/z01Hvs7DCkV/e9p8gnN///XPPj//9c88P//1zzr6ADY/z01Hi//PTUeY/89
-; NR6V/z01Hr//PTUe6jsMKRX97g7yCc7//9c81v//1zyr///XPIzoANj/PTUeD/89NR4g/z01Hj3/PT
-; Uei/89NR7ZOwwpFf3qDvIJ0v//1zy0///XPGb//9c8LegA2v89NR4T/z01HnL/PTUe0TsMKRX96g7I
-; ///YPO7//9g82///2DzN5WbT///XPIT//9c8OP8AAAAA/cb/PTUeEzgNOwwpFf3mDsz//9g8zP//2D
-; yW///YPG7lZtP//9c8R///1zweAP3GIzgNOwwpFf3lac3//9g8q///2DxS///YPA/lZtP//9c8Cv//
-; 1zwE/wAAAAD9xiM4DTsMKRX95Q7N///YPKb//9g8RwD9/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39
-; /f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f
-; 39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39/f39
-; /f39/f39/f39/f39/f3WAAAAAAAAAAE=
+; thumbnail_QOI begin 256x256 5872
+; cW9pZgAAAQAAAAEABAAA/f390v9tWyUb/21bJf/d/21bJXoA/f39wP9tWyXG/21bJezg/21bJe4G3f
+; 9tWyX1/21bJX0A/f3a/21bJYH/bVsl3+D/bVsl+gb9w/9tWyWHAP31/21bJUL/bVsl0uA1Bv3m/21b
+; Jer/bVslegD90P9tWyUT/21bJcXh/21bJdcG/f3M/21bJZQA7P9tWyWQ/21bJbjf/21bJb//bVsl//
+; 398P9tWyXh/21bJXQA0/9tWyWr1v9tWyXtBv39/dX/bVsloP8AAAAA0wb9/f3u/21bJdv/bVslawDS
+; /0tAIP/+alklBv39/e3/bVslrf8AAAAA0v8xLB3//mlYJAb9/f3tDv9tWyVgANEv/k9DIf5qWCUG/f
+; 397f9tWyW6ANEvwP5mVSQG/f397Q7/bVslUwDQL8AMBv39/e4TANAvwP5VSCIuBv39/e3/bVsl2CcA
+; zy/B/mNTJAb9/f3u/21bJdMAzy/B/lhLIv5qWiWilv39/e3/bVwl3P9tXCUwAM4vwv5gUSML/f397v
+; 9tXCXgAM4vwh8L/f397v9tXCXj/21cJRoAzS/C/l1PI/5sWyUL/f397v9tXCXsAM0vwwwL/f397jr/
+; bVwkAgDML8MMC/39/e7/bVwl/v9tXCX1/wAAAADML8MM/m5cJf39/fAAzC/DpZQMDv39/e8AzC/E/l
+; pNIg79/f3vAMwvxKihDA79/f3M/raZMf7cuTfaacMAzC/F/ldKIg79/ef+ln4s/tSzNuD+8Ms7/v/X
+; PdhpxQDML8UaDv39xP56Zyf+zaw14P7hvTgQ+QnHAMwvxf5AOB/+XlAjDv3f/raZMf7GpzPNZtCngx
+; D92wnKAMz/MSwd/8b+VEgiDvr+moIs/r6hMuD+8847qqDKEP3vCcwAzC/GBw7X/oNuKP63mjHg/t+8
+; OBXrEP3vCc4AzC/G/kU7IP6Ebyn+r5Qw1v7GqDQV/c8Q/e8JzwDML8Z6/p6HLhX95RD97wnSAMwvxj
+; I0Ff3iEP3wCdQAzC/GMjQV/d8Q/fEJ1gDML8YyNBX93RD97wnaAMwvxjI0Ff3aEP3wCdwAzC/HNBX9
+; 1xD98QneAMwvxzQV/dQQ/fEJ4QDML8c0Ff3SEP3xCeMAzC/HNBX9zhD98wnlAMwvxzQV/csQ/fMJ6A
+; DML8c0Ff3IEP30CeoAzC/HNBX9xRD99QnrZgDML8c0Ff3CEP31CesEwgDML8c0Ff3AEP31CesExADM
+; L8c0FfsQ/fUJ6wTHAMwvxzQV+BD99QnsBMkAzC/HNBX1EP32CewEywDML8c0FfEQ/fcJ7ATOAMwvxz
+; QV8RD99gnsBM8AzC/HNBXtEP34CewE0QDML8c0FeoQ/fgJ7ATUAMwvxzQV5xD9+QnsBNYAzC/HNBXk
+; EP35CewE2QDML8c0FeEQ/foJ6wTcAMwvxzQV3hD9+gnsBN4AzC/HNBXbEP37CesE4QDML8c0FdgQ/f
+; wJ6wTjAMwvxzQV1RD9/AnrBOYAzC/HNBXREP39CewE6ADML8c0Fc4Q/f3ACesE6wDML8c0FcsQ/f0J
+; 7QTtAMwvxzQVyBD9/cAJ7ATwAMwvxzQVxRD9/cAJ7QTyAMwvxzQVwRD9/cIJ6wT2AMwvxzQQ/f3CCe
+; wE+ADML8f+noYuEP39wAnrBPsAzP8xLB3/x/6ehi4Q/fsJ7AT9AMz/MSwd/8f+noYuEP34CewE/cIA
+; zP8xLB3/x/6ehi4Q/fcJ7AT9wwDM/zEsHf/H/p6GLhD99QnrBP3GAMz/MSwd/8f+noYuEP3yCewE/c
+; gAzP8xLB3/x/6ehi4Q/fAJ6wT9ywDM/zEsHf/H/p6GLhD97QnsBP3NAMz/MSwd/8f+noYuEP3qCewE
+; /dAAzP8xLB3/x/6ehi4Q/egJ6wT90wDM/zEsHf/H/p6GLhD95AntBP3VAMz/MSwd/8f+noYuEP3hCe
+; 0E/dgAzP8xLB3/x/6ehi4Q/d8J6wT93ADM/zEsHf/H/p6GLhD93AnsBP3eAMz/MSwd/8f+noYuEP3Z
+; CewE/eEAzP8xLB3/x/6ehi4Q/dYJ7AT95ADM/zEsHf/H/p6GLhD91AnsBP3mAMz/MSwd/8f+noYuEP
+; 3RCewE/ekAzP8xLB3/x/6ehi4Q/c4J7AT97ADM/zEsHf/H/p6GLhD9ygnuBP3uAMz/MSwd/8f+noYu
+; EP3ICe0E/fEAzP8xLB3/x/6ehi4Q/cUJ7QT99ADM/zEsHf/H/p6GLhD9wgntBP33AMz/MSwd/8f+no
+; YuEP3BCe0E/fgAzP8xLB3/x/6ehi4Q/AnuBP36AMz/MSwd/8f+noYuEPkJ7gT9/QDM/zEsHf/H/p6G
+; LhD2Ce0E/f3DAMz/MSwd/8f+noYuEPQJ7AT9/cYAzP8xLB3/x/6ehi4Q8QnsBP39yQDM/zEsHf/H/p
+; 6GLhDuCewE/f3MAMz/MSwd/8f+noYuEOsJ7QT9/c4AzP8xLB3/x/6ehi4Q6AntBP390QDM/zEsHf/H
+; /p6GLhDkCe4E/f3UAMz/MSwd/8f+noYuEOEJ7gT9/dcAzP8xLB3/x/6ehi4Q3gntBP392wDM/zEsHf
+; /H/p6GLhDbCe0E/f3eAMz/MSwd/8f+noYuENgJ7QT9/eEAzP8xLB3/x/6ehi4Q1QntBP395ADM/zEs
+; Hf/H/p6GLhDSCe0E/f3nAMz/MSwd/8f+noYuEM8J7QT9/eoAzP8xLB3/x/6ehi4QywnvBP397ADM/z
+; EsHf/H/p6GLhDICe8E/f3vAMz/MSwd/8f+noYuEMcJ7wT9/fAAzP8xLB3/x/6ehi4QxAnvBP398wDM
+; /zEsHf/H/p6GLhDBCe8E/f31ZgDM/zEsHf/H/p6GLgnuBP399z/BAMz/MSwd/8f+noYtCesE/f32P8
+; UAzC/HKAnnBP39+D/HAMwvxygJ5AT9/fg/ygDML8coCeEE/f35P8wAzC/HKAneBP39+T/PAMwvxygJ
+; 2wT9/fo/0QDML8coCdgE/f36P9QAzC/HKAnVBP39+z/WAMwvxygJ0gT9/fs/2QDML8coCc0E/f39wD
+; /bAMwvxygJygT9/f3AP94AzC/HKAnHBP39/cA/4QDML8coCcQE/f39wD/kAMwvxygJwAT9/f3BP+cA
+; zC/HKAT9/f3BP+kAzC/HKAT9/fw/7ADML8coBP39+z/tAMwvxygE/f35P+8AzC/HKAT9/fY/8gDML8
+; coBP398z/1AMwvxygE/f3xP/cAzC/HKAT9/e4/+gDML8coBP396z/9AMwvxygE/f3pP/3BAMwvxygE
+; /f3mP/3EAMwvxygE/f3iP/3IAMwvxygE/f3gP/3KAMwvxygE/f3dP/3NAMwvxygE/f3aP/3QAMwvxy
+; gE/f3YP/3SAMwvxygE/f3VP/3VAMwvxygE/f3SP/3YAMwvxygE/f3PP/3bAMwvxygE/f3NP/3dAMwv
+; xygE/f3KP/3gAMwvxygE/f3HP/3jAMwvxygE/f3GP/3kAMwvxygE/f3DP/3nAMwvxygE/f3AP/3qAM
+; wvxygE/fs//e0AzC/HKAT9+D/98ADML8coBP31P/3zAMz/MSwd2P8xLB38L8UoBP3yP/32AM3/MSwd
+; 7C/FKAT97z/9+QDNHi/FKAT97D/9/ADNHi/FKAT96j/9/cAAzR4vxSgE/ec//f3DAM0eL8UoBP3jP/
+; 39xwDNHi/FKAT94D/9/coAzR4vxSgE/d0//f3NAM0eL8UoBP3aP/390ADNHi/FKAT91z/9/dMAzR4v
+; xSgE/dQ//f3WAM0eL8UoBP3RP/392QDNHi/FKAT9zj/9/dwAzR4vxSgE/c0//f3dAM0eL8UoBP3KP/
+; 394ADNHi/FKAT9xz/9/eMAzR4vxSgE/cQ//f3mAM0eL8UoBP3AP/396gDNHi/FKAT7P/397QDNHi/F
+; KAT4P/398ADNHi/FKAT1P/398wDNHi/FKATyP/399gDNHi/FKATuP/39+gDNHi/FKATrP/39/QDNHi
+; /FKAToP/39/cIAzR4vxSgE5D/9/f3GAM0eL8UoBOE//f39yQDNHi/FKATeP/39/cwAzR4vxSgE2j/9
+; /f3OZsAAzR4vxSgE1z/9/f3POsIAzR4vxSgE1D/9/f3POsUAzR4vxSgE0T/9/f3QOscAzR4vxSgEzT
+; /9/f3ROsoAzR4vxSgEzD/9/f3ROssAzR4vxSgEyT/9/f3SOslpwgDNHi/FKATGP/39/dI6yjPEAM0e
+; L8UoBME//f391DrKM8cAzR4vxSg//f391TrKM8kAzR4vxf6ehS0//f390jrKM8wAzR4vxSM//f39zz
+; rLM84AzR4vxSM//f39zDrLM9EAzR4vxSM//f39yTrMM9MAzR4vxSM//f39xzrLM9YAzR4vxSM//f39
+; xDrMM9gAzR4vxSM//f39wTrMM9sAzR4vxSM//f39Oswz3QDNHi/FIz/9/fo6yzPhAM0eL8UjP/399z
+; rMM+MAzR4vxSM//f3zOs0z5gDNHi/FIz/9/fE6zDPpAM0eL8UjP/397jrNM+sAzR4vxSM//f3rOs0z
+; 7gDNHi/FIz/9/ek6zTPwAM0eL8UjP/396DrNM/EAzR4vxSM//f3lOs0z9ADNHi/FIz/9/eI6zTP3AM
+; 0eL8UjP/393zrOM/kAzR4vxSM//f3cOs4z/ADNHi/FIz/9/do6zTP9wQDNHi/FIz/9/dc6zjP9wwDN
+; Hi/FIz/9/dQ6zTP9xwDNHi/FIz/9/dE6zTP9ygDNHi/FIz/9/c06zzP9zADNHi/FIz/9/co6zzP9zw
+; DNHi/FIz/9/cg6zjP90gDNHi/FIz/9/cU6zzP91ADNHi/FIz/9/cI6zzP91wDNHi/FIz/9/TrPM/3a
+; AM0eL8UjP/36Os8z/d0AzR4vxSM//fc60DP93wDNHi/FIz/99DrPM/3jAM0eL8UjP/3wOtAz/eYAzR
+; 4vxSM//fA6zTP96QDNHi/FIz/97DrQM/3qAM0eL8UjP/3pOtAz/e0AzR4vxSM//eY60TP97wDNHi/F
+; Iz/94zrRM/3yAM3/MSwdsv8xLB33L8QjP/3gOtEz/fUAzv8xLB3fL8QjP/3dOtEz/fgAzg8vxCM//d
+; o60TP9+wDO/zEsHcv/MSwd+y/DIz/91zrRaf39wADP/zEsHdMvwyM//dQ60TP9/cMAzwsvwyM//dA6
+; 0TP9/ccAzwsvwyM//c060jP9/ckAz/8xLB0X/zEsHcwvwiM//co60jP9/cwA0P8xLB3GL8IjP/3GOt
+; Mz/f3PANA8L8IjP/3DOtMz/f3SAND/MSwdND4vwSM//cA60zP9/dUA0f8xLB25L8EjP/s60zP9/dgA
+; 0S0vwSM/+DrTM/392wDR/zEsHU3/MSwdzy/AIz/1OtMz/f3eANL/MSwdrS/AIz/wOtUz/f3hANIpL8
+; AjP+861TP9/eIA0v8xLB1i/zEsHdYvIz/sOtQz/f3mANP/MSwdoC8jP+k61DP9/d/+6spX/tK/d8P/
+; 18Fw7v//1DuewQDTGi8jP+Y61DP9/cn//9Q7w///1Dur1v7IuoX+iZ3Yw/+JndiNANb/MSwdc/8xLB
+; 3h/56FLf8/4jrUM/3q/vTPSv7exWf/5Mhe7f//1Du43P//1Ds1APb/MSwdlCM/3zrUM/3N/ubIXJ98
+; wf/20EbU///UO8XZ/tbBcf6Jndj/iZ3YlAD91xYjP9w61DPuIgbC/+/NUPP//9Q70tj+kaHO/omd2M
+; H/iZ3YOP8AAAAA/fX/MSwdgf+liy7wP9g61TPX/vPOS//70kDm///UO9/W/sK3jf6JndjC/4md2KIA
+; /f3X///VPIc/1TrQnm/+9tBI//nRRPj//9Q87MBp2v6fp7r/iZ3YOQD9/fUXP9E61P7Ku4L+iZ3Y/4
+; md2KcA/f39xwAAAAAAAAAB
 ; thumbnail_QOI end
 ;top metadata start
-;Git Commit Hash (Version): eb34f9afae48941fe04777d3c073d0ff759516e6
+;Git Commit Hash (Version): ca4e53b1808e03ff851877ff6d9d6f3efb187376
 ;FLAVOR:RepRap
-;TIME:122
-;Filament used: 1.03867m
+;TIME:72
+;Filament used: 0.598677m
 ;Layer height: 1.55
-;MINX:145.35
-;MINY:280.35
+;MINX:147.3
+;MINY:264.748
 ;MINZ:1.55
-;MAXX:164.65
-;MAXY:299.65
-;MAXZ:9.3
+;MAXX:162.7
+;MAXY:264.748
+;MAXZ:24.8
 
 ;Arc One Settings
 ;weld_gap = 8.0
 ;sleep_time = 30.0
 ;rotate_amount = 6
 ;overwrite_movement_rate = False
-;movement_rate = 0.0
+;movement_rate = 281.0
 ;use_temperature_sensor = True
 ;wait_for_temp = 275.0
 ;pause_after_layer = True
 ;return_home = True
-;change_initial_Z = True
-;change_G0toG1 = True
+;change_initial_Z = False
+;change_G0toG1 = False
 ;TARGET_MACHINE.NAME:Unknown
 ;Generated with Cura_SteamEngine 5.7.2 + Arc One
 ;top metadata end
@@ -224,7 +203,7 @@ M82 ;absolute extrusion mode
 G28 ;Home
 M83 ;relative extrusion mode
 G1 F1000
-;LAYER_COUNT:6
+;LAYER_COUNT:16
 ;startup script end
 
 ;gcode movements start
@@ -236,55 +215,18 @@ G1 F600 Z9.0 ;Added in move_up_z.py
 ;Initial Z Offset Changed by change_initial_z.py
 G1F9000 Z100 ;Changed in change_G0_to_G1.py
 
-G1 F1000 X148.4 Y283.9 ;Removed Z in change_initial_z.py
-;TYPE:FILL
+G1 F1000 X162.7 Y264.748 ;Removed Z in change_initial_z.py
+;TYPE:WALL-OUTER
 G1 F600 Z8.0 ;Added in move_up_z.py
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
 M291 P"Weld On L0 B1" ;Added in weld_control.py
 G1 F1000 ;Removed extrusion in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
 M291 P"Weld Off L0 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L0 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L0 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L0 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L0 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X164.65 Y299.65 ;Changed in change_G0_to_G1.py
-;TYPE:WALL-OUTER
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L0 B4" ;Added in weld_control.py
-G1 F381 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 0 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 0 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 0 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 0 lines, Added in rotate_start_layer_print.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L0 B4" ;Added in weld_control.py
-G1F7200 X164.65 Y296.6 ;Changed in change_G0_to_G1.py
-;MESH:NONMESH
-G1F600 X164.65 Y296.6 Z9.55 ;Added in move_up_z.py Changed in change_G0_to_G1.py
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.4 Y283.9 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:24.779326
+;TIME_ELAPSED:8.977242
 ;LAYER:1
 G91 ;Added in wait_for_temp.py
 G1 Z40 ;Added in wait_for_temp.py
@@ -299,54 +241,17 @@ G1 Z-40 ;Added in wait_for_temp.py
 G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
-;TYPE:FILL
 ;MESH:Test Cube.stl
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L1 B1" ;Added in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L1 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L1 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L1 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L1 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L1 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.47 Y283.47 ;Changed in change_G0_to_G1.py
-G1X145.35 Y280.35 ;Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y264.748 Z9.55 ;Added in move_up_z.py Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L1 B4" ;Added in weld_control.py
-G1 F381 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 1 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 1 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M291 P"Weld On L1 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L1 B4" ;Added in weld_control.py
-G1F7200 X145.35 Y283.4 ;Changed in change_G0_to_G1.py
-;MESH:NONMESH
-G1F600 X145.35 Y283.4 Z11.100000000000001 ;Added in move_up_z.py Changed in change_G0_to_G1.py
-G1F7200 X154.57 Y289.57 ;Changed in change_G0_to_G1.py
-G1X148.4 Y283.9 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:44.478192
+M291 P"Weld Off L1 B1" ;Added in weld_control.py
+;TIME_ELAPSED:13.200813
 ;LAYER:2
 G91 ;Added in wait_for_temp.py
 G1 Z40 ;Added in wait_for_temp.py
@@ -361,53 +266,17 @@ G1 Z-40 ;Added in wait_for_temp.py
 G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
-;TYPE:FILL
 ;MESH:Test Cube.stl
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L2 B1" ;Added in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L2 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L2 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L2 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L2 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L2 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X164.65 Y299.65 ;Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y264.748 Z11.100000000000001 ;Added in move_up_z.py Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L2 B4" ;Added in weld_control.py
-G1 F381 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
+M291 P"Weld On L2 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L2 B4" ;Added in weld_control.py
-G1F7200 X164.65 Y296.6 ;Changed in change_G0_to_G1.py
-;MESH:NONMESH
-G1F600 X164.65 Y296.6 Z12.65 ;Added in move_up_z.py Changed in change_G0_to_G1.py
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.4 Y283.9 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:64.177051
+M291 P"Weld Off L2 B1" ;Added in weld_control.py
+;TIME_ELAPSED:17.424383
 ;LAYER:3
 G91 ;Added in wait_for_temp.py
 G1 Z40 ;Added in wait_for_temp.py
@@ -422,54 +291,17 @@ G1 Z-40 ;Added in wait_for_temp.py
 G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
-;TYPE:FILL
 ;MESH:Test Cube.stl
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L3 B1" ;Added in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L3 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L3 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L3 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L3 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L3 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.47 Y283.47 ;Changed in change_G0_to_G1.py
-G1X145.35 Y280.35 ;Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y264.748 Z12.65 ;Added in move_up_z.py Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L3 B4" ;Added in weld_control.py
-G1 F381 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 2 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 2 lines, Added in rotate_start_layer_print.py
+M291 P"Weld On L3 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L3 B4" ;Added in weld_control.py
-G1F7200 X145.35 Y283.4 ;Changed in change_G0_to_G1.py
-;MESH:NONMESH
-G1F600 X145.35 Y283.4 Z14.2 ;Added in move_up_z.py Changed in change_G0_to_G1.py
-G1F7200 X154.57 Y289.57 ;Changed in change_G0_to_G1.py
-G1X148.4 Y283.9 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:83.875918
+M291 P"Weld Off L3 B1" ;Added in weld_control.py
+;TIME_ELAPSED:21.647954
 ;LAYER:4
 G91 ;Added in wait_for_temp.py
 G1 Z40 ;Added in wait_for_temp.py
@@ -484,53 +316,17 @@ G1 Z-40 ;Added in wait_for_temp.py
 G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
-;TYPE:FILL
 ;MESH:Test Cube.stl
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L4 B1" ;Added in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L4 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L4 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L4 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L4 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L4 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X164.65 Y299.65 ;Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y264.748 Z14.2 ;Added in move_up_z.py Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L4 B4" ;Added in weld_control.py
-G1 F381 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 3 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 3 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 3 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 3 lines, Added in rotate_start_layer_print.py
+M291 P"Weld On L4 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L4 B4" ;Added in weld_control.py
-G1F7200 X164.65 Y296.6 ;Changed in change_G0_to_G1.py
-;MESH:NONMESH
-G1F600 X164.65 Y296.6 Z15.75 ;Added in move_up_z.py Changed in change_G0_to_G1.py
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.4 Y283.9 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:103.574777
+M291 P"Weld Off L4 B1" ;Added in weld_control.py
+;TIME_ELAPSED:25.871524
 ;LAYER:5
 G91 ;Added in wait_for_temp.py
 G1 Z40 ;Added in wait_for_temp.py
@@ -545,53 +341,267 @@ G1 Z-40 ;Added in wait_for_temp.py
 G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
-;TYPE:FILL
 ;MESH:Test Cube.stl
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L5 B1" ;Added in weld_control.py
-G1 F381 X161.6 Y283.9 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L5 B1" ;Added in weld_control.py
-G1F7200 X155.43 Y289.57 ;Changed in change_G0_to_G1.py
-G1X161.6 Y290 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L5 B2" ;Added in weld_control.py
-G1 F381 X148.4 Y290 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L5 B2" ;Added in weld_control.py
-G1F7200 X154.6 Y290 ;Changed in change_G0_to_G1.py
-G1X148.4 Y296.1 ;Changed in change_G0_to_G1.py
-G4 P0 ;Added in weld_control.py
-M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L5 B3" ;Added in weld_control.py
-G1 F381 X161.6 Y296.1 ;Removed extrusion in weld_control.py
-M42 P1 S0 ;Disable Welder, Added in weld_control.py
-G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L5 B3" ;Added in weld_control.py
-G1 X163.125 Y296.1
-G1F7200 X155.43 Y290.43 ;Changed in change_G0_to_G1.py
-G1X148.47 Y283.47 ;Changed in change_G0_to_G1.py
-G1X145.35 Y280.35 ;Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y264.748 Z15.75 ;Added in move_up_z.py Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
-M291 P"Weld On L5 B4" ;Added in weld_control.py
-G1 F381 X145.35 Y299.65 ;Removed extrusion in weld_control.py, Moved 4 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y299.65 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 4 lines, Added in rotate_start_layer_print.py
-G1 X164.65 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 4 lines, Added in rotate_start_layer_print.py
-G1 X145.35 Y280.35 ;Removed extrusion in weld_control.py, Changed in rotate_start_layer_print.py, Moved 4 lines, Added in rotate_start_layer_print.py
+M291 P"Weld On L5 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L5 B4" ;Added in weld_control.py
-G1F7200 X145.35 Y283.4 ;Changed in change_G0_to_G1.py
-;TIME_ELAPSED:122.842844
+M291 P"Weld Off L5 B1" ;Added in weld_control.py
+;TIME_ELAPSED:30.095094
+;LAYER:6
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y264.748 Z17.3 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L6 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 0 lines, Added in rotate_start_layer_print.py
 M42 P1 S0 ;Disable Welder, Added in weld_control.py
 G4 P0 ;Added in weld_control.py
-M291 P"Weld Off L5 B5" ;Added in weld_control.py
+M291 P"Weld Off L6 B1" ;Added in weld_control.py
+;TIME_ELAPSED:34.318665
+;LAYER:7
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y264.748 Z18.85 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L7 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L7 B1" ;Added in weld_control.py
+;TIME_ELAPSED:38.542235
+;LAYER:8
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y264.748 Z20.4 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L8 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L8 B1" ;Added in weld_control.py
+;TIME_ELAPSED:42.765806
+;LAYER:9
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y264.748 Z21.95 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L9 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L9 B1" ;Added in weld_control.py
+;TIME_ELAPSED:46.989376
+;LAYER:10
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y264.748 Z23.5 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L10 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L10 B1" ;Added in weld_control.py
+;TIME_ELAPSED:51.212947
+;LAYER:11
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y264.748 Z25.05 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L11 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L11 B1" ;Added in weld_control.py
+;TIME_ELAPSED:55.436517
+;LAYER:12
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y264.748 Z26.599999999999998 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L12 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 0 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L12 B1" ;Added in weld_control.py
+;TIME_ELAPSED:59.660087
+;LAYER:13
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y264.748 Z28.15 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L13 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L13 B1" ;Added in weld_control.py
+;TIME_ELAPSED:63.883658
+;LAYER:14
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y264.748 Z29.7 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L14 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L14 B1" ;Added in weld_control.py
+;TIME_ELAPSED:68.107228
+;LAYER:15
+G91 ;Added in wait_for_temp.py
+G1 Z40 ;Added in wait_for_temp.py
+G1 X72 Y74 ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass Start" ;Added in wait_for_temp.py
+M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py
+G4 P0 ;Added in wait_for_temp.py
+M291 P"Interpass End" ;Added in wait_for_temp.py
+G1 X-72 Y-74 ;Added in wait_for_temp.py
+G1 Z-40 ;Added in wait_for_temp.py
+G90 ;Added in wait_for_temp.py
+M226
+;Added in add_pause_after_layer.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y264.748 Z31.25 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L15 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y264.748 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+;TIME_ELAPSED:72.330799
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L15 B1" ;Added in weld_control.py
 ;gcode movements end
 
 ;end script start

@@ -29,6 +29,7 @@ class TestChangeInitialZ(TestSectionProcessorInterface, unittest.TestCase):
                 line += 1
                 self.assertEqual(flag1, "Initial Z Offset comment was added")
                 self.assertEqual(flag2, "INITIAL_Z_MOVE was added")
+                #Not complete although test passes
 
     def process(self, gcode_section: list[str]) -> list[str]:
         self.gcode_section = gcode_section
