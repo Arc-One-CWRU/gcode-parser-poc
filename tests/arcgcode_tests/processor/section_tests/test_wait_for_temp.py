@@ -1,7 +1,4 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from math import modf
-from arcgcode.cura.gcodes import GCodes
-from arcgcode.processor.base.cura import CURA_LAYER
 import unittest
 
 
