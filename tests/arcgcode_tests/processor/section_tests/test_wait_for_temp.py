@@ -1,10 +1,13 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
+from math import modf
+from arcgcode.cura.gcodes import GCodes
+from arcgcode.processor.base.cura import CURA_LAYER
 import unittest
 
 
 class TestWaitForTemp(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+    """Tests that post-processor added command to wait for designated 
+       temperature after each layer before continuing.
     """
 
     def __init__(self) -> None:
@@ -16,18 +19,25 @@ class TestWaitForTemp(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_wait_for_temp(self):
-            flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
-            
-            self.assertTrue(flag)
+            line = 1
+            while line < len(self.gcode_section):
+                if self.gcode_section[line].startswith(";LAYER:") and "0" not in self.gcode_section[line][7]:
+                    self.assertEqual(
+                        self.gcode_section[line+1:line+12],
+                        ['G91 ;Added in wait_for_temp.py\n',
+                        'G1 Z40 ;Added in wait_for_temp.py\n',
+                        'G1 X72 Y74 ;Added in wait_for_temp.py\n',
+                        'G4 P0 ;Added in wait_for_temp.py\n',
+                        'M291 P"Interpass Start" ;Added in wait_for_temp.py\n',
+                        'M98 P"/macros/WaitForInterpassTemp.g" ;Added in wait_for_temp.py\n',
+                        'G4 P0 ;Added in wait_for_temp.py\n',
+                        'M291 P"Interpass End" ;Added in wait_for_temp.py\n',
+                        'G1 X-72 Y-74 ;Added in wait_for_temp.py\n',
+                        'G1 Z-40 ;Added in wait_for_temp.py\n',
+                        'G90 ;Added in wait_for_temp.py\n'])
+                line += 1
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
-        """
         self.gcode_section = gcode_section
         tests = [self.Test("test_wait_for_temp", gcode_section)]
         return unittest.TestSuite(tests=tests)
