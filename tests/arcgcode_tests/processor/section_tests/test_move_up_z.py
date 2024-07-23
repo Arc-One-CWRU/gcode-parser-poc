@@ -21,9 +21,17 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
             for line in self.gcode_section:
                 if ";Added in move_up_z.py" in line:
                     flag1 = "move_up_z comment was added"
+                    z_index = line.index("Z")+1
+                    z_num = round(float(line[z_index:z_index+4]), 2)
+                    prev_z_index = line.index("was")+4
+                    prev_z_num = float(line[prev_z_index:prev_z_index+4])
+                    diff_index = line.index("is")+3
+                    diff_num = float(line[diff_index:diff_index+4])
+                    if z_num == round((prev_z_num+diff_num), 2):
+                        flag2 = "Z value is correct"
             
-            self.assertEqual(flag1, )
-            self.assertEqual(flag2, )
+            self.assertEqual(flag1, "move_up_z comment was added")
+            self.assertEqual(flag2, "Z value is correct")
 
     def process(self, gcode_section: list[str]) -> list[str]:
         self.gcode_section = gcode_section

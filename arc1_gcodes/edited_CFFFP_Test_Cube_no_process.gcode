@@ -220,7 +220,7 @@ G1 F1000
 ;gcode movements start
 ;LAYER:0
 M107
-G1 F600 Z9.0 ;Added in move_up_z.py, orginal was 2.55
+G1 F600 Z9.0 ;Added in move_up_z.py: orginal z was 2.55 and diff is 6.45
 ;MESH:Test Cube.stl
 
 ;Initial z Offset Changed by change_initial_z.py
@@ -228,7 +228,7 @@ G1F9000 Z100 ;Changed in change_G0_to_G1.py
 
 G1 F1000 X162.7 Y290 ;Removed z in change_initial_z.py
 ;TYPE:WALL-OUTER
-G1 F600 Z8.0 ;Added in move_up_z.py, orginal was 1.55
+G1 F600 Z8.0 ;Added in move_up_z.py: orginal z was 1.55 and diff is 6.45
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
 M291 P"Weld On L0 B1" ;Added in weld_control.py
@@ -253,7 +253,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z9.55 ;Added in move_up_z.py, orginal was 3.1 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z9.55 ;Added in move_up_z.py: orginal z was 3.1 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -278,7 +278,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z11.100000000000001 ;Added in move_up_z.py, orginal was 4.65 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z11.100000000000001 ;Added in move_up_z.py: orginal z was 4.65 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -303,7 +303,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z12.65 ;Added in move_up_z.py, orginal was 6.2 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z12.65 ;Added in move_up_z.py: orginal z was 6.2 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -328,7 +328,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z14.2 ;Added in move_up_z.py, orginal was 7.75 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z14.2 ;Added in move_up_z.py: orginal z was 7.75 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -353,7 +353,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z15.75 ;Added in move_up_z.py, orginal was 9.3 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z15.75 ;Added in move_up_z.py: orginal z was 9.3 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -378,7 +378,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z17.3 ;Added in move_up_z.py, orginal was 10.85 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z17.3 ;Added in move_up_z.py: orginal z was 10.85 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -403,7 +403,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z18.85 ;Added in move_up_z.py, orginal was 12.4 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z18.85 ;Added in move_up_z.py: orginal z was 12.4 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -428,7 +428,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z20.4 ;Added in move_up_z.py, orginal was 13.95 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z20.4 ;Added in move_up_z.py: orginal z was 13.95 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -453,7 +453,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z21.95 ;Added in move_up_z.py, orginal was 15.5 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z21.95 ;Added in move_up_z.py: orginal z was 15.5 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -478,7 +478,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z23.5 ;Added in move_up_z.py, orginal was 17.05 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z23.5 ;Added in move_up_z.py: orginal z was 17.05 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -503,7 +503,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z25.05 ;Added in move_up_z.py, orginal was 18.6 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z25.05 ;Added in move_up_z.py: orginal z was 18.6 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -528,7 +528,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z26.599999999999998 ;Added in move_up_z.py, orginal was 20.15 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z26.599999999999998 ;Added in move_up_z.py: orginal z was 20.15 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -553,7 +553,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z28.15 ;Added in move_up_z.py, orginal was 21.7 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z28.15 ;Added in move_up_z.py: orginal z was 21.7 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -578,7 +578,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X162.7 Y290 Z29.7 ;Added in move_up_z.py, orginal was 23.25 Changed in change_G0_to_G1.py
+G1F7200 X162.7 Y290 Z29.7 ;Added in move_up_z.py: orginal z was 23.25 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py
@@ -603,7 +603,7 @@ G90 ;Added in wait_for_temp.py
 M226
 ;Added in add_pause_after_layer.py
 ;MESH:Test Cube.stl
-G1F7200 X147.3 Y290 Z31.25 ;Added in move_up_z.py, orginal was 24.8 Changed in change_G0_to_G1.py
+G1F7200 X147.3 Y290 Z31.25 ;Added in move_up_z.py: orginal z was 24.8 and diff is 6.45 Changed in change_G0_to_G1.py
 ;TYPE:WALL-OUTER
 G4 P0 ;Added in weld_control.py
 M42 P1 S1 ;Enable Welder, Added in weld_control.py

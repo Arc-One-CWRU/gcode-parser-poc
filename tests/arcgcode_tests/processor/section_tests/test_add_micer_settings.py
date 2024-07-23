@@ -39,14 +39,11 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
                         i+=1
                         settings_attr = field.name
                         settings_val = getattr(self.settings, settings_attr)
-                        if settings_attr == "weld_gap" or settings_attr == "sleep_time" or settings_attr == "movement_rate" or settings_attr == "wait_for_temp":
-                            settings_val = float(settings_val)
                         parsed_settings = f';{settings_attr} = {settings_val}\n'
                         self.assertEqual(parsed_settings, self.gcode_section[i])
                 i += 1
             self.assertEqual("Generated with test did run", flag1)   
-            self.assertEqual("Header settings test did run", flag2)  
-            # self.assertTrue(flag)
+            self.assertEqual("Header settings test did run", flag2)
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return
