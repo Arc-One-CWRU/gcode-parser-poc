@@ -212,10 +212,10 @@ M107
 G1 F600 Z9.0 ;Added in move_up_z.py
 ;MESH:Test Cube.stl
 
-;Initial Z Offset Changed by change_initial_z.py
+;Initial z Offset Changed by change_initial_z.py
 G1F9000 Z100 ;Changed in change_G0_to_G1.py
 
-G1 F1000 X162.7 Y264.748 ;Removed Z in change_initial_z.py
+G1 F1000 X162.7 Y264.748 ;Removed z in change_initial_z.py
 ;TYPE:WALL-OUTER
 G1 F600 Z8.0 ;Added in move_up_z.py
 G4 P0 ;Added in weld_control.py

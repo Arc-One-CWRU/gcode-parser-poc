@@ -1,0 +1,480 @@
+;Gcode Generated with ArcOne Post-Processing Script
+;POSTPROCESSED
+;  [ArcOne]
+;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
+; thumbnail_QOI begin 48x48 680
+; cW9pZgAAADAAAAAwBAAAxf9fUCNS0/9fUCP/zwDC/19QI/fEF+QoAMH/Qjkf/xfp/19QI74Awf80Lh
+; 3/F+oAwQKjlhfc/vDRPcsAwQLA/reeNMf+58k9/v/eQcBp3QDB/zQuHf/AD8gI3wDBAsAPxgjhAMEC
+; wA/ECOMAwQLAD8EI5WYAwQLACOUDwgDBAsAI5APDAMECwAjhA8YAwQLACN8DyADBAsAI3QPKAMECwA
+; jbA8wAwQLACNgDzwDBAsAI1gPRAMECwAjTA9QAwQLACNED1gDBAsAIzwPYAMECwAjMA9sAwQLACMkD
+; 3gDBAsAIyAPfAMECwAjFA+IAwQLACMQD4wDBAsAIwQPlaQDBAsAD5TzCAMECwAPkPMMAwQLAA+E8xg
+; DBAsAD3zzIAMECwAPdPMoAwQLAA9s8zADBAsAD2DzPAMECwAPWPNEAwQLAA9M80mbAAMECwAPRPNE3
+; wwDBAsADzzzRN8UAwQLAA8w80TfIAMECwAPJPNI3ygDBAsADyDzRN8wAwQLAA8U80TfPAMECwAPDPN
+; I30ADBAsADwDzSN9MAwf80Lh2BAjzRN9YAwf80Lh00AjzQN9cAwgI8zTfVn25mwf/+20H6AML/NC4d
+; UjzKN8L+6dFi/r27qcP//9w/Us7+nazbwv+drNsbAMAAAAAAAAAAAQ==
+; thumbnail_QOI end
+; thumbnail_QOI begin 128x128 2444
+; cW9pZgAAAIAAAACABAAA/cv/X1AjcP9fUCP/6v9fUCOr/19QIw0A1v9fUCMM/19QI0//X1AjbfX/X1
+; AjrRfqOzEAx/9fUCMLzf9fUCMl/19QI7wX/eT/X1Ajr/9fUCMX/19QIwUAxv9fUCOozf9fUCOy/19Q
+; I+cX/eT/X1Aj4hH/X1AjSADG/1NHIf+klRf99f9fUCNuAMb/OTIe//5JPyAX/fUcAMb/NC4d//5GPS
+; AX/fX/X1AjuP9fUCOCAMUC/kQ7H/5aTCKjhhf99QDFAiymo/5USCIX/fUAxQLAoob+UUUhF/31AMUC
+; wBIoF/31AMUCwH6osv5NQiD+XU4jF/3P/o56LP6/pTThAMUCwqqg/ltNIqOW1v5tXCb+gW8p9P7Apj
+; T+/95A4QDF/zQuHf/CJjUX1v6VgC3+5MY8x2nr/vHSPgjhAMUCwv5VSiP+nIcvqaDW/suvN/7/3kHH
+; CP3RAMX/NC4d/8L+b2En/u3OPg/dCP3UAMUCwjg0D9kI/dgAxQLCODQP2Aj92QDFAsI4NA/VCP3cAM
+; UCwjg0D9MI/d4AxQLCODQP0gj93wDFAsI4NA/NCP3kAMUCwjg0D8wI/eUAxQLCODQPygj95wDFAsI4
+; NA/FCP3pZsEAxQLCODQPxQj96QPBAMUCwjg0D8II/ekDxADFAsI4/u3OPQ/BCP3pA8UAxQLCOC0I/e
+; kDyADFAsI4LQj95gPLAMUCwjgtCP3mA8sAxQLCOC0I/eED0ADFAsI4LQj93wPSAMUCwjgtCP3eA9MA
+; xQLCOC0I/dsD1gDFAsI4LQj92gPXAMUCwjgtCP3YA9kAxQLCOC0I/dMD3gDFAsI4LQj90gPfAMUCwj
+; gtCP3QA+EAxQLCOC0I/c8D4gDFAsI4LQj9zAPlAMUCwjgtCP3IA+kAxQLCOC0I/ccD6gDFAsI4LQj9
+; xAPtAMUCwjgtCP3CA+8AxQLCOC0I/cED8ADFAsI4LQj6A/UAxQLCOC0I+gP1AMUCwjgtCPcD+ADFAs
+; I4LQj0A/sAxQLCOC0I8wP8AMUCwjgtCO8D/cIAxQLCOC0I7AP9xQDFAsI4LQjrA/3GAMUCwjgtCOkD
+; /cgAxQLCOC0I6AP9yQDFAsI4LQjkA/3NAMUCwjgtCOED/dAAxQLCOC0I4AP90QDFAsI4LQjcA/3VAM
+; UCwjgtCNsD/dYAxQLCOC0I2AP92QDFAsI4LQjUA/3dAMUCwjgtCNMD/d4AxQLCOC0I0AP94QDFAsI4
+; LQjOA/3jAMUCwjgtCM0D/eQAxQLCOC0IyAP96QDFAsI4LQjIA/3pAMUCwjgtCMUD/eppwADFAsI4LQ
+; jBA/3qPMQAxQLCOC0IwAP96jzFAMUCwjj+7c09A/3pPMgAxQLCOCgD/ek8yADFAsI4KAP95jzLAMUC
+; wjgoA/3jPM4AxQLCOCgD/eI8zwDFAsI4KAP93jzTAMUCwjgoA/3bPNYAxQLCOCgD/ds81gDFAsI4KA
+; P92DzZAMUCwjgoA/3XPNoAxQLCOCgD/dM83gDFAsI4KAP90DzhAMUCwjgoA/3PPOIAxQLCOCgD/cw8
+; 5QDFAsI4KAP9yjznAMUCwjgoA/3JPOgAxQLCOCgD/cQ87QDFAsI4KAP9xDztAMUCwjgoA/3BPPAAxQ
+; LCOCgD+zzxZsEAxQLCOCgD+jzyN8EAxQLCOCgD9zzyN8QAxQLCOCgD9jzyN8UAxQLCOCgD9DzwN8kA
+; xQLCOCgD7zzyN8wAxQLCOCgD7zzxN80AxQLCOCgD7DzxN9AAxQLCOCgD6TzyN9IAxQLCOCgD6DzyN9
+; MAxQLCOCgD5DzxN9gAxQLCOCgD4zzyN9gAxQLCOCgD4DzyN9sAxQLCOCgD3DzyN98AxQLCOCgD2zzy
+; N+AAxQLCOCgD2DzyN+MAxQLCOCgD2DzxN+QAxQLCOCgD0zz0N+YAxQLCOCgD0TzxN+sAxQLCOCgD0D
+; zxN+wAxQLCOCgDyzz0N+4AxQLCOCgDyTzzN/EAxQLCOCgDyDzzN/IAxQLCOCgDxDzzN/YAxQLCOCgD
+; wzzzN/cAxf80Lh36/zQuHfwCwDgoA8A88zf6AMX/NC4dXf80Lh2iAsA4/u3NPDzxN/3AAMb/NC4dbg
+; LAOCE88Df9wQDGBwLAOCE87Tf9xADG/zQuHTj/NC4dif80Lh3WOCE87Df9xQDH/zQuHQ3/NC4dqzgh
+; POg3/ckAxxwmOCE85Tf9zADHHCY4ITzlN/z++9pG/ubQZ/7ezHTI/+3TW87//9w/qADHHCY4ITziZv
+; 3B/vPWU/65ua/+oa7UyP+mscx0///cPwsAx/80Lh0F/zQuHUn/l4Qul//31j7yPN5myf7110/+0saH
+; /sfAmcv/18h/uf//3D9t6P7y1lT+tbi0/p2s28j/nazbLwDK///dP0r//90/6DzdN8r+7dNb/rC2vP
+; 6drNvL/52s24UA+gAAAAAAAAAB
+; thumbnail_QOI end
+; thumbnail_QOI begin 160x160 3384
+; cW9pZgAAAKAAAACgBAAA/d7/X1Ajcv9fUCPx/19QI//0/19QI7z/X1AjPQDd/19QIwv/X1AjKgH9xf
+; 9fUCOU/19QI/QX9DYBAN3/X1AjI/9fUCOA/19QI7v9xf9fUCPa/19QI/sX9DYB/wAAAADK/19QIzrR
+; /19QI1//X1AjwBf9/f9fUCPL/19QI2r/X1AjK/9fUCMOAMj/X1AjuNH/X1Ajxf9fUCPoF/39/19QI+
+; z/X1Ajyf9fUCOJ/19QIy4AyP9WSSL/oZeklRf9/dP/X1Ajvv9fUCM/AMj/QDgf/6aj/ldKIqaj/f3T
+; DP9fUCM/AMj/NC4d/6ix/lRHIamh/f3TG/9fUCNm/19QIzQAxwISOxf9/dP/X1Aj6xn/X1AjsgDHAq
+; ei/k5CIamgo5YX/f3UAMcCo4WlpKiy/ldKIhf9/dQAxwLBD/5URyEX/f3UAMcCwQ87F/391ADHAsGn
+; ov5OQyGpsKKXF/3jqZH+d2Uno3bp/wAAAADHAsGjhaajqKL+V0oipqP94/6JdSv+vaQ0qpDpAMcCww
+; /+U0chF9yjhv5uXiaokslp9v6tlTH+8NE9/v/eQOkAxwLDDzgX3P5sXCX+n4kv/sasNv3D/t3AOv75
+; 2T+llOkAxwLD/kM6H/5kVST+dWQn3P6Hcyr+y7A3/v/eQckI/eUAxwLD/lVLI/6diC/+xKo23KeS/u
+; nKPf7/3kHGCP3oAMcCw/5jVyX+yK43D+UI/ekAxwLDFDQP4Aj97gDHAsMUNA/fCP3vAMcCwxQ0D9wI
+; /fIAxwLDFDQP2wj98wDHAsMUNA/YCP32AMcCwxQ0D9cI/fcAxwLDFDQP0gj9/ADHAsMUNA/RCP39AM
+; cCwxQ0D84I/f3CAMcCwxQ0D80I/f3DAMcCwxQ0D8gI/f3FZsEAxwLDFDQPxwj9/cUDwgDHAsMUNA/E
+; CP39xQPFAMcCwxQ0D8MI/f3FA8YAxwLDFDQI/f3HA8kAxwLDFC0I/f3GA8oAxwLDFC0I/f3DA80Axw
+; LDFC0I/f3CA84AxwLDFC0I/fsD0wDHAsMULQj9+gPUAMcCwxQtCP35A9UAxwLDFC0I/fYD2ADHAsMU
+; LQj99QPZAMcCwxQtCP3yA9wAxwLDFC0I/fED3QDHAsMULQj97gPgAMcCwxQtCP3tA+EAxwLDFC0I/e
+; gD5gDHAsMULQj95wPnAMcCwxQtCP3kA+oAxwLDFC0I/eMD6wDHAsMULQj94APuAMcCwxQtCP3fA+8A
+; xwLDFC0I/doD9ADHAsMULQj92QP1AMcCwxQtCP3WA/gAxwLDFC0I/dUD+QDHAsMULQj90gP8AMcCwx
+; QtCP3RA/0AxwLDFC0I/cwD/cQAxwLDFC0I/csD/cUAxwLDFC0I/cgD/cgAxwLDFC0I/ccD/ckAxwLD
+; FC0I/cQD/cwAxwLDFC0I/cMD/c0AxwLDFC0I/AP90gDHAsMULQj7A/3TAMcCwxQtCPgD/dYAxwLDFC
+; 0I9wP91wDHAsMULQj0A/3aAMcCwxQtCPMD/dsAxwLDFC0I7gP94ADHAsMULQjtA/3hAMcCwxQtCOoD
+; /eQAxwLDFC0I6QP95QDHAsMULQjkA/3qAMcCwxQtCOMD/esAxwLDFC0I4AP97gDHAsMULQjfA/3vAM
+; cCwxQtCNoD/fQAxwLDFC0I2QP99QDHAsMULQjWA/34AMcCwxQtCNUD/fkAxwLDFC0I0gP9/ADHAsMU
+; LQjRA/39AMcCwxQtCMwD/f3EAMcCwxQtCMsD/f3FAMcCwxQtCMgD/f3GacAAxwLDFC0IxwP9/cc8wA
+; DHAsMULQjCA/39xjzGAMcCwxQtCMED/f3HPMYAxwLDFC0D/f3GPMoAxwLDFP7IrTYD/f3GPMoAxwLD
+; FCgD/f3CPM4AxwLDFCgD/f3CPM4AxwLDFCgD/fw80gDHAsMUKAP9/DzSAMcCwxQoA/32PNgAxwLDFC
+; gD/fY82ADHAsMUKAP98jzcAMcCwxQoA/3yPNwAxwLDFCgD/e484ADHAsMUKAP97jzgAMcCwxQoA/3o
+; POYAxwLDFCgD/eg85gDHAsMUKAP95DzqAMcCwxQoA/3kPOoAxwLDFCgD/eA87gDHAsMUKAP94DzuAM
+; cCwxQoA/3cPPIAxwLDFCgD/dw88gDHAsMUKAP91jz4AMcCwxQoA/3WPPgAxwLDFCgD/dI8/ADHAsMU
+; KAP90jz8AMcCwxQoA/3MPP3BZsEAxwLDFCgD/cw8/cA3wgDHAsMUKAP9yDz9wTfFAMcCwxQoA/3HPP
+; 3BN8YAxwLDFCgD/cQ8/TfLAMcCwxQoA/3DPP03zADHAsMUKAP9wjz9N80AxwLDFCgD+zz9wTfQAMcC
+; wxQoA/s8/cA30QDHAsMUKAP3PP3BN9QAxwLDFCgD9zz9wDfVAMcCwxQoA/M8/cE32ADHAsMUKAPzPP
+; 3AN9kAxwLDFCgD7Tz9wTfeAMcCwxQoA+08/cA33wDHAsMUKAPpPP3BN+IAxwLDFCgD6Tz9wDfjAMcC
+; wxQoA+M8/cE36ADHAsMUKAPjPP3AN+kAxwLDFCgD3zz9wTfsAMcCwxQoA988/cA37QDHAsMUKAPZPP
+; 3DN/AAxwLDFCgD2Tz9wjfxAMcCwxQoA9U8/cE39gDHAsMUKAPVPP3AN/cAxwLDFCgDzzz9wzf6AMcC
+; wxQoA888/cI3+wDHAsMUKAPLPP3DN/3AAMcCwxQoA8s8/cI3/cEAxwLDFCgDxTz9wzf9xgDHAsMUKA
+; PFPP3CN/3HAMcCwxQoA8E8/cM3/coAx/80Lh2r/zQuHcD/NC4d6QLAFCgDwTz9wjf9ywDH/zQuHS3/
+; NC4dYf80Lh3JAsAUKP7/3T/9wDf90ADI/zQuHT7/NC4dvQLAFCg8/Wb90QDI/zQuHT4sAsAUKDz6Zv
+; 3UAMj/NC4dLP80Lh2E/zQuHcT/NC4d6xQoPPk3/dUAyP80Lh0N/zQuHSb/NC4dZDAUKDz0N/3aAMr/
+; NC4dPf80Lh27FCg88zf92wDKLBYUKDzwN/3eAMosFhQoPO83/c7+99hM/unRYv7kz2rK/+nRYu3/9t
+; hNyv//3D+4AMosFhQoPOw3/dH+6NFj/sO+n/6zt7fK/7m6r83/0saGa///3D86/wAAAADK/zQuHS3/
+; NC4div9vYSfL/9O3OO3//90//+tmx5+L/vHVVf7lz2jP//DUWN7//txAvf//3D+78v7hzW7+sba8/p
+; 2s28r/nazbi/+drNsuAMv/NC4dD/80Lh0t/6WPMGr/7s88yv//3T//5jfMnn/+18h//rW4tc//wr6g
+; ov/52UlB///cPz3y/uHNbv6xtrz+nazbyir/nazbDwDN///dPzv//90/ujzlN83++9pG/srClP6drN
+; vP/52s24T/nazbBQD9ygAAAAAAAAAB
+; thumbnail_QOI end
+; thumbnail_QOI begin 256x256 6608
+; cW9pZgAAAQAAAAEABAAA/f3Y/19QIxn/X1AjaP9fUCO2/19QI//92P9fUCPQ/19QI4H/X1AjMwD9/e
+; Q1GjQX/dgSLRMA7/9fUCMP/19QIyX/X1AjOv9fUCNF/e7/X1AjV/9fUCOR/19QI8oX/dgSLRMA7/9f
+; UCMh/19QI0//X1AjfP9fUCOU/e7/X1Ajnv9fUCO//19QI+H/X1Aj//3YEi0TAO//X1AjMv9fUCN4/1
+; 9QI77/X1Aj4/3u/19QI+X/X1Aj7v9fUCP3F/3YEi0TANAI3f9fUCNg/19QI5//X1Aj3hf9/f3N/19Q
+; I9n/X1Ajmv9fUCNb/19QIy3/X1AjHf9fUCMO/wAAAADNLd3/X1Ajnf9fUCPE/19QI+sX/f39zf9fUC
+; Po/19QI8H/X1Ajmv9fUCNz/19QI0v/X1AjI/8AAAAAzRLd/19QI9r/X1Aj6T8X/f39zf9fUCP2GjX/
+; X1Ajuf9fUCN5/19QIzn/AAAAAM3/Wkwi/8B+oZiidhf9/f3t/19QI+M+GQDN/0xBIP/ApJWllAcX/f
+; 397SP/X1AjlBkAzf8/Nx//wKeip7I1F/39/e3/X1Aj4z4ZAM3/NC4d/8Cpsf5NQiAtF/39/e3/X1Aj
+; 5P9fUCOZ/19QI07/X1AjDMAAywLAIQYtF/39/e3/X1Aj7f9fUCO6/19QI4gLwADLAsAhBi0X/f397T
+; T/X1Aj2/9fUCPB/19QI6rAAMsCwCEGqrAX/f397f9fUCP+/19QI/z/X1Aj+v9fUCP5wADLAsCnkqey
+; qJKkpaOVBxf9/f3vAMsCwKSVpJSkpaaTppMtF/39/e8AywLAfn6hmCH+TEEgqbEX/f397wDLAsMEqs
+; AaF/39/e8AywLDBC4aF/39/e8AywLDBC4aF/39/e8AywLDppOpsTAtoZiidhf9/eGilqaEppOllP3G
+; AMsCwyymkxumk6SkLRf9/eEo/n5rKf6Ufy3+po8w/cYAy/80Lh3/wxIso5WllKeyqKIX/f3h/m5dJv
+; 6Tfiz+uJ8z/te7Of3GAMsCxiwbOxfvoZejhqOFoof96/57aSj+qpIx/ti7Of7/3kD9xgDLAsYsGzsX
+; 7zAL/o55LP6ahC796/6mjzD+xqs2/uXHOwj9xgDL/zQuHf/GLBs7F+/+cmEn/pN+Lf61nDP+y7A3/e
+; umk/7ixDv+8tI+CP3GAMsCxiwbO6mh7/56aCj+q5Mx/ty/Ov793EHPaf3bfsAI/cb/AAAAAMsCxh7+
+; W08j/ndmKP6Oeizv/qKLL/7Eqjb+58k9/v/eQc8I/f3lAMv/NC4d/8b+RT0g/nBiJ/6bhy/+wKY176
+; mh/t7BO/7y0j4Pywj9/en/AAAAAMv/NC4d/8b+S0Ih/oZ1K/7Apzb+8dI+76KHpJWjlQ/KCP396gDL
+; Asb+TUQh/ox6Lf7KsDgP/Qj9/esAywLGFzYLD/UI/f3zAMsCxhc2Cw/0CP399ADLAsYXNgsP9Aj9/f
+; QAywLGFzYLD/II/f32AMsCxhc2Cw/uCP39+gDLAsYXNgsP7Qj9/fsAywLGFzYLD+wI/f38AMsCxhc2
+; Cw/oCP39/cIAywLGFzYLD+cI/f39wwDLAsYXNgsP5gj9/f3EAMsCxhc2Cw/eCP39/cwAywLGFzYLD9
+; 0I/f39zQDLAsYXNgsP3Qj9/f3NAMsCxhc2Cw/YCP39/dIAywLGFzYLD9cI/f390wDLAsYXNgsP1gj9
+; /f3UAMsCxhc2Cw/VCP39/dUAywLGFzYLD80I/f3912bEAMsCxhc2Cw/NCP39/dYDxQDLAsYXNgsPzA
+; j9/f3WA8YAywLGFzYLD8cI/f391wPKAMsCxhc2Cw/GCP39/dcDywDLAsYX/ox6LP7KsDcPxgj9/f3W
+; A8wAywLGFy8ECP39/doD0ADLAsYXLwQI/f392QPRAMsCxhcvBAj9/f3YA9IAywLGFy8ECP39/dMD1w
+; DLAsYXLwQI/f390gPYAMsCxhcvBAj9/f3SA9gAywLGFy8ECP39/dED2QDLAsYXLwQI/f39yQPhAMsC
+; xhcvBAj9/f3IA+IAywLGFy8ECP39/ccD4wDLAsYXLwQI/f39wwPnAMsCxhcvBAj9/f3CA+gAywLGFy
+; 8ECP39/cED6QDLAsYXLwQI/f36A+4AywLGFy8ECP39+QPvAMsCxhcvBAj9/fkD7wDLAsYXLwQI/f30
+; A/QAywLGFy8ECP398wP1AMsCxhcvBAj9/fMD9QDLAsYXLwQI/f3xA/cAywLGFy8ECP396gP9wADLAs
+; YXLwQI/f3pA/3BAMsCxhcvBAj9/egD/cIAywLGFy8ECP394wP9xwDLAsYXLwQI/f3jA/3HAMsCxhcv
+; BAj9/eID/cgAywLGFy8ECP393QP9zQDLAsYXLwQI/f3cA/3OAMsCxhcvBAj9/dwD/c4AywLGFy8ECP
+; 391AP91gDLAsYXLwQI/f3TA/3XAMsCxhcvBAj9/dID/dgAywLGFy8ECP39zgP93ADLAsYXLwQI/f3M
+; A/3eAMsCxhcvBAj9/cwD/d4AywLGFy8ECP39ywP93wDLAsYXLwQI/f3GA/3kAMsCxhcvBAj9/cUD/e
+; UAywLGFy8ECP39xQP95QDLAsYXLwQI/fsD/e0AywLGFy8ECP36A/3uAMsCxhcvBAj9+QP97wDLAsYX
+; LwQI/fUD/fMAywLGFy8ECP30A/30AMsCxhcvBAj98wP99QDLAsYXLwQI/e4D/foAywLGFy8ECP3tA/
+; 37AMsCxhcvBAj97QP9+wDLAsYXLwQI/ewD/fwAywLGFy8ECP3kA/39xgDLAsYXLwQI/eMD/f3HAMsC
+; xhcvBAj94gP9/cgAywLGFy8ECP3dA/39zQDLAsYXLwQI/d0D/f3NAMsCxhcvBAj93AP9/c4AywLGFy
+; 8ECP3XA/390wDLAsYXLwQI/dYD/f3UAMsCxhcvBAj91gP9/dQAywLGFy8ECP3OA/393ADLAsYXLwQI
+; /c0D/f3dAMsCxhcvBAj9zAP9/d4AywLGFy8ECP3LA/393wDLAsYXLwQI/ccD/f3jAMsCxhcvBAj9xg
+; P9/eQAywLGFy8ECP3FA/395QDLAsYXLwQI+wP9/e0AywLGFy8ECPoD/f3uAMsCxhcvBAj6A/397gDL
+; AsYXLwQI9QP9/fMAywLGFy8ECPQD/f30AMsCxhcvBAjzA/399QDLAsYXLwQI6wP9/f0AywLGFy8ECO
+; oD/f39wADLAsYXLwQI6gP9/f3AAMsCxhcvBAjpA/39/cEAywLGFy8ECOQD/f39xgDLAsYXLwQI4wP9
+; /f3HAMsCxhcvBAjjA/39/ccAywLGFy8ECN4D/f39zADLAsYXLwQI3QP9/f3NAMsCxhcvBAjcA/39/c
+; 4AywLGFy8ECNQD/f391gDLAsYXLwQI1AP9/f3WAMsCxhcvBAjTA/39/dcAywLGFy8ECM4D/f392mnA
+; AMsCxhcvBAjNA/39/do8wQDLAsYXLwQIzQP9/f3ZPMIAywLGFy8ECMsD/f392jzDAMsCxhcvBAjEA/
+; 39/dk8ywDLAsYXLwQIwwP9/f3aPMsAywLGFy8ECMID/f392jzMAMsCxhcvBAP9/f3ZPNEAywLGFy8E
+; A/39/dk80QDLAsYXLwQD/f392DzSAMsCxhcvBAP9/f3TPNcAywLGFy8EA/39/dI82ADLAsYXLwQD/f
+; 390jzYAMsCxhcvBAP9/f3NPN0AywLGFy8EA/39/cw83gDLAsYXLwQD/f39yzzfAMsCxhcvBAP9/f3K
+; POAAywLGFy8EA/39/cI86ADLAsYXLwQD/f39wjzoAMsCxhcvBAP9/f3BPOkAywLGFy8EA/39+jzuAM
+; sCxhcvBAP9/fk87wDLAsYXLwQD/f35PO8AywLGFy8EA/399Dz0AMsCxhcvBAP9/fM89QDLAsYXLwQD
+; /f3yPPYAywLGFy8EA/396jz9wADLAsYXLwQD/f3pPP3BAMsCxhcvBAP9/ek8/cEAywLGFy8EA/395D
+; z9xgDLAsYXLwQD/f3jPP3HAMsCxhcvBAP9/eI8/cgAywLGFy8EA/394Tz9yQDLAsYXLwQD/f3dPP3N
+; AMsCxhcvBAP9/dw8/c4AywLGFy8EA/392zz9zwDLAsYXLwQD/f3XPP3TAMsCxhcvBAP9/dY8/dQAyw
+; LGFy8EA/391Tz91QDLAsYXLwQD/f3NPP3dAMsCxhcvBAP9/cw8/d4AywLGFy8EA/39zDz93gDLAsYX
+; LwQD/f3HPP3jAMsCxhcvBAP9/cY8/eQAywLGFy8EA/39xTz95QDLAsYXLwQD/f3EPP3mAMsCxhcvBA
+; P9+jz96GbEAMsCxhcvBAP9+jz95zfFAMsCxhcvBAP9+Tz96DfFAMsCxhcvBAP99Dz96DfKAMsCxhcv
+; BAP98zz96DfLAMsCxhcvBAP98zz95zfMAMsCxhcvBAP97jz95DfUAMsCxhcvBAP97Tz95DfVAMsCxh
+; cvBAP97Dz95TfVAMsCxhcvBAP95Tz95zfaAMsCxhcvBAP94zz96DfbAMsCxhcvBAP94zz96DfbAMsC
+; xhcvBAP94jz96DfcAMsCxhcvBAP93Tz96DfhAMsCxhcvBAP93Tz95zfiAMsCxhcvBAP93Dz95zfjAM
+; sCxhcvBAP91zz96DfnAMsCxhcvBAP91jz96DfoAMsCxhcvBAP91Tz96DfpAMsCxhcvBAP9zTz96Dfx
+; AMsCxhcvBAP9zTz95zfyAMsCxhcvBAP9zDz96DfyAMsCxhcvBAP9xzz96Df3AMsCxhcvBAP9xjz96D
+; f4AMsCxhcvBAP9xjz95zf5AMsCxhcvBAP9xTz95zf6AMsCxhcvBAP7PP3nN/3EAMsCxhcvBAP6PP3o
+; N/3EAMsCxhcvBAP5PP3oN/3FAMsCxhcvBAP0PP3oN/3KAMsCxhcvBAP0PP3nN/3LAMsCxhcvBAPzPP
+; 3oN/3LAMsCxhcvBAPrPP3rN/3QAMsCxhcvBAPqPP3rN/3RAMsCxhcvBAPqPP3rN/3RAMsCxhcvBAPl
+; PP3oN/3ZAMsCxhcvBAPkPP3oN/3aAMsCxhcvBAPjPP3oN/3bAMsCxhcvBAPiPP3oN/3cAMsCxhcvBA
+; PaPP3rN/3hAMsCxhcvBAPaPP3rN/3hAMsCxhcvBAPZPP3rN/3iAMsCxhcvBAPUPP3rN/3nAMsCxhcv
+; BAPTPP3rN/3oAMsCxhcvBAPTPP3rN/3oAMsCxhcvBAPLPP3rN/3wAMsCxhcvBAPKPP3rN/3xAMsCxh
+; cvBAPJPP3rN/3yAMsCxhcvBAPEPP3rN/33AMsCxhcvBAPDPP3rN/34AMv/NC4d08D/NC4d3/80Lh3s
+; /zQuHfoCwRcvBAPDPP3rN/34AMv/NC4dhMD/NC4dpf80Lh3L/zQuHfECwRcvBAPCPP3rN/35AMv/NC
+; 4dNcD/NC4dbP80Lh2q/zQuHekCwRcv/sqwNjz95zf9/cMAzf80Lh1F/zQuHZT/NC4d4wLBFy89PP3m
+; N/39xADNBCkOAsEXLz08/eU3/f3FAM0EKQ4CwRcvPTz94Tf9/ckAzf80Lh1D/zQuHZD/NC4d3Qv/NC
+; 4d/P80Lh3+Fy/+yrA2PP3gZv39ygDN/zQuHS7/NC4dY/80Lh2X/zQuHbv/NC4d1f80Lh3vFy89PP3f
+; N/39ywDN/zQuHRkU/zQuHVH/NC4de/80Lh2u/zQuHeEXLz08/dc3/f3TAM3/NC4dA/80Lh0H/zQuHQ
+; v/NC4dPP80Lh2H/zQuHdIXLz08/dY3/f3UAND/NC4dMv80Lh2B/zQuHdAXL/7KsDY8/dY3/f3UANAz
+; GP80Lh3QFy/+yrA2PP3RN/392QDQMxj/NC4d0Bcv/sqwNjz90Df9/doA0DMY/zQuHdAXL/7KsDY8/c
+; 83/f3A/vnZSP701lH+7tRan4vR/+7UWfr/9NZR6//52Ujd///cP9DAANAzGP80Lh3QFy/+yrA2PP3O
+; N/39wFv+79RY/uHNb/7Sxoeef9H/0caI8f/cy3fK/+rSYKP//9w/gcAA0DMY/zQuHdAXL/7KsDY8/c
+; o3/f3EO/7m0Gf+zsSO/rW4tP6wtbzR/7K2uej/urqtqf/Lw5Fq///cPzLAAND/NC4dLf80Lh1z/zQu
+; Hbn/UEYi5v+Sfy3v/8+zN/j//90///3JN82ffZ5vn26ffNj/9tdO+v/52Uny//zbQ+n//9w/4/3Un4
+; v+4M1x/sG+of6jr9H+nazb0f+drNvK/52s24T/nazbPv8AAAAA0v80Lh0d/zQuHUv/NC4def9cUCSh
+; /6eRMML/3b854zz9yDfOKv7q0mH+3ct1/tbIgdj/2sp67v/kz2rN//HVVaz//9w/lP3Un4v+4M1x/s
+; G+of6jr9H+nazb0Rz/nazbVv+drNso/wAAAADS/zQuHQ7/NC4dI/80Lh04/3lqKVz/yq82lf/tzjzP
+; ///dP//9wDfW/vDVV/7aynr+xL+d/ri5sdj/u7ur4f/FwJuo/9rKeW///9w/Rf3Un4v+4M1x/sG+of
+; 6jr9H+nazb0Roo/52s2xMA1f//3T8f///dP27//90/vTz9wDfW/urSYP7Mw5D+rrTA/p2s29j/nazb
+; 1v+drNuH/52s2zkA/f3HHAEmPP3AN9YtGAMl2CI9IwD99wAAAAAAAAAB
+; thumbnail_QOI end
+;top metadata start
+;Git Commit Hash (Version): ca4e53b1808e03ff851877ff6d9d6f3efb187376
+;FLAVOR:RepRap
+;TIME:72
+;Filament used: 0.598677m
+;Layer height: 1.55
+;MINX:147.3
+;MINY:290
+;MINZ:1.55
+;MAXX:162.7
+;MAXY:290
+;MAXZ:24.8
+
+;Arc One Settings
+;weld_gap = 8.0
+;sleep_time = 30.0
+;rotate_amount = 6
+;overwrite_movement_rate = False
+;movement_rate = 281.0
+;use_temperature_sensor = False
+;wait_for_temp = 275.0
+;pause_after_layer = False
+;return_home = False
+;change_initial_Z = False
+;change_G0toG1 = False
+;TARGET_MACHINE.NAME:Unknown
+;Generated with Cura_SteamEngine 5.7.2 + Arc One
+;top metadata end
+;startup script start
+T0
+M104 S200
+M109 S200
+M82 ;absolute extrusion mode
+G28 ;Home
+M83 ;relative extrusion mode
+G1 F1000
+;LAYER_COUNT:16
+;startup script end
+
+;gcode movements start
+;LAYER:0
+M107
+G1 F600 Z9.0 ;Added in move_up_z.py
+;MESH:Test Cube.stl
+
+;Initial Z Offset Changed by change_initial_z.py
+G1F9000 Z100 ;Changed in change_G0_to_G1.py
+
+G1 F1000 X162.7 Y290 ;Removed Z in change_initial_z.py
+;TYPE:WALL-OUTER
+G1 F600 Z8.0 ;Added in move_up_z.py
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L0 B1" ;Added in weld_control.py
+G1 F1000 ;Removed extrusion in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L0 B1" ;Added in weld_control.py
+;TIME_ELAPSED:9.158291
+;LAYER:1
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z9.55 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L1 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L1 B1" ;Added in weld_control.py
+;TIME_ELAPSED:13.381862
+;LAYER:2
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z11.100000000000001 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L2 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L2 B1" ;Added in weld_control.py
+;TIME_ELAPSED:17.605432
+;LAYER:3
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z12.65 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L3 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L3 B1" ;Added in weld_control.py
+;TIME_ELAPSED:21.829003
+;LAYER:4
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z14.2 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L4 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L4 B1" ;Added in weld_control.py
+;TIME_ELAPSED:26.052573
+;LAYER:5
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z15.75 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L5 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L5 B1" ;Added in weld_control.py
+;TIME_ELAPSED:30.276144
+;LAYER:6
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z17.3 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L6 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 0 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L6 B1" ;Added in weld_control.py
+;TIME_ELAPSED:34.499714
+;LAYER:7
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z18.85 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L7 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L7 B1" ;Added in weld_control.py
+;TIME_ELAPSED:38.723284
+;LAYER:8
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z20.4 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L8 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L8 B1" ;Added in weld_control.py
+;TIME_ELAPSED:42.946855
+;LAYER:9
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z21.95 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L9 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L9 B1" ;Added in weld_control.py
+;TIME_ELAPSED:47.170425
+;LAYER:10
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z23.5 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L10 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L10 B1" ;Added in weld_control.py
+;TIME_ELAPSED:51.393996
+;LAYER:11
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z25.05 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L11 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L11 B1" ;Added in weld_control.py
+;TIME_ELAPSED:55.617566
+;LAYER:12
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z26.599999999999998 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L12 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 0 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L12 B1" ;Added in weld_control.py
+;TIME_ELAPSED:59.841137
+;LAYER:13
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z28.15 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L13 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L13 B1" ;Added in weld_control.py
+;TIME_ELAPSED:64.064707
+;LAYER:14
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X162.7 Y290 Z29.7 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L14 B1" ;Added in weld_control.py
+G1 F232.4 X147.3 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L14 B1" ;Added in weld_control.py
+;TIME_ELAPSED:68.288277
+;LAYER:15
+G4 S30 P0
+;Added sleep in add_sleep.py
+;MESH:Test Cube.stl
+G1F7200 X147.3 Y290 Z31.25 ;Added in move_up_z.py Changed in change_G0_to_G1.py
+;TYPE:WALL-OUTER
+G4 P0 ;Added in weld_control.py
+M42 P1 S1 ;Enable Welder, Added in weld_control.py
+M291 P"Weld On L15 B1" ;Added in weld_control.py
+G1 F232.4 X162.7 Y290 ;Removed extrusion in weld_control.py, Moved 1 lines, Added in rotate_start_layer_print.py
+;TIME_ELAPSED:522.511848
+;Added ^ in add_sleep.py
+M42 P1 S0 ;Disable Welder, Added in weld_control.py
+G4 P0 ;Added in weld_control.py
+M291 P"Weld Off L15 B1" ;Added in weld_control.py
+;gcode movements end
+
+;end script start
+G1 F1000
+M82 ;absolute extrusion mode
+M42 P1 S0 ;Disable Welder
+M83 ;relative extrusion mode
+M104 S0
+;End of Gcode
+;end script end
+
+;bottom comment start
+;bottom comment end
+
+;SETTING_3 {"global_quality": "[general]\\nversion = 4\\nname = Arc One #2\\ndef
+;SETTING_3 inition = custom\\n\\n[metadata]\\ntype = quality_changes\\nquality_t
+;SETTING_3 ype = extra coarse\\nsetting_version = 23\\n\\n[values]\\nadhesion_ty
+;SETTING_3 pe = none\\nlayer_height = 1.55\\nlayer_height_0 = 1.55\\nspeed_slowd
+;SETTING_3 own_layers = 0\\n\\n", "extruder_quality": ["[general]\\nversion = 4\
+;SETTING_3 \nname = Arc One #2\\ndefinition = custom\\n\\n[metadata]\\ntype = qu
+;SETTING_3 ality_changes\\nquality_type = extra coarse\\nintent_category = defau
+;SETTING_3 lt\\nposition = 0\\nsetting_version = 23\\n\\n[values]\\nbottom_layer
+;SETTING_3 s = 0\\ncool_fan_enabled = False\\ninfill_angles = [90,270]\\ninfill_
+;SETTING_3 sparse_density = 100\\nmaterial_alternate_walls = True\\nretraction_h
+;SETTING_3 op_enabled = True\\nspeed_layer_0 = 6.35\\nspeed_print = 6.35\\nspeed
+;SETTING_3 _wall = 6.35\\nspeed_wall_x = 6.35\\ntop_layers = 0\\nwall_thickness 
+;SETTING_3 = 6.1\\nz_seam_type = back\\n\\n"]}

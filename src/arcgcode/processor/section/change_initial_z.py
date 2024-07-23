@@ -38,7 +38,7 @@ class ChangeInitialZ(SectionProcessorInterface):
                     # 1st layer
                     # On layer change append!
                     if is_layer_zero:
-                        new_gcode_section.insert(-1, ";Initial Z Offset Changed by change_initial_z.py")  
+                        new_gcode_section.insert(-1, ";Initial z Offset Changed by change_initial_z.py")  
                         new_gcode_section.insert(-1, INITIAL_Z_MOVE)
                         new_gcode_section.insert(-1, '\n')
                         
@@ -48,9 +48,9 @@ class ChangeInitialZ(SectionProcessorInterface):
                 if ("X" in line or "Y" in line) and "Z" in line:
                     zindex = line.find("Z")
                     new_gcode_section.append("")
-                    new_gcode_section.append(f"G1{line[2:zindex]};Removed Z in change_initial_z.py")
+                    new_gcode_section.append(f"G1{line[2:zindex]};Removed z in change_initial_z.py")
             elif is_layer_zero and line.startswith(";TYPE"):
-                new_gcode_section.append(f"{new_gcode_section[len(new_gcode_section)-1]} ;Added Z in change_inital_z.py")
+                new_gcode_section.append(f"{new_gcode_section[len(new_gcode_section)-1]} ;Added z in change_inital_z.py")
                 new_gcode_section.append(line)
             else:
                 new_gcode_section.append(line)

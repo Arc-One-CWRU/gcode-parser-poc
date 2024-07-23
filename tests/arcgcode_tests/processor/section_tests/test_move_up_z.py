@@ -1,5 +1,4 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
 import unittest
 
 
@@ -22,7 +21,9 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
             for line in self.gcode_section:
                 if ";Added in move_up_z.py" in line:
                     flag1 = "move_up_z comment was added"
-                    
+            
+            self.assertEqual(flag1, )
+            self.assertEqual(flag2, )
 
     def process(self, gcode_section: list[str]) -> list[str]:
         self.gcode_section = gcode_section
