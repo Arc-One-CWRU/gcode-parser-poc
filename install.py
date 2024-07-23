@@ -11,8 +11,10 @@ def main(cura_scripts_dir: str):
     print(f"Scripts Directory: {cura_scripts_dir}")
     custom_plugins_dir = os.path.abspath("./plugins")
     package_src_dir = os.path.abspath("./src")
+    package_test_dir = os.path.abspath("./tests")
     print(f"Inferred Plugins Dir: {custom_plugins_dir}")
     print(f"Inferred Package Src Dir: {package_src_dir}\n")
+    print(f"Inferred Package Test Dir: {package_test_dir}\n")
 
     # Try to write in the current version to version.py to make sure that it's
     # always up-to-date
@@ -47,10 +49,19 @@ def main(cura_scripts_dir: str):
               "copying fresh version...")
         shutil.rmtree(cura_src_path)
 
+    cura_test_path = os.path.join(cura_scripts_dir, "tests")
+    if os.path.isdir(cura_test_path):
+        print(f"Cleaning up Cura test directory {cura_test_path} before " +
+              "copying fresh version...")
+        shutil.rmtree(cura_test_path)
+
     try:
         print(f"Copying fresh {package_src_dir} to Cura scripts src dir " +
               f"{cura_src_path}")
         shutil.copytree(package_src_dir, cura_src_path, dirs_exist_ok=True)
+        print(f"Copying fresh {package_test_dir} to Cura scripts test dir " +
+              f"{cura_test_path}")
+        shutil.copytree(package_test_dir, cura_test_path, dirs_exist_ok=True)
     except Exception as e:
         err_msg = str(e)
         okay_linux_err_msg = "[Errno 17] File exists:"
@@ -63,6 +74,7 @@ def main(cura_scripts_dir: str):
             print("Unexpected error: ", e)
             return
     print(f"Created arcgcode src dir in Cura scripts: {cura_src_path}\n")
+    print(f"Created arcgcode test dir in Cura scripts: {cura_test_path}\n")
 
     print("Moving Arc Post-Processing Scripts to the correct directory...")
     # Get a list of all files in the source directory

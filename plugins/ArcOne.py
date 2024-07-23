@@ -40,6 +40,24 @@ try:
     from arcgcode.processor.base.version import ARCGCODE_VERSION
     cura_log("imported arcgcode successfully!", False)
     cura_log(f"VERSION: {ARCGCODE_VERSION}", False)
+
+    # Importing test directory
+    test_dir = os.path.abspath(os.path.join(pathlib.Path(__file__).parent,
+                                           "./tests"))
+    if not os.path.isdir(test_dir):
+        raise Exception(f"could not find tests directory: {test_dir}")
+
+    if test_dir not in sys.path:
+        sys.path.insert(0, test_dir)
+
+    cura_log(f"after sys.path insert: Python Sys Path: {sys.path}", False)
+    import arcgcode_tests
+    cura_log(f"arcgcode_tests init info: {arcgcode_tests.__dict__}", False)
+    raw_import_path = os.path.join(src_dir, "arcgcode_tests", "__init__.py")
+    raw_arcgcode = SourceFileLoader("arcgcode_tests", raw_import_path).load_module()
+    cura_log(f"raw_arcgcode init info: {raw_arcgcode.__dict__}", False)
+
+
 except Exception as e:
     cura_log(f"after error sys.path insert: Python Sys Path: {sys.path}",
              False)
@@ -236,6 +254,8 @@ class ArcOne(Script):
         try:
             postprocessor = v1.CuraPostProcessor(self.get_settings())
             processed_gcode = postprocessor.execute(parsed_data)
+            test_processor = arcgcode_tests.ArcGcodeTestProcessor(self.get_settings())
+            test_processor.execute(parsed_data)
             return processed_gcode
         except Exception as e:
             import json
