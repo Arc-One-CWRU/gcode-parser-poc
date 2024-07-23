@@ -19,8 +19,12 @@ class TestRotateStartLayerPrint(TestSectionProcessorInterface, unittest.TestCase
             self.gcode_section = gcode_section
 
         def test_rotate_start_layer_print(self):
+            flag1 = "rotate_start_layer comment was not added"
+            for line in self.gcode_section:
+                if "Added in rotate_start_layer_print.py" in line:
+                    flag1 = "rotate_start_layer comment was added"
+            self.assertEqual(flag1, "rotate_start_layer comment was added")
             #Not complete
-            ""
 
     def process(self, gcode_section: list[str]) -> list[str]:
         self.gcode_section = gcode_section
