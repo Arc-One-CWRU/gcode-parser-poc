@@ -21,9 +21,9 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.settings = settings
 
         def test_add_sleep(self):
-            (ds, s) = modf(self.sleep_time)
-            # Converts into ms
-            ms = int(ds*1000)
+            ""
+            #Incomplete but seems to not be used in gcode, check that add_sleep.py
+            #is correctly adding comments/adding sleep
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return
