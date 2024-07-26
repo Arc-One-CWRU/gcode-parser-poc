@@ -1,8 +1,4 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from math import modf
-from arcgcode.cura.gcodes import GCodes
-from arcgcode.processor.base.cura import CURA_LAYER, END_OF_GCODE_MOVEMENTS, \
-    find_end_of_gcode_movements_idx
 import unittest
 
 
@@ -21,9 +17,29 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.settings = settings
 
         def test_add_sleep(self):
-            ""
-            #Incomplete but seems to not be used in gcode, check that add_sleep.py
-            #is correctly adding comments/adding sleep
+            flag1 = "Sleep was not added"
+            flag2 = "Sleep amount is incorrect"
+            flag3 = "add_sleep comment was not added"
+            if ";Added in wait_for_temp.py" not in self.gcode_section:
+                line = 1
+                while line < len(self.gcode_section):
+                    if ";sleep_time = " in self.gcode_section[line]:
+                        sleep_time = self.gcode_section[line][14,15]
+                        #^not sure if I can get this since its in different g-code section
+                    if ";LAYER:" in self.gcode_section[line] and "0" not in self.gcode_section[line][7]:
+                        if "G4 S" in self.gcode_section[line+1]:
+                            flag1 = "Sleep was added"
+                        if self.gcode_section[line+1][4,5] == sleep_time:
+                            flag2 = "Sleep amount is correct"
+                        if self.gcode_section[line+2] == ";Added sleep in add_sleep.py\n":
+                            flag3 = "add_sleep comment was added"
+                    line =+ 1
+            self.assertEqual(flag1, "Sleep was added")
+            self.assertEqual(flag2, "Sleep amount is correct")
+            self.assertEqual(flag3, "add_sleep comment was added")
+
+        #if wait_for_temp not in gcode, check for added sleep, make sure sleep is correct amount,
+        #and check for added comment
 
     def process(self, gcode_section: list[str]) -> list[str]:
         """Reads the G-Code file buffer and does an action. It should return
