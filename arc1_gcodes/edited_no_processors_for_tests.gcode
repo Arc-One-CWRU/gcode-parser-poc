@@ -1,6 +1,5 @@
 ;Gcode Generated with ArcOne Post-Processing Script
 ;top metadata start
-;Git Commit Hash (Version): ca4e53b1808e03ff851877ff6d9d6f3efb187376
 ;FLAVOR:RepRap
 ;TIME:72
 ;Filament used: 0.598677m
@@ -11,19 +10,6 @@
 ;MAXX:162.7
 ;MAXY:290
 ;MAXZ:24.8
-
-;Arc One Settings
-;weld_gap = 8
-;sleep_time = 30
-;rotate_amount = 6
-;overwrite_movement_rate = False
-;movement_rate = 0
-;use_temperature_sensor = True
-;wait_for_temp = 275
-;pause_after_layer = True
-;return_home = True
-;change_initial_Z = True
-;change_G0toG1 = True
 ;TARGET_MACHINE.NAME:Unknown
 ;Exported with Cura-DuetRRF v1.2.9 plugin by Thomas Kriechbaumer
 ; thumbnail_QOI begin 48x48 680
@@ -204,7 +190,7 @@
 ; 6jr9H+nazb0Roo/52s2xMA1f//3T8f///dP27//90/vTz9wDfW/urSYP7Mw5D+rrTA/p2s29j/nazb
 ; 1v+drNuH/52s2zkA/f3HHAEmPP3AN9YtGAMl2CI9IwD99wAAAAAAAAAB
 ; thumbnail_QOI end
-;Generated with Cura_SteamEngine 5.7.2 + Arc One
+;Generated with Cura_SteamEngine 5.7.2
 ;top metadata end
 ;startup script start
 T0
