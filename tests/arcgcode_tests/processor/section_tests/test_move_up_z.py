@@ -29,7 +29,6 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
                     diff_num = float(line[diff_index:diff_index+4])
                     if z_num == round((prev_z_num+diff_num), 2):
                         flag2 = "Z value is correct"
-            
             self.assertEqual(flag1, "move_up_z comment was added")
             self.assertEqual(flag2, "Z value is correct")
 

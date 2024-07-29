@@ -15,7 +15,7 @@ class ArcGcodeTestProcessor():
         section_tests_processors: list[TestSectionProcessorInterface] = [
             TestAddGcodeVersion(),
             TestAddMicerSettings(settings=self.settings),
-            TestAddSleep(settings=self.settings),
+            TestAddSleep(sleep_time=self.settings.sleep_time),
             TestChangeG0ToG1(),
             TestChangeInitialZ(),
             TestMoveUpZ(),
