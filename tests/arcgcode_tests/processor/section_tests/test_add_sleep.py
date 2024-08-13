@@ -18,6 +18,9 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.sleep_time = sleep_time
 
         def test_add_sleep(self):
+            """Test passes if the sleep g-code command was added, the sleep amount is correct,
+               and the add_sleep comment was added
+            """
             flag1 = "Sleep was not added"
             flag2 = "Sleep amount is incorrect"
             flag3 = "add_sleep comment was not added"
