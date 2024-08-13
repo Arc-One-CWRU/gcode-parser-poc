@@ -15,6 +15,8 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_post_home(self):
+            """Test passes if home_scipt is added as the end script
+            """
             flag = False
             home_script = [
             "G91\n",
