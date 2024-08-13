@@ -16,6 +16,8 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_move_up_z(self):
+            """Test passes if the move_up_z comment was added and the Z value is correct
+            """
             flag1 = "move_up_z comment was not added"
             flag2 = "Z value is incorrect"
             for line in self.gcode_section:
