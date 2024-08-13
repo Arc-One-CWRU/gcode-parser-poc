@@ -22,6 +22,8 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
             self.settings = settings
 
         def test_add_micer_settings(self):
+            """Test passes if GENERATED_STRING was added and the correct micer setting were added
+            """
             flag1 = "Generated with test did not run"
             flag2 = "Header settings test did not run"
             GENERATED_STRING = ";Generated with "
