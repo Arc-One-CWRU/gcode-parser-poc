@@ -39,8 +39,7 @@ class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
             self.assertEqual(flag3, "add_sleep comment was added")
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Runs the test
         """
         self.gcode_section = gcode_section
         tests = [self.Test("test_add_sleep", gcode_section, self.sleep_time)]

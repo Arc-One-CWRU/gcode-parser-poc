@@ -76,6 +76,8 @@ class TestChangeInitialZ(TestSectionProcessorInterface, unittest.TestCase):
             #     self.assertEqual(flag2, "INITIAL_Z_MOVE was added")
 
     def process(self, gcode_section: list[str]) -> list[str]:
+        """Runs the test
+        """
         self.gcode_section = gcode_section
         tests = [self.Test("test_change_initial_z", gcode_section)]
         return unittest.TestSuite(tests=tests)

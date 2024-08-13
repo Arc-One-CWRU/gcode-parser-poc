@@ -33,6 +33,8 @@ class TestMoveUpZ(TestSectionProcessorInterface, unittest.TestCase):
             self.assertEqual(flag2, "Z value is correct")
 
     def process(self, gcode_section: list[str]) -> list[str]:
+        """Runs the test
+        """
         self.gcode_section = gcode_section
         tests = [self.Test("test_move_up_z", gcode_section)]
         return unittest.TestSuite(tests=tests)

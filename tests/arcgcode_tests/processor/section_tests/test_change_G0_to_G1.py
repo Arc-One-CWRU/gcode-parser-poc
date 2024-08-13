@@ -22,8 +22,7 @@ class TestChangeG0ToG1(TestSectionProcessorInterface, unittest.TestCase):
             self.assertEqual(flag, "G0 did get replaced")
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Runs the test
         """
         self.gcode_section = gcode_section
         tests = [self.Test("test_change_G0_to_G1", gcode_section)]

@@ -35,6 +35,8 @@ class TestWaitForTemp(TestSectionProcessorInterface, unittest.TestCase):
                 line += 1
 
     def process(self, gcode_section: list[str]) -> list[str]:
+        """Runs the test
+        """
         self.gcode_section = gcode_section
         tests = [self.Test("test_wait_for_temp", gcode_section)]
         return unittest.TestSuite(tests=tests)
