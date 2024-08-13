@@ -16,6 +16,8 @@ class TestWaitForTemp(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_wait_for_temp(self):
+            """Test passes if the wait_for_temp script is added at the beginning of each layer
+            """
             line = 1
             while line < len(self.gcode_section):
                 if self.gcode_section[line].startswith(";LAYER:") and "0" not in self.gcode_section[line][7]:
