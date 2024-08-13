@@ -16,6 +16,9 @@ class TestChangeInitialZ(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_change_initial_z(self):
+            """Test passes if INITIAL_Z_MOVE was added in layer 0, all the correct comments were
+               added, and the desired Z was removed
+            """
             INITIAL_Z_MOVE = "G0 F9000 Z100"
             flag1 = "No Initial Z Offset comment was added outside of layer 0"
             flag2 = "No INITIAL_Z_MOVE was added outside of layer 0"
