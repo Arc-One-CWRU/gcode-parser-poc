@@ -27,8 +27,6 @@ class CuraPostProcessor():
             MoveUpZ(self.settings.weld_gap),
             AddMicerSettings(settings=self.settings),
             AddGcodeVersion(),
-            ChangeInitialZ(),
-            ChangeG0ToG1()
         ]
         command_processors: list[CommandProcessorInterface] = [
             ExtruderRemover(),

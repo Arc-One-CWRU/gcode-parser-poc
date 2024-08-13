@@ -22,6 +22,10 @@ This document should provide Vishnu the necessary information to write a compreh
     - [Implementing a Custom Command Processor](#implementing-a-custom-command-processor)
     - [Integrate New Custom Processors](#integrate-new-custom-processors)
   - [Implemented Processors](#implemented-processors)
+- [Testing Suite](#testing-suite)
+  - [Create Your Own CuraGCodeTestPipeline](#create-your-own-curagcodetestpipeline)
+    - [Implementing a Custom Test Processor](#implementing-a-custom-test-processor)
+    - [Integrate New Custom Test Processors](#integrate-new-custom-test-processors)
 - [Command Line Interface](#command-line-interface)
   - [`gcode` command](#gcode-command)
   - [`time`](#time)
@@ -497,6 +501,93 @@ TODO: briefly explain the use of each implemented processor in:
         new_gcode = gcode_pipeline.process(data)
         return new_gcode
 ```
+
+## Testing Suite
+
+The Testing Suite was created to test that the correct changes were made to a given, post-processed G-Code file with the help of Python's unittest module.
+
+The Testing Suite consists of the Test Pipeline, the Test Processor, and the various Section Tests.
+    - The Test Pipeline allows us to get all the data we need from the tests in one place. It links all of the tested Section Tests together and tells us all the ones that passed and failed.
+    - The Test Processor runs each of the Section Tests that we desire to test.
+    - The Sections Tests correspond to Section Processors and Command Processors. Each Section Processor and Command Processor will have its own Test Processor to make sure that desired changes were made by the Section/Command Processor. 
+
+At this point, the chosen method of running the tests is to run them through the Command Line Interface. You can do this by entering the following command in the terminal: 
+python cli.py test -i 'insert g-code file path' -v
+
+### Create Your Own CuraGCodeTestPipeline
+
+Creating your own CuraGCodeTestPipeline consists of two major steps. First, you must implement any custom test processors that you may want. Second, you must integrate your newly created test processors.
+
+#### Implementing a Custom Test Processor
+
+A major part of creating your own Test Pipeline is implementing your own custom test processors. This sections explains how to do so.
+
+All of the test processors are classes that have a subclass required for Python's unittest module. This subclass will have three methods: one for your test, a processing method, and one that returns the section type. Follow the exmaple provided below for reference.
+
+```python
+class TestChangeG0ToG1(TestSectionProcessorInterface, unittest.TestCase):
+    """Tests if G0 becomes G1
+    """
+
+    def __init__(self) -> None:
+        super().__init__()
+    
+    class Test(unittest.TestCase):
+        def __init__(self, methodName: str, gcode_section: list[str]) -> None:
+            super().__init__(methodName)
+            self.gcode_section = gcode_section
+
+        def test_change_G0_to_G1(self):
+            flag = "G0 did get replaced"
+            for line in self.gcode_section:
+                if line.startswith("G0"):
+                    flag = "G0 did not get replaced"
+            self.assertEqual(flag, "G0 did get replaced")
+
+    def process(self, gcode_section: list[str]) -> list[str]:
+        """Runs the test
+        """
+        self.gcode_section = gcode_section
+        tests = [self.Test("test_change_G0_to_G1", gcode_section)]
+        return unittest.TestSuite(tests=tests)
+
+    def section_type(self) -> GCodeSection:
+        """Returns the current section type.
+        """
+        return GCodeSection.GCODE_MOVEMENTS_SECTION
+```
+
+#### Integrate New Custom Test Processors
+
+Another major part of creating your own test pipeline is integrating your new custom test processors
+
+Now that you have created your new custom test processors, it time to integrate them into the Test Processor by simply adding it to the list of section or command processors depending on which it is. If your Test Processor is linked to a post-processor that can be toggled on and off within Cura, you will have to provide and extra if statement that only runs the test if the post_processor is toggled on. Follow the example provided below for reference.
+
+```python
+class ArcGcodeTestProcessor():
+    def __init__(self, settings: CuraMicerSettings) -> None:
+        self.settings = settings
+
+    def execute(self, data) -> list[str]:
+        section_tests_processors: list[TestSectionProcessorInterface] = [
+            TestAddMicerSettings(settings=self.settings),
+        ]
+
+        command_tests_processors: list[TestCommandProcessorInterface] = [
+        ]
+
+        if self.settings.change_G0toG1:
+            processor = TestChangeG0ToG1()
+            section_tests_processors.append(processor)
+
+        test_pipeline = ArcGcodeTestPipeline(
+            section_tests_processors, 
+            command_tests_processors)
+
+        test_pipeline.process(data)
+```
+
+As you can see, the ChangeG0ToG1 test is appended only if the change_G0toG1 post processor is toggled on within Cura. Also, remember to add any parameters used within the test such as settings as shown with TestAddMicerSettings.
 
 ## Command Line Interface
 

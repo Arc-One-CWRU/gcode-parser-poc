@@ -7,7 +7,7 @@ import unittest
 
 
 class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the post-processing script user-defined settings to the GCode file
+    """Tests for added post-processing script user-defined settings to the GCode file
     in the top-metadata.
     """
 
@@ -22,6 +22,8 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
             self.settings = settings
 
         def test_add_micer_settings(self):
+            """Test passes if GENERATED_STRING was added and the correct micer setting were added
+            """
             flag1 = "Generated with test did not run"
             flag2 = "Header settings test did not run"
             GENERATED_STRING = ";Generated with "
@@ -39,18 +41,14 @@ class TestAddMicerSettings(TestSectionProcessorInterface, unittest.TestCase):
                         i+=1
                         settings_attr = field.name
                         settings_val = getattr(self.settings, settings_attr)
-                        if settings_attr == "weld_gap" or settings_attr == "sleep_time" or settings_attr == "movement_rate" or settings_attr == "wait_for_temp":
-                            settings_val = float(settings_val)
                         parsed_settings = f';{settings_attr} = {settings_val}\n'
                         self.assertEqual(parsed_settings, self.gcode_section[i])
                 i += 1
             self.assertEqual("Generated with test did run", flag1)   
-            self.assertEqual("Header settings test did run", flag2)  
-            # self.assertTrue(flag)
+            self.assertEqual("Header settings test did run", flag2)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Runs the test
         """
         self.gcode_section = gcode_section
         tests = [self.Test("test_add_micer_settings", gcode_section, self.settings)]

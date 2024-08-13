@@ -4,7 +4,7 @@ import unittest
 
 
 class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds the micer settings to GCode file.
+    """Tests that the micer settings were added to the GCode file.
     """
 
     def __init__(self) -> None:
@@ -16,6 +16,8 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_add_gcode_version(self):
+            """Test passes if git hash is in the gcode section
+            """
             flag = False
             git_hash = version.ARCGCODE_VERSION
             for instruction in self.gcode_section:
@@ -25,8 +27,7 @@ class TestAddGcodeVersion(TestSectionProcessorInterface, unittest.TestCase):
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Adds the git commit hash to the top of the G-Code files to
-        differentiate versions
+        """Runs the test
         """
         self.gcode_section = gcode_section
         tests = [self.Test("test_add_gcode_version", gcode_section)]

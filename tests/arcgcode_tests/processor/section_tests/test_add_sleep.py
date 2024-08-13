@@ -1,41 +1,51 @@
 from ..test_base.test_base import TestSectionProcessorInterface, GCodeSection
-from arcgcode.processor.base import version
 from math import modf
 import unittest
 
 
 class TestAddSleep(TestSectionProcessorInterface, unittest.TestCase):
-    """Adds sleep after each layer.
+    """Tests for added sleep after each layer.
     """
 
-    def __init__(self, settings) -> None:
+    def __init__(self, sleep_time: float) -> None:
         super().__init__()
-        self.settings = settings
+        self.sleep_time = sleep_time
     
     class Test(unittest.TestCase):
-        def __init__(self, methodName: str, gcode_section: list[str], settings) -> None:
+        def __init__(self, methodName: str, gcode_section: list[str], sleep_time) -> None:
             super().__init__(methodName)
             self.gcode_section = gcode_section
-            self.settings = settings
+            self.sleep_time = sleep_time
 
         def test_add_sleep(self):
-            (ds, s) = modf(self.settings.sleep_time)
+            """Test passes if the sleep g-code command was added, the sleep amount is correct,
+               and the add_sleep comment was added
+            """
+            flag1 = "Sleep was not added"
+            flag2 = "Sleep amount is incorrect"
+            flag3 = "add_sleep comment was not added"
+            (ds, s) = modf(self.sleep_time)
             # Converts into ms
             ms = int(ds*1000)
-            flag = False
-            git_hash = version.ARCGCODE_VERSION
-            for instruction in self.gcode_section:
-                if git_hash in instruction:
-                    flag = True
-            
-            self.assertTrue(flag)
+            line = 1
+            while line < len(self.gcode_section):
+                if ";LAYER:" in self.gcode_section[line] and "0" not in self.gcode_section[line][7]:
+                    if "G4 S" in self.gcode_section[line+1]:
+                        flag1 = "Sleep was added"
+                    if str(int(s)) in self.gcode_section[line+1] and str(ms) in self.gcode_section[line+1]:
+                        flag2 = "Sleep amount is correct"
+                    if self.gcode_section[line+2] == ";Added sleep in add_sleep.py\n":
+                        flag3 = "add_sleep comment was added"
+                line += 1
+            self.assertEqual(flag1, "Sleep was added")
+            self.assertEqual(flag2, "Sleep amount is correct")
+            self.assertEqual(flag3, "add_sleep comment was added")
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Reads the G-Code file buffer and does an action. It should return
-        the desired G-Code string for that section.
+        """Runs the test
         """
         self.gcode_section = gcode_section
-        tests = [self.Test("test_add_sleep", gcode_section, self.settings)]
+        tests = [self.Test("test_add_sleep", gcode_section, self.sleep_time)]
         return unittest.TestSuite(tests=tests)
 
     def section_type(self) -> GCodeSection:

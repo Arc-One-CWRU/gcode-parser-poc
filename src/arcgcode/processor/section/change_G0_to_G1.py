@@ -2,7 +2,7 @@ from ..base import SectionProcessorInterface, GCodeSection
 
 
 class ChangeG0ToG1(SectionProcessorInterface):
-    """Adds sleep after each layer.
+    """Changes G0 to G1
     """
 
     def __init__(self) -> None:

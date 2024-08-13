@@ -15,17 +15,38 @@ class ArcGcodeTestProcessor():
         section_tests_processors: list[TestSectionProcessorInterface] = [
             TestAddGcodeVersion(),
             TestAddMicerSettings(settings=self.settings),
-            TestAddSleep(settings=self.settings),
-            TestChangeG0ToG1(),
-            TestChangeInitialZ(),
             TestMoveUpZ(),
-            TestPostHome(),
             TestRotateStartLayerPrint(),
-            TestWaitForTemp()
         ]
 
         command_tests_processors: list[TestCommandProcessorInterface] = [
         ]
+
+        if self.settings.change_initial_Z:
+            processor = TestChangeInitialZ()
+            section_tests_processors.append(processor)
+
+        if self.settings.change_G0toG1:
+            processor = TestChangeG0ToG1()
+            section_tests_processors.append(processor)
+
+        # if self.settings.overwrite_movement_rate:
+        #     processor = TestChangeMovementRate(self.settings.movement_rate)
+        #     command_tests_processors.append(processor)
+
+        # if self.settings.pause_after_layer:
+        #     processor = TestAddPause()
+        #     section_tests_processors.append(processor)
+
+        if self.settings.use_temperature_sensor:
+            processor = TestWaitForTemp()
+            section_tests_processors.append(processor)
+        else:
+            section_tests_processors.append(TestAddSleep(sleep_time=self.settings.sleep_time))
+
+        if self.settings.return_home:
+            processor = TestPostHome()
+            section_tests_processors.append(processor)
 
         test_pipeline = ArcGcodeTestPipeline(
             section_tests_processors, 

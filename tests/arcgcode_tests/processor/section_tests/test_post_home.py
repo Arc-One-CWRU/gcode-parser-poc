@@ -3,7 +3,7 @@ import unittest
 
 
 class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
-    """Homes the machine after print finish.
+    """Tests that the machine homes after print finish.
     """
 
     def __init__(self) -> None:
@@ -15,6 +15,8 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_post_home(self):
+            """Test passes if home_scipt is added as the end script
+            """
             flag = False
             home_script = [
             "G91\n",
@@ -33,16 +35,12 @@ class TestPostHome(TestSectionProcessorInterface, unittest.TestCase):
                         print(e)
                         i = len(self.gcode_section)
                 i += 1
-            # if home_script in self.gcode_section:
-            #    flag = True
-            
             self.assertTrue(flag)
 
     def process(self, gcode_section: list[str]) -> list[str]:
-        """Homes the machine after print finish.
+        """Runs the test
         """
         self.gcode_section = gcode_section
-        # print(gcode_section)
         tests = [self.Test("test_post_home", gcode_section)]
         return unittest.TestSuite(tests=tests)
 
