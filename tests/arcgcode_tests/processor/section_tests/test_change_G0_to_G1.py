@@ -15,6 +15,8 @@ class TestChangeG0ToG1(TestSectionProcessorInterface, unittest.TestCase):
             self.gcode_section = gcode_section
 
         def test_change_G0_to_G1(self):
+            """Test passes if there are no G0 commands in the g-code section
+            """
             flag = "G0 did get replaced"
             for line in self.gcode_section:
                 if line.startswith("G0"):
