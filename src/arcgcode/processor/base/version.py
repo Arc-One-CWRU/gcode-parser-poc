@@ -4,7 +4,7 @@ import re
 # Using commits for now since they are granular
 # In the future, could tag each arcgcode version with its release
 # and ditch this variable nonsense
-ARCGCODE_VERSION = "a24cdb37fa5e325d626b8effe55c731e2ad0853b"
+ARCGCODE_VERSION = "a61db818d9f1d21166bc21e4804ae97e3db990a8"
 
 
 def get_current_arcgcode_version() -> str:
