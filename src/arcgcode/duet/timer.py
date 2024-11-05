@@ -8,7 +8,7 @@ from pathlib import Path
 import copy
 # from Consts import URL
 
-ARC_ONE_DUET_URL = "http://169.254.1.1"
+ARC_ONE_DUET_URL = "http://192.168.0.4"
 
 
 class DuetTimer(object):
